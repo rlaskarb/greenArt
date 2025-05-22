@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>태그 타게팅방법4</title>
+    <style>
+    /* #section1>p{font-size:25px; color:#fff; background-color: #f90;}  */
+    /* #section1 div+p{font-size:25px; color:#fff; background-color: #f90;} */
+    #section1 div~p{font-size:25px; color:#fff; background-color: #f90;}
+        
+
+    </style>
+
+</head>
+<body>
+
+    <div id="section1">
+        <h1> 첫번째 타이틀 제목입니다.</h1>
+        <p> 첫번째 단락 내용 부분 입니다.</p>
+        <p> 두번째 단락 내용 부분 입니다.</p>    
+        <div>
+            <p> 세번째 서브 단락 내용 부분 입니다.</p>
+            <p> 네번째 서브 단락 내용 부분 입니다.</p>
+        </div>
+         <p> 다섯번째 서브 단락 내용 부분 입니다.</p>       
+         <p> 여섯번째 서브 단락 내용 부분 입니다.</p>
+
+    </div>
+
+
+
+
+  
+    <!-- * 태그명 , class , id 의 우선순위
+
+        상속받은 속성성 < 기본속성 < 태그명 < class < id < 부모태그 해당태그
+        
+        
+        
+    -->
+
+
+    <!-- 
+    
+    ***또다른 타겟팅 방법
+    -해당의 태그의 부모/조상 을 사용해서 타겟팅 할 수 있다.
+    -해당 태그명/class/id 으로 부르는 것 보다 부모 계층을 언급하면 우선 순위가 높아진다.
+    -중간단계에 계층은 생략할 수 있다 -> 코드를 아렛부분 위치!
+
+    *장점
+    -우선순위로 임의로 조율 할 수 있다.(코드의 충돌 방지)
+    -코드의 분석이 용이(코드의 가독성/팀프로젝트트)
+    -과도한 class,id 를 줄일 수 있다.
+    -
+
+    -결합합자(부호/기호)를 사용해서 타겟팅 하는 방법
+    -과도한 class,id 를 줄일 수 있다.
+    - '>' (자식요소결합자) -> 직계 자식만 찾아라!!!
+
+
+    -->
+
+</body>
+</html>

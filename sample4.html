@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>태그 타게팅방법</title>
+    <style>
+    section{border: 1px solid red;}
+    div{border: 1px solid orange; margin: 3px;}
+   
+    body section div p span{color: blueviolet;}
+    section div p span{color: olive;}
+    div p span{color:pink;} 
+    p span{color:blue;}  
+    
+    span{font-size: 25px; font-weight: 100px; color:red;}
+
+    </style>
+
+
+</head>
+<body>
+    <section>
+        
+        <div>
+           <h2> 첫번째 타이틀 제목입니다.</h2>
+           <p> 첫번째 <span>단락</span> 내용 부분 입니다.</p>  
+        </div>
+        
+        <div>
+           <h2> 두번째 타이틀 제목입니다.</h2>
+           <p> 두번째 <span>단락</span> 내용 부분 입니다.</p>     
+        </div>
+        
+    </section>
+
+
+
+
+  
+    <!-- * 태그명 , class , id 의 우선순위
+
+        상속받은 속성성 < 기본속성 < 태그명 < class < id < 부모태그 해당태그그
+        
+        
+        
+    -->
+
+
+    <!-- 
+    
+    또다른 타겟팅 방법
+    -해당의 태그의 부모/조상 을 사용해서 타겟팅 할 수 있다.
+    -해당 태그명/class/id 으로 부르는 것 보다 부모 계층을 언급하면 우선 순위가 높아진다.
+    -우선순위 
+
+
+    -->
+
+</body>
+</html>
