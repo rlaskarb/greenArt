@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>목록테그 삼총자 2번째</title>
+    <style>
+ 
+        .list ol{ border: 2px solid red; list-style: upper-roman;}
+        .list li{ border: 1px solid blue;}
+        .list a{ color:black; text-decoration: none;}
+        .list a:hover{color:orange; background: blanchedalmond;}
+    </style>
+</head>
+<body>
+    <div class="list">
+
+        <h2>순서 있는 목록</h2>
+
+        <ol>
+            <li>도큐먼트 타입을 선언한다.</li>        
+            <li>네임 스페이스를 선언한다.</li>         
+            <li>컨텐츠 타입을 선언한다.</li>         
+            <li>모든 태그는 계층에 맞게 싸고 있다.</li>
+        </ol>
+
+    </div>
+
+
+
+
+    <!-- 
+    
+     두번째<ol> <li>
+        
+        -순서있 목록
+
+        -블록요소
+
+        -<ol> order list -리스트를 감싸는 부모 박스
+
+        -<li> -> list -> 각각의 리스트를 처리하는 태그 / <ol>태그의 직계 자식
+
+        -<ol>의 직계자식은 <li>만 올 수 있다.
+
+
+        - 목록태그에만 사용할 수 있는 전용 css속성
+            list-style-position: outside/inside;
+            list-style-type:lower,upper-roman /lower,upper-alpha/none;
+            list-style-image: url() (블릿을 이미지로 변환)
+
+
+    
+    -->
+</body>
+</html>

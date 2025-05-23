@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>목록테그 3총사 첫번째!</title>
+    <style>
+        .list ul{ border: 2px solid red; list-style-image: url(./images/icon.jpg);}
+        .list li{ border: 1px solid blue;}
+        .list a{ color:black; text-decoration: none;}
+        .list a:hover{color:orange; background: blanchedalmond;}
+    </style>
+</head>
+<body>
+
+    <div class="list">
+
+        <h2>😎 순서없는 목록</h2>
+        
+        <ul>       
+            <li>도큐먼트 타입을 선언한다.</li>      
+            <li>네임 스페이스를 선언한다.</li>        
+            <li>컨텐츠 타입을 선언한다.</li>     
+            <li>모든 태그는 계층에 맞게 싸고 있다.</li>
+        </ul>
+
+    </div>
+
+
+
+
+     <div class="list">
+
+        <h2>😎 순서없는 목록 링크</h2>
+        
+        <ul>       
+            <li>
+                <a href="#">그룹소개</a>
+                <ul>
+                    <li><a href="#">그룹개요</a></li>
+                    <li><a href="#">경영정신</a></li>
+                    <li>
+                        <a href="#">오시는길</a>
+                        <ul>
+                            <li><a href="#">서울본점</a></li>
+                            <li><a href="#">경기지점</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>      
+            <li>
+                <a href="#">사업영역</a>
+                <ul>
+                    <li><a href="#">IT</a></li>
+                    <li><a href="#">교육출판</a></li>
+                    <li><a href="#">레져</a></li>
+                </ul>
+            </li>      
+            <li>
+                <a href="#">지속가능경영</a>
+            </li>      
+            <li>
+                <a href="#">사회공헌</a>
+            </li>      
+            
+        </ul>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    
+    <!-- 
+    
+    목록테그 3총사 !!!!!
+
+    첫번째<ul> <li>
+        
+        -순서없는 목록
+
+        -블록요소
+
+        -활용도가 가장 높다!
+
+        -<ul> -> unorder list - 리스트를 감싸는 부모 박스
+
+        -<li> -> list -> 각각의 리스트를 처리하는 태그 / <ul>태그의 직계 자식
+
+        -<ul> 의 직계 자식은 <li> 만 올수 있다.
+
+        -기본목록, 메뉴(네비게이션),갤러리,어떤콘텐츠가 2개 이상 반복되는 UI표현현 
+
+        -<ul> 의 기본속성
+            -display: block;
+            -list-style-type: disc/square/circle; (블릿)
+            -margin (바깥 여백)
+            -padding (왼쪽 안 여백)
+
+        -***<li> 태그는 <div>이외의 모든 태그를 자식으로 갖을 수 있다.
+
+        - 목록태그에만 사용할 수 있는 전용 css속성
+            list-style-position: outside/inside;
+            list-style-type: disc/square/circle/none;
+            list-style-image: url() (블릿을 이미지로 변환)
+
+        -***<ul>에 <li>의 자식으로 <ul> 을 넣을 수 있다 -> <ul>태그의 중첩가능!!(계층 표현 수단)
+            
+        
+    두번째 <ol> <li>
+
+    세번째 <dl><dt><dd>
+
+    -->
+
+</body>
+</html>

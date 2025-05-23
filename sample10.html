@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>a태그 및 메인페이지</title>
+    <title>a태그 및 메인페이지1</title>
+    <style>
+        div a:link{color:green; text-decoration: none;font-size: 20px; font-weight: bold; }
+        div a:hover{color:#fff; text-decoration: underline;background-color: orange;}
+        div a:active{color:#fff; text-decoration: underline;background-color: green;}
+        div a:visited{ color:skyblue; text-decoration: none;font-size: 20px; font-weight: bold;}
+        div a:focus{color: black; background: orange;}
+    </style>
 </head>
 <body>
 
@@ -53,6 +60,13 @@
             - jpg / png / text파일 / 영상(mp4) / 사운드(mp3) / pdf파일 ...
         -브라우저가 열수 없는 파일
             - 압축(zip)파일(다운로드)
+
+        -가상 클래스(이미 기본으로 가지고 있는 클래스)를 가지고 있다. 5가지 상태태/싱황
+        a:link       => 최초 페이지가 열렸을때 상황(기본)
+        a:visited    => 사용자가 과거에 링크를 선택한 적이 있을때 
+        a:hover      => 현재 마우스 포인터 등으로 가리켜지고 있을때(롤오버)
+        a:active     => 현재 클릭되고 있을때
+        a:focus     =>포커스를 받았을때
 
 
 -->

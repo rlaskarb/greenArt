@@ -3,12 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>a태그 및 메인페이지</title>
+    <title>a태그 이동시키기</title>
+    <style>
+        div a{color:green; text-decoration: none;font-size: 20px; font-weight: bold; }
+        div a:hover{color:orange; text-decoration:underline;}
+        h2:hover{font-size:30px; color:#333; background: yellow;}
+        /* p:hover{font-size: 30px; color:#444; background: yellow;} */
+    </style>
 </head>
 <body>
 
     <h2>메인페이지 입니다.</h2>
     <p>링크에 대해서 공부해봅시다.</p>
+    
+    <div class="menu">
+
+        <a href="#target1">인사말로 이동</a>
+        <a href="#target2">연혁으로 이동</a>
+        <a href="#target3">찾아오는 길</a>
+
+    </div>
+
     <div class="box">
         <a href="http://naver.com">네이버로 이동</a>
         <a href="http://google.com">구글로 이동</a>
@@ -27,8 +42,34 @@
 
     </div>
 
+    <div>
+        <h3 id="target1">인사말 입니다.</h3>
+        <p>내용글 입니다.</p>
+        <p>내용글 입니다.</p>
+        <p>내용글 입니다.</p>
+        <p>내용글 입니다.</p>
+        <p>내용글 입니다.</p>
+    </div>
+    <div>
+        <h3 id="target2">연혁 입니다.</h3>
+        <p>내용글 입니다.</p>
+        <p>내용글 입니다.</p>
+        <p>내용글 입니다.</p>
+        <p>내용글 입니다.</p>
+        <p>내용글 입니다.</p>
+    </div>
+    <div>
+        <h3 id="target3">찾아오시는 길 입니다.</h3>
+        <p>내용글 입니다.</p>
+        <p>내용글 입니다.</p>
+        <p>내용글 입니다.</p>
+        <p>내용글 입니다.</p>
+        <p>내용글 입니다.</p>
+        
+    </div>
 
 
+    <div><a href="#">TOP으로 이동</a></div>
 <!-- 
 
     <a>
@@ -53,6 +94,21 @@
             - jpg / png / text파일 / 영상(mp4) / 사운드(mp3) / pdf파일 ...
         -브라우저가 열수 없는 파일
             - 압축(zip)파일(다운로드)
+
+        -가상 클래스(이미 기본으로 가지고 있는 클래스)를 가지고 있다. 5가지 상태태/싱황
+            a:link       => 최초 페이지가 열렸을때 상황(기본)
+            a:visited    => 사용자가 과거에 링크를 선택한 적이 있을때 
+            a:hover      => 현재 마우스 포인터 등으로 가리켜지고 있을때(롤오버)
+            a:active     => 현재 클릭되고 있을때
+            a:focus     =>포커스를 받았을때
+
+
+        -점프 메뉴 만들기!
+            -한 페이지 내에서 위/아래로 포커스를 이동 시킬 스 있다.
+
+            <a href="#아이디명">해당위치로 이동</a>
+            <태그 id="아이디명">내용</태그>
+
 
 
 -->
