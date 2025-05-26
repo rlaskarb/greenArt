@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기타 태그들</title>
+    <style>
+        address{font-style: normal;}
+
+    </style>
+</head>
+<body>
+
+    <h2>blockquote / q   =>인용문</h2>
+    <blockquote cite="http://www.wah.or.kr/Accessibility/korealaw_view2.asp" title="장애인차별금지법">
+		<p>
+            개인ㆍ법인ㆍ공공기관(이하 이 조에서 "개인 등"이라 한다)은 장애인이 전자 정보와 비전자 정보를 이용하고 
+            그에 접근함에 있어서 장애를 이유로 제4조 제1항 제1호 및 제2호에서 금지한 차별행위를 하여서는 아니 된다.
+        </p>
+	</blockquote>
+
+
+    <q cite="http://www.w3.org" 
+        title="웹 관련 정보 제공, 연구개발 촉진, 신기술 프로토타입 개발 등에 관여하는 웹 표준 관련 기구">
+        
+        The power of the Web is in its universality, Access by everyone regardless of disability 
+        is an essential aspect.(웹의 힘은 그것의 보편성에 있다. 불리한 조건에 관계없이 누구나 접근하는 것은 필수적인 측면이다.)
+                    
+    </q>
+
+
+
+<hr><br>
+
+
+
+    <h2> abbr  /   acronym  =>축약어와 두문자어</h2>
+
+    <abbr title="Liquid Crystal Display">LCD</abbr>
+
+
+ 
+<hr><br>
+
+     
+    <h2> dle / ins => 취소 및 추가 콘텐츠</h2>
+	
+    <dl>
+	     <dt>프라이팬</dt>
+	          <dd><img src="images/fryingpan.jpg" width="100" height="150" alt="프라이팬" /></dd>
+	          <dd>상품정가 :<del>138,000원</del></dd>
+	          <dd>할인가 :<ins>99,000원</ins></dd>
+	</dl>
+
+
+<hr><br>
+
+          
+
+    <h2>sup  / sub   => 윗첨자와 아랫첨자</h2>
+	
+    <p>X<sup>2</sup> </p>
+	
+    <p>H<sub>2</sub>O </p>
+
+
+<hr><br>
+
+
+    <h2>address =>  (연락처,제작자,저작권 등의 정보를 표시)</h2>
+     <address>
+             서울시 마포구 상수동 123-12 한주빌딩 5층 403호 <br/>
+             tel: 02-0000-0000 fax:02-0000-0000 <br/>
+          </address>
+          <p>copyright &copy;2011 green All Right Reserved.</p>
+          
+
+
+
+    <!-- 
+        -기타 태그들....
+            -웹 접근성을 높이는 태그들 
+
+
+        blockquote / q   =>인용문
+        -특정 사이트의 글을 인용해서 사용할때.. 사이트의 출처를 남기는 용도
+        -<blockquote> => 블록요소
+        -<q> => 인라인요소
+        -cite="인용글이 있는 사이트URL"
+        -title="인용글에 대한 제목/상세 설명글 (리더기가 읽어준다.)"
+
+
+        -<abbr>
+            -특정 축약된 단어의 원문을 표기
+            -인라인요소
+            -title="축약된 단어의 원문을 표기"(리더기가 읽어준다.)
+
+
+        
+        -<del>,<ins>
+            -인라인 요소
+            -<del> -> 취소선
+            -<ins> -> 언더라인 (현재 사용되는 값)
+        
+        -<sup>,<sub> => 윗첨자와 아랫첨자
+            -인라인요소
+            -수학 함수 사용용
+            -<sup> -> 윗첨자
+            -<sub> -> 아랫첨자
+
+
+        -<address>
+            -주소/연락처/팩스스/이메일주소/sns주소
+            -블록요소
+        
+
+    -->
+
+</body>
+</html>
