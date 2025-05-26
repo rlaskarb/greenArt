@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>박스모델</title>
+    <title>박스모델 margin </title>
     <style>
         .p1{
             width: 800px;
@@ -19,7 +19,13 @@
 
             /* margin: 50px 40px; /*top,bottom right,left*/
 
-            margin: 50px; /* top,right,bottom,left */
+            /* margin: 50px ; /* top,right,bottom,left */
+
+            /* float: left; */
+
+            margin: 50px 30px 100px; /*top:50 , right,left:30 , bottom 100 */
+
+            
 
 
         }
@@ -80,7 +86,9 @@
               margin: 30px ; 4군데  
     
     
-    - 아래 / 위 쪽 마진이 함께 계산되면 -> 둘중에 큰값 1개만 처리가 된다.(상하마진병합)
+    - 아래 / 위쪽 마진이 함께 계산되면 -> 둘중에 큰값 1개만 처리가 된다.(상하마진병합)
+    - 오른쪽 / 왼쪽 마진이 함께 계산되면 -> 두 값 모두 합산이 된다. 
+    
 
 
 

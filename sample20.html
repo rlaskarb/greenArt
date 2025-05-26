@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스모델 padding </title>
+    <style>
+        .p1{
+            width: 480px;
+            border: 10px solid #334;
+            text-align: justify; /* (값은  left/right/center/justify(양쪽정렬 제일많이사용!)  => 텍스트 정렬)*/
+            line-height: 1.5em; /*(줄간격)*/
+            margin: 50px ; 
+
+            /* padding-top: 30px; */
+            /* padding-right: 40px; */
+            /* padding-bottom: 50px; */
+            /* padding-left: 60px; */
+
+            /* padding: 10px 20px 30px 0; */
+
+            /* padding: 10px 20px 30px; */
+
+            /* padding: 10px 20px; */
+
+            padding: 50px;
+
+        
+
+
+        }
+    </style>
+</head>
+<body>
+
+    <h2>padding => 위/오른쪽/아래/왼쪽의 박스 안쪽 여백</h2>
+
+    <p class="p1">
+        마진은 박스의 바깥 여백을 만들 수 있는 속성입니다.
+        대부분 블록 레벨 요소들은 기본적으로 약간의
+        마진값을 가지고 있습니다. 
+        
+        조언
+        작은 성공 경험 쌓기: 큰 목표를 작게 쪼개고, 매일 혹은 매주 이룰 수 있는 실천 과제를 설정해 꾸준한 동기 부여를 유지하라.
+        외부 구조 활용: 스터디 그룹, 멘토, 일정 관리 앱 등을 적극 활용해 자기관리 부담을 줄이고 외부 자극을 받는 환경을 만들어라.
+        결정의 룰 만들기: 중요한 결정을 할 때 ‘3분 내로 결정하기’ 등 명확한 시간 제한과 기준을 두어 우유부단을 줄여라.
+        심리적 안정 위한 루틴 개발: 운동, 명상, 규칙적 수면 등 스트레스 완화 루틴을 일상에 포함시켜 에너지와 집중력을 높여라.
+
+    </p>
+
+   
+<!-- 
+
+<박스요소의 여백처리 css 속성>
+
+1.margin
+    -박스 바깥 여백
+    -각각 원하는 여백을 줄때
+        -margin-top / margin-right / margin - bottom / margin -left
+        -margin : 위 오른쪽 아래 왼쪽
+         ex)  margin: 30px 40px 50px 60px;
+              margin: 30px 0 50px 0; 
+              margin: 30px 40px; (위,아래) , (오른쪽,왼쪽) 
+              margin: 30px ; 4군데  
+    
+    
+    - 아래 / 위쪽 마진이 함께 계산되면 -> 둘중에 큰값 1개만 처리가 된다.(상하마진병합)
+    - 오른쪽 / 왼쪽 마진이 함께 계산되면 -> 두 값 모두 합산이 된다. 
+
+
+2.padding
+    -박스 안쪽 여백
+    -각각 원하는 여백을 줄 때
+    - padding-top / padding-right / padding-bottom / padding-left
+
+    **박스의 총 너비/높이 => width + padding + border / height + padding + border
+
+-->
+
+
+
+</body>
+</html>
