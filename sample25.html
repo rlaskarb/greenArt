@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃</title>
+    <style>
+        *{margin: 0; padding: 0;} /*모든 공간의 여백 초기화*/
+        
+        body{font-size: 16px;}
+        
+        .box{
+            width: 850px;
+            background: pink;
+            margin: 30px;
+            /* overflow: hidden;*/
+            float: left;
+        }
+
+        .box img{
+            float:left;
+            margin: 20px;
+        }
+
+        .box p{
+            font-size: 1em;
+            text-align: justify; /*양쪽정렬*/
+            line-height: 1.5em;
+            margin: 20px 20px 0 0;
+        }
+
+        .box .p1{
+            clear: both;
+            margin: 20px;
+        }
+
+        .p2{
+            clear: both;
+        }
+
+    </style>
+</head>
+<body>
+       <div class="box">
+            <img src="images/a1.jpg" alt="" />
+
+        
+            <p>      
+                인터넷 표준기관인 W3C(www.w3c.org)는 XHTML 1.0이란 새로운 표준을 내놓았습니다.           
+                이는 웹페이지를 만드는 데 가장 많이 쓰이는 언어인 HTML이 차세대 언어 XML로 가기            
+                위한 다리가 된다는 점에서 커다란 의미를 지닙니다.           
+            </p> 
+
+            <p class="p1">      
+                인터넷 표준기관인 W3C(www.w3c.org)는 XHTML 1.0이란 새로운 표준을 내놓았습니다.           
+                이는 웹페이지를 만드는 데 가장 많이 쓰이는 언어인 HTML이 차세대 언어 XML로 가기            
+                위한 다리가 된다는 점에서 커다란 의미를 지닙니다.           
+            </p> 
+
+        </div>
+
+
+            <p class="p2">      
+                인터넷 표준기관인 W3C(www.w3c.org)는 XHTML 1.0이란 새로운 표준을 내놓았습니다.           
+                이는 웹페이지를 만드는 데 가장 많이 쓰이는 언어인 HTML이 차세대 언어 XML로 가기            
+                위한 다리가 된다는 점에서 커다란 의미를 지닙니다.           
+            </p> 
+
+
+
+
+    <!-- 
+    
+    <웹 사이트의 레이아웃>
+        - 특정의 태그를 사용하여 원하는 위치에 원하는 크기를 설정해서 구조를 잡아내는 방법.
+
+        *{margin: 0; padding: 0;} /*모든 공간의 여백 초기화*/
+
+        -강제 단(좌우배치) 만들기
+            -float css 속성을 사용한다. => 강제로 빈 공간을 사용하게 한다.
+            -float 속성이 적용이 되면 그 이후에 나오는 모든 태그에 영향을 준다.
+                -float: left / right
+                -문제점
+                    -float: left;를 사용한 태그를 부모태그가 감싸지 못하는 문제가 100% 발생
+                -해결방법
+                    -부모 태그에 overflow:hidden; 속성을 지정하면 문제가 해결된다.
+                    -부모 태그에 float:left; 속성을 지정하면 문제가 해결된다. (float 대 float 대응법)
+            
+                    
+            -clear css 속성을 사용한다. => float에 의해서 생성된 빈 공간을 안 쓴다.(취소/거부)
+                -clear:both; => 아래로 떨어진다.
+
+    -->
+</body>
+</html>

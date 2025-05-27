@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 의 background 속성</title>
+    <style>
+       .box{
+            width: 800px;
+            height: 600px;
+            border: 5px solid red;
+            margin: 30px;
+            /* background-image: url(./images/characters04.png); */
+            /*background-repeat: no-repeat; /*repeat(기본값)*/
+            /*background-position: center; /*left top(기본값)*/
+            /*background-position: 100% 100%; /*left top(기본값)*/
+
+            background: pink url(./images/characters04.png) right bottom no-repeat;
+            /* background: pink; */
+            /* background-color: pink; */
+
+       }
+
+    </style>
+</head>
+<body>
+    
+    <div class="box">
+        
+    </div>
+
+
+    <!-- 
+    
+    <img>
+    - 이미지(사진)을 넣는 태그
+    -jpg,png,gif 를 사용한다.
+    -인라인 태그이다.
+    -닫는 태그를 갖지 않는다 -> 자식계층을 가질수 없다.
+    -태그의 속성 src="./이미지의경로/파일명.확장자" (source)
+                alt="텍스트정보/글" => 스크린 리더기가 읽어준다.(웹 접근성 향상!!!)=> alt 생략하면 에러가 나온다.
+                    -정보를 갖는 이미지 -> 텍스트를 가지고 있는 이미지, 링크가 걸려있는 이미지.
+                    -정보를 갖지 않는 이미지(비주얼 이미지) -> alt=""
+
+    -이미지의 가로/세로 크기의 비율을 유지하면서 사이즈를 변경하는 방법
+        -width 와 height 를 모두 사용하지 말고, width 나 height 중 하나만 크기를 변경하면 된다.
+
+
+
+
+    <이미지를 처리하는 두가지 방법>
+    1.<img> 태그를 사용하는 방법
+        <img src="이미지경로" alt="">
+
+    2. CSS 의 background 속성을 사용하는 방법(배경이미지를 사용하는 방법)
+        -background-image: url(이미지경로) -> 이미지기 박스보다 작을경우 x/y 축 repeat(패턴)
+        -background-repeat: repeat; /*repeat(기본값)*/
+        -background-repeat: repeat-x / repeat-y / no-repeat 
+        -background-position: 위치정보; /*left top(기본값)*/ -> 배경의 이미지를 변경할수 있다.
+            -left / right / top / bottom / center -> 9가지 위치 (left top 기본값)
+            -px / % 를 사용한 위치 변경-> background-position : 20px(left) 30px(top)
+    
+        -background: url(이미지 경로) 위치정보 반복형태태 ;
+            -background: url(./images/characters04.png) right bottom no-repeat ;
+
+        -배경 이미지와 배경색을 한번에 넣는 방법
+            ex) background: #000000 url(이미지 경로)
+
+    
+    
+    -->
+
+
+
+</body>
+</html>
