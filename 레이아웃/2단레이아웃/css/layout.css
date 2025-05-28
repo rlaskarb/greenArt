@@ -1,0 +1,119 @@
+*{margin: 0px; padding: 0px;}
+
+a{
+    color: #333;
+    text-decoration: none;
+}
+
+body{
+    font-size: 16px;
+    font-family: '맑은고딕';
+    color: #333;
+}
+
+ul{
+    list-style: none;
+}
+
+.main_div{
+    width: 1000px;
+    border: 1px solid #666;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.header{
+    border: 1px solid#333;
+
+}
+
+.header h1{
+    text-align: center;
+    margin: 30px 0;
+}
+
+.header h1 a:hover{
+    color: orange;
+}
+
+.nav{
+    width: 200px;  
+    float: left;
+}
+
+.nav ul{
+    text-align: center;
+    background: orange;
+    padding: 150px 0 ;
+}
+
+.nav ul li{
+   line-height: 2em;
+}
+
+.nav a{
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.nav a:hover{
+    color: #333;
+}
+
+.content{
+    width: 797px;
+    float: right;
+    border-left: 3px solid orangered ;
+}
+
+.content img{
+    float: left;
+    margin: 30px;
+}
+
+.content p{
+    font-size: 1em;
+    text-align: justify;
+    line-height: 1.5em;
+    
+}
+
+.content .p1{
+    margin: 30px 30px 0 0;
+}
+
+.content .p2{
+    clear: both;
+    margin: 0 30px 30px;
+}
+
+.content .p3{
+    margin: 0 30px 80px ;
+}
+
+.content strong{
+    color: orangered;
+    font-size: 1.1em;
+}
+
+.content span{
+    color: orange;
+    text-decoration: underline;
+}
+
+
+.footer{
+    clear: both;
+    border-top: 1px solid #666;
+    background: orange;
+    overflow: hidden;    
+}
+
+.footer p{
+   text-align: center;
+   font-size: .9em;
+   font-weight: bold;
+   color: #fff;
+   margin: 20px 0;  
+}
