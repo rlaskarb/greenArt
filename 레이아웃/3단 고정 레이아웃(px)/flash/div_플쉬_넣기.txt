@@ -1,0 +1,23 @@
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=ks_c_5601-1987'>
+<script type="text/javascript">
+function showFlash(url, width, height)
+{
+ document.write("<embed src=\""+url+"\" quality=\"high\""); 
+ document.write("play=\"true\" loop=\"true\" wmode=\"transparent\"");
+ document.write("width=\""+width+"\" height=\""+height+"\""); 
+ document.write("type=\"application/x-shockwave-flash\"");
+ document.write("allowScriptAccess=\"sameDomain\""); 
+ document.write("pluginspage=\"\">");
+ document.write("</embed>");
+}
+</script>
+</head>
+<body>
+<div style="z-index:-99999; position:ab-solute;">
+<script type="text/javascript">
+showFlash("test.swf", "880", "250");
+</script>
+</div>
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 6번쨰</title>
+    <style>
+        *{margin: 0px; padding: 0px;}
+        body{font-size: 50px;}
+
+        .box{
+            width: 600px;
+            height: 600px;
+            border: 10px solid #333;
+            margin: 50px;
+            overflow: hidden;
+        }
+
+
+        .box .box1{
+            width: 300px;
+            height: 600px;
+            background: orange;
+            float: left;
+        }
+
+
+        .box .box_right{
+            width: 300px;
+            float: right;
+        }
+        .box .box2{
+            height: 200px;
+            background: green;
+        }
+        .box .box3{
+            height: 200px;
+            background: skyblue;
+        }
+        .box .box4{
+            height: 200px;
+            background: pink;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+
+    <div class="box">
+        <div class="box1">1번</div>
+       <div class="box_right">
+         <div class="box2">2번</div>
+         <div class="box3">3번</div>
+         <div class="box4">4번</div>
+       </div>
+    </div>
+
+
+
+</body>
+</html>

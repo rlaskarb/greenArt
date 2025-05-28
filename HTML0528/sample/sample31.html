@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 7번째</title>
+    <style>
+        *{margin: 0px; padding: 0px;}
+        body{font-size: 50px;}
+
+        .box{
+            width: 600px;
+            height: 600px;
+            border: 10px solid #322;
+            overflow: hidden;
+        }
+
+        .box .box_left{
+            width: 300px;
+            float: left;
+        }
+
+        .box .box1{
+            height: 300px;
+            background: orange;
+        }
+
+        .box .box2{
+            height: 300px;
+            background: green;
+        }
+
+        .box .box_right{
+            width: 300px;
+            float: right;
+        }
+
+        .box .box3{
+            height: 200px;
+            background: skyblue;
+        }
+
+        .box .box4{
+            height: 200px;
+            background: pink;
+        }
+
+        .box .box5{
+            height: 200px;
+            background: purple;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="box">
+
+        <div class="box_left">
+            <div class="box1">1번</div>
+            <div class="box2">2번</div>
+        </div>
+       
+        <div class="box_right">
+         <div class="box3">3번</div>
+         <div class="box4">4번</div>
+         <div class="box5">5번</div>
+       </div>
+
+    </div>
+</body>
+</html>
