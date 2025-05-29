@@ -23,12 +23,29 @@
 
             /* padding: 10px 20px; */
 
-            padding: 50px;
-
-        
-
-
+            padding: 50px
         }
+
+        *{margin: 0; padding: 0;}
+        div{
+            width: 300px;
+            height: 150px;
+            border: 2px solid red;
+            margin: 30px;
+            padding: 30px;
+        }
+
+        span{
+            display: block;
+            width: 300px;
+            height: 150px;
+            border: 2px solid blue;
+            margin: 30px;
+            padding: 30px;
+        }
+
+
+
     </style>
 </head>
 <body>
@@ -47,6 +64,16 @@
         심리적 안정 위한 루틴 개발: 운동, 명상, 규칙적 수면 등 스트레스 완화 루틴을 일상에 포함시켜 에너지와 집중력을 높여라.
 
     </p>
+
+
+
+    <div>블록 요소</div>
+    <div>블록 요소</div>
+
+    <span>인라인 요소</span>
+    <span>인라인 요소</span>
+
+
 
    
 <!-- 
@@ -74,6 +101,27 @@
     - padding-top / padding-right / padding-bottom / padding-left
 
     **박스의 총 너비/높이 => width + padding + border / height + padding + border
+
+
+
+*모든 태그의 여백을 초기화 (없앤다)
+    - *{margin : 0; padding: 0;}
+
+
+
+-박스요소 ex) div
+    -정렬방식 : 수직 정렬
+    *박스모델(block)
+        -width / hight / border / padding / margin  속성들이 모두적용
+
+
+-인라인 요소 ex) span
+    - 정렬방식 수평정렬
+    *박스모델(block) 에서 사용되는 속성들이 일부분 적용되지 않는다
+    -width(적용되지 않는다) / hight (적용되지 않는다) / border(0) / padding(적용되지 않는다) / margin (적용되지 않는다)
+    ** 인라인 태그들이 강제로... 박스모델(block)에서 사용되는 속성을 적용 시키는 방법!!
+        -인라인 태그에 display: block; 하면 인라인 요소가 블럭요소로 바뀐다.
+
 
 -->
 
