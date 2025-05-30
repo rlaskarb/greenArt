@@ -1,0 +1,65 @@
+*{margin: 0; padding: 0;}
+
+img{
+    border: 0;
+    vertical-align: top;
+}
+
+.total_div{
+    width: 999px;
+    border: 1px solid red;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.header{overflow: hidden;}
+
+.header .top1{
+    width: 205px;
+    float: left;
+}
+
+.header .top2{
+    width: 794px;
+    float: right;
+}
+
+.left_div{
+    width: 205px;
+    float: left;
+}
+
+
+.container{
+    width: 794px;
+    float: right;
+}
+
+
+
+.container .contop{
+    overflow: hidden;
+}
+
+.container .con1{
+    width: 358px;
+    float: left;
+}
+.container .con2{
+    width: 436px;
+    float:right
+}
+.container .conbottom{
+    overflow: hidden;
+}
+
+.container .con3{
+    width: 358px;
+    float: left;
+
+}
+.container .con4{
+    width: 436px;
+    float: right;
+}
+

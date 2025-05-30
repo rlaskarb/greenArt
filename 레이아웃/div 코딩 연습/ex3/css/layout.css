@@ -1,0 +1,59 @@
+*{margin: 0; padding: 0;}
+img{
+    border: 0;
+    vertical-align: top;
+}
+
+.total_div{
+    width: 994px;
+    border: 1px solid red;
+    margin: 0 auto;
+}
+
+.left_all{
+    width: 221px;
+    float:left;
+}
+
+.con_all{
+    overflow: hidden;
+}
+
+.contop{
+    overflow: hidden;
+}
+
+.contop .con1{
+    width: 365px;
+    float: left;
+}
+
+.contop .con2{
+    width: 408px;
+    float: right;
+}
+
+.con_left{
+    width: 365px;
+    float: left;
+}
+
+.con_right{
+    width: 408px;
+    float: right;
+}
+
+.footer{
+    overflow: hidden;
+     clear: both;
+    }
+    
+.footer1{
+    width: 100px;
+    float: left;
+}
+
+.footer2{
+    width: 894px;
+     float: right;
+    }

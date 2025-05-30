@@ -1,0 +1,65 @@
+*{margin: 0; padding:0;} 
+
+img{
+    border: 0;
+    vertical-align: top;
+}  
+
+.total_div{
+    width: 1034px;
+    border: 1px solid red;
+    margin: 0 auto;
+}
+
+.header{
+    overflow: hidden;
+}
+
+.header .top1{
+    width: 241px;
+    float: left;
+}
+
+.header .top2{
+    width: 793px;
+    float: right;
+}
+
+.container{
+    overflow: hidden;
+}
+
+.nav{
+    width: 241px;
+    float: left;
+}
+
+.content{
+    width: 793px;
+    float: right;
+}
+
+.content .content_menu{}
+
+.content .con1{
+    width: 162px;
+    float: left;
+}
+
+.content .con2{
+    width:631px;
+    float: right;
+}
+
+.content .con_right .con2{}
+.content .con_right .con3{}
+.content .con_right .con4{}
+.content .con_right .con5{}
+
+
+/* .footer{
+    clear: both;
+} */
+
+
+.footer{}
