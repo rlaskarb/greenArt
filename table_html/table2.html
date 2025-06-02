@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>table 연습1</title>
+    <title>thead , tbody , tfoot</title>
     <style>
       * {
         margin: 0;
@@ -21,15 +21,19 @@
         margin: 50px 100px;
       }
 
-      caption {
-        text-align: center;
-        font-size: 1em;
+      h3 {
+        font-size: 2em;
+        margin: 50px 100px;
       }
 
       .row1 {
         background: orange;
         color: #fff;
         font-size: 1.2em;
+      }
+
+      .row5 {
+        background: skyblue;
       }
 
       td,
@@ -41,30 +45,48 @@
     </style>
   </head>
   <body>
-    <!-- table>tr*3>td*3 -->
+    <h3>여름 휴가 여행 비용</h3>
 
     <table>
-      <!-- 좋지 않은 예시 리더기에서 읽기 어려우기 때문에 시각 장애인의 배려가 없음 -->
-      <tr class="row1">
-        <td>출판사</td>
-        <td>Adobe Illustrator CS4</td>
-        <td>Adobe Photoshop CS4</td>
-      </tr>
-      <tr>
-        <td>길벗</td>
-        <td>비비천사의 일러스트 디자인 무작정 따라하기</td>
-        <td>장미가족의 포토샵 CS4 무작정 따라하기</td>
-      </tr>
-      <tr>
-        <td>영진닷컴</td>
-        <td>쉽게 따라하는 실전 POP 일러스트</td>
-        <td>하루 30분 포토샵 CS4 CS5 쉽게배우기</td>
-      </tr>
+      <thead>
+        <tr class="row1">
+          <th scope="col">여행지</th>
+          <th scope="col">식대</th>
+          <th scope="col">숙박</th>
+        </tr>
+      </thead>
+
+      <tfoot>
+        <tr class="row5">
+          <th scope="row">총금액</th>
+          <td>55,000원</td>
+          <td>160,000원</td>
+        </tr>
+      </tfoot>
+
+      <tbody>
+        <tr>
+          <th scope="row">동해안</th>
+          <td>20,000원</td>
+          <td>50,000원</td>
+        </tr>
+
+        <tr>
+          <th scope="row">서해안</th>
+          <td>20,000원</td>
+          <td>70,000원</td>
+        </tr>
+
+        <tr>
+          <th scope="row">남해안</th>
+          <td>15,000원</td>
+          <td>40,000원</td>
+        </tr>
+      </tbody>
     </table>
 
     <table summary="출판사별 일러스트 / 포토샵 서적 안내">
       <!-- 2세대 표제작 방법 구형방법-->
-
       <caption>
         <strong>프로그램별 서적안내</strong>
       </caption>
@@ -87,27 +109,12 @@
     </table>
 
     <!-- 
-     
-    <table 태그>
-        -표를 만드는 태그
-        -table > tr(행) > td(열/cell)
-        -table 은 각 cell의 여백이 존재한다. => border-collapse : collapse ; (셀사이 여백 제거 )
-
-
-
-        -접근성 테이블을 만드는법
-        -<table summary="테이블명 요약설명 "> -> summary 속성은 리더기가 읽는다 (접근성)
-        -<caption> 표의 제목을 표기 </caption> -> 테이블의 제목
-        -<th> -> 테이블의 제목 셀이다.~~ (행제목 / 열제목)
-        -<th scope="col"> -> 열제목
-        -<th scope="row"> -> 행제목
-
-
-        * html5 문법이 재 정의 되면서 summary / <caption> 는 사용하지 않는다.
-
-        
-
-        -3세대 테이블 만드는법
+    
+    3세대 테이블
+    -<thead> <tbody> <tfoot>
+        -표의 전체적인 내용을 구분하여 접근성을 향상 시킨다
+        -<tbody> 보다 먼저 <tfoot>을 먼저 코딩한다.
+    
     -->
   </body>
 </html>
