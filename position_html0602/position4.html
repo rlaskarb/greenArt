@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>position 속성의 이해</title>
+    <title>position 속성의 이해 4</title>
     <style>
         *{margin: 0; padding: 0;}
         .box{
             width: 700px;
             border: 2px solid red;
             margin: 100px;
+            position: relative;
+           
         }
+
         .box p{
             font-size: 1em;
             line-height: 1.5em;
@@ -19,30 +22,45 @@
         }
 
         .box1{
-            background: orange;
-            position: absolute; /*기준조상 body가 기준점이다.*/
-            left: 10px;
-           
-            bottom: 50px;
-            width: 700px;
+            background: orange;  
         }
 
         .box2{
             background: green;
-            position: relative; 
-            top:5px;
-            right: 5px;
-           
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 500px;       
         }
 
         .box3{
-            background: skyblue;
-            /*position: fixed; /*스크롤에 영향을 받지않는다 body가 기준점이다*/
-            left: 0px;
-            top: 0px;
-            
+            background: skyblue;  
         }
         
+        .parent{
+            width: 800px;
+            height: 600px;
+            background: orange;
+            position:absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -400px;
+            margin-top: -300px;
+        }
+
+        .son{
+            width: 400px;
+            height: 300px;
+            background: green;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -200px;
+            margin-top: -150px
+        }
+
+
+
     </style>
 </head>
 <body>
@@ -68,6 +86,11 @@
     </div>
 
 
+    <div class="parent">
+        <div class="son">
+
+        </div>
+    </div>
 
 
 
@@ -90,10 +113,10 @@
            
             
 
-            종류                원점의 위치(기준)              크기/위치(공간)보존               깊이(z-index)               스크롤의영향
-             relative           원래 태그상의 위치              보존된다                        증가(위에위치)               영향을 받는다
-             absolute           body 0 0으로 위치              보존되지 않는다                   증가(위에위치)              영향을 받는다
-             fixed              body 0 0으로 위치              보존되지 않는다                   증가(위에위치)              고정된다   
+            종류                원점의 위치(기준)              크기/위치(공간)보존              깊이(z-index)             스크롤의영향
+             relative           원래 태그상의 위치              보존된다                        증가(위에위치)              영향을 받는다
+             absolute           body 0 0으로 위치(가출)         보존되지 않는다                 증가(위에위치)              영향을 받는다
+             fixed              body 0 0으로 위치(가출)         보존되지 않는다                 증가(위에위치)              고정된다   
 
 
 
@@ -101,7 +124,29 @@
             -left / top / right / bottom => 해당 태그의 위치를 변경할 수 있다.(애니메이션)
                                          => 4가지의 시작 위치를 변경할 수 있다.
     
+            - z-index => 우리가 임의로 position이 적용된 태그의 깊이값을 조율할수 있다.(크면 위로 올라간다?)
 
+
+        -position 속성이 여려 태그에 지정되면.. 
+            -코드 순성상 가장 나중에 위치하는 태그가 우선순위권을 가지기 때문에 겹쳤을때 가장위에 표시가 된다.
+            -z-index:값; 속석을 사용하면 큰 수치가 가장위에 표시가된다.
+
+
+        ***** 집나가간(가출한) 아들내미 / 딸내미 귀가 프로젝트!!!
+            - 집나간 아들내미 / 딸내미 -> absolute / fixed
+            - 귀가 프로젝트 -> 태그상의 부모로 위치 기준을 변경!
+            - 직계 부모태그에 position 속성으로 적용해준다 (position 대 position)
+            - 부모태그의 상황에 따라 relative(일반적으로 사용) / absolute / fixed
+
+        -position 속성을 이용한 센터 정렬 !!!
+            -position : relative / absolute / fixed 을 적용하고, 
+             left:50% ,top:50% ; 
+             margin-left = - 박스너비/2(%); 
+             margin-top: - 박스 높이/2(%);
+            
+
+
+        
     -->
 </body>
 </html>

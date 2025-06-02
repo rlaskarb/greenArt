@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position 속성의 이해 3</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        .box{
+            width: 700px;
+            border: 2px solid red;
+            margin: 100px;
+            position: relative;
+            /* left: 50px;
+            top:50px; */
+        }
+
+        .box p{
+            font-size: 1em;
+            line-height: 1.5em;
+            text-align: justify;
+            padding: 10px;
+        }
+
+        .box1{
+            background: orange;
+            /* position: relative; */
+            
+       
+        }
+
+        .box2{
+            background: green;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 500px;
+         
+        }
+
+        .box3{
+            background: skyblue;
+            /* position: relative; */
+        
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div class="box">
+        <p class="box1">
+            인터넷 표준기관인 W3C(www.w3c.org)는 XHTML 1.0이란 새로운 표준을 내놓았습니다. 
+            이는 웹페이지를 만드는 데 가장 많이 쓰이는 언어인 HTML이 차세대 언어 XML로 가기 
+            위한 다리가 된다는 점에서 커다란 의미를 지닙니다.
+        </p> 
+        <p class="box2">
+            XML은 HTML에 비해 여러가지 강점이 있습니다. 특히 XML이 웹페이지에 담긴 내용인 `콘텐츠 정보'와 
+            단말기 화면에 나타날 모양을 결정하는 `스타일 정보'를 분리시킬 수 있다는 점은 차세대 
+            인터넷을 위한 결정적인 요소입니다. 핸드폰에 붙은 액정화면에서 텔레비전 화면에 이르기까지 다양한 단말
+            장치에 비디오, 수학공식, 움직이는 2차원 글씨 등 변화무쌍한 내용을 자유롭게 보여줄 수 있기 때문입니다.
+        </p>
+        <p class="box3">
+            그러나 XML이 아무리 강력하다 할지라도 현재 HTML로 씌어있는 10억개가 넘는 웹페이지들을 
+            하루아침에 모두 XML로 바꿀 수는 없습니다. HTML과 XML 사이에는 적잖은 차이가 있기 때문입니다. 
+            그렇다고 이미 축적된 방대한 HTML 문서들을 버릴 수 없다는 이유만으로 XML로 가는 길에서 발목을 
+            잡힐 수도 없습니다. 그래서 나오게 된 것이 XHTML입니다.
+        </p>   
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- 
+    
+    <position css 속성>
+        -가변적인 레이아웃을 구현할 수 있다.
+        
+        - *position 속성은 4가지의 값을 가지고 있습니다.
+            -static(기본값) => position을 해제
+            -relative(상대주소) =>
+            -absolute(절대주소) 
+            -fixed(고정주소)
+            
+           
+            
+
+            종류                원점의 위치(기준)              크기/위치(공간)보존              깊이(z-index)             스크롤의영향
+             relative           원래 태그상의 위치              보존된다                        증가(위에위치)              영향을 받는다
+             absolute           body 0 0으로 위치(가출)         보존되지 않는다                 증가(위에위치)              영향을 받는다
+             fixed              body 0 0으로 위치(가출)         보존되지 않는다                 증가(위에위치)              고정된다   
+
+
+
+        -position 속성과 함께 사용되는 css 속성
+            -left / top / right / bottom => 해당 태그의 위치를 변경할 수 있다.(애니메이션)
+                                         => 4가지의 시작 위치를 변경할 수 있다.
+    
+            - z-index => 우리가 임의로 position이 적용된 태그의 깊이값을 조율할수 있다.(크면 위로 올라간다?)
+
+
+        -position 속성이 여려 태그에 지정되면.. 
+            -코드 순성상 가장 나중에 위치하는 태그가 우선순위권을 가지기 때문에 겹쳤을때 가장위에 표시가 된다.
+            -z-index:값; 속석을 사용하면 큰 수치가 가장위에 표시가된다.
+
+
+        ***** 집나가간(가출한) 아들내미 / 딸내미 귀가 프로젝트!!!
+            - 집나간 아들내미 / 딸내미 -> absolute / fixed
+            - 귀가 프로젝트 -> 태그상의 부모로 위치 기준을 변경!
+            - 직계 부모태그에 position 속성으로 적용해준다 (position 대 position)
+            - 부모태그의 상황에 따라 relative(일반적으로 사용) / absolute / fixed
+    -->
+</body>
+</html>

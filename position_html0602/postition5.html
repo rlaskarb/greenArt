@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position 속성의 이해 5</title>
+    <style>
+        *{margin: 0; padding: 0;}
+
+        body{font-size:16px;}
+        
+        img{
+            border: 0;
+            
+        }
+
+
+        .business{
+            width: 1200px;
+            border: 1px solid red;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .business li{
+            width: 340px;
+            float: left;
+            margin: 0 30px;
+            list-style: none; /* li태그 점. 지우기 */
+            position: relative;
+        }
+
+        .business li h3{
+            font-size: 2.5em;
+            background: rgba(0,0,0,0.6); color: #fff;
+            text-align: center;
+            padding: 0 auto;
+            position:absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+
+        }
+
+    </style>
+</head>
+<body>
+    
+   
+
+
+    <ul class="business">
+        <li>
+            <img src="../sample_html0528/images/business_03.jpg" alt="">
+            <h3>사업영역</h3>
+        </li>
+        <li>
+            <img src="../sample_html0528/images/business_04.jpg" alt="">
+            <h3>제품소개</h3>
+        </li>
+        <li>
+            <img src="../sample_html0528/images/business_02.jpg" alt="">
+            <h3>커뮤니티</h3>
+        </li>
+    </ul>
+
+
+
+
+
+    <!-- 
+    
+    <position css 속성>
+        -가변적인 레이아웃을 구현할 수 있다.
+        
+        - *position 속성은 4가지의 값을 가지고 있습니다.
+            -static(기본값) => position을 해제
+            -relative(상대주소) =>
+            -absolute(절대주소) 
+            -fixed(고정주소)
+            
+           
+            
+
+            종류                원점의 위치(기준)              크기/위치(공간)보존              깊이(z-index)             스크롤의영향
+             relative           원래 태그상의 위치              보존된다                        증가(위에위치)              영향을 받는다
+             absolute           body 0 0으로 위치(가출)         보존되지 않는다                 증가(위에위치)              영향을 받는다
+             fixed              body 0 0으로 위치(가출)         보존되지 않는다                 증가(위에위치)              고정된다   
+
+
+
+        -position 속성과 함께 사용되는 css 속성
+            -left / top / right / bottom => 해당 태그의 위치를 변경할 수 있다.(애니메이션)
+                                         => 4가지의 시작 위치를 변경할 수 있다.
+    
+            - z-index => 우리가 임의로 position이 적용된 태그의 깊이값을 조율할수 있다.(크면 위로 올라간다?)
+
+
+        -position 속성이 여려 태그에 지정되면.. 
+            -코드 순성상 가장 나중에 위치하는 태그가 우선순위권을 가지기 때문에 겹쳤을때 가장위에 표시가 된다.
+            -z-index:값; 속석을 사용하면 큰 수치가 가장위에 표시가된다.
+
+
+        ***** 집나가간(가출한) 아들내미 / 딸내미 귀가 프로젝트!!!
+            - 집나간 아들내미 / 딸내미 -> absolute / fixed
+            - 귀가 프로젝트 -> 태그상의 부모로 위치 기준을 변경!
+            - 직계 부모태그에 position 속성으로 적용해준다 (position 대 position)
+            - 부모태그의 상황에 따라 relative(일반적으로 사용) / absolute / fixed
+
+
+        -position 속성을 이용한 센터 정렬 !!!
+            -position : relative / absolute / fixed 을 적용하고, 
+             left:50% ,top:50% ; 
+             margin-left = - 박스너비/2(%); 
+             margin-top: - 박스 높이/2(%);
+            
+
+
+        
+    -->
+</body>
+</html>
