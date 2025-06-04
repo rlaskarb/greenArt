@@ -1,0 +1,19 @@
+ <div id="leftNav">
+  <div class="left_title">
+    <h3>OpenSourceSite<h3>
+    <span>FREEONEX</span>
+  </div>
+  <div class="menu_list">
+    <ul>
+      <li><a href="#">입력메뉴</a></li>
+      <li><a href="#">입력메뉴</a></li>
+      <li><a href="#">입력메뉴</a></li>
+      <li><a href="#" class="current">입력메뉴</a></li>
+      <li><a href="#">입력메뉴</a></li>
+      <li><a href="#">입력메뉴</a></li>
+      <li><a href="#">입력메뉴</a></li>
+      <li><a href="#">입력메뉴</a></li>
+      <li><a href="#">입력메뉴</a></li>  
+    </ul>
+  </div>
+ </div>

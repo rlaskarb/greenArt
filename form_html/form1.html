@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입 양식</title>
+    <link rel="stylesheet" href="./css/layout1.css" />
+    <style></style>
+  </head>
+  <body>
+    <div class="join">
+      <h2>회원가입</h2>
+
+      <form action="" method="post">
+        <table>
+          <tr>
+            <th scope="row">
+              <label for="input_name"> 이 름 </label>
+            </th>
+            <td>
+              <input
+                type="text"
+                name="input_name"
+                id="input_name"
+                maxlength="30"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <label for="input_id">아이디</label>
+            </th>
+            <td>
+              <input type="text" name="input_id" id="input_id" />
+              😎영문,숫자,특수문자를 사용하여 10자 이상으로 작성하세요
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <label for="input_pass">비밀번호</label>
+            </th>
+            <td>
+              <input type="password" name="input_pass" id="input_pass" />
+              😎영문,숫자,특수문자를 사용하여 10자 이상으로 작성하세요
+            </td>
+          </tr>
+          <tr>
+            <th>성 별</th>
+            <td>
+              <input
+                type="radio"
+                name="input_gender"
+                id="input_man"
+                checked="checked"
+              />
+
+              <label for="input_man">남성</label>
+
+              <input type="radio" name="input_gender" id="input_woman" />
+
+              <label for="input_woman">여성</label>
+            </td>
+          </tr>
+          <tr>
+            <th>취 미</th>
+            <td>
+              <input
+                type="checkbox"
+                name="input_hobby1"
+                id="input_hobby1"
+                checked="checked"
+              />
+              <label for="input_hobby1"> 영화 </label>
+              <input type="checkbox" name="input_hobby2" id="input_hobby2" />
+              <label for="input_hobby2"> 게임 </label>
+              <input type="checkbox" name="input_hobby3" id="input_hobby3" />
+              <label for="input_hobby3"> 집에있기 </label>
+              <input type="checkbox" name="input_hobby4" id="input_hobby4" />
+              <label for="input_hobby4"> 여행 </label>
+            </td>
+          </tr>
+          <tr>
+            <th>핸드폰 번호</th>
+            <td>
+              <label for="phone1" class="hidden">핸드폰 앞 3자리입력</label>
+              <input type="number" name="phone1" id="phone1" /> -
+              <label for="phone2" class="hidden">핸드폰 중간 4자리입력</label>
+              <input type="number" name="phone2" id="phone2" /> -
+              <label for="phone3" class="hidden">핸드폰 끝 4자리입력</label>
+              <input type="number" name="phone3" id="phone3" /> -
+            </td>
+          </tr>
+          <tr>
+            <th>이메일</th>
+            <td>
+              <label for="email1" class="hidden">이메일 아이디입력</label>
+              <input type="text" name="email1" id="email1" /> @
+              <label for="email2" class="hidden">이메일 주소 입력</label>
+              <select name="email2" id="email2" onchange="checkDomain(this)">
+                <option value="naver">naver.com</option>
+                <option value="gmail">gmail.com</option>
+                <option value="nate">nate.com</option>
+                <option value="custom">직접입력하기</option>
+              </select>
+
+              <input
+                type="text"
+                id="customDomain"
+                name="customDomain"
+                placeholder="도메인 직접 입력"
+                style="display: none; margin-left: 10px"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <label for="input_file">이미지</label>
+            </th>
+            <td>
+              <input type="file" name="input_file" id="input_file" />
+            </td>
+          </tr>
+          <tr>
+            <th><label for="select_grade">최종학력</label></th>
+            <td>
+              <select name="select_grade" id="select_grade">
+                <option value="대학교">대학교</option>
+                <option value="전문대학교">전문대학교</option>
+                <option value="고등학교">고등학교</option>
+                <option value="중학교">중학교</option>
+                <option value="초등학교">초등학교</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <label for="introduction">자기소개</label>
+            </th>
+            <td>
+              <textarea
+                name="introduction"
+                id="introduction"
+                placeholder="😊 자기소개를 마음껏 자랑해보세요"
+              ></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="button_cell">
+              <!-- <input type="submit" value="회원가입" />
+              <input type="reset" value="다시쓰기" /> -->
+              <button type="submit">회원가입</button>
+              <button type="reset">다시쓰기</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+
+    <div class="login">
+      <form action="" method="post">
+        <fieldset>
+          <legend>로그인</legend>
+          <table>
+            <tr>
+              <th><label for="user_id"> 아이디 </label></th>
+              <td><input type="text" name="user_id" id="user_id" /></td>
+            </tr>
+            <tr>
+              <th><label for="user_password"> 비밀번호 </label></th>
+              <td>
+                <input
+                  type="password"
+                  name="user_password"
+                  id="user_password"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" class="btn_box">
+                <input type="submit" value="로그인" />
+                <input type="reset" value="뒤로가기" />
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+      </form>
+    </div>
+
+    <script>
+      function checkDomain(select) {
+        const customInput = document.getElementById("customDomain");
+        if (select.value === "custom") {
+          customInput.style.display = "inline-block";
+          customInput.focus();
+        } else {
+          customInput.style.display = "none";
+          customInput.value = "";
+        }
+      }
+    </script>
+
+    <!-- 
+    
+    <form 태그>
+        -사용자에게 입력값이나 선택 등의 처리를 할 수 있게 만들어주는 태그
+        -웹 접근성을 고려해야 한다.
+            -*** 모든 각각의 폼 요소들은 각각 해당요소를 대변하는 텍스트를 가지고 있어야한다.
+                -<label for="id값"> 택스트 </label>
+        <form> 태그들은 name=" " , id=" " 값을 가지고 있어야 한다.
+        <form> 태그들은 인라인(inline) 요소이다.
+        -tab focus 를 받는다 (폼테그 < a >)
+
+
+    <form action="" method ="post">
+        -action = "ex.php" -> 입력/ 선택된 데이터를 처리하는 코드를 작성해서 파일을 연결(back end)
+        -method="post" -> 입력/ 선택된 데이터를 전송하는 방식( post / get )
+
+
+    <form> 태그의 종류
+        -텍스트 입력상자 (이름/아이디/전호번호 ...)
+
+
+
+    -텍스트 입력 패스워드 상자 ->  <input type="password" name="" id="" />
+
+    -라디오 버튼(선택옵션) -> <input type="radio" name="" id="" />
+        - 해당 항목의 여러개의 라디오 버튼이 있을떄 개 중에 1개씩만 교대로 선택이 되어야 한다.
+            -
+
+        - 개 중에 한개는 기본으로 선택이 되어 있어야 한다. -> checked="checked" 속성을 사용 
+
+    -체크박스 -> <input >
+
+
+
+
+
+    *히든코드 만들기(css)
+    -태그상으로는 존재하지만 화면 (UI)에만 보이지 않게 만드는 방법
+    -.hidden {
+        position: absolute;
+        left: -1000%;
+        top: 0;
+        display: block;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        color: #fff;
+      }
+
+    <id="아이디명">
+    -->
+  </body>
+</html>

@@ -1,0 +1,24 @@
+ <div class="news">
+          <h3><img src="content_103.jpg" alt="news" /></h3>
+          <ul>
+             <li class="first">
+               <a href="#"><img src="content_112.jpg" alt="뉴스보러가기" /></a>
+               <dl>
+                  <dt><a href="#">현정은 현대그룹 회장 자랑스러운 이화인 상 수상</a></dt>
+                  <dd>31일 이화여대 개교 127주년 기념식에서 현정은 회장은 
+                  윤후정 이대 명예총장, 장화인 이화국제재단 부이사장과 함께...
+                   <span>[2013-05-31]</span></dd>
+               </dl>
+             </li>
+             <li>
+               <a href="#"><img src="content_121.jpg" alt="뉴스보러가기" /></a>
+               <dl>
+                  <dt><a href="#">최고 연 26% ELS 및 DLS 9종 공모</a></dt>
+                  <dd>현대증권은 5/28일(화)~30일(목)까지 원금비보장형 ELS 4종, 
+                  원금보장형 ELS 3종, 원금비보장형 DLS 1종, 원금보장형..
+                  <span>[2013-05-27]</span></dd>
+               </dl>
+             </li>
+          </ul>
+          <a class="more" href="#"><img src="content_62.jpg" alt="more" /></a>
+        </div>

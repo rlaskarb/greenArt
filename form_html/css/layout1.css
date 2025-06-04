@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  color: #333;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.join {
+  width: 900px;
+  border: 1px solid red;
+  margin: 0 auto;
+}
+
+.join h2 {
+  font-size: 2em;
+  text-align: center;
+  margin: 30px;
+}
+
+.join table {
+  width: 100%;
+}
+
+.join table th,
+.join table td {
+  border: 1px solid #999;
+  padding: 20px;
+}
+
+.join table th {
+  width: 20%;
+}
+
+.join table td {
+  width: 80%;
+}
+
+.join #input_name {
+  width: 200px;
+  padding: 5px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+  background: #aad;
+  border: 0;
+}
+
+.join #introduction {
+  width: 600px;
+  height: 200px;
+}
+
+.join .button_cell {
+  text-align: center;
+}
+.join .button_cell button {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+  background: #999;
+  border: 0;
+  cursor: pointer;
+}
+
+.join .button_cell button:hover {
+  background: green;
+}
+
+.hidden {
+  position: absolute;
+  left: -1000%;
+  top: 0;
+  display: block;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  color: #fff;
+}
+
+.login {
+  width: 400px;
+  height: 150px;
+  border: 1px solid #999;
+  margin: 100px auto;
+  padding: 50px;
+}
+
+.login fieldset {
+  border: 0;
+}
+
+.login legend {
+  font-size: 1.2em;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.login table {
+  width: 100%;
+}
+
+.login table th,
+.login table td {
+  padding: 5px 10px;
+}
+.login table input {
+  padding: 3%;
+}
+
+.join .btn_box {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.login .btn_box input {
+  width: 100px;
+  background: green;
+  color: #fff;
+}

@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+}
+
+.logo a {
+  display: block;
+  border: 1px solid red;
+  width: 224px;
+  height: 54px;
+  background: url(../logo.jpg);
+  text-indent: -999px;
+  overflow: hidden;
+  margin: 50px;
+}
+
+.hello {
+  margin: 50px;
+  width: 495px;
+  height: 146px;
+  border: 5px solid blue;
+  background: url(../hello.gif);
+  text-indent: -999px;
+  overflow: hidden;
+}
+
+.hello:hover {
+  background: url(../hello_on.gif);
+}
+
+.quick {
+  overflow: hidden;
+  list-style: none;
+}
+
+.quick li {
+  float: left;
+  margin-right: 30px;
+}
+
+.quick li a {
+  display: block;
+  width: 65px;
+  height: 65px;
+  text-indent: -999px;
+  overflow: hidden;
+}
+
+.quick .q1 a {
+  background: url(../faq.jpg);
+}
+
+.quick .q2 a {
+  background: url(../gall.jpg);
+}
+
+.quick .q3 a {
+  background: url(../intro.jpg);
+}
+
+.quick .q4 a {
+  background: url(../way.jpg);
+}
+
+.quick .q1 a:hover {
+  background: url(../faq_over.jpg);
+}
+
+.quick .q2 a:hover {
+  background: url(../gall_over.jpg);
+}
+
+.quick .q3 a:hover {
+  background: url(../intro_over.jpg);
+}
+
+.quick .q4 a:hover {
+  background: url(../way_over.jpg);
+}

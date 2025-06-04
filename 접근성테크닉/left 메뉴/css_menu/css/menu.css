@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0; padding:0;}
+body{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;line-height: 1.5em;color: #444;}
+a{text-decoration:none;}
+ol,ul{list-style:none;}
+a:link, a:visited { color: #720803;font-weight: bold;} 
+a:active, a:hover { color: #720803;font-weight: bold; }
+
+
+

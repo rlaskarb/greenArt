@@ -1,0 +1,75 @@
+-ex
+
+ <div class="culture">
+     <ul>
+        <li class="concert concert1">
+           <h4><img src="images/title1.jpg" alt=""  /></h4>
+           <ul>
+              <li>공연일자 : 2013년 11월 11일(월요일)~24(토요일)</li>
+              <li>공연시간 : 평일 20시 / 토요일 14시,17시/ 90분 (휴식없음)</li>
+              <li>티켓정보 : VIP석 10만원, R석 8만원, S석 6만원, A석 4만원</li>
+              <li>할인정보 : 단체할인 11명이상 20%할인</li>
+              <li>문의번호 : 1544 - 1681</li>
+           </ul>
+        </li>
+        <li class="concert concert2">
+           <h4><img src="images/title2.jpg" alt=""  /></h4>
+           <ul>
+              <li>공연일자 : 2013년 11월 11일(월요일)~24(토요일)</li>
+              <li>공연시간 : 평일 20시 / 토요일 14시,17시/ 90분 (휴식없음)</li>
+              <li>티켓정보 : VIP석 10만원, R석 8만원, S석 6만원, A석 4만원</li>
+              <li>할인정보 : 단체할인 11명이상 20%할인</li>
+              <li>문의번호 : 1544 - 1681</li>
+           </ul>
+        </li>
+        <li class="concert concert3">
+           <h4><img src="images/title3.jpg" alt=""  /></h4>
+           <ul>
+              <li>공연일자 : 2013년 11월 11일(월요일)~24(토요일)</li>
+              <li>공연시간 : 평일 20시 / 토요일 14시,17시/ 90분 (휴식없음)</li>
+              <li>티켓정보 : VIP석 10만원, R석 8만원, S석 6만원, A석 4만원</li>
+              <li>할인정보 : 단체할인 11명이상 20%할인</li>
+              <li>문의번호 : 1544 - 1681</li>
+           </ul>
+        </li>
+     </ul>
+  </div>
+
+--------------------------------------
+
+-ex2
+
+  <div class="culture">
+     <ul>
+        <li class="concert concert1">
+          <dl>
+              <dt><img src="images/title1.jpg" alt=""  /></dt>
+              <dd>공연일자 : 2013년 11월 11일(월요일)~24(토요일)</dd>
+              <dd>공연시간 : 평일 20시 / 토요일 14시,17시/ 90분 (휴식없음)</dd>
+              <dd>티켓정보 : VIP석 10만원, R석 8만원, S석 6만원, A석 4만원</dd>
+              <dd>할인정보 : 단체할인 11명이상 20%할인</dd>
+              <dd>문의번호 : 1544 - 1681</dd>
+          </dl>
+        </li>
+        <li class="concert concert2">
+           <dl>
+              <dt><img src="images/title1.jpg" alt=""  /></dt>
+              <dd>공연일자 : 2013년 11월 11일(월요일)~24(토요일)</dd>
+              <dd>공연시간 : 평일 20시 / 토요일 14시,17시/ 90분 (휴식없음)</dd>
+              <dd>티켓정보 : VIP석 10만원, R석 8만원, S석 6만원, A석 4만원</dd>
+              <dd>할인정보 : 단체할인 11명이상 20%할인</dd>
+              <dd>문의번호 : 1544 - 1681</dd>
+          </dl>
+        </li>
+        <li class="concert concert3">
+           <dl>
+              <dt><img src="images/title1.jpg" alt=""  /></dt>
+              <dd>공연일자 : 2013년 11월 11일(월요일)~24(토요일)</dd>
+              <dd>공연시간 : 평일 20시 / 토요일 14시,17시/ 90분 (휴식없음)</dd>
+              <dd>티켓정보 : VIP석 10만원, R석 8만원, S석 6만원, A석 4만원</dd>
+              <dd>할인정보 : 단체할인 11명이상 20%할인</dd>
+              <dd>문의번호 : 1544 - 1681</dd>
+          </dl>
+        </li>
+     </ul>
+  </div>
