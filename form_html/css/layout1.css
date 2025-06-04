@@ -116,9 +116,9 @@ table {
   padding: 3%;
 }
 
-.join .btn_box {
+.login .btn_box {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .login .btn_box input {
