@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  color: #333;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+
+.news {
+  width: 550px;
+  margin: 50px auto;
+  border: 1px solid #999;
+  position: relative;
+}
+
+.news h3 {
+  font-size: 3em;
+  text-align: center;
+}
+
+.news li {
+  margin: 20px;
+  overflow: hidden;
+}
+
+.news .list1 {
+  border-bottom: 1px dashed #999;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.news a img {
+  float: left;
+  margin-top: 20px;
+}
+
+.news dl {
+  margin-left: 100px;
+}
+
+.news dl dt {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.news dl dd {
+  line-height: 1.5em;
+}
+
+.news dt a:hover {
+  color: orange;
+}
+
+.news dd span {
+  display: block;
+  color: green;
+}
+
+.news .more {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  padding: 10px;
+}

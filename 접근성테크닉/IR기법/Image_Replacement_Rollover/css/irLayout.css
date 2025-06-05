@@ -81,3 +81,13 @@ body {
 .quick .q4 a:hover {
   background: url(../way_over.jpg);
 }
+
+.co {
+  width: 340px;
+  height: 322px;
+  border: 1px solid red;
+  background: url(../a1.jpg);
+  text-indent: -999px;
+  overflow: hidden;
+  margin: 50px;
+}

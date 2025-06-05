@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  font-family: "맑은고딕";
+  color: #333;
+}
+
+ul,
+li {
+  text-decoration: none;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+.culture {
+  width: 800px;
+  margin: 50px auto;
+  padding: 10px;
+}
+
+.culture h3 {
+  font-size: 3em;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.culture li {
+  border: 1px solid #999;
+  padding: 30px;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.culture .list1 {
+  background: url(../images/img1.jpg) 30px 30px no-repeat;
+}
+.culture .list2 {
+  background: url(../images/img2.jpg) 30px 30px no-repeat;
+}
+.culture .list3 {
+  background: url(../images/img3.jpg) 30px 30px no-repeat;
+}
+
+.culture dl {
+  background: #ffd;
+  margin-left: 282px;
+}
+
+.culture li dt {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.culture li dt a:hover {
+  color: orange;
+}
+
+.culture li dd {
+  line-height: 1.5em;
+  background: url(../images/dot.jpg) left center no-repeat;
+  padding-left: 20px;
+}

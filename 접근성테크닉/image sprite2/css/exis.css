@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+.menu {
+  overflow: hidden;
+  margin: 50px;
+  border: 1px solid red;
+}
+
+.menu li {
+  float: left;
+  margin-right: 50px;
+}
+
+.menu li a {
+  display: block;
+  width: 249px;
+  height: 110px;
+  border: 1px solid blue;
+  text-indent: -999px;
+  overflow: hidden;
+}
+
+.menu .m1 a {
+  background: url(../sprite_all.gif);
+}
+.menu .m2 a {
+  background: url(../sprite_all.gif) 0 -120px;
+}
+.menu .m3 a {
+  background: url(../sprite_all.gif) 0 -240px;
+}
+
+.menu .m1 a:hover {
+  background: url(../sprite_all.gif) 0 -360px;
+}
+.menu .m2 a:hover {
+  background: url(../sprite_all.gif) 0 -480px;
+}
+.menu .m3 a:hover {
+  background: url(../sprite_all.gif) 0 -600px;
+}
