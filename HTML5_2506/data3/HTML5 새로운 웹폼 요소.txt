@@ -1,0 +1,318 @@
+<HTML5 새로운 웹 폼 요소>
+
+1.input  type속성
+
+*필수 항목 처리
+
+<input type="text" required /> 
+<input type="text" name="textid" required="required">
+
+*이메일 입력을 위한 email타입 
+ex)
+<input type="email" value="some@email.com" />
+
+
+*리소스 주소 입력을 위한 url 타입 
+ex)
+<input type="url" name="user_url" /> 
+
+*Number : 일정한 범위의 숫자를 입력 받기 위한 input 타입 
+ex)
+<input type="number" step="1" min="-5" max="10" value="0" /> 
+
+*Range : 일정한 범위의 숫자를 입력 받기 위한 input 타입 
+-min, max 속성에 범위의 최소, 최대 값을 지정하고 step으로 범위 이동 크기를 지정한다 
+ex)
+<input type="range" min="0" max="50" value="10" step="5"  />
+
+*Date pickers 
+-날짜를 입력 받기 위한 Input 타입, 날짜 선택을 위한 달력이 표시 됨. 
+ex)
+<input type="date" min="2010-08-14" max="2011-08-14" value="2010-08-14"/>
+ex2)
+<ul>
+	<li><input type="time" /></li>
+	<li><input type="date" /></li>
+	<li><input type="datetime" /></li>
+	<li><input type="datetime-local" /></li>
+	<li><input type="week" /></li>
+	<li><input type="month" /></li>
+</ul>
+
+*검색을 위한 search 타입 
+ex)
+<input type="search" results="10" placeholder="Search..." /> 
+
+*전화번호 입력을 위한 tel 타입 
+ex)
+<input type="tel" placeholder="(555) 555-5555"  /> 
+
+*색상 입력을 위한 color 타입 
+ex)
+<input type="color" placeholder="#000000" /> 
+
+-----------------------------------------------------
+*input 추가 속성 종합 예시
+
+<h1>HTML5에서 추가된 &lt;input&gt;요소의 [type]</h1>
+ <table>
+    <caption>&lt;input&gt;의 새로운 [type] 속성값 </caption>
+    <thead>
+        <tr><th>속성값</th><th>용도</th><th>코드</th><th>적용상태</th></tr>
+    </thead>
+    <tbody>
+        <tr><th>search</th><td>검색어 입력</td><td>&lt;input type="search" /&gt;</td><td><input type="search" /></td></tr>
+        <tr><th>tel</th><td>전화번호의 입력</td><td>&lt;input type="tel" /&gt;</td><td><input type="tel" /></td></tr>
+        <tr><th>url</th><td>인터넷 주소의 입력</td><td>&lt;input type="url" /&gt;</td><td><input type="url" /></td></tr>
+        <tr><th>email</th><td>e-mail주소의 입력</td><td>&lt;input type="email" /&gt;</td><td><input type="email" /></td></tr>
+        <tr><th>datetime</th><td>날짜와 시간의 입력</td><td>&lt;input type="datetime" /&gt;</td><td><input type="datetime" /></td></tr>
+        <tr><th>date</th><td>날짜의 입력</td><td>&lt;input type="date" /&gt;</td><td><input type="date" /></td></tr>
+        <tr><th>week</th><td>주 차의 입력</td><td>&lt;input type="week" /&gt;</td><td><input type="week" /></td></tr>
+        <tr><th>month</th><td>달의 입력</td><td>&lt;input type="month" /&gt;</td><td><input type="month" /></td></tr>
+        <tr><th>time</th><td>시간의 입력</td><td>&lt;input type="time" /&gt;</td><td><input type="time" /></td></tr>
+        <tr><th>datetime-local</th><td>지역시간의 입력</td><td>&lt;input type="datetime-local" /&gt;</td><td><input type="datetime-local" /></td></tr>
+        <tr><th>number</th><td>숫자의 입력</td><td>&lt;input type="number" /&gt;</td><td><input type="number" /></td></tr>
+        <tr><th>range</th><td>슬라이더 형식 입력</td><td>&lt;input type="range" /&gt;</td><td><input type="range" /></td></tr>
+        <tr><th>color</th><td>색상의 입력</td><td>&lt;input type="color" /&gt;</td><td><input type="color" /></td></tr>
+    </tbody>
+</table>
+
+----------------------------------------
+2. output
+
+-<output>요소는 사용자가 입력을 받기 위한 요소가 아니라 서식에서 출력용으로 사용하는 요소.
+구매 개수에 따른 값을 계산하는 식에서 사용할 수 있다.
+
+ex)
+<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+   <input type="number" name="a" min="0" max="100" step="1" value="0" />
+   +<input type="number" name="b" min="0" max="100" step="1" value="0" />
+   =<output name="x" for="a b">0</output>
+</form>
+
+-------------------------------------------
+3. keygen
+
+-<keygen>은 폼 전송의 보안을 위한 키 쌍을 생성하는 요소.
+<keygent>요소를 작성하면 웹 브라우저가 제공하는 암호화의 정도가 표시된다. 
+<keygen>요소가 포함된 <form>을 전송하면 생성한 공개키를 전송한다.
+
+ex)
+<form id="outputKeygen" action="action.php" method="post">
+<label for="key">암호화의 정도</label>
+<keygen id="key" name="key" />
+<button type="submit">전송</button>
+</form>
+
+---------------------------------------
+4.datalist
+
+-<datalist>는 서식 요소에 입력 추천값을 제시해 주는 요소.
+검색 웹사이트등에서 보이는 검색어 추천등과 같은 기능이다.
+기존엔 자바스크립트를 이용. 
+httpXmlRequest를 이용하여 <datalist>의 컨텐츠요소 변경 사용.
+-오페라, 파이어폭스 지원
+
+ex)
+<form id="datalistTest" action="00_action.php" method="post">
+   <label for="keyword">검색어를 입력하세요</label>
+   <input type="search" id="keyText" name="keyword" list="dataList_id">
+
+   <datalist id="dataList_id">
+      <option value="html5"></option>
+      <option value="html5 video"></option>
+      <option value="html5 강좌"></option>
+      <option value="html5 canvas"></option>
+      <option value="html5 demo"></option>
+   </datalist>
+   <button type="submit">전송</button> 
+</form>
+
+-------------------------------------------
+5. button
+
+-<button>의 추가된 속성으로 인한 변화
+<form>요소에 지정하는 속성이 모두 포함되어 있다.
+하나의 서식요소를 서로 다른 서버측으로 전달 가능하게 한다.
+
+ex)
+<button type="submit" formaction=“button_action01.html" formmethod="get">action1로 전송</button>
+<button type="submit" formaction=“button_action02.html" formmethod="post">action2로 전송</button>
+
+----------------------------------------
+6. form
+
+-공통으로 사용될 수 있는 <form>요소가 추가되었다.
+<input>과 같은 요소들이 기존엔 <fom>요소 안에 포함되어야 했지만 html5에서는 반드시 안에 들어가지 않아도 된다.
+form속성에 <form>요소의 id값을 지정하면 연결 된다.
+
+ex)
+<form id="html5Form" name="html5Form" action="00_action.php" method="post"></form> 
+<label for="testText">단어를 입력하세요</label> 
+<input type="text" id="testText" name="testText" form="html5Form" />
+<button type="submit" form="html5Form">전송</button>
+
+
+============================================
+7. 추가된 속성들
+
+
+1) placeholder
+-기존에 자바스크립트로 만들어야 했던 입력내용안내가 Html5에서는 [placeholder] 속성으로 가능해졌다
+
+ex)
+<input type="tel" id="placeholder" name="placeholder" 
+placeholder="숫자로만 입력해 주십시요" />
+
+------------------------
+2) autofocus
+-페이지가 로딩되면 마우스의 커서가 포커스가 맞춰진 서식에 위치하게 만드는 기능. 
+기존 자바스크립트로 구현하던 방법이 html5에서는 간단히 구현 가능하게 되었다.
+
+ex)
+<label for="input01">첫 번째 서식요소</label>
+<input type="text" id="input01" name="input01" />
+<label for="input02">두 번째 서식요소</label>
+<input type="text" id="input02" name="input02" autofocus="autofocus" />
+
+------------------------
+3) required
+-입력값이 있는지를 검증. 없으면 경고 알림이 뜬다. 보이는 경고 알림은 브라우저마다 다를 수 있다.
+  필수 입력 사항의 용도로 사용한다.
+
+ex)
+<form id="requiredTest" name="requiredTest" action="action.php" method="post">
+  <label for="required">필수 입력 사항</label>
+  <input type="text" id="required" name="required" required="required" />
+  <button type="submit">전송</button>
+</form>
+
+--------------------
+4) pattern
+-입력 값의 형식이 지정된 정규식과 일치하는지를 검증.
+ \s는 비공백 문자를 의미
+패턴이 일치하지 않으면 폼이 전송되지 않고 오류 메시지를 표시한다
+-http://html5pattern.com/
+
+ex)
+<form id="patternTest" name="patternTest" action="00_action.php" method="post">
+  <label for="pattern1">다섯자리 숫자로 입력하세요</label>
+  <input type="text" id="pattern" name="pattern" pattern=“\d{5}" />
+  <label for="pattern2">영문 3자리로 입력하세요</label>
+  <input type="text" id="" name="" pattern="[A-Za-z]{3}"  /> 
+  <label for="pattern3">전화번호 입력</label>
+  <input type="text" id="" name="" pattern="(010|011)-\d{3,4}-\d{4}"  />
+  <button type="submit">전송</button>
+</form>
+
+----------------------
+5) min/max
+-입력값의 최소 최대 범위를 정해 검증.
+다를 경우 경고 알람이 뜬다.
+
+ex)
+<form id="minMaxTest" name="minMaxTest" action="00_action.php" method="post">
+<label for="minMax">50에서 100까지 숫자중 입력해 주세요</label>
+<input type="number" id="minMax" name="minMax" min="50" max="100" title="50부터 100까지 사이값으로 입력해 주세요" />
+<button type="submit">전송</button>
+</form>
+
+-------------------
+6) step
+-숫자나 시간 단위 입력을 받는 서식 요소에서 입력 수치의 단위를 지정할 수 있는 속성.
+짝/홀수를 지정해서 받을 수 있고, 특정단위(10분단위등)의 시간 필터링을 하여 받는 것도 가능.
+
+ex)
+<form id="stepTest" name="stepTest" action="00_action.php" method="post">
+   <label for="step">짝수로 입력하세요</label>
+   <input type="number" id="step" name="step" step="2" />
+   <button type="submit">전송</button>
+</form>
+
+----------------
+7) novalidate
+-기본적으로 포함된 검증 기능을 사용하지 않을 때 사용된다.
+
+ex)
+<form id="emailTest" name="emailTest" action="00_action.php" method="post" novalidate="novalidate">
+   <label for="email">이메일을 입력하세요</label>
+   <input type="email" id="email" name="email" required="required" />
+   <button type="submit">전송</button>
+</form>
+
+====================================
+*종합 예시-css첨부
+
+ex)
+<form>
+<fieldset>
+<legend>로그인 정보</legend>
+<ol>
+  <li>
+    <label for="userid">아이디</label>
+    <input id="userid" name="userid" type="text" required autofocus>
+  </li>
+  <li>
+    <label for="pwd1">비밀번호</label>
+    <input id="pwd1" name="pwd1" type="password"  required>
+  </li>
+  <li>
+    <label pwd="pwd2">비밀번호 확인</label>
+    <input id="pwd2" name="pwd2" type="password" required>
+  </li>  
+  <li>
+    <label pwd="level">회원 등급</label>
+    <input id="level" name="level" type="text" readonly value="준회원">
+  </li>
+</ol>
+</fieldset>
+<fieldset>
+<legend>개인 정보</legend>
+<ol>
+  <li>
+    <label pwd="fullname">이름</label>
+    <input id="fullname" name="fullname" type="text" placeholder="5자미만 공백없이" required>
+  </li>
+  <li>
+    <label pwd="email">메일 주소</label>
+    <input id="email" name="email" type="email" placeholder="abcd@domain.com" required autocomplete="off">
+  </li>
+  <li>
+    <label pwd="tel">연락처</label>
+    <input id="tel" name="tel" type="tel" autocomplete="off">
+  </li>  
+</ol>
+</fieldset>
+<fieldset>
+<legend>코딩 숙련도(상,중,하)</legend>
+<ol>
+  <li>
+    <input id="skill" name="skill" type="range" min="1" max="3" step="1">
+  </li>  
+</ol>
+</fieldset>
+<fieldset>
+  <button type="submit"> 제출 </button> 
+</fieldset>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

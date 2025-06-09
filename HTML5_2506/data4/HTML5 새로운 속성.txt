@@ -1,0 +1,117 @@
+<HTML5 새로운 속성>
+
+1. contenteditable
+-일반적으로 편집할 수 없는 <p>요소도 contenteditable속성으로
+지정되면 편집할 수 있는 요소가 된다. 인터넷익스플로러 전용
+속성이었지만 HTML5에서 채택되었다.
+변경한 내용을 처리하기 위해서는 별도의 기능을 자바스크립트로
+서버측 프로그램을 통하여 구현해야 한다.
+
+ex)
+<p contenteditable="true">
+   [contenteditable]속성이 "true"가 적용된 요소입니다.
+</p>
+
+------------------------------
+2. contextmenu
+-일반적인 프로그램에서 마우스 오른쪽 버튼을 클릭 했을때 나타나는
+단축 메뉴와 같은 기능을 작성하기 위한 속성.
+[contextmenu]속성에 지정된 id를 가진 메뉴를 구성하는<menu>
+요소가 표시된다.
+
+ex)
+  <p contextmenu="testContextmenu“></p>
+  <menu type="contextmenu" id="testContextmenu">
+            <command label="첫번째 메뉴" />
+            <command label="두번째 메뉴" />
+            <command label="세번째 메뉴" />
+  </menu>
+
+------------------------
+3. draggable
+-지정된 요소를 드래그 할 수 있게 한다. 웹 브라우저 외부로까지
+드래그가 가능하다.(저장) 
+현재 대다수의 브라우저가 기본 기능으로 지원하고 있다.
+이미지는 복사되고 링크는 바로 가기가 된다.
+
+ex)
+<div>
+ <img src="images/green.jpg" alt="그린 기업실무반" draggable="true" />
+ <a href="http://cafe.naver.com/greenjob">그린 기업실무반</a>
+</div>
+<div>
+  <img src="images/green.jpg" alt="그린 기업실무반" draggable="false" />
+  <a href="http://cafe.naver.com/greenjob">그린 기업실무반</a>
+</div>
+
+------------------------
+4. hidden
+-CSS를 사용하지 않고도 HTML내에서 요소를 숨길수가 있다.
+CSS가 제거하는 것과 같은 효과를 내는 것이라면
+[hidden]은 HTML내에서 완전히 제거하는 것과 같은 기능이다.
+
+ex)
+<div>
+<p hidden="hidden">
+이문장은 [hidden] 속성이 적용 되었습니다.
+</p>
+</div>
+
+-------------------------
+5. spellcheck
+-서식요소나 contenteditable 속성을 사용하여 편집 가능한 상태의
+요소를 편집할 때 맞춤법 검사를 하도록 하는 속성.
+
+ex)
+<div>
+    <textarea spellcheck="true"></textarea>
+</div>
+<div>
+    <textarea spellcheck="false"></textarea>
+</div>
+
+=====================================
+* 낡은 브라우저 이야기
+
+HTML5 enabling script
+
+HTML5에는 여러가지 새로운 요소들이 등장 했습니다. 그러나 낡은 브라우저들은 이것을 알아차리지 못하는 문제가 있기 때문에 새로운 HTML5 요소들을 해석하거나 렌더링하지 않습니다. 
+IE 6~8 브라우저가 그렇습니다. 우리는 낡은 브라우저가 새 요소들을 인식할 수 있도록 스크립트로 처리할 수 있습니다. 이 스크립트는 문서 head에 포함해서 브라우저가 낮선 태그를 만나 허둥대는 일이 없도록 처리하는 것이 좋습니다.
+
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+"if lt IE 9 = if less-than IE 9"?IE 조건부 주석을 사용해서
+ IE9 보다 버전이 낮은 브라우저에서만 이 스크립트를 
+해석하도록 한 것입니다. 스크립트는 새로나온 HTML5 
+요소들을 브라우저가 인식할 수 있도록 추가해서 낡은 
+브라우저들이 HTML5 요소들을 해석하고 렌더링 할 수 
+있도록 해줍니다.
+
+
+CSS Reset
+
+새로 추가된 요소들이 inline 요소인지 block 요소인지 브라우저들은 모를 수 있습니다. 
+display 상태를 정의해 줍니다. 
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/rendering.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
