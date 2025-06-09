@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>html5에 추가된 태그들 두번째</title>
+    <!-- <style type="text/css"></style>  이전버전에서는 스타일에 타입을 썻었다 -->
+    <!-- <script type="text/javascript"></script> 이전버전에서는 자바스크립트안에 타입을 썻었다 -->
+    <link rel="stylesheet" href="./data2-2.css" />
+  </head>
+  <body>
+    <section>
+      <h1>첫번째 section 입니다.</h1>
+      <section>
+        <h1>두번째 section 입니다.</h1>
+        <p>
+          목차를 만들때 section 안에 section 을 인식하기때문에 h1태그를
+          중복사용해도 <br />
+          알아서 제목크기가 자동으로 조정이된다.
+        </p>
+        <section>
+          <h1>3번째 section 입니다</h1>
+        </section>
+      </section>
+
+      <section>
+        <h1>이것도 두번째 section 입니다.</h1>
+        <p>자동으로 인식을 해도 h1 태그는 하나만 쓰자</p>
+      </section>
+    </section>
+
+    <header>
+      헤더 태그-header
+      <h1><a href="#">로고가 있는 태그!</a></h1>
+    </header>
+    <footer>풋터 태그-footer</footer>
+    <nav>
+      <h2>네비게이션 태그-nav</h2>
+      <ul>
+        <li><a href="#">네비게이션 태그 메뉴1</a></li>
+        <li><a href="#">네비게이션 태그 메뉴2</a></li>
+        <li><a href="#">네비게이션 태그 메뉴3</a></li>
+      </ul>
+    </nav>
+    <article>
+      <h2>본문 태그-article</h2>
+      <section>
+        <h3>상품 소개 section 1번</h3>
+        <section><h4>커피 section 안에 section 안에 section 1-1번</h4></section>
+        <section><h4>녹차 section 안에 section 안에 section 1-2번</h4></section>
+        <section>
+          <h4>보리차 section 안에 section 안에 section 1-3번</h4>
+        </section>
+      </section>
+
+      <section><h3>캐릭터 소개 section 2번</h3></section>
+      <section><h3>회사 소개 section 3번</h3></section>
+    </article>
+    <section>섹션 영역-section</section>
+    <aside>사이드 내용-aside</aside>
+    <main>본문 태그2-main</main>
+
+    <!-- 
+    
+    <HTML 정보의 구조적 진화 2번째>
+
+      HTML5의 <h1>~<h6>
+        -<h1>를 여러번 사용하는것이 가능하다.
+
+        -section group의 태그들과 함께 사용되기 때문
+
+        -<h1>는 로고에만 사용해야한다!!!!!!
+
+    
+    ** outline(목차) 를 갖는 태그
+        -<nav> , <article> , <section> , <aside> 
+        - 해당 태그의 텍스트를 표현하는 수단 =>  <h2> ~ <h6>
+        - 자식으로 h2~h6 태그를 가지고 있어야 한다.
+        
+        
+    ** outline(목차) 를 갖지 않는 태그
+        -<header> , <footer> , <main>
+        
+    -->
+  </body>
+</html>

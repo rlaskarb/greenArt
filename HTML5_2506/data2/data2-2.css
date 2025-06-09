@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  color: #333;
+  font-family: "맑은고딕";
+}
+
+a {
+  color: #999;
+  text-decoration: none;
+  font-weight: bold;
+
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+section {
+  border: 2px solid blue;
+  margin: 20px;
+  padding: 20px;
+}
+
+section h1 {
+  color: blueviolet;
+  font-weight: bold;
+}
+
+main {
+  border: 5px solid #999;
+  margin: 20px;
+  padding: 20px;
+}
+
+header,
+footer {
+  border: 5px solid red;
+  margin: 20px;
+  padding: 20px;
+}
+
+nav {
+  border: 5px solid green;
+  margin: 20px;
+  padding: 20px;
+}
+
+article {
+  border: 5px solid blue;
+  font-weight: bold;
+  margin: 20px;
+  padding: 20px;
+}
+
+aside {
+  border: 5px solid pink;
+  margin: 20px;
+  padding: 20px;
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>html5에 추가된 태그들</title>
+    <!-- <style type="text/css"></style>  이전버전에서는 스타일에 타입을 썻었다 -->
+    <!-- <script type="text/javascript"></script> 이전버전에서는 자바스크립트안에 타입을 썻었다 -->
+    <link rel="stylesheet" href="./data2.css" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="#">해더를 쓰는 h1 태그여</a></h1>
+      <h2>헤더를 쓰는 h2 태그여</h2>
+      <nav>
+        <ul>
+          <li>
+            <a href="#">네비게이션바 1빠</a>
+            <ul>
+              <li><a href="#">네비게이션바 메뉴1번</a></li>
+              <li><a href="#">네비게이션바 메뉴2번</a></li>
+              <li><a href="#">네비게이션바 메뉴3번</a></li>
+            </ul>
+          </li>
+          <li><a href="#">있어보이는척하는 네비게이션바 메뉴1번</a></li>
+          <li><a href="#">있어보이는척하는 네비게이션바 메뉴2번</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <p>
+        <strong
+          >메인테그를 써도 되고 아티클 테그를 써도 되고 그냥 마음대로
+          하세요</strong
+        >
+      </p>
+      <article>
+        <p>
+          <strong>-article 이란 </strong>-<br />사전적의미가 신문 또는 잡지의
+          기사인 것처럼 웹상의 실제의 내용을 말한다. -사이트의 본문 전체를 묶는
+          용도로 많이 사용(회사마다 차이가 있음)
+        </p>
+        <section>
+          <h3>세센1번 연관성을 갖는 각각의 콘텐츠의 묶음</h3>
+          <ul>
+            <li>내용1</li>
+            <li>내용2</li>
+            <li>내용3</li>
+          </ul>
+        </section>
+        <section>
+          <h3>세션2번 연관성을 갖는 각각의 콘텐츠의 묶음</h3>
+          <p>이거슨 피태그여</p>
+        </section>
+        <aside>
+          <p>
+            <strong>aside 란?</strong> <br />
+            -기타 부수적인 내용을 담는 영역 <br />
+            -말그대로 필수 요소가 아니기 때문에사용하지 않아도 상관없다.
+          </p>
+          <img
+            src="images/side.jpg"
+            alt="개인정보안심 서비스 신청/문의:1588-3483"
+          />
+        </aside>
+      </article>
+    </main>
+    <footer>
+      <address>
+        서울시 영등포구 의사당대로 3 현대캐피탈 빌딩 대표이사 정태영
+        사업자등록번호 000-00-00000
+      </address>
+      <p>CopyRight &copy; MRI.inc. All Right Reserved.</p>
+      <ul>
+        <li>
+          <a href="#"><img src="images/twitter.jpg" alt="트위터" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="images/facebook.jpg" alt="페이스북" /></a>
+        </li>
+      </ul>
+    </footer>
+
+    <!-- 
+    
+    <HTML 정보의 구조적 진화>
+
+      1.<HTML5의 컨텐츠 모델>
+        -태그를 구분하는 기준은 그대로 계승
+          Inline level element (인라인 요소) 와  block level element(블록요소) 로 
+          구분이 되어 있다.
+        -컨텐츠 모델이 추가됨!
+          -해당 태그가 **어떠한 성격(용도)**으로 사용되는지에 구분
+          -Flow Group => 화면에 표시되는 모든 태그들 ( body 모든 자식 태그 )
+          -Metadata Group => 화면에 표시되지 않은 태그들 ( head의 자식 태그 )
+          -Heading Group => heading / 제목과 관련있는 태그들
+          -Sectioning Group (주인공) =>이전의 <div> 태그를 대체하기 위한 각각의
+                                      용도가 있는 태그들...
+                                    =>Semantic 태그!!!!!!!
+                                      => <article>,<aside>,<nav>,<section>,<footer>,<header>
+          -Phrasing Group => 이전버전의 Inline level element (인라인 요소) 를 대체한다.
+          -Interactive Group => 사용자와의 대화수단/ 상호작용을 하기위한 태그들!
+                             -> <a> , <button> , <form> ,<textarea>
+          -Embedded Group => 외부자원을 웹 페이지에 포함하는 요소들
+                            -> <img>, <iframe>, <video>, <canvas> <audio>...       
+          - block => 이전버전의 블럭 요소들...
+      
+
+
+      2.<HTML5의 섹션 요소(Sectioning Group)>
+        -시멘틱 태그(의미있는 용도의 태그)
+        -헤딩태그와의 연관성이 더 크다 -> outline(목차)을 갖는다.
+        -outline(목차) => <h1>~<h6> + Sectioning Group 태그
+        -<div> 태그를 대체하는 의미(용도)를 갖는 박스
+          -<main>
+            -본문 전체를 묶는 태그 (회사마다 다른데 거의 article 를 많이 사용한다.)
+
+          -<header>
+            -사이트 전체에 대한 머리말일(상단) 경우
+            -로고 / GNB / 검색창 / top메뉴
+          -<footer>
+            -어떤 요소든 포함할 수 있다.
+            -사이트 전체에 대한 바닥글(하단) 경우
+            -하단로고 / 약관 / 주소 / 카피라이트(저작권) /... 
+           -<nav>
+            -사이트의 네이게이션을 표현하는 수단
+          
+          -<section>
+            -연관성을 갖는 각각의 콘텐츠의 묶음
+
+          -<article>
+            -사전적의미가 신문 또는 잡지의 기사인 것처럼
+             웹상의 실제의 내용을 말한다.
+            -사이트의 본문 전체를 묶는 용도로 많이 사용(회사마다 차이가 있음)
+            
+          -<aside>
+            -기타 부수적인 내용을 담는 영역
+            -말그대로 필수 요소가 아니기 때문에 사용하지 않아도 상관없다.
+
+          -<hgroup> 
+            -hgroup은 제목을 묶어 표현하는데 사용한다.
+            -<h1>~<h6> 헤딩 태그를 묶는 역활
+            -사용 하지 않는다.
+
+
+
+
+        ** outline(목차) 를 갖는 태그
+              -<nav> , <article> , <section> , <aside> 
+        
+        ** outline(목차) 를 갖지 않는 태그
+              -<header> , <footer> , <main>
+
+
+        
+
+    
+    -->
+  </body>
+</html>

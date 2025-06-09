@@ -33,8 +33,8 @@ Flow Group에 속하게 된다.
 구조를 구성하는 역할을 한다. 이러한 관점에서 본다면 <aritcle>,<aside>,<nav>,<section>은
 <div>보다는 <h1~6><hgroup>과 더 긴밀한 연관성이 있다고 볼 수 있다.
 
-4)Pharsing Group
--Pharsing Group은 다른 요소를 콘텐츠로 포함하지 않는 요소들.<em>, <span>, <strong>과 같이
+4)Phrasing Group
+-Phrasing Group은 다른 요소를 콘텐츠로 포함하지 않는 요소들.<em>, <span>, <strong>과 같이
 text요소를 직접 표시하거나 <img>,<input>와 같이 대체되는 요소에 속하게 된다.
 <div>와 <p>는 Pharsing Group에 속하지 않는다.  <a>와 같은 몇몇 요소들은 컨텐츠로 다른 요소를
 포함하지 않는 등의 조건부로 Pharsing Group이 된다.
@@ -69,6 +69,7 @@ text요소를 직접 표시하거나 <img>,<input>와 같이 대체되는 요소에 속하게 된다.
 *멀티미디어 관련 요소들이 추가,개선
 
 ------------------------------------
+
 HTML5의 DTD
 
 - Html4.01 Transitional DTD
@@ -83,6 +84,7 @@ HTML5의 DTD
 - HTML5
  <!DOCTYPE html>
 ---------------------------------
+
 HTML5의 간소화된 문법
 
 - Character set 
