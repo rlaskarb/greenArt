@@ -1,0 +1,235 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.recipe-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  padding: 35px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: bold;
+  color: #2d3748;
+  margin-bottom: 8px;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: #718096;
+  margin-bottom: 8px;
+}
+
+.volume-badge {
+  display: inline-block;
+  background: linear-gradient(45deg, #4facfe, #00f2fe);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+}
+
+.ingredients {
+  margin-bottom: 25px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2d3748;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.emoji {
+  font-size: 22px;
+}
+
+.ingredient-list {
+  display: grid;
+  gap: 10px;
+}
+
+.ingredient-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8fafc;
+  padding: 12px 15px;
+  border-radius: 15px;
+  border-left: 4px solid #4facfe;
+  transition: all 0.3s ease;
+}
+
+.ingredient-item:hover {
+  transform: translateX(3px);
+  background: #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ingredient-name {
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 14px;
+}
+
+.ingredient-amount {
+  font-weight: bold;
+  color: #4facfe;
+  background: white;
+  padding: 3px 10px;
+  border-radius: 15px;
+  font-size: 13px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.ingredient-note {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 3px;
+}
+
+.method {
+  margin-bottom: 20px;
+}
+
+.step-list {
+  display: grid;
+  gap: 15px;
+}
+
+.step-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.step-number {
+  background: linear-gradient(45deg, #4facfe, #00f2fe);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 13px;
+  flex-shrink: 0;
+  box-shadow: 0 3px 10px rgba(79, 172, 254, 0.3);
+}
+
+.step-content {
+  flex: 1;
+  padding-top: 2px;
+}
+
+.step-title {
+  font-weight: bold;
+  color: #2d3748;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.step-desc {
+  color: #4a5568;
+  line-height: 1.4;
+  font-size: 13px;
+}
+
+.highlight {
+  background: linear-gradient(45deg, #ffd89b, #19547b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
+}
+
+.tips {
+  background: linear-gradient(45deg, #ffeaa7, #fab1a0);
+  padding: 15px;
+  border-radius: 15px;
+  margin-top: 15px;
+}
+
+.tips-title {
+  font-weight: bold;
+  color: #6c5ce7;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.tips-content {
+  color: #2d3436;
+  line-height: 1.5;
+  font-size: 13px;
+}
+
+.safety-note {
+  background: linear-gradient(45deg, #a8e6cf, #dcedc8);
+  padding: 15px;
+  border-radius: 15px;
+  margin-top: 15px;
+  border-left: 4px solid #4caf50;
+}
+
+.safety-title {
+  font-weight: bold;
+  color: #2e7d32;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.safety-content {
+  color: #2e7d32;
+  line-height: 1.5;
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .recipe-card {
+    padding: 25px;
+    margin: 10px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+}
