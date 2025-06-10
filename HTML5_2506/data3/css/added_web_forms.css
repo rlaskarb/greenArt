@@ -1,0 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.form_box form ul {
+  list-style: none;
+}

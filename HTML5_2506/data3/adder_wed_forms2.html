@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>추가된 웹 폼2.0 요소 2번째</title>
+    <link rel="stylesheet" href="./css/added_web_forms.css" />
+  </head>
+  <body>
+    <div class="form_box">
+      <form action="" method="">
+        <label for="userid">아이디</label>
+        <input
+          type="text"
+          name="userid"
+          id="userid"
+          required
+          placeholder="입력해야되요!"
+        />
+
+        <label for="user_password">비밀번호</label>
+        <input
+          type="password"
+          name="user_password"
+          id="user_password"
+          required="required"
+          placeholder="입력해야 되요!!"
+        />
+
+        <button type="submit">로그인</button>
+      </form>
+    </div>
+
+    <br />
+    <br />
+    <hr />
+    <br />
+    <hr />
+    <br />
+    <br />
+
+    <div>
+      <h2>datalist!!!!</h2>
+      <form id="datalistTest" action="00_action.php" method="post">
+        <label for="keyword">검색어를 입력하세요</label>
+        <input type="search" id="keyText" name="keyword" list="dataList_id" />
+
+        <input
+          type="text"
+          list="dataList_id"
+          placeholder="집에가고 싶지않어?"
+        />
+
+        <datalist id="dataList_id">
+          <option value="집에가고싶어"></option>
+          <option value="집에 보내줘"></option>
+          <option value="살려줘"></option>
+          <option value="시간이 왜이렇게 안가"></option>
+          <option value="보내줘"></option>
+        </datalist>
+        <button type="submit">전송</button>
+      </form>
+    </div>
+
+    <br />
+    <br />
+    <hr />
+    <br />
+    <hr />
+    <br />
+    <br />
+
+    <!-- 
+   
+      추가된 웹폼 2.0
+
+         1. 이메일 양식을 체크해 준다.
+            <label for="email">이메일</label>
+            <input type="email" name="email" id="email" />
+         
+         2. URL (http://) 을 체크해 준다.
+            <label for="url">URL</label>
+            <input type="url" name="url" id="url" />
+
+         3. number 숫자만 처리/입력 되는 탑입. 
+            <label for="number">수량</label>
+            <input type="number" name="number" id="number" max="10" min="1" value="1" step="1"/>
+   
+         4. range 일정한 범위의 숫자를 입력 받기 위한 input 타입
+            <label for="range">포토샵 사용등급 (상 중 하)</label>
+            <input type="range" name="range" id="range" min="0" max="100" value="50" step="50"/>
+         
+         5. Date pickers -날짜를 입력 받기 위한 Input 타입, 날짜 선택을 위한 달력이 표시 됨.
+
+         6. 색상  입력을 위한 color 타입
+
+
+
+         ** 추가된 태그의 속성
+
+            -1) 필수항목 처리 required="required" / required
+            -2) 입력예시 문구 처리 -> placeholder="여기에다 타이핑해 이자식아!"
+
+         *??  검색시 추천값(관련검색어) 추천값을 제시한다.
+            -폼테그의 list 속성을 <datalist id= id값 >의  id 값과 연결하면 된드아!
+
+                <datalist id="id값 필수">          
+                    <option value="추천어1"></option>         
+                    <option value="추천어2 "></option>         
+                    <option value="추천어3"></option>        
+                    <option value="추천어4"></option>        
+                    <option value="추천어5"></option>       
+                </datalist>
+
+
+   -->
+  </body>
+</html>

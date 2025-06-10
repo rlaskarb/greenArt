@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Html5의 그룹화 요소</title>
+    <link rel="stylesheet" href="./data2-4.css" />
+  </head>
+  <body>
+    <div>
+      <h1>이거슨 피규여 태그여</h1>
+      <figure>
+        <img src="./images/image.jpg" alt="이미지 설명" />
+        <figcaption>
+          <p>이미지 설명 내용(자막, 가사내용 삽가능)</p>
+        </figcaption>
+      </figure>
+    </div>
+    <br />
+    <hr />
+    <hr />
+    <br />
+
+    <p>
+      <mark>기업</mark>이 추구하는 <b>가치</b>에 도달하기 위해선 먼저
+      <i>올바른 전략</i>을 설정하고, 이에 부합된 <strong>사업전략</strong>과
+      <em>기능전략</em>을 유기적인 관계 속에서 일관되게 추진해야 합니다.
+    </p>
+    <br />
+    <hr />
+    <hr />
+    <br />
+
+    <time datetime="2010-06-10T13:00:00">2010년 6월 10일 오후 1시</time>
+    <br />
+    <hr />
+    <hr />
+    <br />
+
+    <p>웹페이지안에서 주제가 바뀔 때 사용하는 태그</p>
+    <hr class="flower" />
+    <p>태그는 주제가 바뀐다는데 좀더 무게가 실린다.</p>
+    <br />
+    <hr />
+    <hr />
+    <br />
+
+    <strong>
+      [<ruby>進<rp>(</rp><rt>나아갈 진</rt><rp>)</rp> </ruby>]
+    </strong>
+    <br />
+    <hr />
+    <hr />
+    <br />
+
+    <h2>⁜⁜⁜이건 중요합니다!⁜⁜⁜</h2>
+    <br />
+    <a href="http://naver.com">
+      <section>
+        <h1>html5 에서는</h1>
+        <p>html5 에서는...</p>
+      </section>
+    </a>
+    <br />
+    <hr />
+    <hr />
+    <br />
+
+    <h3>분량이나 수량을 나타낼 때 사용</h3>
+
+    <meter id="disk-usage" title="영어 시험점수" max="100" min="0" value="70">
+      <!-- meter 요소를 지원하지 않는 브라우저를 위한 내용 -->
+      영어시험 점수 70점
+    </meter>
+
+    <br />
+    <hr />
+    <hr />
+    <br />
+
+    <h3>현재 진행중인 상태를 표시</h3>
+    <progress value="75" max="100">영어점수는 시험점수!</progress>
+
+    <br />
+    <hr />
+    <hr />
+    <br />
+
+    <h3>각주로 활용하기에 편리한 태그 (토글!!)</h3>
+
+    <details>
+      <summary>생생한 바다생활 체험!</summary>
+      <img src="./images/image.jpg" alt="" />
+      <p>
+        세상에서 가장 재미있난 바다 SHOW! 물개, 바다표범, 펭귄,다이버, 살아있는
+        모든 것이 SHOW가 된다! 바다위를 걷고, 바다폭포를 타고, 보다 가까이
+      </p>
+    </details>
+
+    <!-- 
+    
+    HTML5의 그룹화 요소
+        div - 일반적인 그룹핑 요소
+        p   -  문단 영역의 생성
+        ol  -  순서가 있는 목록 영역의 생성
+        ul  -  순서가 없는 목록 영역의 생성
+        li   -  목록의 아이템
+        dl  - 정의형 목록 영역의 생성
+        dt  - 정의형 목록의 정의어
+        dd - 정의형 목록의 설명부
+        figure - 도식 요소 영역의 생성
+    
+        figure 
+            - 잘안쓰는데 기억해두자
+
+
+
+    1)mark
+        -텍스트에 형광펜으로 그은 듯한 표시를 한다.
+        강조할 부분에 <mark>라고 삽입한후 CSS에서 배경등을 지정해준다.
+        지정된 값이 없으면 완전한 노란색으로 표현된다.
+
+        *strong - 강한강조 -콘텐츠 내용에 의한 객관적 강조 -리더기에서 읽을때 소리가 더 크게  나온다.
+        *b      - 강조의 의미는 아님 -기본이 굵게 // 쓰지말어유
+        *em     - 약한강조 -웹 저작자에 의한 주관적 강조
+        *i      - 강조의 의미는 아님 -기본이 기울임 // 쓰지말어유
+        *mark   - 강조의 의미는 아님 - 사용자에 의한 임의적 강조(배경색 노란색)   
+
+
+
+
+    2)time
+        -마이크로포맷에서 날짜와 시간등을 표현할 수 있는 time태그를
+         html5 에서 지원한다.
+         <time>태그에서 직접 날짜를 지정하면 브라우저에서도 날짜를
+         인식한다
+
+
+
+    ⁂⁂⁂⁂⁂⁂⁂ <a> 태그의 확장!
+                     inline요소인 <a>가  block 요소를 포함할 수 있다  a 가 가장 쎈케다.
+
+    
+    
+    3)Details 
+
+        *사용자가 확인 할 수 있는 추가 정보를 나타낼 수 있다. 
+        *각주로 활용하기에 편리한 태그 
+        *<details>태그는 <summary>태그와 함께 사용됨 
+        *기본적으로 ‘감춤’ 상태 <summary>부분만 보이도록 되어 있다. 
+        *펼쳐놓기 위해서는 open="open" 속성을 넣어주면 된다!
+
+    
+
+
+
+
+    -->
+  </body>
+</html>

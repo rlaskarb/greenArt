@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML5 새로운 속성</title>
+    <link rel="stylesheet" href="./css/html_new_properties.css />
+  </head>
+  <body>
+    <div class="kig_box">
+      <div class="box_1">
+        <img src="images/green.jpg" alt="그린 기업실무반" draggable="true" />
+        <a href="http://cafe.naver.com/greenjob" draggable="true">
+          그린 기업실무반
+        </a>
+      </div>
+      <div class="box_2">
+        <img src="images/green.jpg" alt="그린 기업실무반" draggable="false" />
+        <a href="http://cafe.naver.com/greenjob" draggable="false">
+          그린 기업실무반
+        </a>
+      </div>
+    </div>
+
+    <br />
+    <br />
+    <hr />
+    <br />
+    <hr />
+    <br />
+    <br />
+
+    <div class="box_3">
+      <h2>히든 코드를 만드는 방법</h2>
+      <p class="hidden">
+        -CSS를 사용하지 않고도 HTML내에서 요소를 숨길수가 있다. CSS가 제거하는
+        것과 같은 효과를 내는 것이라면 [hidden]은 HTML내에서 완전히 제거하는
+        것과 같은 기능이다. 이문장은 [hidden] 속성이 적용 되었습니다.
+      </p>
+    </div>
+
+    <!-- 
+    
+    
+    3. draggable
+        -지정된 요소를 드래그 할 수 있게 한다. 웹 브라우저 외부로까지
+        드래그가 가능하다.(저장) 
+        현재 대다수의 브라우저가 기본 기능으로 지원하고 있다.
+        이미지는 복사되고 링크는 바로 가기가 된다.
+        기본값이 true 이다.
+
+    4. hidden
+        -CSS를 사용하지 않고도 HTML내에서 요소를 숨길수가 있다.
+         CSS가 제거하는 것과 같은 효과를 내는 것이라면
+         [hidden]은 HTML내에서 완전히 제거하는 것과 같은 기능이다.
+
+        히든 코드 만드는 방법
+        1. 해당태그에 css -> display: none; (해당태그의 공간/ 영역이 존재 x)
+        2. 해당태그에 css -> visibility: hidden;(해당태그의 공강/영역이 존재한다)
+        3. 해당태그에  -> hidden="hidden" (display: none;과 동일)
+
+
+        ** hidden="hidden"  / display: none; => 스크린 리더기가 읽지 않는다.
+        ** 화면에는 안보이고 .. 스크린 리더기가 읽어야 하는 경우에는 
+        .hidden { display: block; overflow: hidden; width: 1px; height: 1px; color: #fff; position: absolute; left: -1000%;}
+        이렇게 해야지 좋다
+
+    -->
+  </body>
+</html>

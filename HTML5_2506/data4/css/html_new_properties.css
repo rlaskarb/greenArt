@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.kig_box {
+  overflow: hidden;
+}
+
+.box_1 {
+  float: left;
+}
+
+.hidden {
+  display: block;
+  overflow: hidden;
+
+  width: 1px;
+  height: 1px;
+  color: #fff;
+  position: absolute;
+  left: -1000%;
+  top: 0;
+}

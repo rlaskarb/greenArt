@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아이프레임 사용방법</title>
+    <link rel="stylesheet" href="./css/iframe.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <h3>아이프레임</h3>
+      <ul>
+        <li><a href="./main.html" target="ifr">메인페이지</a></li>
+        <li><a href="./sub1.html" target="ifr">서브 페이지</a></li>
+        <li><a href="./sub2.html" target="ifr">서브 두번째 페이지</a></li>
+      </ul>
+
+      <iframe name="ifr" src="./main.html" frameborder="0"></iframe>
+
+      <!-- <iframe src="./main.html" frameborder="0"></iframe>
+      <iframe src="./sub1.html" frameborder="0"></iframe>
+      <iframe src="./sub2.html" frameborder="0"></iframe> -->
+    </div>
+
+    <div class="video">
+      <h3>유튜브 영상 불러오기</h3>
+
+      <ul>
+        <li>
+          <a
+            href="https://www.youtube.com/embed/cq3tl9AmvKk?si=dnTLAiRckZRxEDsg"
+            target="ifr2"
+            >영상1</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.youtube.com/embed/CwuLQ8tkvCA?si=tDNzPtIvl6m34mtZ"
+            target="ifr2"
+            >영상2</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.youtube.com/embed/lkU1Rf_JCek?si=TbZE0hNdxIgTiE8M"
+            target="ifr2"
+            >영상3</a
+          >
+        </li>
+      </ul>
+
+      <iframe
+        name="ifr2"
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/cq3tl9AmvKk?si=dnTLAiRckZRxEDsg"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <!-- 
+      
+      <iframe> 태그
+
+        - 해당 페이지에 특정 영역을 만들어서 또다른 html 페이지를 불러올수 있다.
+        - 불러오는 페이지의 교체도 가능하다.
+        - 부모페이지에서 자식페이지를 불러온다.
+        - 자식페이지를 교체할때 -> a 태그의 target="iframe name="값"" 값을 지정
+
+      -->
+  </body>
+</html>

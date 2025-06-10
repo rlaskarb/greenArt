@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>추가된 웹 폼 2.0 요소</title>
+    <link rel="stylesheet" href="./css/added_web_forms.css" />
+  </head>
+  <body>
+    <div class="form_box">
+      <form action="" method="">
+        <ul>
+          <li>
+            <label for="email">이메일</label>
+            <input type="email" name="email" id="email" />
+          </li>
+          <li>
+            <label for="url">URL</label>
+            <input type="url" name="url" id="url" />
+          </li>
+          <li>
+            <label for="number">수량</label>
+            <input
+              type="number"
+              name="number"
+              id="number"
+              max="10"
+              min="1"
+              value="1"
+              step="1"
+            />
+          </li>
+          <li>
+            <label for="range">포토샵 사용등급 (상 중 하)</label>
+            <input
+              type="range"
+              name="range"
+              id="range"
+              min="0"
+              max="100"
+              value="50"
+              step="50"
+            />
+          </li>
+          <li>
+            <ul>
+              <li>
+                <label for="time">시간</label>
+                <input type="time" name="time" id="time" />
+              </li>
+              <li>
+                <label for="data">달력</label>
+                <input type="date" name="data" id="data" />
+              </li>
+              <li>
+                <label for="datetime-local">생산일자</label>
+                <input
+                  type="datetime-local"
+                  name="datetime-local"
+                  id="datetime-local"
+                />
+              </li>
+              <li>
+                <label for="week">주 단위</label>
+                <input type="week" name="week" id="week" />
+              </li>
+              <li>
+                <label for="month">월 단위</label>
+                <input type="month" name="month" id="month" />
+              </li>
+            </ul>
+          </li>
+          <li>
+            <label for="color">색상선택</label>
+            <input type="color" name="color" id="color" placeholder="#000000" />
+          </li>
+        </ul>
+        <button type="submit">전송봐튼</button>
+      </form>
+    </div>
+
+    <!-- 
+   
+      추가된 웹폼 2.0
+         1. 이메일 양식을 체크해 준다.
+            <label for="email">이메일</label>
+            <input type="email" name="email" id="email" />
+         
+         2. URL (http://) 을 체크해 준다.
+            <label for="url">URL</label>
+            <input type="url" name="url" id="url" />
+
+         3. number 숫자만 처리/입력 되는 탑입. 
+            <label for="number">수량</label>
+            <input type="number" name="number" id="number" max="10" min="1" value="1" step="1"/>
+   
+         4. range 일정한 범위의 숫자를 입력 받기 위한 input 타입
+            <label for="range">포토샵 사용등급 (상 중 하)</label>
+            <input type="range" name="range" id="range" min="0" max="100" value="50" step="50"/>
+         
+         5. Date pickers -날짜를 입력 받기 위한 Input 타입, 날짜 선택을 위한 달력이 표시 됨.
+
+         6. 색상  입력을 위한 color 타입
+
+
+
+   -->
+  </body>
+</html>

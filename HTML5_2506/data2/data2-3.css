@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  color: #333;
+  font-family: "맑은고딕";
+}
+
+nav ul {
+  list-style: none;
+}
+
+.wrap {
+  width: 1400px;
+  margin: 0 auto;
+  border: 2px solid #999;
+}
+
+header {
+  border: 2px solid red;
+}
+
+.visual {
+  border: 2px solid green;
+}
+
+article {
+  border: 2px solid orange;
+}
+
+footer {
+  border: 2px solid pink;
+}

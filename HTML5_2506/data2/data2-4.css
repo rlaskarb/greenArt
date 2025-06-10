@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  color: #333;
+  font-family: "맑은고딕";
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+}
+
+a:hover {
+  background: orange;
+  color: #fff;
+}
+
+nav ul {
+  list-style: none;
+}
+
+figure img {
+  border: 2px solid #999;
+}
+
+p i,
+em {
+  color: blue;
+}
+
+.flower {
+  border: 3px solid #333;
+}
+
+header {
+  border: 2px solid red;
+}
+
+.visual {
+  border: 2px solid green;
+}
+
+article {
+  border: 2px solid orange;
+}
+
+footer {
+  border: 2px solid pink;
+}
