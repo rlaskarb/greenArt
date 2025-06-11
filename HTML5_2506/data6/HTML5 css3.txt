@@ -1,0 +1,2649 @@
+<css3>
+
+CSS3 언제 지원 되는가?
+*모든 브라우저들이 css3를 완벽하게 지원하지 않는다.
+*IE 6,7,8은 사라지지 않는다.(css3를 지원x)
+*더 좋은 도구를 선택한 사용자는 더 향상된 경험을 준다.
+*지원 정도 => http://fmbip.com/litmus
+
+1. 추가된 Selector
+*추가된 선택자 이미지 첨부
+
+ex)
+<div class="box1">
+  <ul>
+    <li class="hana dul set">배분 대표사업의 핵심 브랜드화</li>
+    <li class="net daseot yuseot">창의적 배분구조/사업/플랫폼의 인큐베이팅</li>
+    <li class="ilgop yudeop ahop">공익단체 역량의 집중 강화(교육,컨설팅)</li>
+    <li class="yul yulhana yuldul">사회이슈에 대한 전자구적 인식과 대응</li>
+    <li class="yulset yulnet yuldaseot">창의적 참여적 시민기부모델 개발</li>
+  </ul>
+ </div>
+  <div class="box2">
+     <p>창립 10주년 기념 사이트 "나눔으로 함께 만든 10년"사이트 오픈</p>
+  </div>
+------------
+<style>
+   .box1, .box2 { width:500px;
+	margin-right:30px;
+	font-size:16px;
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:1.5em;
+	border:1px solid #666;
+   }
+</style>
+
+1) class이름이 yul로 시작되는 요소
+   li[class^=yul] {font-weight:bold; color:red; background:#FC0;}
+2) class이름이 seot로 끝나는 요소 
+   li[class$=seot]{font-weight:bold; color:red; background:#FC0;}
+3) class이름이 hana를 포함하는 요소
+   li[class*=hana]{font-weight:bold; color:red; background:#FC0;}
+4) 앞으로부터 지정된 순서와 일치하는 요소가 E 라면 선택(E 아닌 요소의 순서가 계산에 포함됨)
+   li:nth-child(3){font-weight:bold; color:red; background:#FC0;}  
+5) 뒤로부터 지정된 순서와 일치하는 요소가 E 라면 선택(E 아닌 요소의 순서가 계산에 포함됨)
+   li:nth-last-child(2){font-weight:bold; color:red; background:#FC0;}
+6) E 요소 중 앞으로부터 순서가 일치하는 E 요소를 선택(E 요소의 순서만 계산에 포함됨) 
+   li:nth-of-type(2){font-weight:bold; color:red; background:#FC0;}
+7) E 요소 중 끝으로부터 순서가 일치하는 E 요소를 선택(E 요소의 순서만 계산에 포함됨)
+  li:nth-last-of-type(2){font-weight:bold; color:red; background:#FC0;} 
+8) 마지막에 등장하는 요소가 E 라면 선택(E 아닌 요소의 순서가 계산에 포함됨)
+  li:last-child{font-weight:bold; color:red; background:#FC0;}
+9) E 요소 중 첫 번째 E를 선택(E 요소의 순서만 계산에 포함됨)
+  li:first-of-type{font-weight:bold; color:red; background:#FC0;}
+10) E 요소 중 마지막 E를 선택(E 요소의 순서만 계산에 포함됨)
+  li:last-of-type{font-weight:bold; color:red; background:#FC0;}
+11) E 요소가 유일한 자식이면 선택(E 아닌 요소가 하나라도 포함되면 선택 안함)
+  .box2 p:only-child{font-weight:bold; color:red; background:#FC0;}
+12) E 요소가 유일한 타입이면 선택(E 아닌 요소가 포함되어도 E 타입이 유일하면 선택)
+   .box2 div에 <address>서울시 강남구 역삼동 000-000번지 tel:00-000-0000</address> 추가 
+  
+   .box2 p:only-of-type{font-weight:bold; color:red; background:#FC0;}
+13) (p)가 아닌 address 요소를 선택
+   .box2 address:not(p){font-weight:bold; color:red; background:#FC0;}
+================================
+ex2) 테이블 처리- (odd:홀수, even:짝수)
+
+<style>
+table,th, td { border:1px solid #ddd;
+border-collapse:collapse;
+font-size:12px;
+font-family:'나눔고딕';
+padding:10px;}
+th {background:orange; color:#930;}
+tr:nth-child(odd) {background:#eee;}
+tr:nth-child(even) {background:#666;}
+</style>
+----------------
+<table>
+	<tr>
+		<th>번호</th>
+		<th>제목</th>
+		<th>이름</th>
+		<th>날짜</th>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>오늘 날씨가 참으로 좋습니다.</td>
+		<td>홍길동</td>
+		<td>2012-03-05</td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td>오늘 날씨가 참으로 좋습니다.</td>
+		<td>홍길동</td>
+		<td>2012-03-05</td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td>오늘 날씨가 참으로 좋습니다.</td>
+		<td>홍길동</td>
+		<td>2012-03-05</td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>오늘 날씨가 참으로 좋습니다.</td>
+		<td>홍길동</td>
+		<td>2012-03-05</td>
+	</tr>
+	<tr>
+		<td>5</td>
+		<td>오늘 날씨가 참으로 좋습니다.</td>
+		<td>홍길동</td>
+		<td>2012-03-05</td>
+	</tr>
+	<tr>
+		<td>6</td>
+		<td>오늘 날씨가 참으로 좋습니다.</td>
+		<td>홍길동</td>
+		<td>2012-03-05</td>
+	</tr>
+	<tr>
+		<td>7</td>
+		<td>오늘 날씨가 참으로 좋습니다.</td>
+		<td>홍길동</td>
+		<td>2012-03-05</td>
+	</tr>
+</table>
+
+---------------
+-수정
+
+td:nth-child(4n) {
+	background-color:yellow;	
+}
+td:nth-child(4n+1) {
+	background-color:blue;	
+}
+td:nth-child(4n+2) {
+	background-color:green;	
+}
+td:nth-child(4n+3) {
+	background-color:red;	
+}
+
+
+--------------------------------------------------------
+ex3)  :target
+
+<style>
+  section{width:600px; border:1px solid #ccc; padding:10px}
+  nav{overflow:hidden;}
+  ul{list-style:none;width:auto;padding:0;margin:0;}	
+  ul li{width:33%;float:left;border:1px solid #ccc;border-left:0;}
+  ul li:first-child{border-left: 1px solid #ccc;}
+  ul li a{display:block;padding:10px 0;text-align:center;
+		width:auto;background:#eee;color:#a00;font:bold 16px Arial;text-decoration:none;}		
+  article  p{display: none;}
+  article  p:target {display:block;border:1px solid #ccc;
+		padding:5px;background:#eee;line-height:1.5em;}		
+ </style>
+------------------------------
+ <section>
+    <nav>
+        <ul>
+            <li><a href="#html5">HTML5</a></li>
+            <li><a href="#css3">CSS3</a></li>
+            <li><a href="#js">JavaScript</a></li>
+        </ul>
+    </nav>
+    <article>
+        <p id="html5">
+            HTML5는 HTML 4.01, XHTML 1.0, DOM Level 2 HTML에 대한 차기 표준 제안이다. 최신 멀티미디어 콘텐츠를 브라우저에서 쉽고 용이하게 볼 수 있게하는 것을 목적으로 한다.
+        </p>
+        <p id="css3">
+            CSS 또는 캐스케이딩 스타일 시트(Cascading Style Sheet)는 마크업 언어가 실제 표시되는 방법을 기술하는 언어로, HTML과 XHTML에 주로 쓰이며, XML에서도 사용할 수 있다. W3C의 표준이며, 레이아웃과 스타일을 정의할 때의 자유도가 높다.
+        </p>
+        <p id="js">
+            자바스크립트(JavaScript)는 객체 기반의 스크립트 프로그래밍 언어이다. 이 언어는 웹 사이트에서의 사용으로 많이 알려졌지만, 다른 응용프로그램의 내장 객체에도 접근할 수 있는 기능을 가지고 있다.
+        </p>
+    </article>
+ </section>
+
+==========================================
+
+2. style
+
+1)style scoped = “scoped”  (아직 지원 브라우저는 없다.)
+-CSS3에서는 <style>요소 자체의 속성도 추가됨.
+CSS3에는 각 웹 브라우저에 독자적인 속성을 추가하는
+것을 허용하고 있다.
+특정 영역에 기본적으로 적용된 CSS를 사용하기 위해서는 Inline Type을 사용하거나, 먼저 지정된 속성을 해제하거나 해야 했지만 scoped속성을 사용하면 지정된 영역만 CSS속성을 적용할 수 있습니다.
+
+scoped속성이 사용되면 그 안에 지정된 속성들은
+<style> 요소의 부모 요소와 그 부모 요소의 자식 요소들에게만 적용됩니다.
+
+ex)
+<p>scoped 속성에 영향을 받지 않는 &lt;p&gt; 요소</p>
+
+<div id="scopedStyleSample">
+   <style scoped="scoped">
+   p{ color:#900; text-decoration:underline; }
+   </style>
+<p>scoped 속성에 영향을 받는 &lt;p&gt; 요소</p>
+<p>scoped 속성에 영향을 받는 &lt;p&gt; 요소</p>
+</div>
+
+<p>scoped 속성에 영향을 받지 않는 &lt;p&gt; 요소</p>
+
+-----------------------------------------
+2) Media Query
+-미디어 쿼리는 웹을 접속하는 기기의 화면 해상도에 따라 각각 다른 CSS를 적용해 주는 기능.
+같은 Screen이라도 해상도에 따라 CSS를 다르게 지정해 줄 수 있게 되었다.
+
+ex)
+<!--데스크 톱 환경 : 가로 해상도가 1,000px 이상에서 적용됨-->
+<style type="text/css" media="screen and (min-width:1000px)"> 
+   #exampleSub{}
+</style>
+
+<!--테블릿 환경 : 가로 해상도가 1,000px 미만 640px이상에서 적용됨-->
+<style type="text/css" media="screen and (min-width:640px) and (max-width:999px)"> 
+  #exampleSub{}
+</style>
+
+<!--모바일 환경 : 가로 해상도가 640px 미만에서 적용됨-->
+<style type="text/css" media="screen and (max-width:639px)">
+  #exampleSub{}
+</style>
+
+http://www.seoul.go.kr/main/index.html =>서울시 사이트
+
+===========================================
+3. color
+
+1)rgba([r],[g],[b],[a]) / hsla([h],[s],[l],[a])
+
+rgba([r],[g],[b],[a]);
+r: 빨간색의 수치 0~255
+g: 녹색의 수치 0~255
+b: 파란색의 수치 0~255
+a: 투명도 0~1
+
+hsla([h],[s],[l],[a]);
+h: 색상 값 0~360
+s: 채도 0~100%
+l: 명도 0~100%
+a: 투명도 0~1
+
+-배경뿐 아니라 모든 색상속성을
+지정하는 곳이면 어디든 사용 가능
+
+ex)
+<style>
+body{background:#F00}
+#rgbaBox .webstd{
+    width:600px;
+	padding:20px;
+                  margin-bottom:20px;
+	background:rgba(0,255,0,0.3);
+	font-size:14px;
+}
+#rgbaBox .html5Css3Text{
+	width:600px;
+	padding:20px;
+	background:url(images/back1.jpg) 0 0 no-repeat;
+	color:hsla(0,100%,60%,0.4);
+	font-size:14px;
+}
+</style>
+-----------
+<div id="rgbaBox">
+  <div class="webstd">
+    아름다운재단은 기업재단이나 가족재단과 달리 특정회사나 특정개인이 아니라 수많은 시민들의 참여로 운영됩니다. 
+아름다운재단을 운영하는 이사회 역시 기업관계자, 학계, NGO.NPO 지도자 등 다양한 일에 종사하는 인사들이 참여하여 우리사회 다양한 시각이 재단 운영과정 에 반영될 수 있도록 하고 있습니다. 
+  </div>
+  <div class="html5Css3Text">
+    아름다운재단의 이익은 모두 우리사회와 시민들의 이익으로 되돌아갑니다. 
+아름다운재단의 기금은 우리사회에서 일하고, 살아가는 사람들의 필요에 부응하며, 우리사회의 긍정적인 변화를 위해 일하는 다양한 공익활동에 쓰여집니다. 
+또한 지역재단의 자산의 이익도 역시 지역사회로 환원되도록 해야 합니다.
+  </div>
+</div>
+----------------------------------------------
+2) opacity
+-요소 box 전체의 투명도를 조절
+
+opacity: fx ;
+요소의 투명도 지정속성 값
+fx: 요소의 투명도 지정 0 ~ 1 사이 값
+
+ex)
+<style>
+body{background:#F00}
+#opacityBox .webstdText{
+	width:600px;
+	padding:20px;
+	margin-bottom:20px;
+	border:5px solid #fff;
+	background:#0F0;
+	opacity:0.5;
+}
+#opacityBox .html5Css3Text{
+	width:600px;
+	padding:20px;
+	background:url(images/back1.jpg) 0 0 no-repeat;
+	border:5px solid #00f;
+	color:#F00;
+	opacity:0.3;
+}
+</style>
+-----------
+<div id="opacityBox">
+  <div class="webstdText">
+    아름다운재단은 기업재단이나 가족재단과 달리 특정회사나 특정개인이 아니라 수많은 시민들의 참여로 운영됩니다. 
+아름다운재단을 운영하는 이사회 역시 기업관계자, 학계, NGO.NPO 지도자 등 다양한 일에 종사하는 인사들이 참여하여 우리사회 다양한 시각이 재단 운영과정 에 반영될 수 있도록 하고 있습니다. 
+  </div>
+  <div class="html5Css3Text">
+    아름다운재단의 이익은 모두 우리사회와 시민들의 이익으로 되돌아갑니다. 
+아름다운재단의 기금은 우리사회에서 일하고, 살아가는 사람들의 필요에 부응하며, 우리사회의 긍정적인 변화를 위해 일하는 다양한 공익활동에 쓰여집니다. 
+또한 지역재단의 자산의 이익도 역시 지역사회로 환원되도록 해야 합니다.
+  </div>
+</div>
+
+----------------------------------------------
+3) gradient
+-단계적 색 적용을 위한…
+(크롬,사파리 / 파이어폭스 지원)
+
+*라인 그라이언트
+
+1.웹킷 계열
+
+-webkit-gradient(
+            linear,
+            [그라디언트 시작점] ,[그라디언트 종료점] 
+            from([시작색상]),
+            color-stop([변환점위치],[변환점색상])
+            to([종료색상])
+            );
+
+2.파이어 폭스
+
+-moz-linear-gradient(
+            [그라디언트 시작점] ,
+            [그라디언트 경사], 
+            [시작색상],
+            [변환점색상]
+            [종료색상]
+            );
+
+* 원형 그라이언트
+
+1.웹킷 계열
+
+-webkit-gradient(
+            radial,
+            [하이라이트 원의 원점x좌표] ,
+            [하이라이트 원의 원점y좌표],
+            [하이라이트 원의 반지름] ,
+            [페이드 아웃 원의 반지름],
+            [페이드 아웃 원의 원점x좌표],
+            [페이드 아웃 원의 원점y좌표],
+            from([시작색상]),
+            color-stop([변환점위치],[변환점색상])
+            to([종료색상])
+            );
+ 
+2.파이어 폭스
+-moz-linear-gradient(
+            [원형 그라디언트의 시점] ,
+            [원형 그라디언트의 형태(원형/타원형)], 
+            [시작색상]
+            [변환점색상]
+            [종료색상]
+            );
+
+ex)
+<style>
+#gradientBox div{margin-bottom:10px}
+#gradientBox .gradient1{
+  width:600px;
+  padding:20px;
+  background:#676300;
+  background:-webkit-gradient(linear, left bottom, right top, from(#00f), to(#fff));
+  background:-moz-linear-gradient(bottom 45deg,#00f,#fff);
+}
+#gradientBox .gradient2{
+  width:600px;
+  padding:20px;
+  background: -webkit-linear-gradient(top, #bfd255 0%,#8eb92a 50%,#72aa00 51%,#9ecb2d 100%);
+  background: -moz-linear-gradient(top, #bfd255 0%, #8eb92a 50%, #72aa00 51%, #9ecb2d 100%);
+}
+#gradientBox .gradient3{
+  width:600px;
+  padding:20px;
+  background: -webkit-radial-gradient(center, ellipse cover, #e3f0f4 0%,#0fb4e7 100%); 
+  background: -moz-radial-gradient(center, ellipse cover, #e3f0f4 0%, #0fb4e7 100%); 
+}
+</style>
+---------------
+<div id="gradientBox">
+  <div class="gradient1">
+    아름다운재단은 기업재단이나 가족재단과 달리 특정회사나 특정개인이 아니라 수많은 시민들의 참여로 운영됩니다. 
+아름다운재단을 운영하는 이사회 역시 기업관계자, 학계, NGO.NPO 지도자 등 다양한 일에 종사하는 인사들이 참여하여 우리사회 다양한 시각이 재단 운영과정 에 반영될 수 있도록 하고 있습니다. 
+  </div>
+  <div class="gradient2">
+    아름다운재단의 이익은 모두 우리사회와 시민들의 이익으로 되돌아갑니다. 
+아름다운재단의 기금은 우리사회에서 일하고, 살아가는 사람들의 필요에 부응하며, 우리사회의 긍정적인 변화를 위해 일하는 다양한 공익활동에 쓰여집니다. 
+또한 지역재단의 자산의 이익도 역시 지역사회로 환원되도록 해야 합니다.
+  </div>
+  <div class="gradient3">
+    도움을 주고받는 과정에서 도움 받는 사람이나 현장이 치유되고 성장할 수 있는 과정을 중요하게 생각합니다. 돈은 관심과 관계를 맺어가는 과정의 일부입니다. 우리는 그 관심과 관계를 통해 변화를 만들어가고자 합니다.
+  </div>
+</div>
+
+
+*그라디언트 제네레이터로 만들자!!
+-http://www.colorzilla.com/gradient-editor/
+
+========================================
+4. border
+
+1)border-radius
+-둥근 모서리 사각형 만들기
+
+border-radius:[length];
+    Box Model 외각선의 곡률 지정
+속성 값
+    length : 곡률의 크기 border-top-left-radius / border-top-right-radius / border-bottom-left/ border-bottom-right으로 개별 지정 가능
+
+-webkit-
+-webkit-border-radius: 값 ;
+-webkit-border-top-left-radius: 값 ;
+
+-moz-
+-moz-border-radius: 값 ;
+-moz-border-radius-topleft: 값 ;
+
+ex)
+<style>
+#borderBox div{margin-bottom:10px; line-height:1.5em; 
+                 font-size:14px; text-align:justify;}
+#borderBox .borderBox01{
+	 width:600px;
+	 padding:15px;
+	 background:#CCC; 
+	 border-radius:30px; 
+	-webkit-border-radius:30px; 
+	-moz-border-radius:30px; }                   
+#borderBox .borderBox02{ 
+	width:600px;
+	padding:15px;
+	background:#d9da55; 
+	border-top-left-radius:20px; 
+	-webkit-border-top-left-radius:20px;                 
+	-moz-border-radius-topleft:20px; 
+    border-top-right-radius:20px;
+	-webkit-border-top-right-radius:20px;                   
+	-moz-border-radius-topright:20px;	
+} 				 
+#borderBox .borderBox03{ 
+	width:600px;
+	padding:15px;
+	border:2px solid #ccc;
+	border-radius:10px; 
+	-webkit-border-radius:10px; 
+	-moz-border-radius:10px;  
+}
+</style>
+----------------
+<div id="borderBox">
+  <div class="borderBox01">
+    아름다운재단은 기업재단이나 가족재단과 달리 특정회사나 특정개인이 아니라 수많은 시민들의 참여로 운영됩니다. 
+아름다운재단을 운영하는 이사회 역시 기업관계자, 학계, NGO.NPO 지도자 등 다양한 일에 종사하는 인사들이 참여하여 우리사회 다양한 시각이 재단 운영과정 에 반영될 수 있도록 하고 있습니다. 
+  </div>
+  <div class="borderBox02">
+    아름다운재단의 이익은 모두 우리사회와 시민들의 이익으로 되돌아갑니다. 
+아름다운재단의 기금은 우리사회에서 일하고, 살아가는 사람들의 필요에 부응하며, 우리사회의 긍정적인 변화를 위해 일하는 다양한 공익활동에 쓰여집니다. 
+또한 지역재단의 자산의 이익도 역시 지역사회로 환원되도록 해야 합니다.
+  </div>
+  <div class="borderBox03">
+    도움을 주고받는 과정에서 도움 받는 사람이나 현장이 치유되고 성장할 수 있는 과정을 중요하게 생각합니다. 돈은 관심과 관계를 맺어가는 과정의 일부입니다. 우리는 그 관심과 관계를 통해 변화를 만들어가고자 합니다.
+  </div>
+</div>
+
+-----------------------------------------
+2) border-image
+-보더를 이미지로 꾸밀 수 있다.
+
+boder-image : source slice repeat repeat;
+
+repeat값
+stretch : 영역을 채울만큼 늘린다
+repeat : 반복하여 채운다.
+round : 반복하되 마지막에 이미지가 잘리지않게 줄인다.
+space : 반복하되 마지막에 이미지가 잘릴 수 있다.
+
+Slice값 : top rigth bottom left 
+
+ex)
+<style>
+#borderImageBox div{font-family:"돋움"; font-size:14px;
+      text-align:justify; line-height:1.5em; padding:5px; color:#666}
+#borderImageBox .borderImageBox01{
+  width:600px;
+  border:20px;
+  border-image:url(images/borderImg.png) 40 40 40 40 round round;
+  -webkit-border-image:url(images/borderImg.png) 40 40 40 40 round round;
+  -moz-border-image:url(images/borderImg.png) 40 40 40 40 round round;
+  -o-border-image:url(images/borderImg.png) 40 40 40 40 round round;	
+}
+#borderImageBox .borderImageBox02{
+  width:600px;
+  border:20px;
+  margin-top:40px;
+  border-image:url(images/borderImg.png) 40 40 stretch stretch;
+  -webkit-border-image:url(images/borderImg.png) 40 40 40 40 stretch stretch;
+  -moz-border-image:url(images/borderImg.png) 40 40 40 40 stretch stretch;
+  -o-border-image:url(images/borderImg.png) 40 40 40 40 stretch stretch;
+}
+</style>
+--------------
+<div id="borderImageBox">
+  <div class="borderImageBox01">
+    아름다운재단은 기업재단이나 가족재단과 달리 특정회사나 특정개인이 아니라 수많은 시민들의 참여로 운영됩니다. 
+아름다운재단을 운영하는 이사회 역시 기업관계자, 학계, NGO.NPO 지도자 등 다양한 일에 종사하는 인사들이 참여하여 우리사회 다양한 시각이 재단 운영과정 에 반영될 수 있도록 하고 있습니다. 
+  </div>
+  <div class="borderImageBox02">
+    아름다운재단의 이익은 모두 우리사회와 시민들의 이익으로 되돌아갑니다. 
+아름다운재단의 기금은 우리사회에서 일하고, 살아가는 사람들의 필요에 부응하며, 우리사회의 긍정적인 변화를 위해 일하는 다양한 공익활동에 쓰여집니다. 
+또한 지역재단의 자산의 이익도 역시 지역사회로 환원되도록 해야 합니다.
+  </div>
+</div>
+-------------------------------------------------------
+3) box-shadow
+-박스에 그림자를 넣는 속성.
+
+box-shadow : [dx] [dy] [bulr] [spread] [color] [set]
+가로방향 세로방향 흐려짐 번짐 색상 형태(inset/outset) ;
+
+ex)
+<style>
+#boxShadowBox div{font-family:"돋움"; font-size:14px;
+      text-align:justify; line-height:1.5em; padding:5px; color:#666}
+#boxShadowBox .boxShadowBox01{
+  width:600px;
+  border:40px;
+  box-shadow:10px 10px 5px 5px gray outset;
+  -webkit-box-shadow:10px 10px 5px 5px gray;
+  -moz-box-shadow:10px 10px 5px 5px gray;
+}
+#boxShadowBox .boxShadowBox02{
+  width:600px;
+  border:40px;
+  margin-top:40px;
+  box-shadow:10px 10px 5px 5px gray inset;
+  -webkit-box-shadow:10px 10px 5px 5px gray inset;
+  -moz-box-shadow:10px 10px 5px 5px gray inset; 
+}
+</style>
+-----------
+<div id="boxShadowBox">
+  <div class="boxShadowBox01">
+    아름다운재단은 기업재단이나 가족재단과 달리 특정회사나 특정개인이 아니라 수많은 시민들의 참여로 운영됩니다. 
+아름다운재단을 운영하는 이사회 역시 기업관계자, 학계, NGO.NPO 지도자 등 다양한 일에 종사하는 인사들이 참여하여 우리사회 다양한 시각이 재단 운영과정 에 반영될 수 있도록 하고 있습니다. 
+  </div>
+  <div class="boxShadowBox02">
+    아름다운재단의 이익은 모두 우리사회와 시민들의 이익으로 되돌아갑니다. 
+아름다운재단의 기금은 우리사회에서 일하고, 살아가는 사람들의 필요에 부응하며, 우리사회의 긍정적인 변화를 위해 일하는 다양한 공익활동에 쓰여집니다. 
+또한 지역재단의 자산의 이익도 역시 지역사회로 환원되도록 해야 합니다.
+  </div>
+</div>
+---------------------------------------------------
+4) outline-offset  
+-요소의 외곽선을 그리는 속성. 표시만 될 뿐 영역을 차지하지는 않는다.
+
+outline
+    요소의 아웃라인을 그림 border와는 별개의 속성이며 border를 설정한는 것과 같이 아래의 속성을 단축하여 사용할 수 있음
+    outline-style : 아웃라인의 형식
+    outline-color : 아웃라인의 색상
+    outline-width : 아웃라인의 두께
+    outline-offset:[d];
+    d : 아웃라인을 옵셋시키는 거리로 음수값도 가능함
+
+ex)
+<style>
+#outlineBox .outlineBox01{
+  width:600px;
+  border:40px;
+  background:#d9da55; 
+  border:#999 solid 5px; 
+  outline-style:dashed;            
+  outline-width:5px;
+  outline-color:#676300;           
+  outline-offset:-20px;
+}
+#outlineBox .outlineBox02{
+  width:600px;
+  border:40px;
+  margin-top:40px;
+  background:#afbc22; 
+  border:#999 solid 5px; 
+  outline:#676300 double 5px;
+  outline-offset:20px;            
+}
+</style>
+--------------
+<div id="outlineBox">
+  <div class="outlineBox01">
+    아름다운재단은 기업재단이나 가족재단과 달리 특정회사나 특정개인이 아니라 수많은 시민들의 참여로 운영됩니다. 
+아름다운재단을 운영하는 이사회 역시 기업관계자, 학계, NGO.NPO 지도자 등 다양한 일에 종사하는 인사들이 참여하여 우리사회 다양한 시각이 재단 운영과정 에 반영될 수 있도록 하고 있습니다. 
+  </div>
+  <div class="outlineBox02">
+    아름다운재단의 이익은 모두 우리사회와 시민들의 이익으로 되돌아갑니다. 
+아름다운재단의 기금은 우리사회에서 일하고, 살아가는 사람들의 필요에 부응하며, 우리사회의 긍정적인 변화를 위해 일하는 다양한 공익활동에 쓰여집니다. 
+또한 지역재단의 자산의 이익도 역시 지역사회로 환원되도록 해야 합니다.
+  </div>
+</div>
+
+========================================
+5. background
+
+1) background
+-css3에서는 백그라운드 이미지를 여러개를 사용할수 있게 되었음
+-브라우저가 읽지 못할 경우를 대비해서 일반 배경이미지를 넣어 둔다
+
+ex)
+<style>
+#backgroundBox .backgroundBox01{
+  width:600px;
+  border:1px solid #ccc;
+  background:url(images/coforwardQr2.png);
+  background:
+   url(images/checkBox1.png) left top no-repeat,
+   url(images/checkbox2.png) right top no-repeat,
+   url(images/checkbox3.png) left bottom no-repeat,
+   url(images/checkbox4.png) right bottom no-repeat,
+   url(images/checkbox5.png) center center no-repeat,
+   url(images/coforwardText.png) center center no-repeat;
+}
+</style>
+------------
+<div id="backgroundBox">
+  <div class="backgroundBox01">
+    아름다운재단은 기업재단이나 가족재단과 달리 특정회사나 특정개인이 아니라 수많은 시민들의 참여로 운영됩니다. 
+아름다운재단을 운영하는 이사회 역시 기업관계자, 학계, NGO.NPO 지도자 등 다양한 일에 종사하는 인사들이 참여하여 우리사회 다양한 시각이 재단 운영과정 에 반영될 수 있도록 하고 있습니다. 
+    아름다운재단의 이익은 모두 우리사회와 시민들의 이익으로 되돌아갑니다. 
+아름다운재단의 기금은 우리사회에서 일하고, 살아가는 사람들의 필요에 부응하며, 우리사회의 긍정적인 변화를 위해 일하는 다양한 공익활동에 쓰여집니다. 
+또한 지역재단의 자산의 이익도 역시 지역사회로 환원되도록 해야 합니다.
+  </div>
+</div>
+
+---------------------------------------------
+2) background-clip
+-배경이미지의 영향을 받는 부분을 board영역까지 확장할 수 있는 속성.
+
+background-clip : [keyword];
+    백 그라운 이미지 표시 영역을 지정함.
+속성 값
+    keyword :
+        padding-box : padding영역부터 까지 배경 이미지를 표시함 (기본값)
+        border-box : border영역까지 배경 이미지를 표시함
+
+ex)
+<style>
+#clipBox .clipBox01{
+  width:600px;
+  padding:20px;
+  border:20px dotted #FF9;
+  background:url(images/photo3.gif);
+  background-clip:border-box;
+  -webkit-background-clip:border-box;
+  -moz-background-clip:border-box;
+}
+#clipBox .clipBox02{
+  width:600px;
+  margin-top:50px;
+  padding:20px;
+  border:20px dotted #FF9;
+  background:url(images/photo3.gif);
+  background-clip:padding-box;
+  -webkit-background-clip:padding-box;
+  -moz-background-clip:padding-box;
+}
+</style>
+--------
+<div id="clipBox">
+  <div class="clipBox01">
+    아름다운재단은 기업재단이나 가족재단과 달리 특정회사나 특정개인이 아니라 수많은 시민들의 참여로 운영됩니다. 
+아름다운재단을 운영하는 이사회 역시 기업관계자, 학계, NGO.NPO 지도자 등 다양한 일에 종사하는 인사들이 참여하여 우리사회 다양한 시각이 재단 운영과정 에 반영될 수 있도록 하고 있습니다. 
+  </div>
+  <div class="clipBox02">
+    아름다운재단의 이익은 모두 우리사회와 시민들의 이익으로 되돌아갑니다. 
+아름다운재단의 기금은 우리사회에서 일하고, 살아가는 사람들의 필요에 부응하며, 우리사회의 긍정적인 변화를 위해 일하는 다양한 공익활동에 쓰여집니다. 
+또한 지역재단의 자산의 이익도 역시 지역사회로 환원되도록 해야 합니다.
+  </div>
+</div>
+
+-------------------------------------------
+3) background-origin
+-배경의 원점을 지정하는 속성(padding/border/content)
+
+background-origin : [keyword];
+    백 그라운 이미지 원점을 지정함.
+속성 값
+    keyword :
+        padding-box : padding영역부터 이미지를 배치함 (기본값)
+        border-box : border영역부터 이미지를 배치함
+        content-box : content영역부터 이미지를 배치함
+
+ex)
+<style>
+#originBox .originBox01{
+  width:600px;  padding:20px border:20px dotted #FF9;
+  background:#999 url(images/photo3.gif) no-repeat;
+  background-origin:border-box;
+  -webkit-background-origin:border-box;
+  -moz-background-origin:border-box; }
+#originBox .originBox02{
+  width:600px; padding:20px; border:20px dotted #FF9;
+  background:#999 url(images/photo3.gif) no-repeat;
+  background-origin:padding-box;
+  -webkit-background-origin:padding-box;
+  -moz-background-origin:padding-box; }
+#originBox .originBox03{
+  width:600px; padding:20px; border:20px dotted #FF9;
+  background:#999 url(images/photo3.gif) no-repeat;
+  background-origin:content-box;
+  -webkit-background-origin:content-box;
+  -moz-background-origin:content-box; }
+</style>
+-----------------
+<div id="originBox">
+  <div class="originBox01">
+    아름다운재단은 기업재단이나 가족재단과 달리 특정회사나 특정개인이 아니라 수많은 시민들의 참여로 운영됩니다. 
+아름다운재단을 운영하는 이사회 역시 기업관계자, 학계, NGO.NPO 지도자 등 다양한 일에 종사하는 인사들이 참여하여 우리사회 다양한 시각이 재단 운영과정 에 반영될 수 있도록 하고 있습니다. 
+  </div>
+  <div class="originBox02">
+    아름다운재단의 이익은 모두 우리사회와 시민들의 이익으로 되돌아갑니다. 
+아름다운재단의 기금은 우리사회에서 일하고, 살아가는 사람들의 필요에 부응하며, 우리사회의 긍정적인 변화를 위해 일하는 다양한 공익활동에 쓰여집니다. 
+또한 지역재단의 자산의 이익도 역시 지역사회로 환원되도록 해야 합니다.
+  </div>
+  <div class="originBox03">
+    도움을 주고받는 과정에서 도움 받는 사람이나 현장이 치유되고 성장할 수 있는 과정을 중요하게 생각합니다. 돈은 관심과 관계를 맺어가는 과정의 일부입니다. 우리는 그 관심과 관계를 통해 변화를 만들어가고자 합니다.
+  </div>
+</div>
+
+----------------------------------------------------------
+4) background-size 
+-배경이미지 자체의 크기를 제어할 수 있음
+
+background-size : [x], [y];
+    백 그라운 이미지의 크기를 지정한다.
+속성 값
+    [x]% [y]% : 적용되는 요소의 크기에 비례하여 배경 이미지 적용
+    [x]px [y]px : 절대 크기로 배경 이미지 적용
+    cover : 배경 이미지를 늘여 적용되는 요소 전체에 표시
+    contain : 배경 이미지의 가로 세로 비율을 맞춰 요소에 표시할수 있는 최대 크기로 표시
+
+ex)
+<style>
+#sizeBox .sizeBox01{
+  width:600px;
+  background:url(images/photo3.gif) right bottom no-repeat;
+  background-size:50px 50px;
+  -webkit-background-size:50px 50px;
+  -moz-background-size:50px 50px;
+}
+#sizeBox .sizeBox02{
+  width:600px; margin-top:20px;
+  background:url(images/photo3.gif) right bottom no-repeat;
+  background-size:cover;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+}
+#sizeBox .sizeBox03{
+  width:600px; height:300px; margin-top:20px;
+  background:url(images/photo3.gif) right bottom no-repeat;
+  background-size:contain;
+  -webkit-background-size:contain;
+  -moz-background-size:contain;
+}
+</style>
+-------------------
+<div id="sizeBox">
+  <div class="sizeBox01">
+    아름다운재단은 기업재단이나 가족재단과 달리 특정회사나 특정개인이 아니라 수많은 시민들의 참여로 운영됩니다. 
+아름다운재단을 운영하는 이사회 역시 기업관계자, 학계, NGO.NPO 지도자 등 다양한 일에 종사하는 인사들이 참여하여 우리사회 다양한 시각이 재단 운영과정 에 반영될 수 있도록 하고 있습니다. 
+  </div>
+  <div class="sizeBox02">
+    아름다운재단의 이익은 모두 우리사회와 시민들의 이익으로 되돌아갑니다. 
+아름다운재단의 기금은 우리사회에서 일하고, 살아가는 사람들의 필요에 부응하며, 우리사회의 긍정적인 변화를 위해 일하는 다양한 공익활동에 쓰여집니다. 
+또한 지역재단의 자산의 이익도 역시 지역사회로 환원되도록 해야 합니다.
+  </div>
+  <div class="sizeBox03">
+    도움을 주고받는 과정에서 도움 받는 사람이나 현장이 치유되고 성장할 수 있는 과정을 중요하게 생각합니다. 돈은 관심과 관계를 맺어가는 과정의 일부입니다. 우리는 그 관심과 관계를 통해 변화를 만들어가고자 합니다.
+  </div>
+</div>
+
+===========================================
+6. font&text
+
+1) @font-face
+-웹 페이지에서 사용되는 폰트를 서버로부터 내려받아 사용자의 
+  기기에 설치되어 있지 않은 폰트를 웹상에 표시함.
+-eot폰트로 변환하기
+http://www.eotfast.com
+무료다운로드후 설치!
+변환할 ttf파일을 복사해서 폴더로 옮긴후
+OETFAST-1파일위로 드래그!!
+
+@font-face{ 
+           font-family:[폰트명으로 사용할 이름]; 
+           src:local([사용자 컴퓨터에서 찾아볼 폰트이름]), 
+           url([서버 측의 폰트경로]) format([폰트형식]); 
+ }
+
+ex)
+<style>
+@font-face{
+	font-family:nanumFont;
+	src:url('images/nanum.eot');
+	src:local('nanumgothicExtraBold'), url('images/nanum.ttf') format('truetype');
+}
+ @font-face{
+            font-family:DaumFont;
+            src:url('font/Daum_SemiBold.eot');
+            src:url('font/Daum_SemiBold.ttf') format('truetype');
+  }
+#fontBox .fontBox01{
+  width:600px; border:1px solid #666;
+  font-family:nanumFont,"돋움",dotum;
+}
+#fontBox .fontBox02{
+  width:600px; border:1px solid #666; 
+  margin-top:20px;
+  font-family:DaumFont,"굴림",gulim;
+}
+#fontBox .fontBox03{
+  width:600px; border:1px solid #666; 
+  margin-top:20px; font-size:24px;
+  font-family:"굴림",gulim;
+}
+</style>
+--------------
+<div id="fontBox">
+  <div class="fontBox01">
+    아름다운재단은 기업재단이나 가족재단과 달리 특정회사나 특정개인이 아니라 수많은 시민들의 참여로 운영됩니다. 
+아름다운재단을 운영하는 이사회 역시 기업관계자, 학계, NGO.NPO 지도자 등 다양한 일에 종사하는 인사들이 참여하여 우리사회 다양한 시각이 재단 운영과정 에 반영될 수 있도록 하고 있습니다. 
+  </div>
+  <div class="fontBox02">
+    아름다운재단의 이익은 모두 우리사회와 시민들의 이익으로 되돌아갑니다. 
+아름다운재단의 기금은 우리사회에서 일하고, 살아가는 사람들의 필요에 부응하며, 우리사회의 긍정적인 변화를 위해 일하는 다양한 공익활동에 쓰여집니다. 
+또한 지역재단의 자산의 이익도 역시 지역사회로 환원되도록 해야 합니다.
+  </div>
+  <div class="fontBox03">
+    This taut politically charged mystery, about an Arab doctor seeking the truth as to whether his wife was a suicide bomber, will grip you from the start. The film, which was initially banned in Lebanon, takes neither a pro- nor anti-Israeli stance. 
+  </div>
+</div>
+
+-----------------------------------------------------
+@font-face{
+        font-family:torontozoopenguins;
+		src:url('images/torontozoopenguins.eot');
+		src:url('images/torontozoopenguins.ttf') format('truetype');
+}
+----------------------------------------------------
+2) text-overflow
+-문장이 요소 box의 폭보다 더 길 경우, 어떻게 표현할 것인가를 지정.
+
+text-overflow:[keyword];
+    오버플로어 되는 텍스트의 표시를 지정
+속성 값
+    clip : 지정된 영역의 크기로 잘라낸다.
+    ellipsis : 지정된 영역의 크기에 맞게 말줄임표를 표시한다.
+
+ex)
+<style>
+#overflowBox .overflowBox01{
+  width:600px; border:1px solid #666;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:clip;
+  -o-text-overflow:clip;
+}
+#overflowBox .overflowBox02{
+  width:600px; border:1px solid #666; 
+  margin-top:20px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  -o-text-overflow:ellipsis;
+}
+</style>
+--------------
+<div id="overflowBox">
+  <div class="overflowBox01">
+    아름다운재단은 기업재단이나 가족재단과 달리 특정회사나 특정개인이 아니라 수많은 시민들의 참여로 운영됩니다. 
+아름다운재단을 운영하는 이사회 역시 기업관계자, 학계, NGO.NPO 지도자 등 다양한 일에 종사하는 인사들이 참여하여 우리사회 다양한 시각이 재단 운영과정 에 반영될 수 있도록 하고 있습니다. 
+  </div>
+  <div class="overflowBox02">
+    아름다운재단의 이익은 모두 우리사회와 시민들의 이익으로 되돌아갑니다. 
+아름다운재단의 기금은 우리사회에서 일하고, 살아가는 사람들의 필요에 부응하며, 우리사회의 긍정적인 변화를 위해 일하는 다양한 공익활동에 쓰여집니다. 
+또한 지역재단의 자산의 이익도 역시 지역사회로 환원되도록 해야 합니다.
+  </div>
+</div>
+
+-----------------------------------------------------------
+3)text-shadow
+-문자에 그림자를 넣어주는 속성
+
+text-shadow:[dx] [dy] [bulr] [color];
+    텍스트에 그림자를 지정함
+속성 값
+    dx : 본체와 그림자의 가로방향 거리
+    dy : 본체와 그림자의 세로방향 거리
+    bulr : 그림자의 흐려짐 정도
+    color : 그림자의 색상
+
+ex)
+<style>
+@font-face{
+	font-family:nanumFont;
+	src:url('images/nanum.eot');
+	src:local('nanumgothicExtraBold'), url('images/nanum.ttf') format('truetype');
+}
+#shadowBox .shadowBox01{
+  font-family:nanumFont; color:#FFF; text-align:center;
+  width:600px; border:1px solid #666; font-size:40px;
+  background:#afbc22; padding:20px 0;
+  text-shadow:3px 3px 5px #000;
+}
+#shadowBox .shadowBox02{
+  font-family:nanumFont;color:#fff;
+  width:600px;  font-size:40px;
+  margin-top:20px; text-align:center;
+  background:#000; padding:20px 0;
+  text-shadow:
+	  0 0 4px #ccc,
+	  0 -3px 4px #ff3,
+	  1px -6px 6px #fd3,
+	  -1px -9px 11px #f80,
+	  1px -12px 18px #f20;
+}
+</style>
+--------------
+<div id="shadowBox">
+  <div class="shadowBox01">
+    아름다운재단 
+  </div>
+  <div class="shadowBox02">
+    아름다운재단
+  </div>
+</div>
+
+------------------------------------------------
+4) word-wrap
+-공란이 없는 구간에서는 줄바꿈이 되질 않는다 이를 처리하는 속성.
+
+-word-wrap:[keyword];
+    줄 바꿈 속성을 지정
+속성 값
+    keyword
+        nomal : 공란이 없을경우 줄바꿈을 하지 않음 (기본값)
+        break-wrod : 공란이 없어도 요소의 폭보다 문장의 길이가 길어질경우 줄바꿈을 하지 함 (기본값)
+
+ex)
+<style>
+#wrapBox .wrapBox01{
+  width:600px; border:1px solid #666; 
+   word-wrap:normal;
+}
+#wrapBox .wrapBox02{
+  width:600px; border:1px solid #666;
+  margin-top:20px;
+   word-wrap:break-word;
+}
+</style>
+------------
+<div id="wrapBox">
+  <div class="wrapBox01">
+    The_word-wrap_property_was invented_by_Microsoft_and_added_to_CSS3.it_allows_long_words_to_be_able_to_be_broken_and_wrap_onto_the_next_line. 
+  </div>
+  <div class="wrapBox02">
+    The_word-wrap_property_was invented_by_Microsoft_and_added_to_CSS3.it_allows_long_words_to_be_able_to_be_broken_and_wrap_onto_the_next_line.
+  </div>
+</div>
+
+-----------------------------------------------
+5) column-
+-다단 문서를 표현해 주는 속성.
+
+column
+문장을 다단으로 표시함
+column-count : 단의 수 
+column-width : 단의 폭 
+column-gap : 단과 단 사이의 거리
+column-rule : 단과 단 사이의 구분선 지정
+columns : 한단의폭 단의개수
+*column-width:300px; column-count:2;   =>  columns:300px 2;  로 줄여 쓸수 있다.
+
+ex)
+<style>
+#columnBox .columnBox01{
+   border:1px solid #666; 
+   columns:200px 3;
+   column-rule:1px solid #ccc;
+   column-gap:40px;
+
+  -webkit-columns:200px 3;
+  -webkit-column-rule:1px solid #ccc;
+  -webkit-column-gap:40px;
+  -moz-column-width:200px;
+  -moz-column-count:3;
+  -moz-column-rule:1px solid #ccc;
+  -moz-column-gap:40px; 
+}
+#columnBox .columnBox02{
+  border:1px solid #666;
+  margin-top:20px;
+  column-width:33%;
+  column-count:3;
+  column-rule:1px solid #ccc;
+  column-gap:20px;
+
+  -webkit-column-width:33%;
+  -webkit-column-count:3;
+  -webkit-column-rule:1px solid #ccc;
+  -webkit-column-gap:20px;
+  -moz-column-width:33%;
+  -moz-column-count:3;
+  -moz-column-rule:1px solid #ccc;
+  -moz-column-gap:20px;
+}
+</style>
+-----------------
+<div id="columnBox">
+  <div class="columnBox01">
+    아름다운재단은 기업재단이나 가족재단과 달리 특정회사나 특정개인이 아니라 수많은 시민들의 참여로 운영됩니다. 
+아름다운재단을 운영하는 이사회 역시 기업관계자, 학계, NGO.NPO 지도자 등 다양한 일에 종사하는 인사들이 참여하여 우리사회 다양한 시각이 재단 운영과정 에 반영될 수 있도록 하고 있습니다. 
+  </div>
+  <div class="columnBox02">
+  아름다운재단의 이익은 모두 우리사회와 시민들의 이익으로 되돌아갑니다. 
+아름다운재단의 기금은 우리사회에서 일하고, 살아가는 사람들의 필요에 부응하며, 우리사회의 긍정적인 변화를 위해 일하는 다양한 공익활동에 쓰여집니다. 
+또한 지역재단의 자산의 이익도 역시 지역사회로 환원되도록 해야 합니다.도움을 주고받는 과정에서 도움 받는 사람이나 현장이 치유되고 성장할 수 있는 과정을 중요하게 생각합니다. 돈은 관심과 관계를 맺어가는 과정의 일부입니다. 우리는 그 관심과 관계를 통해 변화를 만들어가고자 합니다.
+  </div>
+</div>
+
+========================================
+7. rendering
+
+1) box-sizing
+-요소박스의 크기영역을 지정해주는 속성
+
+box-sizing :
+content-box : width와 height는 content만의 크기로 적용됨 (CSS2표준방법)
+border-box : width와 height는 padding과 border를 포함한 크기로 적용됨 (기존 IE 모드)
+
+가변폭으로 표시되어야 할 경우 border-box로 계산하게 되면 float의 적용이 더 쉬워진다.
+padding과 border값이 영향을 주지 않기 때문에 크기
+계산이 더 쉬워진다.
+
+ex)
+<style>
+.contentBox{
+	width:600px;
+	padding:20px;
+	border:#096 solid 20px;
+	box-sizing:content-box;
+	-webkit-box-sizing:content-box;
+	-moz-box-sizing:content-box;
+}
+.borderBox{
+	width:600px;
+	padding:20px;
+	border:#096 solid 20px;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+}
+</style>
+-------------------
+  <div class="contentBox">
+    아름다운재단은 기업재단이나 가족재단과 달리 특정회사나 특정개인이 아니라 수많은 시민들의 참여로 운영됩니다. 
+아름다운재단을 운영하는 이사회 역시 기업관계자, 학계, NGO.NPO 지도자 등 다양한 일에 종사하는 인사들이 참여하여 우리사회 다양한 시각이 재단 운영과정 에 반영될 수 있도록 하고 있습니다. 
+  </div>
+  <div class="borderBox">
+  아름다운재단의 이익은 모두 우리사회와 시민들의 이익으로 되돌아갑니다. 
+아름다운재단의 기금은 우리사회에서 일하고, 살아가는 사람들의 필요에 부응하며, 우리사회의 긍정적인 변화를 위해 일하는 다양한 공익활동에 쓰여집니다. 
+또한 지역재단의 자산의 이익도 역시 지역사회로 환원되도록 해야 합니다.도움을 주고받는 과정에서 도움 받는 사람이나 현장이 치유되고 성장할 수 있는 과정을 중요하게 생각합니다. 돈은 관심과 관계를 맺어가는 과정의 일부입니다. 우리는 그 관심과 관계를 통해 변화를 만들어가고자 합니다.
+  </div>
+
+-------------------------------------------------------
+2) resize
+-지정된 요소의 크기를 바꿔주는 속성
+
+resize : 
+horizontal : 가로방향의 크기를 변경을 할수 있음
+vertical : 세로방향의 크기를 변경을 할수 있음
+both : 양 방향의 크기를 변경을 할수 있음
+
+ex)
+<style>
+.contentBox{
+	width:600px;
+	border:1px solid #096;
+              padding:10px;
+              resize:both;
+	overflow:auto;
+}
+</style>
+-------------
+  <div class="contentBox">
+    아름다운재단은 기업재단이나 가족재단과 달리 특정회사나 특정개인이 아니라 수많은 시민들의 참여로 운영됩니다. 
+아름다운재단을 운영하는 이사회 역시 기업관계자, 학계, NGO.NPO 지도자 등 다양한 일에 종사하는 인사들이 참여하여 우리사회 다양한 시각이 재단 운영과정 에 반영될 수 있도록 하고 있습니다. 
+  </div>
+
+========================================================
+8. display:box
+
+1) box-orient
+-flexible박스의 흐름방향을 지정한다.
+
+box-orient : 
+vertical : 박스를 수직방향으로 배치
+horizontal : 박스를 수평방향으로 배치
+
+ex)
+<style>
+#verticalBox{
+	display:box;
+	display:-webkit-box;
+	display:-moz-box;
+
+	box-orient:vertical;
+	-webkit-box-orient:vertical;
+	-moz-box-orient:vertical;
+}
+#horizontalBox{
+	display:box;
+	display:-webkit-box;
+	display:-moz-box;
+
+	box-orient:horizontal;
+	-webkit-box-orient:horizontal;
+	-moz-box-orient:horizontal;
+}
+#verticalBox div, #horizontalBox div{width:150px; height:100px;
+       border:1px solid #999; background:#FC3;}
+</style>
+-------------------------
+<h3>box-orient:vertical</h3>
+<div id="verticalBox">
+    <div class="inBox01">
+        verticalBox1
+    </div>
+    <div class="inBox02">
+        verticalBox2
+    </div>
+    <div class="inBox03">
+        verticalBox3
+    </div>
+</div>
+<h3>box-orient:horizontal</h3>
+<div id="horizontalBox">
+    <div class="inBox01">
+        horizontalBox1
+    </div>
+    <div class="inBox02">
+        horizontalBox2
+    </div>
+    <div class="inBox03">
+        horizontalBox3
+    </div>
+</div>        
+
+---------------------------------------------------------------
+2) box-direction
+-순서를 역순으로 바꾼다.
+
+nomal : 작성된 순서대로 배치
+reverse : 작성된 순서화 반대로 배치
+
+
+ex)
+<style>
+#verticalBox{
+	display:box;  display:-webkit-box;
+	display:-moz-box;
+	box-orient:vertical;
+	-webkit-box-orient:vertical;
+	-moz-box-orient:vertical;
+	box-direction:reverse;
+	-webkit-box-direction:reverse;
+	-moz-box-direction:reverse;}
+#horizontalBox{
+	display:box;  display:-webkit-box;
+	display:-moz-box;
+	box-orient:horizontal;
+	-webkit-box-orient:horizontal;
+	-moz-box-orient:horizontal;
+	box-direction:reverse;
+	-webkit-box-direction:reverse;
+	-moz-box-direction:reverse;}
+#verticalBox div, #horizontalBox div{width:150px; height:100px;
+       border:1px solid #999; background:#FC3;}
+</style>
+---------------
+<h3>box-orient:vertical</h3>
+<div id="verticalBox">
+    <div class="inBox01">
+        verticalBox1
+    </div>
+    <div class="inBox02">
+        verticalBox2
+    </div>
+    <div class="inBox03">
+        verticalBox3
+    </div>
+</div>
+<h3>box-orient:horizontal</h3>
+<div id="horizontalBox">
+    <div class="inBox01">
+        horizontalBox1
+    </div>
+    <div class="inBox02">
+        horizontalBox2
+    </div>
+    <div class="inBox03">
+        horizontalBox3
+    </div>
+</div>        
+
+--------------------------------------------------------------------------
+3) box-ordinal-group
+-flexible박스 배치 순서를 임의로 바꿔주는 속성
+
+box-ordinal-group : number ;
+
+ex)
+<style>
+#verticalBox{
+	display:box;
+	display:-webkit-box;
+	display:-moz-box;
+	box-orient:vertical;
+	-webkit-box-orient:vertical;
+	-moz-box-orient:vertical;
+	box-direction:reverse;
+	-webkit-box-direction:reverse;
+	-moz-box-direction:reverse;
+}
+#horizontalBox{
+	display:box;
+	display:-webkit-box;
+	display:-moz-box;
+	box-orient:horizontal;
+	-webkit-box-orient:horizontal;
+	-moz-box-orient:horizontal;
+	box-direction:reverse;
+	-webkit-box-direction:reverse;
+	-moz-box-direction:reverse;
+}
+.inBox01{
+	background:#F96;
+	height:50px;
+	box-ordinal-group:3;
+	-webkit-box-ordinal-group:3;
+	-moz-box-ordinal-group:3;
+}
+.inBox02{
+	background:#0C3;
+	height:50px;
+	box-ordinal-group:1;
+	-webkit-box-ordinal-group:1;
+	-moz-box-ordinal-group:1;
+}
+.inBox03{
+	background:#39F;
+	height:50px;
+	box-ordinal-group:2;
+	-webkit-box-ordinal-group:2;
+	-moz-box-ordinal-group:2;
+}
+</style>
+---------------
+<h3>box-orient:vertical</h3>
+<div id="verticalBox">
+    <div class="inBox01">
+        verticalBox1
+    </div>
+    <div class="inBox02">
+        verticalBox2
+    </div>
+    <div class="inBox03">
+        verticalBox3
+    </div>
+</div>
+<h3>box-orient:horizontal</h3>
+<div id="horizontalBox">
+    <div class="inBox01">
+        horizontalBox1
+    </div>
+    <div class="inBox02">
+        horizontalBox2
+    </div>
+    <div class="inBox03">
+        horizontalBox3
+    </div>
+</div>        
+
+--------------------------------------------------------------------
+4) box-flex
+-부모공간의 남은 공간을 다 채워주는 속성
+
+box-flex : 
+0 : 변화없다
+1 : 부모공간에 빈공간이 있다면 가득 채운다.
+
+ex)
+<style>
+#verticalBox{
+	height:150px; border:1px solid #C90;
+
+	display:box;
+	display:-webkit-box;
+	display:-moz-box;
+	box-orient:vertical;
+	-webkit-box-orient:vertical;
+	-moz-box-orient:vertical;
+}
+#horizontalBox{
+	width:500px; border:1px solid #C90;
+
+	display:box;
+	display:-webkit-box;
+	display:-moz-box;
+	box-orient:horizontal;
+	-webkit-box-orient:horizontal;
+	-moz-box-orient:horizontal;
+}
+.inBox01{
+	height:auto;
+	background:#F96;
+}
+.inBox02{
+	height:auto;
+	background:#0C3;
+}
+.inBox03{
+	height:auto;
+	background:#39F;
+
+                  box-flex:1;
+	-webkit-box-flex:1;
+	-moz-box-flex:1;
+}
+</style>
+-------------
+<h3>box-orient:vertical</h3>
+<div id="verticalBox">
+    <div class="inBox01">
+        verticalBox1
+    </div>
+    <div class="inBox02">
+        verticalBox2
+    </div>
+    <div class="inBox03">
+        verticalBox3
+    </div>
+</div>
+<h3>box-orient:horizontal</h3>
+<div id="horizontalBox">
+    <div class="inBox01">
+        horizontalBox1
+    </div>
+    <div class="inBox02">
+        horizontalBox2
+    </div>
+    <div class="inBox03">
+        horizontalBox3
+    </div>
+</div>        
+
+===============================================
+9. animation
+
+1) box-reflect
+-지정된 요소의 반사체를 생성하는 속성
+
+box-reflect:[반사 방향],[offset 거리],[마스크]
+
+
+속성 값
+     반사방향 : 반사되는 방향을 지정함 above/below/left/right
+     offset거리 : 반사체가 원본과 떨어지는 거리를 지정 
+     마스크 : 반사체 표시 부분에 마스크를 지정 할 수 있음
+
+    * 웹킷 계열의 크롬과 사파리 브라우저에서만 시험적으로 지원 됨
+
+ex)
+<style>
+#sample img{ 
+   margin-bottom:50px;
+   -webkit-box-reflect:below 1px  
+   -webkit-gradient(linear,left top,left bottom, 
+   from(transparent),color-stop(0.7,transparent),to(white));
+}
+</style>
+---------------
+<div id="sample">
+   <img src="images/photo2.gif" width="300" height="200" alt="image" />
+</div>
+
+----------------------------------------------
+2) transform
+-요소의 형태를 변경함
+
+transform : 속성(속성값) ;
+translate([dx],[dy]) : 지정한 크기 만큼 이동 시킴
+scale([ds]) : 지정한 배율 만큼 확대함(x값, y값 따로가능)
+rotate([deg]) : 지정한 각도만큼 회전 시킴
+skew([degx],[degy]) : x축, y축 지정한 경사로 기울임
+
+자식요소도 영향을 받으며
+주변 다른 요소박스등에 영향을 주지 않음.
+
+※ scale : scaleX(sx), scaleY(sy) 처럼 지정가능.
+※ skew : skewX(각도), skewY(각도) 처럼 지정가능.
+※ translate : translateX(tx), translateY(ty) 처럼 지정가능
+
+ex)
+<style>
+div{width:176px; height:257px; border:2px solid #ccc; margin-bottom:40px}
+#transform_translate img{ 
+transform:translate(50px, 30px);
+-webkit-transform:translate(50px, 30px);
+-moz-transform:translate(50px, 30px);
+-o-transform:translate(50px, 30px);
+}
+#transform_scale img{ 
+transform:scale(2);
+-webkit-transform:scale(2);
+-moz-transform:scale(2);
+-o-transform:scale(2);
+}
+#transform_rotate img{ 
+transform:rotate(45deg);
+-webkit-transform:rotate(45deg);
+-moz-transform:rotate(45deg);
+-o-transform:rotate(45deg);
+}
+#transform_skew img{ 
+transform:skew(30deg, 30deg);
+-webkit-transform:skew(30deg, 30deg);
+-moz-transform:skew(30deg, 30deg);
+-o-transform:skew(30deg, 30deg);
+}
+</style>
+-----------------
+<div id="transform_translate">
+  <img src="images/face.jpg" alt="" />
+</div>
+<div id="transform_scale">
+  <img src="images/face.jpg" alt="" />
+</div>
+<div id="transform_rotate">
+  <img src="images/face.jpg" alt="" />
+</div>
+<div id="transform_skew">
+  <img src="images/face.jpg" alt="" />
+</div>
+
+
+==================================================
+
+<2D 변형>
+
+* transform:translate
+
+<style>
+   *{margin:0; padding:0}
+   div{ width:200px; height:200px; margin:100px; border:1px solid #000; float:left}
+   div p{width:100%; height:100%; background:blue; opacity:.3}
+   div:nth-child(1) p{ transform:translateX(100px)}
+   div:nth-child(2) p{ transform:translateY(100px)}
+   div:nth-child(3) p{ transform:translate(100px, 100px)}
+</style>
+
+------
+   <div><p></p></div>
+   <div><p></p></div>
+   <div><p></p></div>
+
+==============================
+* transform:skew
+
+<style>
+   *{margin:0; padding:0}
+   div{ width:200px; height:200px; margin:100px; border:1px solid #000; float:left}
+   div p{width:100%; height:100%; background:blue; opacity:.3}
+   div:nth-child(1) p{ transform:skewX(30deg)}
+   div:nth-child(2) p{ transform:skewY(30deg)}
+   div:nth-child(3) p{ transform:skew(30deg, 30deg)}
+</style>
+
+----------
+   <div><p></p></div>
+   <div><p></p></div>
+   <div><p></p></div>
+===============================
+* transform:scale
+
+<style>
+   *{margin:0; padding:0}
+   div{ width:200px; height:200px; margin:100px; border:1px solid #000; float:left}
+   div p{width:100%; height:100%; background:blue; opacity:.3}
+   div:nth-child(1) p{ transform:scaleX(1.5)}
+   div:nth-child(2) p{ transform:scaleY(0.5)}
+   div:nth-child(3) p{ transform:scale(2, 2)}
+</style>
+
+-----------
+   <div><p></p></div>
+   <div><p></p></div>
+   <div><p></p></div>
+
+============================
+* transform:rotate
+
+<style>
+   *{margin:0; padding:0}
+   div{ width:200px; height:200px; margin:100px; border:1px solid #000; float:left}
+   div p{width:100%; height:100%; background:blue; opacity:.3}
+   div:nth-child(1) p{ transform:rotate(15deg)}
+   div:nth-child(2) p{ transform:rotate(-45deg)}
+
+</style>
+-----------
+
+   <div><p></p></div>
+   <div><p></p></div>
+
+=============================
+*transform-origin  (해당 요소의 모양 변형 시 변형의 기준점을 변경한다.-기본은 정 중앙이다.)
+
+-transform-origin:left top;
+-transform-origin:20px 30px;
+-transform-origin:0% 100%;
+
+
+<style>
+   *{margin:0; padding:0}
+   div{ width:200px; height:200px; margin:100px; border:1px solid #000; float:left}
+   div p{width:100%; height:100%; background:blue; opacity:.3;
+      transform:rotate(30deg); transform-origin:right bottom}
+</style>
+----------
+
+   <div><p></p></div>
+
+=============================================================
+
+
+<3D 변형> - transform 속성들 중에서 3d로 변형이 가능한 속성은 translate , rotate 만 가능하다.
+
+
+*perspective (원근감을 설정한다.- z축에 해당한다.)
+ 
+  - 수치가 작을 수록 왜곡이 커지며, 수치가 커질수록 왜곡은 작아진다.
+  - 3d 변형을 한 요소의 부모 태그에 설정해 주는 것이 일반적이다.
+
+
+<style>
+   *{margin:0; padding:0}
+   div{ width:200px; height:200px; margin:100px; border:1px solid #000; float:left}
+   div p{width:100%; height:100%; background:blue; opacity:.3; transform:rotateY(50deg);}
+   div:nth-child(1){perspective:150px}
+   div:nth-child(2){perspective:800px}
+</style>
+
+--------
+   <div><p></p></div>
+   <div><p></p></div>
+
+=========================
+
+*translateZ (z축으로 이동한다.- 앞(양수) 뒤(음수)로 이동한다.)
+
+
+<style>
+   *{margin:0; padding:0}
+   div{ width:600px; height:400px; margin:100px auto; border:1px solid #000;
+        position:relative; perspective:1600px}
+   div p{width:100%; height:100%; background:blue; opacity:.3;
+        position:absolute; top:0; left:0; color:#FFF; font-size:30px}
+   div p:nth-child(1){transform:translateZ(-500px)}
+   div p:nth-child(2){transform:translateZ(0)}
+   div p:nth-child(3){transform:translateZ(500px)}
+</style>
+
+-------------
+
+   <div><p>box1</p><p>box2</p><p>box3</p></div>
+
+============================
+
+*rotateX, rotateY (3d 공간에서 x축과 y축 기준으로 회전하기)
+
+
+<style>
+   *{margin:0; padding:0}
+   div{ width:300px; height:300px; margin:100px; float:left; border:1px solid #000;
+        perspective:700px}
+   div p{width:100%; height:100%; background:blue; opacity:.3;}
+   div:nth-child(1) p{transform:rotateX(45deg)}
+   div:nth-child(2) p{transform:rotateY(45deg)}
+</style>
+
+------------
+
+   <div><p></p></div>
+   <div><p></p></div>
+
+=============================
+
+* transition  (transition:속성 전환시간 가속도 지연시간) - 3d회전
+
+
+<style>
+   *{margin:0; padding:0}
+   div{ width:300px; height:300px; margin:100px; float:left; border:1px solid #000;perspective:700px}
+   div p{width:100%; height:100%; background:blue; opacity:.3; color:#FFF; font-size:30px}
+   
+   .box1 p{transform:rotateY(0deg); transition:all .5s ease 0s}
+   .box1:hover p{transform:rotateY(180deg);}
+   .box2 p{transform:rotateX(0deg); transition:all .5s ease 0s}
+   .box2:hover p{transform:rotateX(180deg);}
+ 
+</style>
+
+----------
+
+   <div class="box1"><p>box1</p></div>
+   <div class="box2"><p>box2</p></div>
+
+
+=============================================================
+
+
+3)transition
+-class나 선택상태 변경되어 속성이 변화할 때 상태 변화를 부드럽게 에니메이션 함
+
+transition:[변환속성],[변환시간],[변환방법]; 
+변환속성 : 변환할 속성 all로 지정되면 모든 속성이 영향받음
+변환시간 : 변화되는 시간을 지정함
+변환방법 : ease, linear, ease-in, ease-out, ease-in-out, cubic-beizer
+
+속성별 적용
+transition-property : all;
+transition-duration : 1s;
+transition-timing-function : ease-out;
+
+linear : 전구간 동일속도
+ease : 중간은 빨리 시작과 끝은 느리게
+ease-in :  시작을 느리게
+ease-out : 끝을 느리게
+ease-in-out : 시작과 끝부분을 느리게 재생
+
+ex1)
+<style>
+#transitionBox img{
+	transform:rotate(0deg);
+	-webkit-transform:rotate(0deg);
+	-moz-transform:rotate(0deg);
+	-o-transform:rotate(0deg);
+	border:#ccc solid 5px;
+	opacity:0.2;
+	transition:all 3s ease-out;
+	-webkit-transition:all 3s ease-out;
+	-moz-transition:all 3s ease-out;
+	-o-transition:all 3s ease-out;
+}
+#transitionBox img:hover{
+	transform:rotate(45deg);
+	-webkit-transform:rotate(45deg);
+	-moz-transform:rotate(45deg);
+	-o-transform:rotate(45deg);
+	border:#396 solid 5px;
+	opacity:1;
+}
+</style>
+----------------------
+<div id="transitionBox">
+	<img src="images/face.jpg" alt="image" />
+</div>
+
+-----------------------------------------------------------------------
+ex2)
+<style>
+/* 박스 컨테이너 스타일 선언 */
+#allTransitionDemo{
+	padding: 10px;
+	width: 400px;
+	height: 210px;
+	border: 1px solid;
+}
+#allTransitionDemo:hover .box{
+	border-radius:10px;
+	left: 300px;
+}		
+/* 공통 사용 클래스 스타일 선언*/
+.box{
+	width:70px;
+	height:40px;
+	padding-top:20px;
+	text-align:center;
+	margin-bottom:10px;
+	background-color: rgba( 0, 0, 255, .3);
+	border: 1px solid;
+	position: relative;
+}
+/* 각 박스별 트윈속성 지정 여러 속성이 바뀔 경우 속성값에 all을 지정*/
+.box1{
+	transition: all 1s ease-in;
+	-webkit-transition: all 1s ease-in;
+	-moz-transition: all 1s ease-in;
+	-o-transition: all 1s ease-in;
+}
+.box2{
+	transition: all 1s ease-out;
+	-webkit-transition: all 1s ease-out;
+	-moz-transition: all 1s ease-out;
+	-o-transition: all 1s ease-out;
+}
+.box3{
+	transition: all 1s ease-in-out;
+	-webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+}
+</style>
+--------------------------------
+<div id="allTransitionDemo">
+    <div class="box box1">target1</div>
+    <div class="box box2">target2</div>
+    <div class="box box3">target3</div>
+</div>
+
+---------------------------------------------------------------------------------
+4) animation 
+-css의 속성을 이용하여 애니메이션을 표현(크롬/사파리 테스트)
+
+*animation
+animation-name : 설정된 keyframe에서 이름
+animation-delay : 실행전 지연 시간
+animation-duration : 1회의 실행 시간
+animation-iteration-count : 반복 횟수 (infinite:반복)
+animation-timing-function : 속도 형태(ease등…)
+animation-direction : 반복 형태(alternate:역방향)
+
+*keyframes
+@keyframes [애니메이션이름] {
+from { [초기상태속성값] }
+[키프레임위치]% { [키프레임 위치에서의 속성값] }
+to { [종료상태 속성값] }
+}
+
+
+ex)
+<style>
+#exampleSub img{ border:5px solid green;}
+@keyframes animationSample{
+	from{
+	  opacity:1.0;
+	  transform:rotate(0deg);
+	}
+	30%{
+	   border:5px solid red;
+	}
+	50%{
+	   opacity:0.1;
+	}
+	70%{
+	   border:5px solid blue;
+	}
+	to{
+	  opacity:1.0;
+	  transform:rotate(360deg);
+	}
+}
+@-webkit-keyframes animationSample{
+	from{
+	  opacity:1.0;
+	  -webkit-transform:rotate(0deg);
+	}
+	30%{
+	   border:5px solid red;
+	}
+	50%{
+	    opacity:0.1;
+	}
+	70%{
+	    border:5px solid blue;
+	}
+	to{
+	  opacity:1.0;
+	  -webkit-transform:rotate(360deg);
+	}
+}
+@-moz-keyframes animationSample{
+	from{
+	  opacity:1.0;
+	  -moz-transform:rotate(0deg);
+	}
+	30%{
+	   border:5px solid red;
+	}
+	50%{
+	    opacity:0.1;
+	}
+	70%{
+	   border:5px solid blue;
+	}
+	to{
+	  opacity:1.0;
+	  -moz-transform:rotate(360deg);
+	}
+}
+#exampleSub img{
+	animation-name:animationSample;
+	animation-delay:2s;
+	animation-duration:4s;
+	animation-iteration-count:infinite;
+	animation-timing-function:ease-in-out;
+	animation-direction:alternate;
+
+	-webkit-animation-name:animationSample;
+	-webkit-animation-delay:2s;
+	-webkit-animation-duration:4s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-timing-function:ease-in-out;
+	-webkit-animation-direction:alternate;
+	
+	-moz-animation-name:animationSample;
+	-moz-animation-delay:2s;
+	-moz-animation-duration:4s;
+	-moz-animation-iteration-count:infinite;
+	-moz-animation-timing-function:ease-in-out;
+	-moz-animation-direction:alternate;
+}
+</style>
+-------------------
+<div id="exampleSub">
+     <img src="images/face.jpg" alt="image" />
+</div>
+
+
+
+=============================================
+*sample 예제
+
+1)그라데이션 버튼
+
+ex1)
+
+<style>
+.button {
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	padding: 8px 20px  10px;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	border-radius: 5px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+.button:hover {
+	text-decoration: none;
+}
+.button:active {
+	position: relative;
+	top: 1px;
+}
+
+.orange {
+	color: #fef4e9;
+	border: solid 1px #da7c0c;
+	background: #f78d1d;
+	background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+	background: -moz-linear-gradient(top,  #faa51a,  #f47a20);
+}
+.orange:hover {
+	background: #f47c20;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
+	background: -moz-linear-gradient(top,  #f88e11,  #f06015);
+}
+.orange:active {
+	color: #fcd3a5;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a));
+	background: -moz-linear-gradient(top,  #f47a20,  #faa51a);
+}
+</style>
+---------------------
+<div>
+<a href="#" class="button orange">HOME</a>
+<a href="#" class="button orange">HTML5</a>
+<a href="#" class="button orange">CSS3</a>
+<a href="#" class="button orange">BOARD</a>
+<a href="#" class="button orange">PROFILE</a>
+</div>
+
+----------------------------------------------------------------------------
+ex2)navi3-step
+
+<style>
+ul.navi li {
+  list-style-type: none; /* 불릿 없앰 */
+  display: block; /* 영역 만듦 */
+  width: 8em; /* 너비 */
+  height: 3em; /* 높이 */
+  float: left; /* 왼쪽으로 플로팅 */
+  text-align: center; /* 가운데 정렬 */
+  font-family: "Lucida Grande", sans-serif; /* 글꼴 */
+  border-right: 1px #818181 solid; /* 오른쪽에 테두리 */
+  -webkit-box-shadow: 1px 1px 1px #bbb;    /* 박스 그림자 */
+  -moz-box-shadow:1px 1px 1px #bbb;  /* 박스 그림자 */
+  box-shadow: 1px 1px 1px #bbb; /* 박스 그림자 */
+  background-color: #c9c9c9; /* 배경색 */  
+  background: -webkit-gradient(linear, left top, left bottom, from(#c9c9c9), to(#848484), color-stop(0.6, #a1a1a1));  /* 그라데이션 배경 */
+  background: -moz-linear-gradient(top,#c9c9c9,  #a1a1a1, #848484);
+}
+/* 메뉴 링크 스타일 */
+ul.navi li a {
+  display: block; /* 영역 만듦 */
+  padding: .8em .5em .5em .5em; /* 안여백 */
+  text-decoration: none; /* 밑줄 없앰 */
+  color: #292929; /* 글자색 */
+  text-shadow: 1px 1px 0px #cccccc; /* 텍스트 그림자 */
+}
+
+/* 메뉴 링크 위로 마우스 오버했을 때의 스타일 */
+ul.navi li:hover{ 
+  background-color: #333333; /* 배경색 */
+  background: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#4c4c4c), color-stop(0.6, #474747));	/* 그라데이션 배경 */
+  background: -moz-linear-gradient(top, #333333,#474747, #4c4c4c); 
+}
+
+/* 메뉴 링크 위로 마우스 오버한 후 링크 스타일 */
+ul.navi li:hover > a{
+  color:#FFF; /* 글자색 */
+  text-shadow:0px 1px 0px #fff; /* 텍스트 그림자 */
+}
+</style>
+--------------------
+<div>
+	<ul class="navi"> 
+		<li class="home"><a href="#">Home</a></li> 
+		<li id="html"><a href="#">HTML5</a></li> 
+		<li id="css"><a href="#">CSS3</a></li> 
+		<li id="jquery"><a href="#">JQuery</a></li> 
+		<li id="mobile"><a href="#">Mobile</a></li> 
+		<li id="profile"><a href="#">Profile</a></li> 
+	</ul> 
+</div>
+
+---------------------------------------------------------------------------
+2) 가로 네비게이션
+
+ex1)navi1-step
+
+<style>
+.navi {  /* 메뉴 전체 영역에 대한 스타일 */
+	list-style-type: none; /* 불릿 기호 없앰 */
+	height: 40px; /* 내비게이션 높이 */
+	padding: 0; 
+	margin: 0; 
+}
+.navi li { /* 메뉴 각 항목에 대한 스타일 */
+	float: left; /* 왼쪽부터 표시 */
+	position: relative; /* 순서대로 표시 */
+	padding: 0; /* 안여백 없음 */
+	line-height: 40px; /* 줄간격 */
+	background:#600;  /* 내비게이션 전체 배경색 */
+}
+
+.navi li a { /* 메뉴 항목에서도 링크에 대한 스타일 */
+	display: block; /* 영역을 만듦 */
+	font-family:"굴림"; /* 글꼴 */
+	font-weight:600; /* 진하게 */
+	font-size:14px;	/* 글자크기 */
+	padding: 5px 25px; /* 안여백 */	
+	color: #fff; /* 메인 메뉴 글자색 */
+	text-decoration: none; /* 밑줄 없앰 */
+}
+.navi li a:hover { /* 메인 메뉴에 마우스 오버했을 때의 스타일 */
+	color:#F90; /* 마우스 오버했을 때 글자색 */
+}
+.navi li ul {  /* 서브 메뉴 영역에 대한 스타일 */
+	opacity: 0; /* 투명하게 표시 - 결국 평소엔 안보임 */
+	position: absolute; /* 고정 위치에 표시 */
+	left: 0; /* left 좌표는 메인 메뉴에서 움직이지 않음 */
+	width: 180px; /* 서브 메뉴 너비 */
+	background: #D8AFAF; /* 서브 메뉴 배경색 */
+	list-style-type: none; /* 서브 메뉴 항목의 불릿 없앰 */
+	padding: 0; /* 안여백 없음 */
+	margin: 0;  /* 여백 없음 */
+}
+.navi li:hover ul { /* 메인 메뉴 위로 마우스 오버했을 때 서브 메뉴 스타일 */
+	opacity: 1; /* 서브 메뉴 불투명해짐 -> 화면에 보임 */
+}
+.navi li ul li { /* 서브 메뉴 각 항목의 스타일 */
+	float: none; /* 플로팅하지 않음 */
+	position: static; /* 항목 크기에 맞게 배치됨 */
+	height: 0; /*높이값 없음 */
+	line-height: 0; /* 줄간격 없음 */
+	background: none; /* 배경 없음*/
+}
+.navi li:hover  ul li { /* 메인 메뉴 위로 마우스 오버 했을 때의 서브 메뉴 항목읫 스타일 */
+	height: 30px; /*높이 */
+	line-height: 20px; /* 줄간격 */
+	padding:5px 0;/* 안여백 */
+}
+.navi li ul li a { /* 서브 메뉴 항목의 링크 스타일 */
+	background: #D8AFAF; /* 배경색 */
+	font-family:"굴림"; /* 글꼴 */
+	font-weight:600; /* 진하게 */
+	font-size:14px;	/* 글자크기 */
+	color:#900; /* 글자색 */
+}
+.navi li ul li a:hover { /* 서브 메뉴 위로 마우스 오버했을 때의 스타일 */
+	background: #900; /* 배경색 */
+}
+
+.navi li { -webkit-transition: all 0.2s; }
+.navi li a { -webkit-transition: all 0.5s; }
+.navi li ul { -webkit-transition: all 1s; }
+.navi li ul li { -webkit-transition: height 0.5s; }
+
+</style>
+------------------
+<ul class="navi">
+          <li><a href="#"> Home </a></li>
+           <li><a href="#"> 웹 개발</a>
+                 <ul>
+       	  <li><a href="#"> 웹 디자인 </a></li>
+                    <li><a href="#"> HTML5 + CSS3</a></li>
+                    <li><a href="#"> JQuery</a></li>  
+                    <li><a href="#"> 웹 + 모바일</a></li>        	
+                 </ul>
+            </li>
+           <li><a href="#"> 게시판 </a>
+    	<ul>
+         	   <li><a href="#"> Q & A </a></li>
+                     <li><a href="#"> 방명록</a></li>      	
+                 </ul> 
+            </li>  
+            <li><a href="#"> 프로필</a></li>            
+</ul>
+
+----------------------------------------------------------------------
+ex2)navi2-step2
+
+<style>
+
+/* 메뉴 전체 스타일 */
+#menu {  
+  width: 960px; /* 메뉴 너비 */
+  height: 40px; /* 메뉴 높이 */
+  clear: both; /* 플로팅 사용하지 않음 */
+}
+
+/* 메인 메뉴 스타일 */
+ul.navi { 
+  float: left; /* 왼쪽으로 플로팅 */
+  width: 960px; /* 메인 메뉴 너비 */
+  margin: 0; /* 여백 */
+  padding: 0; /* 안여백 */ 
+  list-style: none; /* 불릿 없앰 */
+  background:  #39F; /* 배경색 */
+  -moz-border-radius-topright: 10px; /* 탭 모양 만듦(topleft와 topright를 둥글게 처리) */
+  -webkit-border-top-right-radius: 10px;
+  -moz-border-radius-topleft: 10px;
+  -webkit-border-top-left-radius: 10px;  
+}
+
+ /* 메인 메뉴 항목 스타일 */
+ul.navi li {
+  display: inline; /* 가로로 배치 */
+}
+
+/* 메인 메뉴 링크 스타일 */
+ul.navi li a { 
+  float: left; /* 왼쪽으로 플로팅 */
+  font: bold 14px 굴림;  /* 텍스트 스타일 */
+  line-height: 40px; /* 줄간격 */
+  color: #fff; /* 글자색 */
+  text-decoration: none; /* 밑줄없앰 */
+  text-shadow: 1px 1px 1px #880000; /* 텍스트 그림자 */
+  margin: 0; /* 여백 */
+  padding: 0 30px; /* 안여백 */
+  background: #39F; /* 배경색 */
+  -moz-border-radius-topright: 10px; /* 탭 모양 만듦(topleft와 topright를 둥글게 처리) */
+  -webkit-border-top-right-radius: 10px;
+  -moz-border-radius-topleft: 10px;
+  -webkit-border-top-left-radius: 10px;     
+}
+
+
+/* 현재 선택된 링크 스타일과 마우스 오버 상태일 때 링크 스타일 */
+ul.navi .current a, ul.navi li:hover > a  { 
+  color: #fff; /*글자색 */
+  text-decoration: none; /* 밑줄 없앰 */
+  text-shadow: 1px 1px 1px #330000;  /* 텍스트 그림자 */
+  background:  #36F;  /* 배경색 */
+  -moz-border-radius-topright: 10px; /* 탭 모양 만듦 */
+  -webkit-border-top-right-radius: 10px;
+  -moz-border-radius-topleft: 10px;
+  -webkit-border-top-left-radius: 10px; 
+}
+
+/* 서브 메뉴 스타일 */
+ul.navi  ul {  
+  display: none; /* 기본으로 화면에 표시 안함 */
+}
+
+ /* 메인 메뉴 위에 마우스 오버한 후 나타나는 서브 메뉴 스타일 */
+ul.navi li:hover > ul {
+  position: absolute;  /* 고정 위치 포지셔닝 */
+  display: block;  /* 영역 확보 */
+  width: 920px; /* 너비 */
+  height: 45px; /* 높이 */
+  margin: 40px 0 0 0; /* 여백 */
+  background: #33F;  /* 배경색 */
+  -moz-border-radius-bottomright: 10px; /* 탭 모양 만듦(bottoleft와 bottoright를 둥글게 처리) */
+  -webkit-border-bottom-right-radius: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  -webkit-border-bottom-left-radius: 10px; 
+}
+
+/* 메인 메뉴 항목에 마우스 오버한 후 나타나는 서브 메뉴 항목의 링크 스타일 */
+ul.navi li:hover > ul li a { 
+  float: left; /* 왼쪽으로 플로팅 */
+  font: bold 14px 굴림; /* 텍스트 스타일 */
+  line-height: 45px; /* 줄간격 */
+  color: #fff; /* 글자색 */
+  text-decoration: none; /* 밑줄 없앰 */
+  text-shadow: 1px 1px 1px #110000; /* 텍스트 그림자 */
+  margin: 0; /* 여백 */
+  padding: 0 30px 0 0; /* 안여백 */
+  background: #33F;  /* 배경색 */
+}
+
+/* 메인 메뉴 항목에 마우스 오버한 후 서브 메뉴 항목에 마우스 오버했을 때 스타일 */
+ul.navi li:hover > ul li a:hover {
+  color: #120000; /*글자색 */
+  text-decoration: none; /* 밑줄 없앰 */
+  text-shadow: none; /* 텍스트 그림자 */
+}
+</style>
+----------------------
+<div id="menu">
+  <ul class="navi">
+          <li><a href="#"> Home </a></li>
+          <li><a href="#"> 웹 개발</a>
+    	<ul>
+       	  <li><a href="#"> 웹 디자인 </a></li>
+                   <li><a href="#"> HTML5 + CSS3</a></li>
+                   <li><a href="#"> JQuery</a></li>  
+                   <li><a href="#"> 웹 + 모바일</a></li>        	
+                </ul>
+           </li>
+           <li><a href="#"> 게시판 </a>
+    	<ul>
+         	  <li><a href="#"> Q & A </a></li>
+                    <li><a href="#"> 방명록</a></li>      	
+                 </ul> 
+             </li>  
+             <li><a href="#"> 프로필</a></li>            
+   </ul>
+</div>
+
+------------------------------------------------------------------------
+3)border-radius
+
+ex1)circle1
+
+<style>
+.circle1 {
+	position:absolute;
+	left:100px;
+	top:50px;
+	background-color: #C60;
+	width: 200px;
+	height: 200px;
+	-webkit-border-radius:100px;
+	-moz-border-radius:100px;
+}
+.circle2 {
+	position:absolute;
+	left:400px;
+	top:50px;
+	background-color: #fff;
+    border: 3px #a72525 solid;
+	width: 200px;
+	height: 200px;
+	-webkit-border-radius:100px;
+	-moz-border-radius:100px;
+}
+</style>
+-------------
+<div class="circle1"></div>
+<div class="circle2"></div>
+
+
+-------------------------------------------
+ex2)circle2
+
+<style>
+.half1 {
+	position:absolute;
+	left:100px;
+	top:50px;
+	background-color: #060;
+	width: 100px;
+	height: 200px;
+	-webkit-border-radius:200px 0 0 200px;
+	-moz-border-radius:200px 0 0 200px;
+}
+.half2 {
+	position:absolute;
+	left:400px;
+	top:50px;
+	background-color: #060;
+	width: 200px;
+	height: 100px;
+	-webkit-border-radius:200px 200px 0 0;
+	-moz-border-radius:200px 200px 0 0;
+}
+</style>
+-------------
+<div class="half1"></div>
+<div class="half2"></div>
+
+----------------------------------------------------
+ex3)circle3
+
+<style>
+.quater1 {
+	position:absolute;
+	left:100px;
+	top:50px;
+	background-color: #06C;
+	width: 200px;
+	height: 200px;
+	-webkit-border-radius:200px 0 0 0;
+	-moz-border-radius:200px 0 0 0;
+}
+.quater2 {
+	position:absolute;
+	left:400px;
+	top:50px;
+	background-color: #06c;
+	width: 200px;
+	height: 200px;
+	-webkit-border-radius:0 0 0 200px;
+	-moz-border-radius:0 0 0 200px;
+}
+</style>
+-----------------
+<div class="quater1"></div>
+<div class="quater2"></div>
+
+----------------------------------------------------------
+ex4)circle4
+
+<style>
+div.circle1 {
+	position:absolute;
+	left:100px;
+	top:50px;
+	background-color: #ffc;
+	width: 200px;
+	height: 200px;
+	-webkit-border-radius:100px;
+	-moz-border-radius:100px;
+}
+div.circle2 {
+	position:absolute;
+	left:145px;
+	top:50px;
+	background-color: #000;
+	width: 200px;
+	height: 200px;
+	-webkit-border-radius:100px;
+	-moz-border-radius:100px;
+}
+body {
+	background: #000;
+}
+</style>
+-------------------
+<div class="circle1"></div>
+<div class="circle2"></div>
+
+-----------------------------------------------------------------------------
+4) image-gallery
+
+ex)gallery3
+
+<style>
+
+/* 썸네일 이미지를 올려놓을 갤러리 스타일 */
+#gallery {
+    border: 10px solid #1D0C16; /* 굵은 테두리 */
+    height: 300px; /* 높이 */
+    width: 450px; /* 너비 */ 
+    margin-left: auto; /* 여백 자동 */
+    margin-right: auto;
+    overflow: visible; /* 오버플로일 경우 visible로 */
+    background: #272229; /* 배경색 */
+    -webkit-box-shadow: #272229 10px 10px 20px; /* 박스 그림자 */ 
+    -moz-box-shadow: #272229 10px 10px 20px;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color='#272229', Direction=135, Strength=10);     
+     box-shadow: #272229 10px 10px 20px;
+}
+
+/* 썸네일 목록 전체 스타일 */
+#gallery ul{
+    margin-left:-30px; /* 갤러리 가운데에 콘텐츠가 올 수 있도록 */
+}
+
+/* 썸네일 각 항목에 대한 스타일 */
+#gallery ul li {
+    list-style:none;  /* 불릿 없앰 */
+    display:inline-table; /* 테이블 스타일로 배치*/
+    padding:10px;	/* 안여백은 각각 10px로 */
+ }
+ 
+/* 평소 큰 이미지 .pic 에 대한 스타일 */
+#gallery ul li .pic{
+    -webkit-transition: all 0.6s ease-in-out; /* 웹킷 브라우저에서 트랜지션 효과가 나타나도록 */
+   opacity:0; /* 페이드아웃 효과 */
+   visibility:hidden; /* 처음에는 보이지 않게 */ 
+   position:absolute; /* 고정 위치 */
+   margin-top:10px; /* 상단 여백 */
+   margin-left:-20px; /* 왼쪽으로 20픽셀 이동해서 */
+   border:1px solid black; /* 검은색 테두리 그림 */
+   -webkit-box-shadow:#272229 2px 2px 10px; /* 박스 그림자 */
+   -moz-box-shadow:#272229 2px 2px 10px; /* 박스 그림자 */
+   filter:progid:DXImageTransform.Microsoft.Shadow(color='#272229', Direction=135, Strength=5); /* 박스 그림자 */
+   box-shadow:#272229 2px 2px 10px; /* 박스 그림자 */ 
+} 
+
+#gallery ul li .small:hover{
+    cursor:pointer;
+}
+
+/* 썸네일 이미지 위로 마우스 오버했을 때 큰 이미지의 스타일 * */
+#gallery ul li:hover .pic {
+   width:320px; /* 너비 */
+   height:240px; /* 높이 */
+   opacity:1; /* 불투명하게 */
+   visibility:visible; /* 화면에 보임 */
+   float:right; /* 오른쪽으로 플로팅 */
+}
+</style>
+-------------------
+<div id="gallery">
+    <ul>
+        <li> <img src="images/ph1_s.jpg" class="small" width="120" height="90"> <img src="images/ph1.jpg" class="pic"> </li>
+        <li> <img src="images/ph2_s.jpg" class="small" width="120" height="90"> <img src="images/ph2.jpg" class="pic">  </li>
+        <li> <img src="images/ph3_s.jpg" class="small" width="120" height="90"> <img src="images/ph3.jpg" class="pic"> </li>
+        <li> <img src="images/ph4_s.jpg" class="small" width="120" height="90"> <img src="images/ph4.jpg" class="pic"> </li>
+        <li> <img src="images/ph5_s.jpg" class="small" width="120" height="90"> <img src="images/ph5.jpg" class="pic"> </li>
+        <li> <img src="images/ph6_s.jpg" class="small" width="120" height="90"> <img src="images/ph6.jpg" class="pic">  </li>
+     </ul>
+</div>
+
+---------------------------------------------------------------------------------------
+5)new_Selector
+
+ex1)pseudo2
+
+<style>
+li {
+	list-style-type:none;
+	margin-right:30px;
+	float:left;
+	font-size:48px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+li:nth-child(odd) {
+	color : #900;
+	font-weight:bold;	
+}
+li:nth-child(2) {
+	color:green;
+	font-family: Comic Sans Ms ;
+}
+
+li:nth-child(4n) {
+	color:blue;
+	background-color:yellow;	
+}
+
+</style>
+---------------
+<ul>
+  <li> 1  </li>
+  <li> 2  </li>
+  <li> 3  </li>
+  <li> 4  </li>
+  <li> 5  </li>
+  <li> 6  </li>
+  <li> 7  </li>    
+  <li> 8  </li>  
+</ul>
+
+---------------------------------------------------------------
+ex2)pseudo_tablelist
+
+<style>
+table,th, td { border:1px solid #ddd;
+border-collapse:collapse;
+font-size:12px;
+font-family:'나눔고딕';
+padding:10px;
+}
+
+th {background:orange; color:#930;}
+
+tr:nth-child(odd) {background:#eee;}
+
+</style>
+------------------
+<table>
+	<tr>
+		<th>번호</th>
+		<th>제목</th>
+		<th>이름</th>
+		<th>날짜</th>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>오늘 날씨가 참으로 좋습니다.</td>
+		<td>홍길동</td>
+		<td>2012-03-05</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>오늘 날씨가 참으로 좋습니다.</td>
+		<td>홍길동</td>
+		<td>2012-03-05</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>오늘 날씨가 참으로 좋습니다.</td>
+		<td>홍길동</td>
+		<td>2012-03-05</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>오늘 날씨가 참으로 좋습니다.</td>
+		<td>홍길동</td>
+		<td>2012-03-05</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>오늘 날씨가 참으로 좋습니다.</td>
+		<td>홍길동</td>
+		<td>2012-03-05</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>오늘 날씨가 참으로 좋습니다.</td>
+		<td>홍길동</td>
+		<td>2012-03-05</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>오늘 날씨가 참으로 좋습니다.</td>
+		<td>홍길동</td>
+		<td>2012-03-05</td>
+	</tr>
+</table>
+
+
+-----------------------------------------------------------------------------------------
+6)text-shadow
+
+ex1)textshadow
+
+<style>
+p {
+	font-family: Arial;	
+	font-size:50px;
+}
+.text1 {
+	color:#06F;
+	text-shadow:3px 3px 5px #000;
+}
+.text2{
+	color:#C30;	
+	text-shadow:3px -3px 5px #000;	
+}
+</style>
+-----------------
+<p><span style="color:#06F">HTML5</span> & <span style="color:#C30">CSS3</span> </p>
+<p><span class="text1">HTML5 </span> & <span class="text2">CSS3</span></p>
+
+------------------------------------------------------------------
+ex2)textshadow2
+
+<style>
+body {
+	background:#666;
+	font-family: Arial Black;	
+	font-size:50px;
+}
+.text1 {
+	color:#000;
+	text-shadow:0px 1px 1px #fff;
+}
+.text2 {
+	color:#fff;
+	text-shadow:0px 1px 1px #000;	
+}
+</style>
+---------------------
+<p class="text1">HTML5 & CSS3</p>
+<p class="text2">HTML5 & CSS3</p>
+
+---------------------------------------------------------------
+ex3)textshadow3
+
+<style>
+body {
+	background:#005151;
+	font-family: Arial Black;	
+	font-size:50px;
+}
+.text1 {
+	color:#fff;	
+	text-shadow:0px 1px 8px #fff;
+}
+.text2 {
+	color:#fff;	
+	text-shadow:1px -3px 8px #6F0;
+}
+.text3 {
+	color:#000;	
+	text-shadow:1px 1px 4px #fff;	
+}
+</style>
+--------------------
+<p class="text1">HTML5 & CSS3</p>
+<p class="text2">HTML5 & CSS3</p>
+<p class="text3">HTML5 & CSS3</p>
+
+--------------------------------------------------------------------------------
+ex4)textshadow4
+
+<style>
+body {
+	background:#000;
+	font-family: Arial Black;	
+	font-size:50px;
+}
+.text1 {
+	color:#000;
+	background:#000;
+	text-shadow:0 0 4px #ccc, 0 -5px 4px #ff3, 2px -10px 6px #fd3, -2px -15px 11px #f80, 2px -19px 18px #f20;	
+}
+</style>
+--------------------
+<p class="text1">HTML5 & CSS3</p>
+
+
+------------------------------------------------------------------------------
+7) :target 을 이용한 아코디언 메뉴 만들기
+
+<style type="text/css">	
+  *{margin:0; padding:0;}		
+  #menu h2 {height: 45px;border-bottom: 1px solid #ccc;
+	  background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+	  background: -moz-linear-gradient(top,  #faa51a,  #f47a20);}
+  #menu h2 a {display:block;width:auto;padding:10px 12px 0 12px;
+	  height:35px;font:normal 1.1em "Helvetica";
+	  color:#555;text-decoration:none;}
+  #menu ul li {background:#e5e5e5;border-bottom:1px solid #ccc;}
+  #menu ul li:hover{background:#CCC;}
+  #menu ul li a {display:block;width:auto;padding:7px 12px 3px 30px;
+	  height:27px;font:normal 1em/27px "Helvetica";
+	  color:#555;text-decoration: none;}
+  #menu ul {height:0;visibility:hidden;
+	  opacity:0;-webkit-transition:all 0.3s;}
+  #menu ul:target {height:114px;opacity:1;visibility:visible;}
+</style>
+----------------------------
+<section>
+  <nav id="menu">
+      <h2><a href="#sub1">남성의류</a></h2>
+      <ul id="sub1">
+          <li><a href="#">남성 정장</a></li>
+          <li><a href="#">남성 캐쥬얼</a></li>
+          <li><a href="#">신발/잡화</a></li>
+      </ul>
+      <h2><a href="#sub2">여성의류</a></h2>
+      <ul id="sub2">
+          <li><a href="#">여성 정장</a></li>
+          <li><a href="#">여성 캐쥬얼</a></li>
+          <li><a href="#">신발/잡화</a></li>
+      </ul>
+      <h2><a href="#sub3">컴퓨터/가전</a></h2>
+      <ul id="sub3">
+          <li><a href="#">컴퓨터/노트북</a></li>
+          <li><a href="#">디카/DSLR</a></li>
+          <li><a href="#">생활가전</a></li>
+      </ul>
+  </nav>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

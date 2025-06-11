@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         *{margin: 0; padding: 0;}
+         a{color: #fff; text-decoration: none;}
+
+         div{margin: 20px; border: 1px solid red;}
+         .box1 img{transform: rotate(0); transition: all 1s;}
+         .box1:hover img{transform: rotate(360deg);}
+
+         .box2{perspective: 700px;}
+         .box2 img{transform: rotateY(0); transition: all 1s;}
+         .box2:hover img{transform: rotateY(360deg);}
+
+         .box3{width:385px ; height: 523px; position: relative; overflow: hidden;}
+         .box3 dl{position: absolute; left:0; top:440px; color: #fff;
+            width:385px ; height: 523px; background: rgba(0,0,0,.7); transition: all .5s ease-out;}
+         .box3:hover dl{top:0}   
+         .box3 dt{font-size: 30px;font-weight: bold; text-align: center;
+                  margin: 20px 0; transition: all 1s; transition-delay: .5s;}   
+         .box3:hover dt{margin-top: 120px; color: orange;}
+         .box3 dd{padding: 0 30px; text-align: justify; line-height: 2em;}
+         .box3 dd a{display: block; text-align: center;}
+
+         .box4{width: 400px; height: 400px; position: relative; 
+             overflow: hidden;border: 10px solid rgba(255,255,255,0); transition: all .5s; }
+         .box4:hover{border: 10px solid green;}
+         .box4 a{display: block;}
+         .box4 img{transform: scale(1); transition: all .5s; transition-delay: .5s;}
+         .box4:hover img{transform: scale(1.2);}
+         .box4 dl{width: 400px; height: 400px; background: rgba(255,0,0,.6);
+             position: absolute; left:0; top:0; opacity: 0; transition: all .5s;}
+         .box4:hover dl{opacity: 1}    
+         .box4 dt{font-size: 24px; font-weight: bold; text-align: center;
+              margin: 110px 0 20px;}
+         .box4 dd{margin:0 30px; line-height: 2em; text-align: center;}
+
+         .box5{border: 0;}
+         .box5 h2{font-size: 50px; margin-left: 20px; color: #333;
+                 position: relative; transition: all .5s;}
+         .box5 h2:hover{color: #fff;}        
+         .box5 h2::before{content: ''; display: block; 
+            height: 80px; background: red; transform: skewX(-20deg);
+            position: absolute;z-index: -1; left: -20px; top: -5px;
+            width: 5px; transition: all .5s;}
+         .box5 h2:hover::before{content: ''; width: 250px;}
+
+         .box6{border: 0;}
+         .box6 img{border-radius: 0; box-shadow: 2px 2px 5px 1px rgba(0,0,0,0);
+                 transition: all .5s;}
+         .box6:hover img{border-radius: 200px; box-shadow: 2px 2px 5px 1px rgba(0,0,0,.5);}
+    </style>
+</head>
+<body>
+  
+   <div class="box1"><img src="./images/characters01.png" alt=""></div>
+   <div class="box2"><img src="./images/characters04.png" alt=""></div>
+   <div class="box3">
+       <img src="./images/social.jpg" alt="">
+       <dl>
+           <dt>사회공헌</dt>
+           <dd>지역 사회 및 이해관계자와
+            더불어 사는 사회를 만들고,
+            지속가능한 문화생태계를
+            조성하고자 합니다.
+            <a href="#">more</a></dd>
+       </dl>
+   </div>
+
+   <div class="box4">
+       <a href="#">
+           <img src="./images/ins3.jpg" alt="">
+           <dl>
+               <dt>인스타그램</dt>
+               <dd>크루엘라 패션만큼 강렬한 필름마크 등장 케이스부터 필름마크까지 멋들어지네, 아주!</dd>
+           </dl>
+        </a>
+   </div>
+
+   <div class="box5">
+       <h2>오시는길</h2>
+   </div>
+
+   <div class="box6"><img src="./images/ins3.jpg" alt=""></div>
+</div>
+</body>
+</html>

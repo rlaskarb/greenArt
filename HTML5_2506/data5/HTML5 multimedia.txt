@@ -1,0 +1,160 @@
+<HTML5 Multimedia>
+
+1. Video Elements
+
+*별도의 플러그인 설치를 필요로 하지 않는 동영상 자료를 표시
+*Control API 제공
+
+src : 비디오 자원의 경로지정 <source>사용시 생략
+width : 표시되는 요소의 넓이
+height : 표시되는 요소의 높이
+poster : 포스터 이미지를 지정함(영상이 없을때 보여지는 이미지)
+controls : 컨트롤 패널을 표시함.
+autoplay : 로드되면 자동 재생함
+loop : 반복 재생함.
+type : 비디오 코덱 정보를 지정.
+
+
+예제(파이어폭스 test) 
+
+ex1)
+<style>
+ *{margin:0; padding:0}
+ .movie{width:640px; height:360px; border:2px solid #ccc; padding:10px}
+</style>
+------------------------------
+<section class="movie">
+ <video src="movie/movie1.mp4" autoplay="autoplay" />
+</section>
+
+ex2)
+<section class="movie">
+  <video src="movie/movie1.mp4" controls="controls" poster="images/po.jpg" />
+</section>
+
+-------------------------------------
+Source Element를 쓰는 경우
+
+1.코덱이 다른 영상을 불러올때 불러오는 브라우저에서의 지원여부에 따라 플레이가 결정된다.
+  따라서 여러 개의 영상을 불러오더라도 지원이 되는 영상만 플레이가 되고 나머지는 무시된다.
+  크롬 브라우저의 경우 두개의 영상을 모두 지원하지만 먼저 지정된 영상이 플레이가 되면
+  뒤에 불려지는 영상은 플레이 되지 않고 무시된다.
+
+2. 만약에 브라우저가 영상을 지원하지 않을경우(IE8등) 대체 요소를 지정할 수 있습니다.
+  <!--<p id="fullback"><a href="source/area88.mp4">비디오 파일 다운로드</a></p>-->
+
+3. 다른 해상도의 비디오를 제공할 경우에도 사용된다.(모바일기기에 지원할 경우 등..)
+   media속성을 사용하여 모바일 기기및 해상도를 필터링 하여 서비스 할 수 있다.
+
+
+ex)
+<section class="movie">
+  <video controls="controls" poster="images/po.jpg">
+     <source src="movie/movie1.mp4" type="video/mp4" />
+     <source src="movie/movie1.ogv" type="video/ogg" />
+  </video>
+</section>
+----------------------------------------
+
+파이어폭스 : ogg (Theora, Vorbis) - http://firefogg.org
+오페라 : ogg (Theora, Vorbis)
+사파리 : mp4 (H.264, AAC) ? 다음팟 인코더
+크롬 : ogg, mp4 (Theora, Vorbis, H.264, AAC)
+아이폰&안드로이드 : mp4 (H.264, AAC)
+인터넷익스플로러9 : mp4 (H.264, AAC) ie 8은 지원안함
+플래시 플레이어 : mp4 (H.264, AAC)
+*webM : 크롬,파이어폭스,오페라,IE에서 지원예정
+* controls => 비디오에 기본 컨트롤을 추가합니다
+* preload => 미리 로딩하여 대기시간을 줄입니다.
+
+ex)
+<section class="movie">
+<video width="400" height="240" controls preload autoplay>  
+    <source src="movie/movie1.ogv" type="video/ogg" />  
+    <source src="movie/movie1.mp4" type="video/mp4" />
+    <p>Your browser is old. <a href="movie/movie1.mp4">Download this video instead.</a></p>  
+</video>
+</section>
+----------------------------------
+ex)스크립트 사용
+
+<script src="js/videoPalyer.js"></script>
+--------------
+<style>
+  #example{width:640px; border:2px solid #999;}
+  #example h2{text-align:center; font-size:20px; color:#333}
+</style>
+-------------
+<div id="example">
+   <h2>Video API</h2>
+    <div id="exampleSub">
+	   <video id="testVideo" width="640" height="340" poster="img/po.jpg" src="#" ></video>
+    <div>
+    <div>
+         <a href="source/movie1.ogv" title="Tunder CrossII" onClick="changeVideo(this);return false"><img src="img/num1.png" alt="Tunder CrossII 비디오로 변경" width="50px" style="margin-left:10px;" /></a>
+         
+         <a href="source/movie2.ogv" title="Double Dragon II" onClick="changeVideo(this);return false"><img src="img/num2.png" alt="Double Dragon II 비디오로 변경" width="50px" /></a>
+         
+         <a href="source/movie3.ogv" title="Nijakid II" onClick="changeVideo(this);return false"><img src="img/num3.png" alt="Nija Kid II 비디오로 변경" width="50px" /></a>
+         
+         <a href="#" title="재생" onClick="playVideo()"><img src="img/play.png" alt="비디오 재생" width="50px" style="margin-left:350px;" /></a>
+         
+        <a href="#" title="멈춤" onClick="stopVideo()"><img src="img/stop.png" alt="비디오 멈춤" width="50px" /></a>
+    </div>
+</div>
+
+
+
+
+동영상 이야기
+
+-동영상 파일 형식 중 Ogg 파일과 WebM 파일은 공개 소스 파일 형식입니다.
+
+-H.264코덱은 MPEG 컨소시엄에서 특허권을 가지고 있으나 HTML5 웹표준 동영상 재생용도라면 무료입니다.
+
+-H.264(.mp4) ? 크롬, 사파리, 익스플로러9
+
+-테오라 파일 형식은 사용료를 지불하지 않아도 되는 공개 소스 코덱입니다(.ogv)
+
+-일부만 무료인 H.264(mp4)인가 완전 무료인 테오라(ogv)인가..표준이 누가 될지 궁금합니다.
+
+-VP8 코덱은 가장 최근에 공개 소스 코덱으로, WebM이라는 파일형식에 사용합니다.(.webm)
+
+-오디오코덱은 mp3와 AAC, 그리고 Vorbis가 있습니다. Vorbis만 공개 소스 코덱입니다.
+
+-아직 표준지정이 안되었기 때문에 .mp4와 .ogv를 둘다 지정해야 모든 브라우저에서 볼수 있습니다.
+
+-둘이상의 동영상을 위해서는 <source> 태그를 사용해야 합니다.
+
+-<audio>요소는 <video>요소와 사용법이 거의 같습니다. 속성역시 거의 같습니다.
+
+
+==================================================
+
+2. Audio Elements
+
+src : 오디오 자원의 경로지정 <source>사용시 생략
+width : 표시되는 요소의 넓이
+height : 표시되는 요소의 높이
+controls : 컨트롤 패널을 표시함.
+autoplay : 로드되면 자동 재생함
+loop : 반복 재생함.
+
+* Firefox는 .ogg 파일이고, Webkit 기반 브라우저는 .mp3 를 지원합니다..
+* IE는 현재 지원않습니다. Opera 10이하 버전은 .wav 만 지원합니다.
+
+ex)
+<article class="sample">
+  <header><h2>Bass</h2></header>
+  <audio id="bass" controls>
+    <source src="sound/bass.ogg" type="audio/ogg">
+    <source src="sound/bass.mp3" type="audio/mpeg">
+    <a href="sound/bass.mp3">Download bass.mp3</a>
+  </audio>
+</article>
+
+
+
+
+
+
