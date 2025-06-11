@@ -1,0 +1,171 @@
+<HTML5의 컨텐츠 모델>
+
+-태그를 구분하는 기준은 그대로 계승
+   -Inline level element / block level element
+-컨텐츠 모델 추가 됨!!
+   -해당 태그가 어떠한 성격(용도)으로 사용되는지에 구분
+   -Flow Group  => 화면에 표시되는 모든 태그들 (body의 자식 태그)
+   -Metadata Group => 화면에 표시되지 않는 태그들 (head의 자식 태그) 
+   -Heading Group => heading/제목과 관련있는 태그들
+   -Sectioning Group  => 이전의 <div>태그를 대체하기 위한 각각의 용도가 있는 태그들...
+                                  => 시멘틱 태그!!
+                                     <article>,<header>,<footer>,<aside>,<nav>,<section>
+   -Phrasing Group => 이전 모델의 인라인태그들을 대체한다
+   -Interactive Group  => 사용자 와의 대화수단/상호작용을 하기위한 태그들
+                                       <a>,<button>,<form>태그
+   -Embedded Group  => 외부자원을 웹 페이지에 포함하는 요소들.
+                                       <img>,<video>,<audio>..
+   -block => 이전 버전의 블럭 요소들...
+
+---------------------------------------------------
+<HTML5의 섹션 요소(Sectioning Group)>
+
+-시멘틱 태그 (의미있는 용도의 태그)
+-헤딩 태그와의 연관성이 더 크다 -> outline(목차) 을 갖는다
+-outline(목차) => <h1>~<h6> + Sectioning Group태그
+-block요소
+
+-<div> 태그를 대체하는 의미(용도)를 갖는 박스
+   -<header>
+         -사이트 전체에 대한 머리말일(상단) 경우
+         -로고/GNB/검색차/top메뉴
+   -<footer>
+         -사이트 전체에 대한 바닥글(하단) 경우
+         -하단로고/약관/주소/카피라이트/...
+   -<nav>
+         -사이트의 네비게이션/메뉴를 표현하는 수단
+   -<section>
+         -연관성을 갖는 각각의 콘텐츠의 묶음
+   -<article>
+         -사전적의미가 신문 또는 잡지의 기사인 것처럼 웹상의 실제의 내용을 말한다.   
+         -사이트의 본문 전체를 묶는 용도로 많이 사용 (회사마다 차이가 있음)
+   -<aside>
+         -실제 내용이 담겨지는 영역외에 기타 부수적인 내용을 담는 영역에 사용된다.
+   -<hgroup>
+        -hgroup은 제목을 묶어 표현하는데 사용한다.
+        -<h1>~<h6> 헤딩 태그를 묶는 역할
+        -사용X
+   -<main>
+      -본문 전체를 묶는 태그
+
+  *outline(목차)를 갖는 태그
+       -<nav>, <article>, <section>, <aside>
+       -자식으로 <h2>~<h6> 태그를 가지고 있어야한다
+       -해당 태그의 텍스트를 표현하는 수단 => <h2>~<h6>
+    outline(목차)를 갖지 않는 태그
+       -<header>, <footer>, <main>, <hgroup>
+--------------------------------------------------------
+<HTML5의 <h1>~<h6>>
+
+-<h1>를 여러번 사용하는 것이 가능하다!!! 
+  -section  group의 태그들과 함께 사용해야 되기 때문...
+-<h1>은 로고에만 1회 사용!!!  (웹접근성)
+
+---------------------------------------------------
+<a>태그의 확장!!
+
+- Inline요소인 <a>가 block 요소를 포함할 수 있게 됐다. 
+-display:block; 변경하여 사용해라!!!
+
+============================================================
+<추가된 웹폼 2.0 요소>
+
+1.이메일 양식을 체크해준다
+  <label for="email">이메일</label>
+  <input type="email" name="email" id="email">
+
+2.url 양식(http://)을 체크해준다
+   <label for="url">URL</label>
+   <input type="url" name="url" id="url">
+
+3.숫자만 처리/입력 되는 타입
+     <label for="number">수량</label>
+     <input type="number" name="number" id="number"
+           max="10" min="1" value="1" step="2">
+
+4.Range : 일정한 범위의 숫자를 입력 받기 위한 input 타입
+       <label for="range">포토샵 사용 등급(상중하)</label>
+       <input type="range" name="range" id="range"
+             min="0" max="100" value="50" step="10">
+
+5.날짜와 시간 처리
+  <ul>
+        <li><input type="time" /></li>
+        <li><input type="date" /></li>
+        <li><input type="datetime-local" /></li>
+        <li><input type="week" /></li>
+        <li><input type="month" /></li>
+  </ul>
+
+6.색상 선택 피커를 지원
+   <input type="color" placeholder="#000000" /> 
+
+
+*추가된 태그의 속성
+  1) 필수항목 처리 ->   required="required" / required
+  2) 입력예시 문구 처리 ->  placeholder="아이디를 입력하세요"
+
+*검색 시 추천값(관련 검색어)을 제시한다
+   -폼태그의 list 속성을 <datalist id="id값">의 id값과 연결하면 된다
+
+    <input type="text" list="id값">
+    <datalist id="id값">
+           <option value="추천어1"></option>
+           <option value="추천어2"></option>
+           <option value="추천어3"></option>
+           <option value="추천어4"></option>
+           <option value="추천어5"></option>
+    </datalist>
+
+----------------------------------------------------------
+<히든 코드 만드는 방법>
+
+1.해당 태그에 css  ->  display:none; (해당태그의 공간/영역이 존재X)
+2.해당 태그에 css  ->  visibility: hidden; (해당태그의 공간/영역이 존재)
+3.해당 태그에 ->  hidden="hidden" / hidden  (display:none; 과 동일)
+
+* hidden="hidden"   /   display:none;   => 스크린 리더기가 읽지 않는다
+* 화면에는 안보이고.. 스크린 리더기가 읽어야 하는 경우
+  .hidden{display: block;
+           width: 1px; height: 1px; overflow: hidden;
+           color: #fff; position: absolute; left:-1000%; top:0}
+
+----------------------------------------------------------------
+<iframe> 태그
+
+-해당 페이지에 특정을 영역을 만들어서 또 다른  html페이지를 불러올 수 있다
+-불러오는 페이지의 교체도 가능하다
+-부모페이지에서 자식페이지를 불러온다
+-자식 페이지를 교체 할 때 -> <a>의 target="아이프레임태그의 name 값을 지정"
+
+       <ul>
+            <li><a href="./main.html" target="ifr">메인</a></li>
+            <li><a href="./sub1.html" target="ifr">회사소개</a></li>
+            <li><a href="./sub2.html" target="ifr">오시는길</a></li>
+        </ul>
+
+         <iframe name="ifr" src="./main.html" frameborder="0"></iframe>
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
