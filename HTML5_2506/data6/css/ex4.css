@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16ep;
+}
+
+li:nth-of-type(even) {
+  font-weight: bold;
+  color: #fff;
+  background: blue;
+}
+
+li:nth-of-type(odd) {
+  font-weight: bold;
+  color: green;
+  background: orange;
+}
+
+table {
+  border-collapse: collapse;
+  width: 800px;
+}
+
+th,
+td {
+  border: 1px solid #999;
+  padding: 10px;
+}
+
+th {
+  background: orange;
+}
+
+/* ($n) n(배수)  */
+tbody td:nth-of-type(4n + 1) {
+  background: pink;
+}
+
+tbody td:nth-of-type(4n + 2) {
+  background: yellow;
+}
+
+tbody td:nth-of-type(4n + 3) {
+  background: green;
+}
+
+tbody td:nth-of-type(4n + 4) {
+  background: purple;
+}

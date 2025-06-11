@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16ep;
+}
+
+/*
+ 앞으로부터 지정된 순서와 일치하는 요소가
+  E 라면 선택(E 아닌 요소의 순서가 계산에 포함됨)
+  */
+/* li:nth-child(1) {
+  font-weight: bold;
+  color: red;
+  background: #fc0;
+} */
+
+/* 
+  뒤로부터 지정된 순서와 일치하는 요소가
+  E 라면 선택(E 아닌 요소의 순서가 계산에 포함됨)
+*/
+
+/* li:nth-last-child(2) {
+  font-weight: bold;
+  color: red;
+  background: #fc0;
+} */
+
+/* li:first-child {
+  font-weight: bold;
+  color: red;
+  background: #fc0;
+} */
+
+/* li:last-child {
+  font-weight: bold;
+  color: red;
+  background: #fc0;
+} */
+
+/* E 요소 중 앞으로부터 순서가 일치하는 E 요소를 선택(E 요소의 순서만 계산에 포함됨)  */
+/* li:nth-of-type(2) {
+  font-weight: bold;
+  color: red;
+  background: #fc0;
+} */
+
+/* li:nth-last-of-type(2) {
+  font-weight: bold;
+  color: red;
+  background: #fc0;
+} */
+
+/* li:last-of-type {
+  font-weight: bold;
+  color: red;
+  background: #fc0;
+} */
+
+/* li:first-of-type {
+  font-weight: bold;
+  color: red;
+  background: #fc0;
+} */
+
+/* 안쓰는 css 타입 */
+/* h2:nth-child(1) {
+  font-weight: bold;
+  color: red;
+  background: #fc0;
+} */
+
+h2:nth-of-type(4) {
+  font-weight: bold;
+  color: red;
+  background: #fc0;
+}
+
+p:nth-of-type(4) {
+  font-weight: bold;
+  color: blue;
+  background: orange;
+}
+
+/* .box3 p:only-child {
+  font-weight: bold;
+  color: #333;
+  background: pink;
+} */
+
+.box3 p:only-of-type {
+  font-weight: bold;
+  color: #fff;
+  background: #333;
+}

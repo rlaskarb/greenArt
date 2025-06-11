@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16ep;
+}
+
+/* li:nth-child(even) {
+  font-weight: bold;
+  color: #fff;
+  background: blue;
+} */
+
+/* li:nth-child(odd) {
+  font-weight: bold;
+  color: green;
+  background: orange;
+} */
+
+li:nth-of-type(even) {
+  font-weight: bold;
+  color: #fff;
+  background: blue;
+}
+
+li:nth-of-type(odd) {
+  font-weight: bold;
+  color: green;
+  background: orange;
+}
+
+table {
+  border-collapse: collapse;
+  width: 800px;
+}
+
+th,
+td {
+  border: 1px solid #999;
+  padding: 10px;
+}
+
+th {
+  background: orange;
+}
+
+tbody tr:nth-of-type(odd) {
+  background: pink;
+}
+
+tbody tr:nth-of-type(even) {
+  background: yellow;
+}

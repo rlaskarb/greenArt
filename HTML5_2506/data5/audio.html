@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>audio 태그 연습</title>
+    <link rel="stylesheet" href="./css/audio.css" />
+  </head>
+  <body>
+    <section class="sound">
+      <h2>사운드 파일 처리</h2>
+      <audio src="./sound/TimeTemple.mp3" controls></audio>
+    </section>
+
+    <section>
+      <h2>사운드 파일 처리</h2>
+      <audio controls>
+        <source src="./sound/MapleLeaf.mp3" type="audio/mpeg" />
+        <source src="./sound/MapleLeaf.ogg" type="audio/ogg" />
+        <source src="./sound/MapleLeaf.wav" type="audio/wav" />
+      </audio>
+    </section>
+
+    <!-- 
+    
+    <audio>
+        src : 오디오 자원의 경로지정 <source>사용시 생략
+        width : 표시되는 요소의 넓이
+        height : 표시되는 요소의 높이
+        controls : 컨트롤 패널을 표시함.
+        autoplay : 로드되면 자동 재생함
+        loop : 반복 재생함.
+
+        -오디오 태그의 웹접근성
+            -오디오는 자동 재생 하지 않는다.
+            -컨트롤러를 제공해라 !
+
+        
+        -웹 브라우저 별... 지원하는 코덱 종류
+            - 크롬 -> mp3(고음질) , ogg(중/저음질) , wav(중/저음질)
+            -사파리 -> mp3
+            -엣지 -> mp3
+            -파이어폭스 ->mp3 , ogg , wav
+            -오페라 -> mp3 , ogg , wav
+
+    -->
+  </body>
+</html>

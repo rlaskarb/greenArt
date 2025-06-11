@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16ep;
+}
+
+/* ^ , $ , * 잘사용하지 않는다 */
+
+/*class이름이 yul로 시작되는 요소*/
+/* ^= -> "시작하는" (Starts with)*/
+/*li[class^="yul"] {
+  font-weight: bold;
+  color: red;
+  background: #fc0;
+}*/
+
+/* class이름이 seot로 끝나는 요소 */
+/*li[class$="seot"] {
+  font-weight: bold;
+  color: red;
+  background: #fc0;
+}*/
+
+/* class이름이 hana를 포함하는 요소 */
+/*li[class*="hana"] {
+  font-weight: bold;
+  color: red;
+  background: #fc0;
+}*/

@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16ep;
+}
+
+.rgbaBox {
+  width: 500px;
+  height: 500px;
+  border: 1px solid #333;
+  font-weight: bold;
+  text-align: justify;
+  line-height: 1.5em;
+}
+
+.webstd {
+  border: 10px solid rgba(255, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.html5Css3Text {
+  background: rgba(0, 255, 0, 0.3);
+}

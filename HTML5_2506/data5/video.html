@@ -1,9 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Video 교육</title>
+    <link rel="stylesheet" href="./css/video.css" />
   </head>
-  <body></body>
+  <body>
+    <section class="movie">
+      <h2>이거슨 영상 처리방법이여</h2>
+      <video src="./movie/movie1.mp4" poster="./images/po.jpg" controls preload>
+        이거슨 아이폰
+      </video>
+    </section>
+
+    <section class="movie">
+      <h2>이거슨 영상 처리 안전빵 방법이여</h2>
+      <video preload controls>
+        <source src="./movie/movie1.mp4" type="video/mp4" />
+        <source src="./movie/movie1.ogv" type="video/ogg" />
+        <source src="./movie/movie1.webm" type="video/webm" />
+      </video>
+    </section>
+
+    <!-- 
+    
+    <video 와 audio 태그>
+        -멀티미티어 콘텐츠를 처리하는 태그
+        -추가로 설치되는 플러그인이 필요하지 않다.
+
+        1.<video>
+            -사용되는 태그의 속성
+                src : 비디오 자원의 경로지정 <source>사용시 생략
+                width : 표시되는 요소의 넓이
+                height : 표시되는 요소의 높이
+                poster : 포스터 이미지를 지정함
+                         (영상이 없을때 보여지는 이미지 / 최초 보여지는 이미지(preload image))
+                *controls : 컨트롤 패널을 표시함.
+                autoplay : 로드되면 자동 재생함
+                loop : 반복 재생함. (숫자없이 사용시 무한루프)
+                muted: 영상의 사운드를 음소거한다.
+                type : 비디오 코덱 정보를 지정.
+                *preload: 영상의 자원을 한번에 모두 로드하지 않고 조금씩 
+                          로드하면서 영상을 보여지게 한다.(로딩속도 향상)
+        
+            -비디오 태그의 웹접근성
+                -영상은 자동 재생 하지 않는다.
+                    -자동재생이 필요한 경우 -> 사운드를 제거해라(음소거)!
+                -컨트롤러를 제공해라 !
+
+            -영상 파일의 종류 
+                -avi/-mp4/-mkv/-mov/-ogv/-webm/-asf/-flv
+                -영상 코덱! (영상파일의 압축기술!)
+                -웹브라우저 -> 영상재생-> 해당 웹 브라우저가 특정 코덱을 지원!!
+                
+            -웹 브라우저 별... 지원하는 코덱 종류
+                - 크롬 -> mp4(고화질) , ovg(중/저화질) , webm(중/저화질)
+                -사파리 -> mp4
+                -엣지 -> mp4
+                -파이어폭스 ->mp4 , ogv , webm
+                -오페라 -> mp4 , ogv m webm
+
+
+            -비디오 태그의 2가지 문법
+                1.모든 브라우저가 해당 코덱(mp4)을 지원할때!
+                    <video src="./movie/movie1.mp4"controls preload></video>
+                2.모든 브라우저가 해당 코덱이 다를때!
+                    <video preload controls>
+                        <source src="./movie/movie1.mp4" type="video/mp4" />
+                        <source src="./movie/movie1.ogv" type="video/ogg" />
+                        <source src="./movie/movie1.webm" type="video/webm" />
+                    </video>
+
+    
+    -->
+  </body>
 </html>
