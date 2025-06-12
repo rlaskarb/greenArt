@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+}
+
+#backgroundBox .backgroundBox01 {
+  width: 600px;
+  margin: 50px;
+  border: 3px solid #ccc;
+  background: url(../images/checkBox1.png) left top no-repeat,
+    url(../images/checkbox2.png) right top no-repeat,
+    url(../images/checkbox3.png) left bottom no-repeat,
+    url(../images/checkbox4.png) right bottom no-repeat,
+    url(../images/checkbox5.png) center center no-repeat;
+}
+
+#clipBox .clipBox01 {
+  width: 900px;
+  margin-left: 50px;
+  padding: 20px;
+  border: 20px dotted #ff9;
+  background: url(../images/photo3.gif);
+  background-clip: border-box;
+}
+
+#clipBox .clipBox02 {
+  width: 900px;
+  margin: 0px 0 100px 50px;
+  padding: 20px;
+  border: 20px dotted #ff9;
+  background: url(../images/photo3.gif);
+  background-clip: padding-box;
+}
+
+#originBox .originBox01 {
+  width: 900px;
+  margin-left: 50px;
+  padding: 20px;
+  border: 20px dotted #ff9;
+  background: #999 url(../images/photo3.gif) no-repeat;
+  background-origin: border-box;
+}
+
+#originBox .originBox02 {
+  width: 900px;
+  margin-left: 50px;
+  padding: 20px;
+  border: 20px dotted #ff9;
+  background: #999 url(../images/photo3.gif) no-repeat;
+  background-origin: padding-box;
+}
+
+#originBox .originBox03 {
+  width: 900px;
+  margin-left: 50px;
+  padding: 20px;
+  border: 20px dotted #ff9;
+  background: #999 url(../images/photo3.gif) no-repeat;
+  background-origin: content-box;
+}

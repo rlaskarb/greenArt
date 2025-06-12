@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+}
+
+.box1 {
+  width: 150px;
+  height: 150px;
+  background: green;
+  margin: 10px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 80px 90px 70px 85px / 65px 75px 60px 80px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 3px solid red;
+}
+
+/* 박스안에 텍스트를 정가운데 두기 나중에 더좋은 방법있음. */
+.box1 span {
+  display: block;
+  text-align: center;
+  color: #fff;
+  font-size: 1em;
+  margin-top: 55px;
+}
+
+.box1:hover {
+  background: peru;
+}
+
+#borderImageBox div {
+  font-family: "맑은고딕";
+  font-size: 1.1em;
+  text-align: justify;
+  line-height: 1.5em;
+  padding: 10px;
+  color: #666;
+}
+
+#borderImageBox .borderImageBox01 {
+  width: 600px;
+  border: 10px solid;
+  border-image: url(../images/box.jpg) 25 25 25 25 round round;
+  margin: 20px;
+}
+
+#borderImageBox .borderImageBox02 {
+  width: 600px;
+  border: 10px solid;
+  margin-top: 40px;
+  border-image: url(../images/box.jpg) 25 25 stretch stretch;
+  margin: 20px;
+}
+
+.total {
+  overflow: hidden;
+  width: 960px;
+  border: 2px solid red;
+  margin: 20px;
+}
+
+.box2 {
+  width: 200px;
+  height: 100px;
+  background: orange;
+  margin: 20px;
+  box-shadow: 10px 10px 15px 2px rgba(0, 0, 0, 0.4);
+  float: left;
+}
+
+.box3 {
+  width: 200px;
+  height: 100px;
+  background: skyblue;
+  margin: 20px;
+  box-shadow: 10px 10px 0 0 rgba(0, 0, 0, 0.1);
+  float: left;
+}
+
+/* 요즘 트렌드 디자인 */
+.box4 {
+  width: 200px;
+  height: 100px;
+  margin: 20px;
+  border-radius: 80px;
+  box-shadow: 10px 10px 15px 2px rgba(0, 0, 0, 0.2);
+  float: left;
+}
+
+.box5 {
+  width: 200px;
+  height: 100px;
+  margin: 20px;
+  border-radius: 80px;
+  box-shadow: 10px 10px 15px 2px rgba(0, 0, 0, 0.2) inset;
+  float: right;
+}
+
+/*
+ outline 는 잘 사용하지 않는다.
+ outline-offset 는 셋트메뉴이다.
+ */
+.bigbox1 {
+  width: 300px;
+  height: 300px;
+  margin: 50px;
+  background: pink;
+  outline: 10px solid red;
+  outline-offset: 10px;
+}

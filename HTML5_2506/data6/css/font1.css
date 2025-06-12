@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "nanumfont";
+  src: url(../font/nanum.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "daumfont";
+  src: url(../font/Daum_SemiBold.ttf) format("truetype"),
+    url(../font/Daum_SemiBold.woff) format("woff");
+}
+
+@font-face {
+  font-family: "torontozoopenguins";
+  src: url(../font/torontozoopenguins.ttf) format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  color: #333;
+}
+
+div {
+  width: 600px;
+  border: 5px solid #999;
+  margin: 50px;
+  text-align: justify;
+  padding: 30px;
+  line-height: 1.5em;
+}
+
+.fontBox01 {
+  font-family: nanumfont;
+}
+
+.fontBox02 {
+  font-family: daumfont;
+}
+
+.fontBox03 {
+  font-family: torontozoopenguins;
+}

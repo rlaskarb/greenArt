@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+}
+
+.box1 {
+  width: 90%;
+  height: 500px;
+  margin: 30px;
+  border: 5px solid red;
+  background: url(../images/edu_03.jpg) center no-repeat;
+  background-size: contain;
+}

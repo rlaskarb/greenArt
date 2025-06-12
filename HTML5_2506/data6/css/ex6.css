@@ -4,7 +4,7 @@
 }
 
 body {
-  font-size: 16ep;
+  font-size: 16px;
 }
 
 .rgbaBox {
@@ -35,7 +35,7 @@ body {
 }
 
 .webstd2 {
-  opacity: 0;
+  opacity: 0.2;
   background: yellow;
 }
 
@@ -49,47 +49,25 @@ body {
 #gradientBox .gradient1 {
   width: 600px;
   padding: 20px;
-  background: #676300;
-  background: -webkit-gradient(
-    linear,
-    left bottom,
-    right top,
-    from(#00f),
-    to(#fff)
+  background: linear-gradient(
+    135deg,
+    rgb(242, 252, 50) 1%,
+    rgb(255, 48, 48) 100%,
+    rgb(125, 185, 232) 100%
   );
-  background: -moz-linear-gradient(bottom 45deg, #00f, #fff);
 }
 #gradientBox .gradient2 {
   width: 600px;
   padding: 20px;
-  background: -webkit-linear-gradient(
-    top,
-    #bfd255 0%,
-    #8eb92a 50%,
-    #72aa00 51%,
-    #9ecb2d 100%
-  );
-  background: -moz-linear-gradient(
-    top,
-    #bfd255 0%,
-    #8eb92a 50%,
-    #72aa00 51%,
-    #9ecb2d 100%
+  background: radial-gradient(
+    ellipse at center,
+    rgb(255, 234, 234) 1%,
+    rgb(255, 0, 0) 67%,
+    rgb(160, 30, 30) 100%
   );
 }
 #gradientBox .gradient3 {
   width: 600px;
   padding: 20px;
-  background: -webkit-radial-gradient(
-    center,
-    ellipse cover,
-    #e3f0f4 0%,
-    #0fb4e7 100%
-  );
-  background: -moz-radial-gradient(
-    center,
-    ellipse cover,
-    #e3f0f4 0%,
-    #0fb4e7 100%
-  );
+  background: linear-gradient(to bottom, #ff6b35 0%, #f7931e 50%, #ffdc00 100%);
 }
