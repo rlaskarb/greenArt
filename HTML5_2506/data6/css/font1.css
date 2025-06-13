@@ -14,10 +14,23 @@
   src: url(../font/torontozoopenguins.ttf) format("truetype");
 }
 
+/* 한글 위주 텍스트 */
+.fontBox04 {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 600;
+}
+
+.fontBox05 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
 * {
   margin: 0;
   padding: 0;
 }
+
+/* 한글과 영문이 섞인 텍스트용 */
 
 body {
   font-size: 16px;

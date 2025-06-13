@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  color: #333;
+}
+
+div {
+  width: 500px;
+  border: 5px solid red;
+  margin: 50px;
+  line-height: 1.5em;
+  text-align: justify;
+  padding: 10px;
+}
+
+.overflowBox01 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/**
+.overflowBox02 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; -- 라인수
+  -webkit-box-orient: vertical;  -- 박스정렬
+  word-wrap: break-word;  -- 단어사이를 깬다
+  line-height: 1.5;
+  padding-bottom: 0;  -- padding-bottom 은 0으로 준다!
+} 
+**/
+
+.overflowBox02 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /*라인수*/
+  -webkit-box-orient: vertical; /*박스정렬*/
+  word-wrap: break-word; /*단어사이를 깬다*/
+  /* padding-bottom: 0; padding-bottom 은 0으로 준다! */
+}
