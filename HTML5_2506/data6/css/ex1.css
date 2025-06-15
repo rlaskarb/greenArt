@@ -11,22 +11,22 @@ body {
 
 /*class이름이 yul로 시작되는 요소*/
 /* ^= -> "시작하는" (Starts with)*/
-/*li[class^="yul"] {
+li[class^="yul"] {
   font-weight: bold;
   color: red;
   background: #fc0;
-}*/
+}
 
 /* class이름이 seot로 끝나는 요소 */
-/*li[class$="seot"] {
+li[class$="seot"] {
   font-weight: bold;
   color: red;
   background: #fc0;
-}*/
+}
 
 /* class이름이 hana를 포함하는 요소 */
-/*li[class*="hana"] {
+li[class*="hana"] {
   font-weight: bold;
   color: red;
   background: #fc0;
-}*/
+}

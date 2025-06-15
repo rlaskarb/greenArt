@@ -19,7 +19,7 @@ body {
   height: 102px;
   border: 1px solid red;
   list-style: none;
-  background: url(../back.jpg);
+  background: url(../images/back.jpg);
   text-indent: -999px;
   overflow: hidden;
 }
@@ -28,7 +28,7 @@ body {
   width: 751px;
   height: 561px;
   border: 1px solid red;
-  background: url(../a2.jpg);
+  background: url(../images/a2.jpg);
   text-indent: -999px;
   overflow: hidden;
   margin: 50px;

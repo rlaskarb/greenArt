@@ -12,7 +12,7 @@ body {
   border: 1px solid red;
   width: 224px;
   height: 54px;
-  background: url(../logo.jpg);
+  background: url(../images/logo.jpg);
   text-indent: -999px;
   overflow: hidden;
   margin: 50px;
@@ -23,13 +23,13 @@ body {
   width: 495px;
   height: 146px;
   border: 5px solid blue;
-  background: url(../hello.gif);
+  background: url(../images/hello.gif);
   text-indent: -999px;
   overflow: hidden;
 }
 
 .hello:hover {
-  background: url(../hello_on.gif);
+  background: url(../images/hello_on.gif);
 }
 
 .quick {
@@ -51,42 +51,42 @@ body {
 }
 
 .quick .q1 a {
-  background: url(../faq.jpg);
+  background: url(../images/faq.jpg);
 }
 
 .quick .q2 a {
-  background: url(../gall.jpg);
+  background: url(../images/gall.jpg);
 }
 
 .quick .q3 a {
-  background: url(../intro.jpg);
+  background: url(../images/intro.jpg);
 }
 
 .quick .q4 a {
-  background: url(../way.jpg);
+  background: url(../images/way.jpg);
 }
 
 .quick .q1 a:hover {
-  background: url(../faq_over.jpg);
+  background: url(../images/faq_over.jpg);
 }
 
 .quick .q2 a:hover {
-  background: url(../gall_over.jpg);
+  background: url(../images/gall_over.jpg);
 }
 
 .quick .q3 a:hover {
-  background: url(../intro_over.jpg);
+  background: url(../images/intro_over.jpg);
 }
 
 .quick .q4 a:hover {
-  background: url(../way_over.jpg);
+  background: url(../images/way_over.jpg);
 }
 
 .co {
   width: 340px;
   height: 322px;
   border: 1px solid red;
-  background: url(../a1.jpg);
+  background: url(../images/a1.jpg);
   text-indent: -999px;
   overflow: hidden;
   margin: 50px;
