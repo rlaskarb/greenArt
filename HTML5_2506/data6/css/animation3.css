@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  color: #333;
+}
+
+.box {
+  width: 292px;
+  height: 287px;
+  border: 3px solid red;
+  margin: 50px;
+}
+
+.box img {
+  transform: rotate(50deg);
+  transform-origin: right top;
+}
+
+div {
+  width: 200px;
+  height: 200px;
+  margin: 100px;
+  border: 1px solid #000;
+  float: left;
+}
+
+div p {
+  width: 100%;
+  height: 100%;
+  background: blue;
+  opacity: 0.3;
+  transform: rotate(30deg);
+  transform-origin: 50% 50%;
+}

@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  color: #333;
+}
+
+.box1 {
+  margin: 50px;
+}
+
+.box1 img {
+  transition: all 0.5s ease-out;
+}
+
+.box1:hover img {
+  transform: rotate(360deg) scale(1.2);
+}
+
+.box5 {
+  overflow: hidden;
+  width: 1000px;
+}
+
+.box2 {
+  margin: 50px;
+  perspective: 700px;
+  float: left;
+}
+
+.box2 img {
+  width: 200px;
+  transition: all 0.5s ease-out;
+}
+
+.box2:hover img {
+  transform: rotateY(180deg);
+}
+
+.box3 {
+  margin-top: 50px;
+  padding: 30px;
+  width: 250px;
+  height: 250px;
+  position: relative;
+  float: right;
+  overflow: hidden;
+}
+
+.box3 img {
+  opacity: 0.7;
+  transition: all 0.5s ease-out;
+}
+
+.box3:hover img {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.box3 dt {
+  font-size: 2em;
+  font-weight: bold;
+  color: blue;
+  position: absolute;
+  left: 60px;
+  top: 200px;
+  opacity: 0;
+  transition: all 0.5s ease-out;
+}
+
+.box3:hover dt {
+  top: 210px;
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+
+.box3 dd {
+  color: blue;
+  position: absolute;
+  left: 60px;
+  top: 230px;
+  opacity: 0;
+  transition: all 1s ease-out;
+}
+
+.box3:hover dd {
+  top: 250px;
+  opacity: 1;
+  transition-delay: 1s;
+}
+
+.box3 span {
+  color: blue;
+  position: absolute;
+  left: 60px;
+  top: 250px;
+  opacity: 0;
+  transition: all 1.5s ease-out;
+}
+
+.box3:hover span {
+  top: 270px;
+  opacity: 1;
+  transition-delay: 1.5s;
+}
+
+.box6 {
+  width: 200px;
+  height: 300px;
+  margin: 50px;
+  border: 5px solid #ccc;
+  position: relative;
+  overflow: hidden;
+}
+
+.box6 img {
+  width: 250px;
+  opacity: 0.7;
+  transition: all 0.5s ease-out;
+}
+
+.box6:hover img {
+  transform: translate(-50px) scale(1.2);
+  opacity: 1;
+}
+
+.box6 dl {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.box6 dt {
+  font-size: 1.5em;
+  color: #333;
+}
+
+.box6 dd {
+  color: #333;
+}

@@ -36,9 +36,14 @@ div {
   padding: 50px;
 }
 
-.box-sizing {
+.contentBox {
   width: 600px;
-  height: 50px;
-  background: red;
-  margin: 10px;
+  border: 5px solid red;
+  padding: 20px;
+  margin: 30px;
+  box-sizing: border-box;
+  text-align: justify;
+  line-height: 1.5em;
+  resize: both;
+  overflow: auto;
 }

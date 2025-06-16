@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  color: #333;
+}
+
+/* perspective: 원금감 요거 기억잘하자 */
+div {
+  width: 600px;
+  height: 400px;
+  margin: 100px auto;
+  border: 1px solid #000;
+  position: relative;
+  perspective: 1000px;
+}
+
+div p {
+  width: 100%;
+  height: 100%;
+  background: blue;
+  opacity: 0.3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  font-size: 30px;
+}
+
+div p:nth-child(1) {
+  transform: translateZ(-500px);
+}
+
+div p:nth-child(2) {
+  transform: translateZ(0);
+}
+
+div p:nth-child(3) {
+  transform: translateZ(500px);
+}

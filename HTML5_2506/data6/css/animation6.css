@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+  color: #333;
+}
+
+.box {
+  width: 400px;
+  height: 400px;
+  background: red;
+  border: 5px solid #999;
+  margin: 100px;
+  transition: all 0.5s ease-out;
+  transition-delay: 0.5s; /*시간차 공격*/
+
+  /* transition-property: all; */
+  /* transition-duration: 0.3s; */
+  /* transition-timing-function: ease-out; */
+}
+
+.box:hover {
+  background: green;
+  border-radius: 50%;
+  border: 10px solid orange;
+  transform: scale(1.5) rotate(45deg);
+  opacity: 0.5;
+}
+
+h2 {
+  font-size: 3em;
+  text-align: center;
+  transition: all 0.5s ease-out;
+}
+
+h2:hover {
+  font-size: 5em;
+  color: #fff;
+  background: orange;
+  padding: 20px;
+}
