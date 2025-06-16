@@ -146,11 +146,444 @@
 
          <iframe name="ifr" src="./main.html" frameborder="0"></iframe>
 
+-----------------------------------------------------------------------
+<video 와 audio 태그>
 
+-멀티미디어 콘텐츠를 처리하는 태그
+-추가로 설치되는 플러그인이 필요하지 않다.
 
+1.<video>
+
+-사용되는 태그의 속성
+   src : 비디오 자원의 경로지정 <source>사용시 생략
+   width : 표시되는 요소의 넓이
+   height : 표시되는 요소의 높이
+   poster : 포스터 이미지를 지정함 (영상이 없을때 보여지는 이미지/최초 보여지는 이미지(preload image))
+   controls : 컨트롤 패널을 표시함.
+   autoplay : 로드되면 자동 재생함
+   loop : 반복 재생함.  ex) loop="3"   /   loop 만 쓰면 무한 loop
+   muted : 영상의 사운드를 음소거한다
+   preload : 영상의 자원을 한번에 모두 로드하지않고 조금씩 로드한다 (로딩속도 향상)
+   type : 비디오 코덱 정보를 지정.
+
+-비디오 태그의 웹 접근성
+   -영상은 자동 재생 하지 않는다.
+       -자동 재생이 필요한 경우 -> 사운드를 제거해라(음소거)!!! 
+   -컨트롤러를 제공해라
+ 
+-영상 파일의 종류
+  -avi / mp4 / mkv / mov / ogv / webm / asf / flv,f4v ........
+  -영상 코덱!!  (영상파일의 압출기술!!)
+  -웹브라우저 -> 영상 재생 -> 해당 웹브라우저가 특정의 코덱을 지원!!!
+  
+-웹 브라우저 별... 지원하는 코덱 종류
+  -크롬            ->  mp4(고화질) , ogv(중/저) , webm(중/저)
+  -사파리         ->  mp4(고화질)
+  -엣지            ->  mp4(고화질)
+  -파이어폭스   ->  mp4(고화질) , ogv(중/저) , webm(중/저)
+  -오페라         ->  mp4(고화질) , ogv(중/저) , webm(중/저)
+
+-비디오 태그의 2가지 문법
+  -모든 브라우저가 해당 코덱(mp4)을 지원할 때....!!
+     <video 
+           src="./movie/movie1.mp4"
+           poster="./images/po.jpg"
+           controls
+           preload>
+     </video>
+
+   -모든 브라우저가 지원하는 코덱이 다를 경우!!
+       <video preload controls poster="./images/po.jpg">
+           <source src="./movie/movie1.mp4" type="video/mp4">
+           <source src="./movie/movie1.ogv" type="video/ogg">
+           <source src="./movie/movie1.webm" type="video/webm">
+        </video>
  
 
 
+2.<audio>
+  
+  -사용되는 태그 속성
+     src : 오디오 자원의 경로지정 <source>사용시 생략
+     width : 표시되는 요소의 넓이
+     height : 표시되는 요소의 높이
+     controls : 컨트롤 패널을 표시함.
+     autoplay : 로드되면 자동 재생함
+     loop : 반복 재생함.
+    
+
+  -오디오 태그의 웹 접근성
+    -오디오는 자동 재생 하지 않는다.
+    -컨트롤러를 제공해라
+
+
+ -웹 브라우저 별... 지원하는 코덱 종류
+  -크롬            ->  mp3(고음질) , ogg(중/저) , wav(중/저)
+  -사파리         ->  mp3(고음질)
+  -엣지            ->  mp3(고음질)
+  -파이어폭스   ->  mp3(고음질) , ogg(중/저) , wav(중/저)
+  -오페라         ->  mp3(고음질) , ogg(중/저) , wav(중/저)
+
+-오디오 태그의 2가지 문법
+  -모든 브라우저가 해당 코덱(mp3)을 지원할 때....!!
+      <audio 
+              src="./sound/music1.mp3"
+              controls>
+        </audio>
+
+   -모든 브라우저가 지원하는 코덱이 다를 경우!!
+       <audio controls>
+            <source src="./sound/music1.mp3" type="audio/mpeg">
+            <source src="./sound/music1.ogg" type="audio/ogg">
+            <source src="./sound/music1.wav" type="audio/wav">
+        </audio>
+
+---------------------------------------------------------------------------------
+<추가된 css 선택자들>
+
+-과도한 class명을 줄이는 역할
+
+-유사 크래스명(포함)
+   -해당 클래스명이 앞부분에 포함하고 있을 경우
+     li[class^=yul] {font-weight:bold; color:red; background:#FC0;}
+   -해당 클래스명이 뒷부분에 포함하고 있을 경우
+     li[class$=seot]{font-weight:bold; color:red; background:#FC0;}
+   -해당 클래스명이 앞/뒤/중간..에 포함하고 있을 경우
+     li[class*=hana]{font-weight:bold; color:red; background:#FC0;}
+
+-선택자:nth-child 
+   -동일한 계층(친구레벨)에 다른 태그가 섞여있으면 그 다른 태그도 순서에 포함 시킨다
+   -원하는 순서를 앞에서 부터 선택
+     li:nth-child(3){font-weight:bold; color:red; background:#FC0;}  
+   -원하는 순서를 뒤에서 부터 선택
+     li:nth-last-child(2){font-weight:bold; color:red; background:#FC0;}
+   -첫번째 요소를 선택
+     li:first-child{font-weight:bold; color:red; background:#FC0;}
+   -마지막번째 요소를 선택
+     li:last-child{font-weight:bold; color:red; background:#FC0;}
+   -해당 태그만 동일한 계층에 존재하느냐??
+     p:only-child{font-weight:bold; color:red; background:#FC0;}
+   -홀수(odd)/짝수(even) 번째
+      li:nth-child(even){font-weight:bold; color:red; background:#FC0;}
+      li:nth-child(odd){font-weight:bold; color:#fff; background:green;}
+   -배수 처리 n
+      tbody td:nth-child(4n){background: pink;}
+
+-선택자:nth-of-type (추천!!)
+   -동일한 계층(친구레벨)에 다른 태그가 섞여있으면 그 다른 태그는 순서에 포함 시키지 않는다
+   -원하는 순서를 앞에서 부터 선택
+     li:nth-of-type(2){font-weight:bold; color:red; background:#FC0;}
+   -원하는 순서를 뒤에서 부터 선택
+     li:nth-last-of-type(2){font-weight:bold; color:red; background:#FC0;}
+   -첫번째 요소를 선택
+     li:first-of-type{font-weight:bold; color:red; background:#FC0;}
+   -마지막번째 요소를 선택
+     li:last-of-type{font-weight:bold; color:red; background:#FC0;}
+   -해당 태그만 동일한 계층에 존재하느냐??
+     p:only-of-type{font-weight:bold; color:red; background:#FC0;}
+  -홀수(odd)/짝수(even) 번째
+      li:nth-of-type(even){font-weight:bold; color:red; background:#FC0;}
+      li:nth-of-type(odd){font-weight:bold; color:#fff; background:green;}
+  -배수 처리 n
+      tbody td:nth-of-type(4n){background: pink;}
+      tbody td:nth-of-type(4n+1){background: pink;}
+
+-------------------------------------------------------------
+<color에 관련된 css 속성>
+
+*확장 접두사(벤더프리픽스)
+   -브라우저별 엔진이름 -> 강제로 해당 브라우저에 css속성을 처리해준다
+     -webkit-  (크롬/사파리)
+     -moz-  (파이어폭스)
+     -o- (오페라)
+     -ms-  (익스/엣지)
+
+-투명도를 갖는 컬러
+  -rgba([red],[green],[blue],[alpha])   (투명도-> 0~1)  (추천!!!)
+  -hsla([h],[s],[l],[a]) (색상,명도,체도,투명도)
+
+-박스전체의 투명도
+  -opacity:0~1   (애니메이션)
+
+-그라디언트
+  -그라디언트 제네레이터로 만들자!!
+  -http://www.colorzilla.com/gradient-editor/
+
+---------------------------------------------------------
+<border 와 box에 관련된 css 속성>
+
+-둥근 모서리 사각형
+   -border-radius: 곡률(10px)
+         -border-radius: 10px;   (네 꼭지점에 10px 곡률지정)
+         -border-radius: 10px 20px 30px 40px; (왼쪽위 오른쪽위 오른쪽아래 왼쪽아래)
+         -border-radius: 10px 20px;   (왼쪽위/오른쪽아래->10px , 오른쪽위/왼쪽아래->20px)
+         -정원을 만드는 방법
+               -width:300px;  height:300px;  border-radius:150px; 또는 border-radius:50%(권장);
+         -각 모서리 변마다 값을 지정
+               -border-radius: 100px 120px 40px 100px / 60px 70px 80px 90px;
+        -<img>, <video> 태그도 직접 적용 가능
+
+-테두리에 이미지를 사용할 수 있다. (다양한 박스 디자인 가능!!!)
+    -border-image : url(이미지경로) slice repeat(위/아래) repeat(좌우);
+    -ex)border-image:url(img/borderImg.png) 40 40 40 40 round round;
+       -반복하고 싶을 때 -> round
+       -반복하기 싫을 때 -> stretch
+    -꼭!! border 속성과 함께 사용한다  ->  border:5px solid;  (색상만 생략!!)
+      
+-박스에 그림자 넣기
+     -box-shadow: [x축의거리] [y축의거리] [bulr값] [spread값] [color] [set/(바깥/안)];
+     -ex) box-shadow: 10px 10px 15px 1px rgba(0,0,0,.4);
+     -inset(안)/outset(바깥-기본값/생략하고 사용한다)
+     -<img>, <video> 태그도 직접 적용 가능
+
+-외곽선을그리는속성 (border와 상관이 없다)
+     - outline-style : 아웃라인의 형식
+        outline-color : 아웃라인의 색상
+        outline-width : 아웃라인의 두께
+        outline: 두께 스타일 컬러;
+        outline-offset:박스와의거리(양수/음수);
+     -표시만 될 뿐 영역을 차지하지는 않는다.
+
+----------------------------------------------------
+<background:url() 에 추가된 css 속성>
+
+-background:url(이미지경로) x축 y축 반복형태; 
+
+-다중 백그라운드 이미지 가능!!!
+    -하나의 박스안에 여러개의 이미지를 중복해서 사용 가능
+    -background:url(이미지경로) x축 y축 반복형태 ,
+                         url(이미지경로) x축 y축 반복형태 ,
+                         url(이미지경로) x축 y축 반복형태 ,
+                         url(이미지경로) x축 y축 반복형태 ;
+    -첫번째 url(이미지경로) 의 이미지가 가장 위로 올라간다.
+
+ 
+-배경 이미지의 border 영역 확장!!
+      -background-clip :padding-box / border-box(border 까지 확장) ; 
+
+-배경 이미지의 시작 점을 변경
+     -배경의 원점을 지정하는 속성(padding/border/content)
+     -background-origin :  border-box  / padding-box (기본) / content-box;
+
+-배경 이미지의 크기 변경 ***
+     -background-size : x축의크기, y축의크기;
+         - px , % 
+         -cover : 부모박스에 이미지를 꽉 채운다
+                      (너비와 높이 중 큰쪽은 먼저 맞추고 나머지 쪽의 크기를 비율을 유지하면 맞춘다) 
+                      이미지의 가로 세로 비율을 유지한다 
+         -contain : 너비와 높이 중 작은쪽을 먼저 맞추고 나머지 쪽의 크기를 비율을 유지하면 맞춘다
+                       이미지의 가로 세로 비율을 유지한다 
+
+---------------------------------------------------------------------------
+<웹폰트와 웹폰트 아이콘 사용하기>
+
+-웹폰트 만드는 방법!!! ***
+    -외부 폰트 자체를 서버에 업로드 하여... 사용자의 pc에 설치되어 있지 않는 폰트를 서비스 한다!!
+    -시스템폰트 - 모든 pc에 설치되어 있는 기본 폰트
+    -@font-face 를 사용해서 서버에 등록!!!
+      @font-face{ 
+           font-family:[폰트명으로 사용할 이름]; 
+           src:local([사용자 컴퓨터에서 찾아볼 폰트이름]), 
+                url([서버 측의 폰트경로]) format([폰트형식]); 
+      }
+      -local([사용자 컴퓨터에서 찾아볼 폰트이름]) 은 생략 가능하다!!
+   -트루타입폰트(ttf) -> 크롬/사파리/파폭/엣지/오페라
+   -익스플로러 -> eot / woff 를 사용
+   -5대 브라우저 지원
+       @font-face {
+        font-family: nanumfont ;
+        src:local(나눔고딕 extrabold), 
+            url(./font/nanum.ttf) format('truetype');
+      }
+   -모든(익스플로러) 브라우저에 지원
+     @font-face {
+        font-family: nanumfont ;
+        src:url(./font/nanum.eot);
+        src:local(나눔고딕 extrabold), 
+            url(./font/nanum.ttf) format('truetype'),
+            url(./font/nanum.woff) format('woff');
+      }
+    
+-구글 웹 폰트를 사용하는 방법!!!
+    -https://fonts.google.com/
+    -폰트 연결 방법
+         -해당 폰트를 선택한다
+         -link방식
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+         
+            .fontBox04{font-family: "Noto Sans KR", sans-serif; font-weight: 600;}
+         
+          -@import방식(권장)
+              <style>
+                   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+             
+                   .fontBox04{font-family: "Noto Sans KR", sans-serif; font-weight: 600;} 
+             </style>
+               
+
+-아이콘 폰트(백터)
+     -구글 아이콘 폰트 사용하기
+         -<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon" />
+
+           <style>
+                .material-symbols-outlined {
+                    font-variation-settings:
+                    'FILL' 0,
+                   'wght' 400,
+                   'GRAD' 0,
+                   'opsz' 24
+                 }
+
+                span{font-size: 5em; color: orange;}
+           </style>
+
+          <span class="material-symbols-outlined">
+                  search
+          </span>
+
+    -Font Awesome (폰트어썸) 아이콘 폰트 사용하기
+         -https://fontawesome.com/
+         -<script src="https://kit.fontawesome.com/f2fbef274a.js" crossorigin="anonymous"></script>
+          
+          <span class="hidden">페이스북</span>
+          <i class="fa-brands fa-square-facebook"></i>
+
+-------------------------------------------------------
+<font&text 에 추가된 css 속성>
+
+-박스의 크기보다 텍스트의 양의 많을 때... 말줄임 처리!!
+     -text-overflow:ellipsis; -> 지정된 영역의 크기에 맞게 말줄임표를 표시한다.
+     -text-overflow 만 사용하면 안되고.. 다른 속성과 함께 사용해야 한다
+ 
+     1)한줄 말줄임
+             -해당 박스에 width 값이 설정
+              -white-space: nowrap;   ->  한줄로 강제로 표시
+              -overflow: hidden;   -> 넘치는 부분을 강제로 잘라내라
+              -text-overflow:ellipsis;   -> 말줄임 처리
+
+     2)다중 말줄임(2줄 이상)
+            - 해당 박스에 width 값이 설정
+            - overflow: hidden;
+            - text-overflow: ellipsis;
+            - display: -webkit-box;
+            - -webkit-line-clamp: 2;    ->   라인수
+            - -webkit-box-orient: vertical;  -> 박스정렬
+            - word-wrap:break-word;   -> 단어사이를 깬다
+            - padding-bottom: 0;  -> padding-bottom은 0으로 세팅!!
+
+-텍스트에 그림자 넣기
+   -text-shadow:x축 y축 bulr값 그림자색;
+     -단일 그림자 
+            text-shadow:3px 3px 5px rgba(0,0,0,.4);
+     -다중 그림자
+            text-shadow:
+                               0 0 4px #ccc,
+                               0 -3px 4px #ff3,
+                              1px -6px 6px #fd3,
+                             -1px -9px 11px #f80,
+                              1px -12px 18px #f20;
+            }  
+       
+-하나의 긴 단어를 강제로 깨부시는 방법
+     - word-wrap:break-word; ->공란이 없어도 요소의 폭보다 문장의 길이가 길어질경우 줄바꿈을 하지 함 
+
+-하나의 박스에서 그 안에 텍스트를 강제 단을 구현하는 방법
+     -column-count : 단의 수 
+     -column-width : 하나의 단 폭  (px/%)
+                 -px -> 부모박스의 너비에 따라 단의 개수가 변경된다 (min-width)
+                 -%  -> 해당 단으로 유지
+     -column-gap : 단과 단 사이의 거리
+     -column-rule : 단과 단 사이의 구분선 지정
+
+     -columns : 한단의폭 단의개수  (줄임표현)
+     *column-width:300px; column-count:2;   =>  columns:300px 2;  로 줄여 쓸수 있다.
+ 
+     *너비 지정 방법
+           -width    : 해당너비
+           -min-width  : 해당너비 이상~~~
+           -max-width  :  해당너비 이하~~~
+    
+-------------------------------------------------------------------------------
+<브라우저의 랜더링 방식의 변화>
+
+-요소박스의 크기영역을 지정해주는 속성 ***
+   -box-sizing: content-box(기본) / border-box;
+   -box-sizing: border-box;  박스너비 -> width에 padding과 border가 포함된다
+   *실제박스너비 -> width+padding+border
+
+-블럭 요소의 크기를 바꿔주는 속성
+  -resize:horizontal/vertical/both;
+    horizontal : 가로방향의 크기를 변경을 할수 있음
+    vertical : 세로방향의 크기를 변경을 할수 있음
+    both : 양 방향의 크기를 변경을 할수 있음
+  -overflow:auto; 속성과 함께 사용해야 한다!!!
+
+------------------------------------------------------------------------------
+<다양한 효과 및 애니메이션>
+
+-지정된 요소의 반사체를 생성하는 속성
+   -box-reflect : [반사 방향],[offset 거리],[마스크];
+       -반사방향 : 반사되는 방향을 지정함 above/below/left/right
+       -offset거리 : 반사체가 원본과 떨어지는 거리를 지정 
+       -마스크 : 반사체 표시 부분에 마스크를 지정 할 수 있음
+   --webkit- (벤더프리픽스 필요!!!)
+    ex) -webkit-box-reflect:below 1px 
+                    -webkit-gradient(linear,left top,left bottom, 
+                     from(transparent),color-stop(.5,transparent),to(white));
+
+-박스 요소의 형태를 변경함
+  -transform : translate() / scale() / rotate() / skew();
+         -translate([dx],[dy]) : 지정한 크기 만큼 이동 시킴
+               -translateX(100px);
+               -translateY(100px);
+               -translate(100px,50px); 
+         -scale([ds]) : 지정한 배율 만큼 확대함(x값, y값 따로가능)
+               -scaleX(1.5);
+               -scaleY(1.5);
+               -scale(2);   scale(1.5 , 2);
+         -rotate([deg]) : 지정한 각도만큼 회전 시킴 (-(반시계)/ +(시계))
+         -skew([degx],[degy]) : x축, y축 지정한 경사로 기울임
+                -skewX(30deg);
+                -skewY(30deg);
+                -skew(30deg, 30deg);
+   -position:relative; 가 적용된 것 처럼 동작한다 -> 깊이 값이 증가(위에위치)/공간 유지
+   -transform 속성을 지정하면 해당 박스요소의 중심점이 정 중앙으로 변경된다
+   -transform 속성도 자식 태그에 상속된다
+   -다중개의 형태변환이 가능하다
+      -transform : translate() scale() rotate() ; 
+
+-transform 의 중심점 변경
+   -transform-origin : 변경할 위치값
+         - left right top bottom center (9가지 위치 변경)
+         - px  ->  transform-origin : 10px(x축) 20px(y축);
+         - %  ->  transform-origin : 10%(x축) 20%(y축);
+
+-3D 애니메이션 (transform)
+    -꼭!!!   perspective 속성과 함께 사용해야 한다
+              -원근감을 설정한다.- z축에 해당한다.
+              -3d가 적용된 태그의 직계부모 태그에 적용되어 있어야한다
+              -수치가 작을 수록 왜곡이 커지며, 수치가 커질수록 왜곡은 작아진다.
+              -권장 수치 500px~1500px  (700px/800px 권장)
+    -3d 회전 
+          -transform : rotateX(60deg); (x축의 3d회전)
+          -transform : rotateY(60deg); (x축의 3d회전)
+    -Z축의 이동
+          -transform : translateZ(100px);  ->  앞(양수) 뒤(음수)
+
+-----------------------------------------------------------------
+<tween 애니메이션>
+
+-class나 선택상태가 변경되어 css 속성이 변화할 때 상태 변화를 부드럽게 에니메이션 함
+   - transition : [변환속성],[변환시간(s->초)],[변환방법]; 
+   - transition-property : all;  (all -> 모든 변경된 css속성에 적용)
+     transition-duration : 1s;
+     transition-timing-function : ease-out; ( linear(동일한속도), ease-in(처음속도느림), ease-out(나중에속도느림), ease-in-out)
+  - transition속성은 최초 상태..에 적용!
+  - transition-delay: 3s; (애니메이션의 지연 시간 s)  
+
+----------------------------------------------------------------
 
 
 
@@ -158,8 +591,7 @@
 
 
 
-
-
+ 
 
 
 
