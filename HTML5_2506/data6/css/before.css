@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+}
+
+h2 {
+  font-size: 4em;
+  margin: 50px 100px;
+  position: relative;
+}
+
+h2::before {
+  display: block;
+  content: "h2 태그 이전에 생성된다 이자식아.";
+  font-size: 0.4em;
+  color: #fff;
+  background: red;
+  width: 400px;
+  padding: 15px 10px;
+  text-align: center;
+  border-radius: 40px;
+  position: absolute;
+  left: -0;
+  top: -200px;
+  opacity: 0;
+  transition: all 0.5s ease-out;
+}
+
+h2:hover::before {
+  content: "h2 태그 이전에 생성된다 이자식아. "; /*안하면 에러나요! 리더기 읽어야쥬*/
+  opacity: 1;
+  top: -70px;
+}
+
+h2::after {
+  display: block;
+  content: "h2 태그 이후에 생성된다 이자식아!";
+  font-size: 0.4em;
+  color: #fff;
+  background: blue;
+  width: 400px;
+  padding: 15px 10px;
+  text-align: center;
+  border-radius: 40px;
+  position: absolute;
+  left: 0;
+  top: 200px;
+  opacity: 0;
+  transition: all 0.5s ease-out;
+}
+
+h2:hover::after {
+  content: "h2 태그 이후에 생성된다 이자식아.";
+  opacity: 1;
+  top: 100px;
+}
+
+h3 {
+  font-size: 3em;
+  margin: 100px;
+  position: relative;
+  color: green;
+}
+
+h3 span {
+  font-size: 1.4em;
+  color: red;
+}
+
+h3::before {
+  content: " "; /*글이없다고 생략하면 에러가나온다 리더기*/
+  display: block;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: url(../images/세븐일레븐/세븐일레븐\ 가게3.jpg);
+  position: absolute;
+  left: -20px;
+  top: -90px;
+  z-index: -1;
+}
+
+h3::after {
+  content: " ";
+  display: block;
+  width: 320px;
+  height: 3px;
+  background: red;
+  position: absolute;
+  left: 10px;
+  bottom: -2px;
+}
+
+h4 {
+  font-size: 4em;
+  margin: 100px;
+  position: relative;
+  transition: all 0.5s ease-out;
+}
+
+h4:hover {
+  color: skyblue;
+}
+
+h4::after {
+  content: " ";
+  display: block;
+  width: 240px;
+  height: 5px;
+  background: skyblue;
+  border-radius: 5px;
+  position: absolute;
+  left: -5px;
+  bottom: -15px;
+  transform: scaleX(0);
+  transition: all 0.5s ease-out;
+}
+
+h4:hover::after {
+  content: " ";
+  transform: scale(1);
+}
+
+.box {
+  width: 600px;
+  height: 300px;
+  margin: 100px;
+  border: 5px solid red;
+}
+
+.box::after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+.box div:nth-of-type(1) {
+  width: 300px;
+  height: 300px;
+  background: green;
+  float: left;
+  transition: all 0.5s ease-out;
+}
+
+.box:hover div:nth-of-type(1) {
+  transform: scale(1.2);
+}
+
+.box div:nth-of-type(2) {
+  width: 300px;
+  height: 300px;
+  background: yellow;
+  float: right;
+}
