@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>게시판 샘플</title>
+    <link rel="stylesheet" href="./bulletin_borard.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>📝 멋진 게시판</h1>
+        <p>당신의 생각을 자유롭게 공유하세요!</p>
+        <div class="stats">
+          <div class="stat-item">
+            <span class="stat-number" id="postCount">0</span>
+            <span>게시글</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="todayCount">0</span>
+            <span>오늘 작성</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="write-section">
+        <h2>✍️ 새 글 작성</h2>
+        <form id="postForm">
+          <div class="form-group">
+            <label for="author">작성자</label>
+            <input
+              type="text"
+              id="author"
+              class="form-control"
+              placeholder="작성자명을 입력하세요"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="title">제목</label>
+            <input
+              type="text"
+              id="title"
+              class="form-control"
+              placeholder="제목을 입력하세요"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="content">내용</label>
+            <textarea
+              id="content"
+              class="form-control"
+              placeholder="내용을 입력하세요"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn">📝 등록하기</button>
+          <button type="button" class="btn" onclick="resetForm()">
+            🔄 초기화
+          </button>
+        </form>
+      </div>
+
+      <div class="post-list">
+        <h2>📋 게시글 목록</h2>
+        <div id="postContainer">
+          <div class="empty-state">
+            <div style="font-size: 4rem">📭</div>
+            <h3>아직 게시글이 없습니다</h3>
+            <p>첫 번째 게시글을 작성해보세요!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 수정 모달 -->
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>📝 게시글 수정</h2>
+        <form id="editForm">
+          <div class="form-group">
+            <label for="editAuthor">작성자</label>
+            <input type="text" id="editAuthor" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label for="editTitle">제목</label>
+            <input type="text" id="editTitle" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label for="editContent">내용</label>
+            <textarea id="editContent" class="form-control" required></textarea>
+          </div>
+          <button type="submit" class="btn">💾 수정 완료</button>
+          <button type="button" class="btn" onclick="closeModal()">
+            ❌ 취소
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // 게시글 데이터 저장소 (실제 서비스에서는 데이터베이스 사용)
+      let posts = [];
+      let currentEditId = null;
+
+      // 페이지 로드 시 초기화
+      document.addEventListener("DOMContentLoaded", function () {
+        // 샘플 데이터 추가
+        posts = [
+          {
+            id: 1,
+            author: "관리자",
+            title: "게시판 오픈을 축하합니다! 🎉",
+            content:
+              "안녕하세요! 새로운 게시판이 오픈되었습니다.\n자유롭게 글을 작성하고 소통해보세요.",
+            createdAt: new Date().toISOString(),
+          },
+        ];
+
+        renderPosts();
+        updateStats();
+      });
+
+      // 게시글 등록
+      document
+        .getElementById("postForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const author = document.getElementById("author").value.trim();
+          const title = document.getElementById("title").value.trim();
+          const content = document.getElementById("content").value.trim();
+
+          if (!author || !title || !content) {
+            alert("모든 필드를 입력해주세요! 😊");
+            return;
+          }
+
+          const newPost = {
+            id: Date.now(),
+            author: author,
+            title: title,
+            content: content,
+            createdAt: new Date().toISOString(),
+          };
+
+          posts.unshift(newPost); // 새 글을 맨 앞에 추가
+          renderPosts();
+          updateStats();
+          resetForm();
+
+          // 성공 애니메이션
+          showNotification("게시글이 성공적으로 등록되었습니다! 🎊");
+        });
+
+      // 게시글 목록 렌더링
+      function renderPosts() {
+        const container = document.getElementById("postContainer");
+
+        if (posts.length === 0) {
+          container.innerHTML = `
+                    <div class="empty-state">
+                        <div style="font-size: 4rem;">📭</div>
+                        <h3>아직 게시글이 없습니다</h3>
+                        <p>첫 번째 게시글을 작성해보세요!</p>
+                    </div>
+                `;
+          return;
+        }
+
+        container.innerHTML = posts
+          .map(
+            (post) => `
+                <div class="post-item">
+                    <div class="post-header">
+                        <div>
+                            <div class="post-title">${escapeHtml(
+                              post.title
+                            )}</div>
+                            <div class="post-meta">
+                                👤 ${escapeHtml(post.author)} | 
+                                📅 ${formatDate(post.createdAt)}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-content">${escapeHtml(post.content)}</div>
+                    <div class="post-actions">
+                        <button class="btn btn-edit" onclick="editPost(${
+                          post.id
+                        })">✏️ 수정</button>
+                        <button class="btn btn-delete" onclick="deletePost(${
+                          post.id
+                        })">🗑️ 삭제</button>
+                    </div>
+                </div>
+            `
+          )
+          .join("");
+      }
+
+      // 게시글 수정
+      function editPost(id) {
+        const post = posts.find((p) => p.id === id);
+        if (!post) return;
+
+        currentEditId = id;
+        document.getElementById("editAuthor").value = post.author;
+        document.getElementById("editTitle").value = post.title;
+        document.getElementById("editContent").value = post.content;
+        document.getElementById("editModal").style.display = "block";
+      }
+
+      // 수정 폼 제출
+      document
+        .getElementById("editForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const author = document.getElementById("editAuthor").value.trim();
+          const title = document.getElementById("editTitle").value.trim();
+          const content = document.getElementById("editContent").value.trim();
+
+          if (!author || !title || !content) {
+            alert("모든 필드를 입력해주세요! 😊");
+            return;
+          }
+
+          const postIndex = posts.findIndex((p) => p.id === currentEditId);
+          if (postIndex !== -1) {
+            posts[postIndex] = {
+              ...posts[postIndex],
+              author: author,
+              title: title,
+              content: content,
+            };
+
+            renderPosts();
+            closeModal();
+            showNotification("게시글이 수정되었습니다! ✨");
+          }
+        });
+
+      // 게시글 삭제
+      function deletePost(id) {
+        if (confirm("정말로 이 게시글을 삭제하시겠습니까? 🤔")) {
+          posts = posts.filter((p) => p.id !== id);
+          renderPosts();
+          updateStats();
+          showNotification("게시글이 삭제되었습니다! 🗑️");
+        }
+      }
+
+      // 모달 닫기
+      function closeModal() {
+        document.getElementById("editModal").style.display = "none";
+        currentEditId = null;
+      }
+
+      // 폼 초기화
+      function resetForm() {
+        document.getElementById("postForm").reset();
+      }
+
+      // 통계 업데이트
+      function updateStats() {
+        document.getElementById("postCount").textContent = posts.length;
+
+        const today = new Date().toDateString();
+        const todayPosts = posts.filter(
+          (post) => new Date(post.createdAt).toDateString() === today
+        ).length;
+        document.getElementById("todayCount").textContent = todayPosts;
+      }
+
+      // 날짜 포맷팅
+      function formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleString("ko-KR", {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+      }
+
+      // HTML 이스케이프 (XSS 방지)
+      function escapeHtml(text) {
+        const div = document.createElement("div");
+        div.textContent = text;
+        return div.innerHTML;
+      }
+
+      // 알림 표시
+      function showNotification(message) {
+        const notification = document.createElement("div");
+        notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(45deg, #4CAF50, #45a049);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 25px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                z-index: 2000;
+                animation: slideIn 0.3s ease;
+            `;
+        notification.textContent = message;
+
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+          notification.style.animation = "slideOut 0.3s ease";
+          setTimeout(() => {
+            document.body.removeChild(notification);
+          }, 300);
+        }, 3000);
+      }
+
+      // 모달 외부 클릭 시 닫기
+      window.onclick = function (event) {
+        const modal = document.getElementById("editModal");
+        if (event.target === modal) {
+          closeModal();
+        }
+      };
+
+      // 애니메이션 CSS 추가
+      const style = document.createElement("style");
+      style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+      document.head.appendChild(style);
+    </script>
+  </body>
+</html>
