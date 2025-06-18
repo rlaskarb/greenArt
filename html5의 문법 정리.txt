@@ -576,16 +576,47 @@
 <tween 애니메이션>
 
 -class나 선택상태가 변경되어 css 속성이 변화할 때 상태 변화를 부드럽게 에니메이션 함
-   - transition : [변환속성],[변환시간(s->초)],[변환방법]; 
+   -축약법  transition : [변환속성],[변환시간(s->초)],[변환방법]; 
    - transition-property : all;  (all -> 모든 변경된 css속성에 적용)
      transition-duration : 1s;
      transition-timing-function : ease-out; ( linear(동일한속도), ease-in(처음속도느림), ease-out(나중에속도느림), ease-in-out)
   - transition속성은 최초 상태..에 적용!
-  - transition-delay: 3s; (애니메이션의 지연 시간 s)  
+  - transition-delay: 3s; (애니메이션의 지연 시간 s(초))  
 
 ----------------------------------------------------------------
+<animation>
 
+-자동으로 동작하는 애니메이션을 만들 수 있다.
+-animation 속성들
+   animation-name : 설정된 keyframe에서 이름
+   animation-delay : 실행전 지연 시간(s)
+   animation-duration : 1회의 실행 시간(s)
+   animation-iteration-count : 반복 횟수 (infinite:반복)
+   animation-timing-function : 속도 형태(ease등…)
+   animation-direction : 반복 형태(alternate:역방향)
+   animation-fill-mode: forwards;  (to에 적용된 속성 값으로 멈춘다)
 
+-@keyframes 애니메이션이름{
+     from { [초기상태속성값] }
+    [10~100]% { [키프레임 위치에서의 속성값] }
+    to { [종료상태 속성값] }
+  }
+
+-축약법
+  animation: name | duration | timing-function | delay | iteration-count | direction | fill-mode;
+  ex) animation:ani 3s ease-out 0s infinite  alternate forwards;
+
+-------------------------------------------------------------
+<before & after>
+
+-모든 태그들은 ::before  ,  ::after 를 사용할 수 있다
+
+-선택자::before{content:'앞부분에 오는 가상의 텍스트'; }
+  선택자::after{content:'뒷부분에 오는 가상의 텍스트'; }
+
+-텍스트가 필요 없을 때도 content:''; 는 작성해야 한다.
+-부모박스의 overflow:hidden; 을 대체할 수 있다 ***
+  부모박스명::after{content:''; display: block; clear: both;}
 
 
 
