@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>말줄임 !! 중요!!!</title>
+    <link rel="stylesheet" href="../css/ex10.css" />
+  </head>
+  <body>
+    <div class="overflowBox01">
+      아름다운재단은 기업재단이나 가족재단과 달리 특정회사나 특정개인이 아니라
+      수많은 시민들의 참여로 운영됩니다. 아름다운재단을 운영하는 이사회 역시
+      기업관계자, 학계, NGO.NPO 지도자 등 다양한 일에 종사하는 인사들이 참여하여
+      우리사회 다양한 시각이 재단 운영과정 에 반영될 수 있도록 하고 있습니다.
+    </div>
+    <div class="overflowBox02">
+      아름다운재단의 이익은 모두 우리사회와 시민들의 이익으로 되돌아갑니다.
+      아름다운재단의 기금은 우리사회에서 일하고, 살아가는 사람들의 필요에
+      부응하며, 우리사회의 긍정적인 변화를 위해 일하는 다양한 공익활동에
+      쓰여집니다. 또한 지역재단의 자산의 이익도 역시 지역사회로 환원되도록 해야
+      합니다.
+    </div>
+
+    <!-- 
+    
+    박스의 크기보다 텍스트의 양이 많을떄.. 말줄임 처리!
+        -text-overflow
+            1번째 :  ellipsis : 지정된 영역의 크기에 맞게 말줄임표를 표시한다.
+                -text-overflow 만 사용하면 안되고 ... 다른속성과 함께 사용해야 한다.
+                    - 해당박스에 width 값이 설정
+                    -white-space:nowrap; -> 한줄로 강제로 표시
+                    -overflow:hidden; -> 넘치는 부분을 강제로 잘라낸다.
+                    -text-overflow:ellipsis; ->말줄임 처리
+
+                1)한줄 말줄임
+
+                2)다중 말줄임(두줄이상)
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2; /*라인수*/
+                -webkit-box-orient: vertical; /*박스정렬*/
+                word-wrap: break-word; /*단어사이를 깬다*/
+                padding-bottom: 0; /*padding-bottom 은 0으로 준다!*/
+
+    -->
+  </body>
+</html>

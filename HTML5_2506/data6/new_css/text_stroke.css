@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+h2 {
+  font-family: "Noto Sans KR", "맑은고딕", sans-serif;
+  font-weight: bold;
+  font-size: 100px;
+  margin: 100px;
+  -webkit-text-stroke: 3px rgba(255, 0, 0, 0.5);
+  color: #fff;
+}
+
+h3 {
+  font-family: "Noto Sans KR", "맑은고딕", sans-serif;
+  font-weight: bold;
+  font-size: 100px;
+  margin: 100px;
+  text-shadow: 0 0 2px rgba(255, 0, 0, 1);
+  color: #fff;
+}
+
+h4 {
+  font-family: "Noto Sans KR", "맑은고딕", sans-serif;
+  font-weight: bold;
+  font-size: 100px;
+  margin: 100px;
+  text-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+  color: #fff;
+}

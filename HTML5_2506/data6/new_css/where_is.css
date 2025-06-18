@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  color: #333;
+}
+
+/* section :where(h2, h3, p) {
+  color: red;
+  font-size: 2rem;
+} */
+
+/* section :is(h2, h3, p) {
+  color: blue;
+  font-size: 2rem;
+} */
+
+:is(header, nav, article, section, footer) p {
+  color: aquamarine;
+  font-size: 3em;
+}

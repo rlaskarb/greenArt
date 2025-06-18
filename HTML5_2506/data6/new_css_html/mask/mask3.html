@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>클리핑마스크효과</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .iu {
+        /* mask-image: url('./bini.png');
+        -webkit-mask-image: url('./bini.png'); */
+        mask-image: url("./ani.png");
+
+        mask-repeat: no-repeat;
+
+        mask-position: right top;
+
+        mask-size: 300px;
+
+        transition: all 0.5s;
+      }
+
+      .iu:hover {
+        mask-size: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <img class="iu" src="./image.png" alt="그녀닷!" />
+  </body>
+</html>

@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 20px;
+}
+
+body {
+  font-size: 20px;
+}
+
+.box1 {
+  font-size: 2em;
+}
+
+.box1 > div {
+  font-size: 2em;
+}
+
+.box1 > div > div {
+  font-size: 2em;
+}
+
+.box1 p {
+  font-size: 160px;
+}
+
+.box2 {
+  font-size: 2rem;
+}
+
+.box2 > div {
+  font-size: 2rem;
+}
+
+.box2 > div > div {
+  font-size: 2rem;
+}
+
+.box2 p {
+  font-size: 40px;
+}

@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  margin: 50px;
+}
+
+.border {
+  width: 1600px;
+  overflow: hidden;
+}
+
+.box1 {
+  float: left;
+}
+
+.box1 img {
+  width: 500px;
+  transition: all 0.5s ease-out;
+}
+
+.box1:hover img {
+  filter: blur(4px); /*흐려짐 효과*/
+}
+
+.box2 {
+  float: left;
+}
+
+.box2 img {
+  width: 500px;
+  transition: all 0.5s ease-out;
+}
+
+.box2:hover img {
+  filter: brightness(0%); /*밝기 조절 효과*/
+}
+
+.box3 {
+  float: left;
+}
+
+.box3 img {
+  width: 300px;
+  transition: all 0.5s ease-out;
+}
+
+.box3:hover img {
+  filter: contrast(150%); /*색상 대비*/
+}
+
+.border2 {
+  width: 1600px;
+  overflow: hidden;
+}
+
+.box4 {
+  float: left;
+}
+
+.box4 img {
+  width: 300px;
+  transition: all 0.5s ease-out;
+}
+
+.box4:hover img {
+  filter: grayscale(100%); /*흑백*/
+}
+
+.box5 {
+  float: left;
+}
+
+.box5 img {
+  width: 300px;
+  transition: all 0.5s ease-out;
+}
+
+.box5:hover img {
+  filter: invert(50%); /*색반전(엑스레이)*/
+}
+
+.box6 {
+  float: left;
+}
+
+.box6 img {
+  width: 300px;
+  transition: all 0.5s ease-out;
+}
+
+.box6:hover img {
+  filter: opacity(50%); /*투명도*/
+}
+
+.box7 {
+  float: left;
+}
+
+.box7 img {
+  width: 300px;
+  transition: all 0.5s ease-out;
+}
+
+.box7:hover img {
+  filter: saturate(200%); /*채도*/
+}
+
+.border3 {
+  width: 1600px;
+  overflow: hidden;
+}
+
+.box8 {
+  float: left;
+}
+
+.box8 img {
+  width: 300px;
+  transition: all 0.5s ease-out;
+}
+
+.box8:hover img {
+  filter: sepia(50%); /*세피아톤 (브라운 단색톤)*/
+}
+
+.box9 {
+  float: left;
+}
+
+.box9 img {
+  width: 300px;
+  transition: all 0.5s ease-out;
+}
+
+.box9:hover img {
+  filter: hue-rotate(200deg); /*색상톤 교체*/
+}

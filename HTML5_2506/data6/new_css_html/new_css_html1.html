@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REM</title>
+    <link rel="stylesheet" href="../new_css/rem.css" />
+  </head>
+  <body>
+    <div class="box1">
+      box1 입니다.
+      <div>
+        box1의 2depth 입니다
+        <div>
+          box1의 3depth 입니다.
+          <p>box1의 3depth 입니다.</p>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="box2">
+      box1 입니다.
+      <div>
+        box1의 2depth 입니다
+        <div>
+          box1의 3depth 입니다.
+          <p>box1의 3depth 입니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <!--
+    
+    em / rem
+    변환 사이트: https://www.toolo.kr/pxtoem/
+
+    em의 특징
+        -기준 body에 font-size: 16px; 를 잡는다.
+        -태그에 계층을 만들고 그 각각의 계층에서 em 단위를 사용하면..
+         부모 em의 크기의 영향을 연쇄적으로 영향을 받는다.
+    
+    rem의 특징
+        (root em)
+        -> root -> html -> 기준을 html에 font-size:16px;
+        - 태그의 계층에 상관없이 무조건 html에 적용된 font-size 를 따른다.
+         
+
+      -->
+  </body>
+</html>

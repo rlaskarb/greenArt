@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 1600px;
+        margin: 800px auto;
+        border: 10px solid #1979bd;
+        padding: 50px 0;
+        font-size: 250px;
+        font-weight: bold;
+        text-align: center;
+        text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+
+        color: transparent; /* 글자색을 투명하게 처리 */
+        background-clip: text; /* 글자에 배경이미지를 넣기 */
+
+        background-image: url(./visual1.jpg);
+        background-size: 100%;
+        background-position: left top;
+        background-repeat: repeat;
+
+        background-attachment: fixed;
+
+        transition: all 0.3s;
+      }
+      .box:hover {
+        background-position: left bottom;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">CESCO</div>
+
+    <!-- 
+    
+    text에 이미지 마스크하기
+      -박스에 배경이미지 넣기
+        color: transparent; /* 글자색을 투명하게 처리 */
+        background-clip: text; /* 글자에 배경이미지를 넣기 */
+
+    -->
+  </body>
+</html>
