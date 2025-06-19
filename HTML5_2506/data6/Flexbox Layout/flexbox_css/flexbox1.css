@@ -49,7 +49,7 @@ div {
   border: 5px solid #666;
   margin: 50px;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: cl nowrap;
   justify-content: center;
   gap: 10px;
 }
