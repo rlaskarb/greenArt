@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+div {
+  font-size: 1.1rem;
+}
+
+.container {
+  width: 600px;
+  height: 200px;
+  border: 5px solid #666;
+  margin: 50px;
+  display: flex;
+  flex-direction: row; /* row-행 , row-reverse-역방향 , column-열 , column - 역방향*/
+}
+
+.container .item {
+  width: 100px;
+  height: 100px;
+  border: 3px solid red;
+  box-sizing: border-box;
+}
+
+.container1 {
+  width: 600px;
+  height: 200px;
+  border: 5px solid #666;
+  margin: 50px;
+  display: flex;
+  flex-wrap: nowrap; /* nowrap- 한줄로 나열(기본값) , wrap- Container을 넘을경우 다음줄로~ wrap-reverse-역방향 */
+}
+
+.container1 .item1 {
+  width: 100px;
+  height: 100px;
+  border: 3px solid red;
+  box-sizing: border-box;
+}
+
+.container2 {
+  width: 600px;
+  height: 200px;
+  border: 5px solid #666;
+  margin: 50px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.container2 .item2 {
+  width: 100px;
+  height: 100px;
+  border: 3px solid red;
+  box-sizing: border-box;
+}
+
+.container3 {
+  width: 600px;
+  height: 200px;
+  border: 5px solid #666;
+  margin: 50px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+}
+
+.container3 .item3 {
+  width: 100px;
+  height: 100px;
+  border: 3px solid red;
+  box-sizing: border-box;
+}
+
+.container4 {
+  width: 500px;
+  height: 400px;
+  border: 5px solid #666;
+  margin: 50px;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+}
+
+.container4 .item4 {
+  width: 100px;
+  height: 100px;
+  border: 3px solid red;
+  box-sizing: border-box;
+}

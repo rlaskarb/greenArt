@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  width: 500px;
+  height: 200px;
+  border: 5px solid #ccc;
+  margin: 100px;
+  text-align: justify;
+  line-height: 1.5rem;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+.box::-webkit-scrollbar {
+  width: 5px;
+}
+
+.box::-webkit-scrollbar-thumb {
+  background: rgba(220, 0, 0, 1);
+  border-radius: 10px;
+}
+
+.box::-webkit-scrollbar-track {
+  background: rgba(0, 255, 0, 1);
+}

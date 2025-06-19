@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+ul {
+  overflow: hidden;
+  list-style: none;
+}
+
+ul li {
+  float: left;
+  margin: 0 10px;
+}
+
+/*1단계 : 3D 무대 만들기 */
+.border {
+  width: 400px;
+  height: 400px;
+  margin: 50px;
+  perspective: 600px; /*3D 공간감 생성(필수!) */
+}
+
+/*2단계 : 카드 본체 설정*/
+.card {
+  font-size: 3rem;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  position: relative; /*자식들 absolute 기준점*/
+  transform-style: preserve-3d; /*3D 변환 유지(핵심!!)*/
+  transition: all 0.5s ease-out; /*부드러운 뒤집기*/
+}
+
+/*3단계 : 뒤집기 동작*/
+.border:hover .card {
+  transform: rotateY(180deg); /*Y축 기준 180도 회전*/
+}
+
+/*4단계 : 앞면/뒷면 공통설정*/
+.card_face {
+  position: absolute; /*같은위치에 겹치기*/
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /*뒷면 숨기기(중요!!)*/
+}
+
+/*5단계 앞면 설정*/
+.front {
+  background: url(../images/6.jpg);
+  background-size: cover;
+  /*transform:rotateY(0deg); 기본값이라 생략가능*/
+}
+
+/*6단계 : 뒷면설정*/
+.back {
+  background: url(../images/8.jpg);
+  background-size: cover;
+  transform: rotateY(180deg); /*미리 뒤집어 놓기 (핵심!!)*/
+}

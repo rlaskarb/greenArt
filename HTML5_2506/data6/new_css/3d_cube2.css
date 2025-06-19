@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+/* ========== 자동 회전 애니메이션 정의 ========== */
+@keyframes cubeRotate {
+  0% {
+    transform: translateZ(-150px) rotateY(0deg);
+  } /* 정면 */
+  25% {
+    transform: translateZ(-150px) rotateY(-90deg);
+  } /* 우측면 */
+  50% {
+    transform: translateZ(-150px) rotateY(-180deg);
+  } /* 뒷면 */
+  75% {
+    transform: translateZ(-150px) rotateY(-270deg);
+  } /* 좌측면 */
+  100% {
+    transform: translateZ(-150px) rotateY(-360deg);
+  } /* 다시 정면 */
+}
+
+/* 1단계: 큐브 무대 설정 */
+.cube_box {
+  width: 300px;
+  height: 400px;
+  margin: 100px;
+  position: relative;
+  perspective: 600px; /* 3D 원근감 */
+  border: 1px solid blue;
+  font-size: 3rem;
+  color: #fff;
+}
+
+/* 2단계: 큐브 본체 */
+.slide_cube {
+  width: 100%;
+  height: 100%;
+  transform: translateZ(-150px); /* 중심 맞추기 */
+  transform-style: preserve-3d; /* 3D 유지 (필수!) */
+  /* ❌ transition: all 0.5s ease-out; 삭제! (animation이 대체) */
+  animation: cubeRotate 4s linear infinite; /* ✅ 추가! 자동 회전 */
+}
+
+/* ❌ hover 코드 삭제! (keyframes가 대체)
+.cube_box:hover .slide_cube {
+  transform: translateZ(-150px) rotate3d(0, 1, 0, -90deg);
+}
+*/
+
+/* 3단계: 면 공통 설정 */
+.cube_face {
+  width: 100%;
+  height: 100%;
+  position: absolute; /* 같은 위치에 겹치기 */
+  opacity: 0.7;
+  display: flex; /* ✅ 추가! flex 설정 */
+  align-items: center;
+  justify-content: center;
+}
+
+/* 4단계: 각 면 위치 설정 */
+.cube_front {
+  background: orange;
+  transform: rotateY(0deg) translateZ(150px); /* 정면 */
+}
+
+.cube_right {
+  background: green;
+  transform: rotateY(90deg) translateZ(150px); /* 우측면 */
+}
+
+.cube_back {
+  background: red;
+  transform: rotateY(180deg) translateZ(150px); /* 뒷면 */
+}
+
+.cube_left {
+  background: blue;
+  transform: rotateY(-90deg) translateZ(150px); /* 좌측면 */
+}

@@ -4,11 +4,11 @@
 }
 
 div {
-  width: 1000px;
-  height: 1000px;
+  width: 600px;
+  height: 500px;
   border: 5px solid blue;
 }
 
 div:hover {
-  cursor: url(../images/love.cur) 20 30, auto;
+  cursor: url(../images/love.cur), auto !important;
 }
