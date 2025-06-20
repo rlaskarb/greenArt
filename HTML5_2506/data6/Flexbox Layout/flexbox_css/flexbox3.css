@@ -86,3 +86,54 @@ nav ul li a {
 .box ul li:nth-of-type(even) {
   transform: translateY(50px);
 } */
+
+.event-badge {
+  background: linear-gradient(45deg, #e77e2d, #d92629);
+  color: white;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 24px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 할인 이벤트 */
+.discount-icon {
+  background: #d92629;
+  color: white;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  position: relative;
+}
+
+.discount-icon::before {
+  content: "%";
+  font-size: 32px;
+}
+
+/* 증정 이벤트 */
+.gift-icon {
+  background: #017121;
+  color: white;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.gift-icon::before {
+  content: "FREE";
+}
