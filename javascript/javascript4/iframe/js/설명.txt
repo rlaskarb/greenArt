@@ -1,0 +1,32 @@
+<head>태그 사이에 아래소스 넣고..
+
+
+<script type="text/javascript" language="javascript" src="common_flash.js"></script>
+
+
+
+* "common_flash.js 의 경로만 바꿔준다.
+========================================================
+
+플쉬가 들갈 위치에 아래 소스를 넣는다..(투명배경)
+
+
+자바함수 형식
+
+<script type="text/javascript" language="javascript">
+
+flashLoad(경로,가로,높이,아이디,백그라운드,변수,윈모드) 
+
+</script>
+
+
+
+ex)
+
+<script type="text/javascript" language="javascript">flashLoad('subtop.swf','450','200','id','#ffffff','','')</script>
+
+
+*경로,가로,높이 값을 바꾸고 다른 부분은 동일하게 사용해도 된다.
+
+
+

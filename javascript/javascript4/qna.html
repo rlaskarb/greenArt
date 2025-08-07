@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Q&amp;A</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .qanda p {
+        width: 500px;
+        font-size: 1.5rem;
+        margin: 50px;
+        padding: 10px;
+        background: red;
+        margin-bottom: 10px;
+        border-radius: 30px;
+        color: #fff;
+      }
+      .qanda p:nth-of-type(2) {
+        background: green;
+        display: none;
+      }
+
+      .qanda #qanda_btn {
+        display: block;
+        text-decoration: none;
+        color: #fff;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="qanda_box">
+      <h2>Q&amp;A</h2>
+      <div class="qanda">
+        <p>
+          <a id="qanda_btn" href="#">Q.javascript는 재미 있어요?</a>
+        </p>
+        <p id="answer">A. 영어를 잘 알아야 합니다</p>
+      </div>
+    </div>
+
+    <script>
+      const qanda_btn = document.getElementById("qanda_btn");
+      const answer = document.getElementById("answer");
+
+      const onoff = false; // 가정법(false: 답변이 닫힘/true:답변이 열림)
+
+      function open_close() {
+        count++;
+
+        if (onoff == false) {
+          //답변이 닫혀 있을때
+          answer.style.display = "block";
+          //   onoff = true;
+        } else {
+          answer.style.display = "none";
+          // onoff =false;
+        }
+      }
+
+      qanda_btn.addEventListener("click", open_close);
+    </script>
+
+    <!-- 
+
+    DOM 레벨2 이벤트 리스너(최신문법)
+    -function 함수명(){//처리코드}
+    -element.addEventListener('이벤트',함수명,false); // false 생략가능
+    -
+
+    -->
+  </body>
+</html>

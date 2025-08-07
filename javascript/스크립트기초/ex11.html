@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>불장 가즈아!!</h1>
+
+    <script>
+      var person = {
+        name: "홍길동",
+        eat: function (food) {
+          alert(this.name + "이 " + food + "을/를 먹습니다.");
+          // 자기 자신이 가지고 있는 속성은 this 키워드를 사용한다.
+        },
+      };
+
+      person.eat("라면");
+      person.eat("아롱사태");
+    </script>
+
+    <!-- 
+
+
+     객체는  속성(property)을 가지고 있다.
+            메소드(method)를 가지고 있다. == function 
+
+    - 해당객체에 속성과 메소드에 접근 하는 방법은 .(dot연산자) / ['속성명']를 사용한다.
+        - 객체명.속성 = 값;
+        - 객체명['속성'] = 값;
+        - 객체명.메소드();
+        -
+
+    - data(값)를 저장할때...
+        -변수 -> 하나의 값을 저장하는 방/그릇 -> const 변수 = 값;
+        -배열 -> 여러개의 값을 저장하는 호텔  -> const 배열명[값1,값2,값3...];
+        -
+
+    - 객체를 생성하는 방법
+        - 객체에 속성을 만드는 방법
+            - const 객체명 ={
+                속성 1 : 초기값,
+                속성 2 : 초기값,
+                속성 3 : 초기값
+            
+            }
+
+            객체명.속성 = 값;
+            객체명['속성1'] = 값;
+
+
+
+    - 객체에 메소드()/함수()를 만드는 방법
+        const 객체명 ={
+            함수명1: function(){
+                //처리코드
+                // this.속성1
+            },
+            함수명2: function(매개변수1 ,매개변수2...){
+                // 처리코드
+                return 값;
+            }
+        }
+
+        객체명.함수명1();
+        const 변수 = 객체명.함수명2(값1,값2...)
+
+
+    -빈 객체를 만드는 방법
+        const 객체명 ={};
+        const 객체명 = new Object;
+
+
+
+    <내장 객체>
+        -이미 자바스크립트에서 만들어 놓은 객체
+        
+
+
+    -->
+  </body>
+</html>

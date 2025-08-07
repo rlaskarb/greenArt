@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/ex.css" />
+  </head>
+  <body>
+    <h1>불장 가즈아!!</h1>
+    <script>
+      const human = {
+        name: "마법사",
+        age: 765,
+        height: 180,
+        weight: 70,
+        jod: "전사",
+        local: "헤네시스",
+      };
+
+      console.log(typeof human);
+      console.log(
+        "닉네임은! " + human.name + "이고",
+        "나이는 " + human.age + "살 이고",
+        "직업은 " + human.jod + " 입니다.",
+        "살고 있는 동네는 " + human.local + "입니다."
+      );
+
+      human.name = "시몬뜨";
+      human.local = "슬리피우드";
+
+      console.log(
+        "닉네임은! " + human["name"] + "이고",
+        "나이는 " + human["age"] + "살 이고",
+        "직업은 " + human["jod"] + " 입니다.",
+        "살고 있는 동네는 " + human["local"] + "입니다."
+      );
+    </script>
+
+    <!-- 
+    
+    객체(object)
+    
+                            = 속성 ( 변수 )
+        A - 게임 => 캐릭터 {닉네임 = 마법사
+                            성별 = 남자
+                            직업 = 전사
+                            체력 = 100
+                            마력 = 50
+                            공격력 = 100
+
+                            =메소드 ()
+
+                            이동해라
+                            아이템을 주어라
+                            공격해라
+                            탑승해라
+                            스킬사용
+
+
+            변경하고 싶을때                
+        캐릭터.닉네임= '에이스침대'
+
+
+    객체는  속성(property)을 가지고 있다.
+            메소드(method)를 가지고 있다. == function 
+
+    - 해당객체에 속성과 메소드에 접근 하는 방법은 .(dot연산자) / ['속성명']를 사용한다.
+        - 객체명.속성 = 값;
+        - 객체명['속성'] = 값;
+        -
+
+    - data(값)를 저장할때...
+        -변수 -> 하나의 값을 저장하는 방/그릇 -> const 변수 = 값;
+        -배열 -> 여러개의 값을 저장하는 호텔  -> const 배열명[값1,값2,값3...];
+        -
+
+    - 객체를 생성하는 방법
+        - 객체에 속성을 만드는 방법
+            - const 객체명 ={
+                속성 1 : 초기값,
+                속성 2 : 초기값,
+                속성 3 : 초기값
+            
+            }
+
+            객체명.속성 = 값;
+
+        - 객체에 메소드()/함수()를 만드는 방법
+
+
+
+
+
+    -->
+  </body>
+</html>

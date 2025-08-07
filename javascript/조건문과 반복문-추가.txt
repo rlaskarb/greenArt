@@ -1,0 +1,534 @@
+<조건문과 반복문>
+
+1. 조건문 (if , switch)
+
+  1)if문 
+
+    ex1)
+       var num1 = prompt('정수를 입력 하세요','');
+       
+       if(Number(num1) > 100){
+       	  alert('입력된 값은 100보다 큰 값 입니다'+'처리가 되었습니다');
+       }
+       alert('종료 됩니다.');
+
+    ex2)
+        var date = new Date();
+        var hour = date.getHours();
+
+        if (hour < 12) {
+            alert('오전입니다.');
+        }
+
+        if (hour >= 12) {
+            alert('오후입니다.');
+        }
+
+    ex3)
+       var number = prompt('1~100 사이의 정수를 입력하세요 ','');
+       
+       if(number>=1 && number <=100){
+       	  alert('1~100사이의 정수를 입력 하셨습니다.');
+       }else{
+       	 alert('잘못 입력 하셨습니다.')
+       }
+
+       alert('종료 됩니다.');
+
+   ex4)
+        var date = new Date();
+        var hour = date.getHours();
+
+        if (hour < 12) {
+            alert('오전입니다.');
+        }else{
+            alert('오후입니다.');
+        }
+
+   ex5)
+       var person = prompt('성별을 입력하세요(m/f) ','');
+       
+       if(person=='m' || person=='M'){
+       	    alert('당신의 성별은 남성 입니다.');
+       }else if(person=='f' || person=='F'){
+       	    alert('당신의 성별은 여성 입니다.');
+       }else{
+             alert('잘못 입력 하셨습니다.');
+       }
+       alert('종료 됩니다.');
+
+   ex6)
+      var date = new Date();
+      var hour = date.getHours();
+
+        if (hour < 11) {
+            alert('아침 먹을 시간입니다.');
+        } else {
+            if (hour < 15) {
+                alert('점심 먹을 시간입니다.');
+            } else {
+                alert('저녁 먹을 시간입니다.');
+            }
+        }
+
+   ex7)
+      var result = prompt('영어 점수를 입력하세요(0~100) ','');
+
+      if(Number(result)>=90 && Number(result)<=100){
+         alert('당신의 학점은 A학점 입니다.');
+      }else if(Number(result)>=80 && Number(result)<=89){
+         alert('당신의 학점은 B학점 입니다.');
+      }else if(Number(result)>=70 && Number(result)<=79){
+         alert('당신의 학점은 C학점 입니다.');
+      }else if(Number(result)>=60 && Number(result)<=69){
+         alert('당신의 학점은 D학점 입니다.');
+      }else{
+         alert('당신의 학점은 F학점 입니다.');
+      }
+
+      *관계연산자를 사용할 경우 Number()함수 생략 가능함.
+
+   ex7-1)
+         var result = Number(prompt('영어 점수를 입력하세요(0~100) ',''));
+         var grade='';
+
+         if(result>=90 && result<=100){
+            grade='A';
+         }else if(result>=80 && result<=89){
+            grade='B';
+         }else if(result>=70 && result<=79){
+            grade='C';
+         }else if(result>=60 && result<=69){
+            grade='D';
+         }else{
+            grade='F';
+         }
+
+         alert('당신의 학점은 '+ grade +'학점 입니다.');
+
+         alert('종료 됩니다.');
+
+  ex7-2)
+  
+         var result = Number(prompt('영어 점수를 입력하세요(0~100) ',''));
+         var grade='';
+
+         if(result >= 0 && result <= 100){  //0~100
+                  if(result>=90 && result<=100){
+                     grade='A';
+                  }else if(result>=80 && result<=89){
+                     grade='B';
+                  }else if(result>=70 && result<=79){
+                     grade='C';
+                  }else if(result>=60 && result<=69){
+                     grade='D';
+                  }else{
+                     grade='F';
+                  }
+
+                  alert('당신의 학점은 '+ grade +'학점 입니다.');
+         }else{
+                  alert('너는 상또라이 입니까???');
+         }
+
+         alert('종료 됩니다.');
+
+
+  문제1) 한명의 학생의 국영수의 총점과 평균의 출력하는 프로그래밍을 하시오
+
+        입력: 이름 , 국어 ,영어, 수학 점수를 입력..
+        출력: '당신의 이름:홍길동 이고, 국영수의 총점:???점이고, 평균:???점 입니다.'
+
+         var name ='';
+       var kor=0;
+       var eng=0;
+       var math=0;
+       var hap=0;
+       var avg=0;
+
+       name=prompt('이름을 입력하세요','');
+       kor=Number(prompt('국어점수를 입력하세요(0~100)',''));
+       eng=Number(prompt('영어점수를 입력하세요(0~100)',''));
+       math=Number(prompt('수학점수를 입력하세요(0~100)',''));
+    
+       hap=kor+eng+math;
+       avg=hap/3;
+
+       alert('당신의 이름:'+name+'이고, 국영수의 총점:'+hap+'점이고, 평균:'+avg+'점 입니다.');
+
+
+  문제2) 
+      /*
+      <직급별 월급여정산> 
+      
+      직급 : A(과장) B(대리) C(주임) D(신입)
+            월급여=> 본봉+수당+보너스 
+             A(과장)=> 보너스 50(만원)
+             B(대리)=> 보너스 40(만원)
+             C(주임)=> 보너스 30(만원)
+             D(신입)=> 보너스 10(만원)
+             
+      입력=> 1.직급을 입력하세요. A(과장) B(대리) C(주임) D(신입)
+            2.본봉(만원)
+            3.수당(만원)
+            
+      출력=> 당신의 직급은 과장이고, 보너스는 ??(만원)이고, 총급여는 ????(만원)입니다.
+   */
+
+    var person = prompt('직급코드를 입력하세요. A(과장) B(대리) C(주임) D(신입)',''); 
+    var pay1 = Number(prompt('본봉을 입력하세요(만원)','')); 
+    var pay2 = Number(prompt('수당을 입력하세요(만원)','')); 
+    
+    var rank=''; //직급 (과장~신입)
+    var bo=0;  //보너스
+    var total=0; //총급여
+
+   if(person == 'A' || person == 'a'){
+            bo = 50;
+            rank = '과장';
+   } else if(person == 'B' || person == 'b') {
+            bo = 40;
+            rank = '대리';
+   } else if(person == 'C' || person == 'c'){
+            bo = 30;
+            rank = '주임';
+   } else if(person == 'D' || person == 'd'){
+            bo = 20;
+            rank = '신입';
+   }
+        
+   total = pay1 + pay2 + bo;
+        
+   alert('당신의 직급은 ' + rank + '이고, 보너스는 ' + bo + ' 만원 이고, 총 급여는 ' + total + '만원 입니다.');
+
+
+
+
+
+ 2)switch문
+   ex8)
+      var number = prompt('숫자를 입력하세요 ','');
+      
+      switch(number%2){
+          case 1:alert('홀수를 입력하셨습니다.');break;
+          case 0:alert('짝수를 입력하셨습니다.');break;
+          default:alert('잘못 입력하셨습니다.');
+      }
+   ex9)
+       var result = prompt('영어 점수를 입력하세요(0~100) ','');
+
+       switch(parseInt(result/10)){
+          case 10:
+          case 9:alert('당신의 학점은 A학점 입니다.');break;
+          case 8:alert('당신의 학점은 B학점 입니다.');break;
+          case 7:alert('당신의 학점은 C학점 입니다.');break;
+          case 6:alert('당신의 학점은 D학점 입니다.');break;
+          default:alert('당신의 학점은 F학점 입니다.');
+      }
+
+   ex9-1)
+        var result = Number(prompt('영어 점수를 입력하세요(0~100) ',''));
+        var code='';
+
+        if(result>=0 && result<=100){
+               switch(parseInt(result/10)){  // parseInt(9) -> 9
+                  case 10:
+                  case 9:code='A';break; 
+                  case 8:code='B';break;
+                  case 7:code='C';break;
+                  case 6:code='D';break;
+                  default:code='F';
+               }
+               alert('당신의 학점은 '+code+'학점 입니다.');
+         }else{
+               alert('너 아까 그 자식이지???');
+         }
+
+         alert('시마이~~~~');
+
+---------------------------------------------------------------------
+1. 반복문 (for , while , do~while)
+
+  1)for문
+
+    ex1)
+       var total=0;
+       for(var i=1; i<11; i++){
+            total+=i;
+       }
+       alert('1~10까지의 합:'+total);
+       
+     ex2)
+       var total=0;
+       for(var i=1; i<11; i+=2){
+            total+=i;
+       }
+       alert('1~10까지의 홀수의 합:'+total); 
+     
+     ex3)
+       var total1=0;  //홀수합 처리
+       var total2=0;  //짝수합 처리
+       for(var i=1; i<11; i++){
+          if(i%2==1){
+             total1+=i;
+          }else{
+             total2+=i;
+          }
+       }
+       alert('1~10까지의 홀수의 합:'+total1); 
+       alert('1~10까지의 짝수의 합:'+total2); 
+   
+     ex4)
+       var total1=0;  //홀수합 처리
+       var total2=0;  //짝수합 처리
+       for(var i=1; i<11; i+=2){
+             total1+=i;
+             total2+=(i+1);
+       }
+       alert('1~10까지의 홀수의 합:'+total1); 
+       alert('1~10까지의 짝수의 합:'+total2);
+
+     ex4-1)홀수/짝수/배수
+
+       var total1=0;  //홀수의합 25
+       var total2=0;  //짝수의합 30
+       var total3=0;  //3의배수의합 18
+
+       for(var i=1; i<11; i++){  // 1~10
+          if(i%2==1){
+            total1+=i;
+          }else{
+            total2+=i;
+          }
+          
+          if(i%3==0){
+            total3+=i; 
+          }
+       }
+       
+       console.log('홀수의 합:' + total1);
+       console.log('짝수의 합:' + total2);
+       console.log('3의배수의 합:' + total3);
+
+
+     ex5)
+       var i = prompt('구구단의 단을 입력 하세요','');
+       document.write("<h2>"+ i+ "단 </h2>");   
+       document.write("<table border=0 width=100%>");  
+
+       for(var j = 1; j < 10 ; j++){   
+          document.write("<tr>");   
+          document.write("<td>"+i+" * "+j+" = "+i*j+"</td>");   
+          document.write("</tr>");   
+      }    
+      document.write("</table>"); 
+
+
+
+      ex5-1)
+         //명수를 입력받아 그해당 명수 만큼 학생의 학점을 처리하세요
+         var result=0;
+         var grade=''; 
+         var cnt=0; //명수
+
+         cnt=Number(prompt('학급 명수를 입력하세요(명) ','')); //10
+
+            for(var i=1; i<cnt+1 ;i++){
+                result = Number(prompt(i+'번째 학생의 영어 점수를 입력하세요(0~100) ',''));
+                
+
+                if(result >= 0 && result <= 100){  //0~100
+                        if(result>=90 && result<=100){
+                            grade='A';
+                        }else if(result>=80 && result<=89){
+                            grade='B';
+                        }else if(result>=70 && result<=79){
+                            grade='C';
+                        }else if(result>=60 && result<=69){
+                            grade='D';
+                        }else{
+                            grade='F';
+                        }
+
+                        alert(i+'번째 학생의 학점은 '+ grade +'학점 입니다.');
+                }else{
+                        alert('너는 상또라이 입니까???');
+                }
+            }
+
+         alert('종료 됩니다.');
+
+       
+      ex6) 행/열
+        var i=0, j=0, total=0;
+        
+        for(i=1; i<11; i++){
+           for(j=1;j<11;j++){
+               total+=(i+j);
+           }
+        }
+        document.write('총 합계:' +total);
+
+      ex7) 배열과 반복문 ***
+
+        var array = ['포도', '사과', '바나나', '망고'];
+
+        for (var i = 0; i < array.length; i++) {
+            alert(array[i]);
+        }
+
+      ex7-1)
+      //2명의 이름,나이,키 입력하고 한꺼번에 출력하세요~
+      //해당 순번의 학생이 이름과 나이와 키를 검색해 보세요~
+
+       var kname = new Array();
+       var age = new Array();
+       var height = new Array();
+
+        for (var i = 0; i <2; i++) {
+            kname[i]=prompt((i+1)+'번째 학생의 이름을 입력하세요',''); 
+            age[i]=prompt(i+1+'번째 학생의 나이를 입력하세요',''); 
+            height[i]=prompt(i+1+'번째 학생의 키를 입력하세요',''); 
+        }
+        
+        for (var i = 0; i <2; i++) {
+           console.log(kname[i]);
+           console.log(age[i]);
+           console.log(height[i]);
+        }
+
+        var cnt=Number(prompt('검색할 학생의 순서를 입력하세요(1~2)',''));
+        console.log(kname[cnt-1]+ ' ' + age[cnt-1] + ' ' + height[cnt-1]);
+
+
+
+
+   2)while문
+
+      ex1)
+         var cnt= prompt('반복할 횟수를 입력하세요','');
+         var i=1, sum=0;
+         while(i<=cnt){
+             document.write('반복횟수:' +i);
+             sum++;
+             i++;  
+         }
+         alert('총 반복횟수:'+sum);
+   
+      ex2)
+         var cnt= prompt('정수를 입력하세요(단 0일때 종료)','');
+         var sum=0;
+         while(cnt!=0){
+             sum+=Number(cnt);
+             cnt= prompt('정수를 입력하세요(단 0일때 종료)','');
+         }
+         alert('총 합계:'+sum);
+
+   3)do while문
+
+      ex2)무한 루프
+        var person;
+        do{
+          person= prompt('성별을 입력하세요(m/f)','');
+          if(person=='m' || person=='M'){
+             alert('당신은 남성 입니다.');
+             break;
+          }else if(person=='f' || person=='F'){
+             alert('당신은 여성 입니다.');
+             break;
+          }else{
+              alert('잘못 입력하셨습니다. 다시 입력해 주세요.');
+          }
+        }while(1);
+
+    ex3-1)3회 비밀번호 처리
+
+    //ATM 비밀번호 처리~~ 3회까지 입력가능
+
+        var pass='1004';
+        var pass2='';
+        var ok=false;  // false(불일치) / true(일치)
+
+        for(var i=1; i<4 ; i++){  //i->입력 횟수
+            pass2=prompt(i+'번째 비번을 입력하세요','');
+
+            if(pass==pass2){
+                  alert('패스워드가 인증 되었습니다');
+                  ok=true;
+                  break;
+            }else{
+                 alert('패스워드가 불일치 되었습니다. 다시입력하세요');
+            }
+        }
+
+        if(ok==true){
+            alert('출금합니다');
+        }else{
+            alert('너 그놈이지?? 창구로~~gogo!!'); 
+        }
+
+
+         
+    4)for in문
+    
+      ex1) 배열요소 처리
+        var array = ['자바스크립트', 'JQery', 'HTML5', 'Mobile'];
+
+        for (var i in array) {
+            alert(array[i]);
+        }
+
+    5)break 키워드
+
+       ex1)
+          for (var i = 1; true; i++) {
+            alert(i + '번째 반복문입니다.');
+
+            if (!confirm('계속하시겠습니까?')) {
+                break;
+            }
+         }
+         alert('프로그램 종료');
+
+
+        ex2)비밀번호 3회 처리
+
+        //ATM 비밀번호 처리~~ 3회까지 입력가능
+
+        var pass='1004';
+        var pass2='';
+        var ok=false;  // false(불일치) / true(일치)
+
+        for(var i=1; i<4 ; i++){  //i->입력 횟수
+            pass2=prompt(i+'번째 비번을 입력하세요','');
+
+            if(pass==pass2){
+                  alert('패스워드가 인증 되었습니다');
+                  ok=true;
+                  break;
+            }else{
+                 alert('패스워드가 불일치 되었습니다. 다시입력하세요');
+            }
+        }
+
+        if(ok==true){
+            alert('출금합니다');
+        }else{
+            alert('너 그놈이지?? 창구로~~gogo!!'); 
+        }
+
+
+
+     6)continue 키워드
+
+         ex1)
+            var output = 0;
+
+            for (var i = 1 ; i < 11 ; i++) {
+               if (i % 2 == 1) {
+                   continue;
+               }
+               output += i;
+            }
+            alert('1~10까지 짝수의 합:'+output);
+

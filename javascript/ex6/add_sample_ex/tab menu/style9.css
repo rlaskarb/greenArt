@@ -1,0 +1,29 @@
+*{margin:0; padding:0;}
+ul{list-style:none;}
+
+#section1{width:500px;border:1px solid #ccc;}
+#nav{margin-bottom:15px; overflow:hidden; }
+
+.buttons{
+background:url(back.jpg) left top no-repeat;
+width: 80px; height:33px;
+float: left;
+text-align: center; 
+}
+
+#nav a{
+display:block;
+padding-top:10px;
+height:23px;
+text-decoration:none;
+font-weight:bold;
+color:#fff;
+}
+
+.clickon{background:url(backon.jpg) left top no-repeat;}
+
+
+
+
+
+

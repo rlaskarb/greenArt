@@ -1,0 +1,508 @@
+<이벤트 처리>
+
+-프로그램에 의해 감지되고 처리될 수 있는 동작이나 사건
+-키보드나 마우스 동작처럼 브라우저에서 발생하는 사건(순간)들
+-사용자가 발생시킬 수도 있고 응용프로그램이 발생시킬 수도 있음
+
+*이벤트 종류
+-마우스 이벤트
+-키보드 이벤트
+-프레임 이벤트
+-폼 이벤트
+-드래그 이벤트
+-클립보드 이벤트
+-프린트 이벤트
+-미디어 이벤트
+
+*요소에 이벤트를 바인딩하는 세가지 방법
+
+
+-html 이벤트 핸들러  <태그 이벤트핸들러='함수();'>
+
+ex1)
+  <script>
+      function happy(){
+            alert('happy day');
+        }
+  </script>
+
+ <h3 id="heading1" onclick="happy()">좋은 날</h3>
+
+
+ex2)
+     <script>
+      function checkUsername() {                            
+  var elMsg = document.getElementById('feedback');    
+  var elUsername = document.getElementById('username');
+  if (elUsername.value.length < 5) {                 
+    elMsg.textContent = 'Username must be 5 characters or more'; 
+  } else {                                             
+    elMsg.textContent = '';                           
+  }
+}
+    </script>
+
+   <div id="page">
+      <h1>List King</h1>
+      <h2>New Account</h2>
+      <form method="post" action="">
+
+        <label for="username">Create a username: </label>
+        <input type="text" id="username" onblur="checkUsername()" />
+        <div id="feedback"></div>
+
+        <label for="password">Create a password: </label>
+        <input type="password" id="password" />
+
+        <input type="submit" value="sign up!" />
+
+      </form>
+    </div>
+
+-----------------------------------------------
+ -전통적인 DOM 이벤트 핸들러 => element.on이벤트 = functionName;  
+
+  ex1)
+     <script>
+        //문서의 로딩이 끝났을 때 
+        window.onload = function () {
+            alert('환영합니다.');
+        };
+
+    </script>
+
+
+   ex2)이벤트 발생과 제거
+      window.onload = function () {
+            var header = document.getElementById('header');
+
+            header.onclick = function () {
+                alert('클릭시 처리');
+                // 이벤트를 제거합니다.
+                header.onclick = null;
+            };
+        };
+      --------------------------------------
+       <h1 id="header">Click</h1>
+
+    ex3)this
+       window.onload = function () {
+            document.getElementById('header').onclick = function () {
+                alert(this);
+            };
+        };
+       ---------------------------------
+        <h1 id="header">Click</h1>
+
+    ex4)스타일 변경
+        window.onload = function () {
+            document.getElementById('header').onclick = function () {
+                this.style.color = 'Orange';
+                this.style.backgroundColor = 'Red';
+            };
+        };
+       --------------------------
+      <h1 id="header">Click</h1>
+
+
+   ex5) 이름 5자 이상 입력 검사
+   <script>
+    window.onload=function(){
+        
+       function checkUsername() {                           
+          var elMsg = document.getElementById('feedback');   
+          if (this.value.length < 5) {                       
+             elMsg.textContent = 'Username must be 5 characters or more'; 
+         } else {                                           
+            elMsg.textContent = '';                         
+        }
+      }
+
+     var elUsername = document.getElementById('username');
+     elUsername.onblur = checkUsername;        
+   }      
+  </script>
+
+
+  <div id="page">
+      <h1>List King</h1>
+      <h2>New Account</h2>
+      <form method="post" action="">
+
+        <label for="username">Create a username: </label>
+        <input type="text" id="username"/>
+        <div id="feedback"></div>
+
+        <label for="password">Create a password: </label>
+        <input type="password" id="password" />
+
+        <input type="submit" value="sign up!" />
+
+      </form>
+    </div>
+
+
+ ex6) 패스워드 재확인 검사
+
+    <script>
+        window.onload = function () {
+            //문서 객체 가져오기
+            var form = document.getElementById('form');
+            var password = document.getElementById('password');
+            var check = document.getElementById('password-check');
+
+            //유효성 검사 
+            form.onsubmit = function () {
+                if (password.value == check.value) {
+                } else {
+                    alert('비밀번호를 다시 입력해주세요');
+                    //기본 이벤트 제거 
+                    return false;  //false 값을 return하면 이벤트가 제거되어 처리되지 않는다.
+                };
+            };
+        };
+    </script>
+
+<form id="form" action="">
+        <p>아이디 <input id="id" type="text" /></p>
+        <p>비밀번호 <input id="password" type="password" /></p>
+        <p>비밀번호 확인 <input id="password-check" type="password" /></p>
+        <p><input id="Submit1" type="submit" value="제출" /></p>
+    </form>
+
+------------------------------------
+-DOM 레벨2 이벤트 리스너
+       - W3C에서 공식적으로 지정한 DOM Level 2 이벤트 모델
+       - 한 번에 여러 개의 이벤트 리스너 추가
+       - 이벤트 전달 방식 중 이벤트 캡처링 지원
+       - IE 9 버전부터 지원
+          => element.addEventListener('이벤트', functionName, false);
+          => element.addEventListener('이벤트', function(){functionName(10)}, false); //매개변수 있을때
+      -이벤트 제거
+          =>removeEventListener('이벤트', functionName, false) ;
+
+ex1)
+    <script>
+        window.onload = function () {
+            //문서 객체 가져오기 
+            var button = document.getElementById('button');
+            var heading = document.getElementById('heading');
+
+            //이벤트 리스너 whenClick1(), whenClick2() 작성 
+            function whenClick1() {
+                heading.innerHTML = '행복한 날';
+            };
+            function whenClick2() {
+                heading.style.color = 'blue';
+            };
+
+            //button 문서 객체의 click 이벤트에 이벤트 리스너 연결 
+            button.addEventListener('click', whenClick1);
+            button.addEventListener('click', whenClick2);
+
+            // 추가되었던 이벤트 리스너 제거 
+            //button.removeEventListener('click', whenClick2);
+        };
+    </script>
+
+    <input id="button" type="button" value="이벤트" />
+    <h5 id="heading">좋은 날</h5>
+
+ex2)
+<script>
+window.onload=function(){
+        
+function checkUsername() {                             
+  var elMsg = document.getElementById('feedback');    
+  if (this.value.length < 5) {                         
+    elMsg.textContent = 'Username must be 5 characters or more'; 
+  } else {                                            
+    elMsg.textContent = '';                            
+  }
+}
+
+var elUsername = document.getElementById('username');  
+elUsername.addEventListener('blur', checkUsername, false);      
+        
+}      
+</script>
+
+ <div id="page">
+      <h1>List King</h1>
+      <h2>New Account</h2>
+      <form method="post" action="">
+
+        <label for="username">Create a username: </label>
+        <input type="text" id="username"/>
+        <div id="feedback"></div>
+
+        <label for="password">Create a password: </label>
+        <input type="password" id="password" />
+
+        <input type="submit" value="sign up!" />
+
+      </form>
+    </div>
+--------------------------------
+ - 이벤트 객체
+   ex1)
+        window.onload = function () {
+            document.body.onclick = function (e) {
+                // 이벤트 객체를 설정합니다.
+                var event = e  ||  window.event;   //window.event=>IE8 이하 버전
+                document.body.innerHTML = '';
+                for (var key in event) {
+                    document.body.innerHTML += '<p>' + key + ': ' + event[key] + '</p>';
+                }
+            };
+        };
+
+---------------------------------
+-이벤트 강제 실행
+   -객체의 이벤트 속성은 속성인 동시에 함수인 이벤트 리스너가 할당되어 메서드이기도 함
+   -메서드를 호출하는 것처험 이벤트 속성을 호출하면 이벤트가 강제 실행됨
+
+  ex1)
+    <script>
+        window.onload = function () {
+            //문서 객체 가져오기
+            var heading = document.getElementById('heading');
+            var button = document.getElementById('button');
+
+            //button 문서 객체에서 click 이벤트가 발생했을 때 
+            //body 문서 객체의 배경색 변경(문서 배경색 변경)
+            button.onclick = function () {
+                document.body.style.backgroundColor = 'green';
+            };
+
+            //heading 문서 객체에 mouseover 이벤트가 발생했을 때
+            heading.onmouseover = function () {
+                //button 문서 객체의 click 이벤트 강제 실행(발생)
+                button.onclick();
+            };
+        };
+    </script>
+
+    <h3 id="heading">좋은 날</h3>
+    <input id="button" type="button" value="배경색 변경" />
+
+--------------------------------
+   ex)유효성 검사(비밀검호 중복검사)
+         function whenSubmit() {
+            var pass = document.getElementById('pass').value;
+            var pass_check = document.getElementById('pass_check').value;
+            // 비밀번호가 같은지 확인합니다.
+            if (pass == pass_check && pass!='' && pass_check!='') {
+                alert('성공');
+            } else {
+                alert('다시 입력해주세요.');
+                return false;
+            }
+        }
+       ---------------------------------
+       <form id="my_form" onsubmit="return whenSubmit()">
+          <label for="name">이름</label><br/>
+          <input type="text" name="name" id="name"/><br/>
+          <label for="pass">비밀번호</label><br/>
+          <input type="password" name="pass" id="pass"/><br/>
+          <label for="pass_check">비밀번호 확인</label><br/>
+          <input type="password" id="pass_check"/><br/>
+          <input type="submit" value="제출"/>
+       </form>
+
+    ex6)이벤트 전달(이벤트 버블링)=> 자식->부모
+       window.onload = function () {
+            document.getElementById('header').onclick = function () {
+                alert('header');
+            };
+            document.getElementById('paragraph').onclick = function () {
+                alert('paragraph');
+            };
+        };
+       -------------------------------
+       <h1 id="header">
+          <p id="paragraph">Pagagraph</p>
+      </h1>
+
+    ex7)버블링 처리
+        window.onload = function () {
+            document.getElementById('header').onclick = function () {
+                alert('header');
+            };
+            document.getElementById('paragraph').onclick = function (e) {
+                // 이벤트 객체를 처리합니다.
+                var event = e || window.event;
+                // 이벤트 발생을 알립니다.
+                alert('paragraph');
+                // 이벤트 전달을 제거합니다.
+                event.cancelBubble = true;
+                if (event.stopPropagation) {
+                    event.stopPropagation();
+                }
+            };
+        };
+       ----------------------------
+       <h1 id="header">
+           <p id="paragraph">Pagagraph</p>
+      </h1>
+
+      *IE                          => cancelBubble = true
+        그 외의 브라우저  => stopPropagation()
+
+
+==========================================================
+-예외 처리
+    - JavaScript 코드를 실행 중 발생하는 오류
+    - 발생할 상황을 미리 예측하여 처리할 수 있음
+    -원인
+          -개발자가 작성한 잘못된 코드
+          -사용자의 잘못된 입력
+
+
+ex)  익스 11에서는 .attachEvent() 메서드를 지원하지 않는다.
+
+<script>
+        window.onload = function () {
+            var button = document.getElementById('button');
+            var heading = document.getElementById('heading');
+            function whenClick1() {
+                heading.innerHTML = '행복한 날';
+            };
+            function whenClick2() {
+                heading.style.color = 'blue';
+            };
+            if (button.attachEvent) {  // .attachEvent() 가 발생하면...
+                button.attachEvent('onclick', whenClick1);
+                button.attachEvent('onclick', whenClick2);
+            } else {   // .attachEvent() 가 발생하지 않으면...
+                button.addEventListener('click', whenClick1);
+                button.addEventListener('click', whenClick2);
+            };
+        };
+    </script>
+
+
+    <input id="button" type="button" value="이벤트" />
+    <h5 id="heading">좋은 날</h5>
+
+
+-고급 예외 처리
+   - try, catch, finally를 이용하여 예외를 처리
+   - 형식
+
+     try{
+           // 실행할 코드
+     } catch (exception) {
+           // 예외 처리
+     } finally {
+          // 선택사항
+           // 예외 발생 여부와 상관없이 반드시 실행할 코드
+     }
+
+
+ex)
+   <script>
+        try {
+            //실행할 코드 
+            alert('exception1');
+	window.aaa()  // 존재하지 않는 메서드
+            alert('exception2');
+        } catch (exception) {
+            //예외 발생시 실행할 코드 
+            alert('예외 발생');
+        } finally {
+            //예외 여부와 상관없이 실행할 코드 
+            //사용한 메모리 정리 등 프로그램을 정리할 목적으로 많이 사용 
+            alert('예외 처리 종료');
+        };
+    </script>
+
+
+
+- throw 키워드
+     -강제로 예외를 발생시킬 때 사용
+     - 발생하는 예외는 문자열, 숫자, 불린, 객체 가능
+     - 사용자의 입력 실수 시 예외를 강제 발생시켜 주의 환기
+     - 예외 발생 시 catch 구문 실행
+ 
+
+ex1)
+ <script>
+        //입력 자료의 유효성 검사 
+        function checkNumber() {
+            var input, num;
+            input = document.getElementById('input');
+            num = input.value;
+            try {
+                //입력하지 않았거나 문자 입력시 예외 강제 발생  
+                if(num==''|| isNaN(num)){
+                    throw '숫자를 입력해 주세요';
+                 //범위를 벗어난 입력시 예외 강제 발생 
+                }else if(num<2 || num>10){
+                    throw '2와 10사이의 숫자 입력';
+                }
+            } catch (exception) {
+                //발생한 예외 출력 
+                alert(exception);
+            } finally {
+                //텍스트 상자 클리어  후 포커스 부여 
+                input.value = '';
+                input.focus();
+            }
+        }
+    </script>
+
+
+    <h6> 2와 10사이의 숫자를 입력해 주세요.</h6>
+    <input id="input" type="text" />
+    <input id="check" type="button" value="확인" onclick="checkNumber()"/>
+
+
+ex2) 
+<script>
+        function checkNumber() {
+            var input, num;
+            input = document.getElementById('input');
+            num = input.value;
+            try {
+                //강제 예외 발생 
+                if (num == '' || isNaN(num)) {
+                    throw 'Err1';
+                } else if (num < 2 || num > 10) {
+                    throw 'Err2';
+                }
+            } catch (exception) {
+                //강제 발생된 예외에 따른 다른 처리 
+                if (exception == 'Err1') {
+                    alert('숫자를 입력해 주세요');
+                }
+                if (exception == 'Err2') {
+                    alert('2와 10사이 입력');
+                }
+            } finally {
+                input.value = '';
+                input.focus();
+            }
+        }
+    </script>
+
+    <h6> 2와 10사이의 숫자를 입력해 주세요.</h6>
+    <input id="input" type="text" />
+    <input id="check" type="button" value="확인" onclick="checkNumber()"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

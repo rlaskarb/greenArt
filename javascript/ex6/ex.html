@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      a {
+        color: #333;
+        text-decoration: none;
+      }
+
+      .qanda {
+        width: 500px;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+      .qanda p {
+        text-align: justify;
+        line-height: 1.5em;
+        font-size: 14px;
+      }
+      .qanda .q {
+        background: url(images/ico_q.gif) 0 0 no-repeat;
+        padding-left: 25px;
+        margin-bottom: 10px;
+      }
+      .qanda .a {
+        background: url(images/ico_a.gif) 0 0 no-repeat;
+        padding-left: 25px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="qanda">
+      <p class="q">
+        <a class="trigger" href="#">
+          제가 갖고 있는 물품을 기부하고 싶은데요. 어떻게 하면 되나요?
+        </a>
+      </p>
+      <p class="a">
+        꿈이야기에서 ‘필요한 나눔’으로 등록되어 있는 물품에 대한 기부를 원하시는
+        경우 ‘드림애플 > 아주특별한나눔 > 특별한나눔 ’ 에서 기부 의사를 밝히실
+        수 있습니다. 또는 02-3472-3556(두드림)으로 바로 연락 주시면 절차와
+        방법에 대해 안내해드리겠습니다.
+      </p>
+    </div>
+
+    <script src="./js/jquery-1.12.4.js"></script>
+    <script src="./js/jquery-migrate-1.4.1.js"></script>
+    <script>
+      //   var cnt = 0;
+      //   $(".trigger").bind("click", function () {
+      //     cnt++;
+      //     if (cnt % 2 == 1) {
+      //       $(".a").css("display", "block");
+      //     } else {
+      //       $(".a").css("display", "none");
+      //     }
+      //   });
+      //   $(".trigger").on("click", function () {
+      //     if ($(".a").css("display") === "none") {
+      //       $(".a").css("display", "block");
+      //     } else {
+      //       $(".a").css("display", "none");
+      //     }
+      //   });
+
+      $(".trigger").hover(
+        function () {
+          //홀수번째 클릭시 처리코드
+          $(".a").css("display", "block");
+        },
+        function () {
+          //짝수번째 클릭시 처리코드
+          $(".a").css("display", "none");
+        }
+      );
+    </script>
+
+    <!-- 
+    jquery 이벤트 바인딩(연결)방법
+    -bind()메소드사용
+     $('선택자').bind('event',function(){
+     //처리코드
+     });
+
+     - on() 메소드 사용 (권장)
+
+     -click 메소드
+     $().click(function(){//처리코드})
+
+     -toggle() 메소드
+        -두가지 상황이 교대로 바뀌는 결과를 만들어 주는 메소드
+        - 처리 이벤트는 click 이벤트로 설정되어있다.
+        -$('선택자').toggle(function(){},function(){});
+
+     - hover() 메소드
+       -두가지 상황이 교대로 바뀌는 결과를 만들어 주는 메소드
+        - 처리 이벤트는 mouseenter / mouseleave 이벤트로 설정되어있다.
+        -$('선택자').hover(){ //처리코드};
+        -$('선택자').hover(function(){},function(){});
+
+     -->
+  </body>
+</html>

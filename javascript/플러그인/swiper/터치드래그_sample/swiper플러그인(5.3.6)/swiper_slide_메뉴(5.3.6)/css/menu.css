@@ -1,0 +1,42 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+	color: #333;
+}
+
+/* feature film 영역 */
+.feature {
+	position: relative;
+}
+
+.feature .fInner {
+	margin: 0 auto;
+	width: 98%;
+	overflow: hidden;
+}
+
+.feature li {
+	width: 150px;
+	height: auto;
+	margin-bottom: 4em;
+	list-style: none;
+}
+
+.feature li a {
+	position: relative;
+	display: block;
+	background: #f0f0f0;
+	padding: 15px 0;
+	margin: 10px 0;
+	box-shadow: 2px 2px 5px gray;
+	border-radius: 5px;
+	text-align: center;
+	font-weight: bold;
+}
+.feature li a:hover {
+	background: orange;
+	color: #fff;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>문법 배우고 가자</title>
+	</head>
+	<body>
+		<script>
+			let Kname = [
+				"피카츄",
+				"라이츄",
+				"파이리",
+				"꼬부기",
+				"버터풀",
+				"야도란",
+				"피존투",
+				"또가스",
+			];
+
+			let Fname = Kname.filter(function (item) {
+				return item.includes("츄");
+			});
+
+			console.log(Fname);
+		</script>
+	</body>
+</html>

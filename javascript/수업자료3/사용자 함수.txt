@@ -1,0 +1,138 @@
+<함수>
+
+1.사용자 함수의 형식
+
+function function_name(매개변수1, 매개변수2, ..... ){   
+    //함수의 내용   
+    return 리턴값;   
+} 
+
+--------------------------------------
+  ex1)
+     function calc(){
+         var num1=100;
+         var num2=10;
+
+         alert("두수의 합:"+ (num1+num2));
+         alert("두수의 차:"+ (num1-num2));
+         alert("두수의 곱:"+ (num1*num2));
+         alert("두수의 나눈 몫:"+ (num1/num2));
+     }
+     calc();   //함수의 호출
+
+
+   ex2)매개변수
+      function calc(num1,num2){
+
+         alert("두수의 합:"+ (num1+num2));
+         alert("두수의 차:"+ (num1-num2));
+         alert("두수의 곱:"+ (num1*num2));
+         alert("두수의 나눈 몫:"+ (num1/num2));
+     }
+     calc(100,10);
+
+    ex3)리턴값
+      function calc(){
+            var num1 = prompt('정수를 입력 하세요','');
+            var num2 = prompt('정수를 입력 하세요','');
+            
+            return Number(num1)+Number(num2);
+      }
+     var sum=calc();
+     alert('두수의 합:'+sum);
+
+    ex4)매개변수, 리턴값
+       var num1 = prompt('정수를 입력 하세요','');
+       var num2 = prompt('정수를 입력 하세요','');
+       var sum=0;
+       function calc(num1,num2){
+            return Number(num1)+Number(num2);
+      }
+      sum=calc(num1,num2);
+      alert('두수의 합:'+sum);
+
+-------------------------------------------------------------------
+*익명함수
+
+var person = function(name, height, weight){
+    return name+'님의 키는 '+height+'cm이고, 체중은 '+weight+'kg입니다';
+};
+
+var man1=person('이수근',180,70);
+var woman1= person('최순실',150,80);       
+alert(man1);
+alert(woman1);
+---------------------------------------------------------------------
+ 2.가변인자 함수
+
+    ex1)arguments 객체 => 자바스크립트의 모든 함수는 내부에 자동으로 변수 arguments를 갖는다.
+       function sumAll() {
+            alert(typeof (arguments) + ': ' + arguments.length);
+        }
+        sumAll(1, 2, 3, 4, 5, 6, 7, 8, 9);
+       
+       *변수 arguments는 매개변수의 배열이다.
+
+     ex2)
+         function sumAll() {
+            var willReturn = 0;
+            for (var i in arguments) {
+                willReturn += arguments[i];
+            }
+            return willReturn;
+        }
+        // 함수를 호출합니다.
+        alert(sumAll(1, 2, 3, 4, 5, 6, 7, 8, 9));
+
+-----------------------------------------------------------------
+ 3.함수를 매개변수로 전달
+
+      ex1)
+        function callFunction(other) {
+            for (var i = 0; i < 10; i++) {
+                other();
+            }
+        }
+        function justFunction() {
+            alert('Hello World..!');
+        }
+        callFunction(justFunction);  //호출
+
+-----------------------------------------------------------------
+  4.지역 변수의 유효범위
+      
+      ex1)지역변수
+         function callFunc1() {
+            var cnt1=100;
+            var cnt2=200;   
+         }
+         function callFunc2() {
+            var result=0;
+            result=cnt1+cnt2;
+            alert('두정수의 합:' + result);
+         }
+         callFunc1();
+         callFunc2();
+
+      ex2)전역변수
+         var cnt1, cnt2;
+         function callFunc1() {
+            cnt1=100;
+            cnt2=200;   
+         }
+         function callFunc2() {
+            var result=0;
+            result=cnt1+cnt2;
+            alert('두정수의 합:' + result);
+         }
+         callFunc1();
+         callFunc2(); 
+
+--------------------------------------------------------------------
+
+
+
+
+
+
+       

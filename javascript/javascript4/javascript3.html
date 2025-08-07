@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <!-- <h2>제목!</h2>
+    <img id="img1" src="./gallery/images/img1.jpg" alt="이미지1" />
+    <button type="button" onclick="change()">이미지 바꾸기</button>
+
+    <script>
+      const img1 = document.getElementById("img1");
+      console.log(img1.src, img1.alt);
+      function change() {
+        img1.src = "./gallery/images/img3.jpg";
+        img1.alt = "이미지3";
+      }   
+    </script> -->
+
+    <h2>제목입니다</h2>
+    <p>단락입니다</p>
+    <address id="addr">주소입니다.</address>
+    <button type="button" onclick="del();">삭제!</button>
+
+    <script>
+      function del() {
+        const addr = document.getElementById("addr");
+        document.body.removeChild(addr);
+      }
+    </script>
+
+    <!-- 
+
+    4) 태그의 속성 조작!
+        -객체명.속성 = 값;
+            -객체명.src = './img/a1.jpg';
+            -객체명.href = '';
+
+    5) 태그를 삭제 / 제거
+        -const 객체명 = document.getElementById('아이디명');
+         document.body.removeChild(객체명);
+
+     
+
+    -->
+  </body>
+</html>

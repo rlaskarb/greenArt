@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h2>제목1</h2>
+      <p>내용 1</p>
+    </div>
+
+    <div>
+      <h2>제목2</h2>
+      <p>내용 2</p>
+    </div>
+
+    <div>
+      <h2>제목3</h2>
+      <p>내용 3</p>
+    </div>
+
+    <script src="./js/jquery-1.12.4.js"></script>
+    <script src="./js/jquery-migrate-1.4.1.js"></script>
+    <script>
+      $("div").click(function () {
+        var head = $(" h2", this).text();
+        var parag = $(" p", this).text();
+
+        console.log("h태그 : " + head, "p태그 :" + parag);
+      });
+    </script>
+
+    <!-- 
+    jquery 이벤트 바인딩(연결)방법
+    -bind()메소드사용
+     $('선택자').bind('event',function(){
+     //처리코드
+     });
+
+     - on() 메소드 사용 (권장)
+
+     -click 메소드
+     $().click(function(){//처리코드})
+
+     -toggle() 메소드
+        -두가지 상황이 교대로 바뀌는 결과를 만들어 주는 메소드
+        - 처리 이벤트는 click 이벤트로 설정되어있다.
+        -$('선택자').toggle(function(){},function(){});
+
+     - hover() 메소드
+       -두가지 상황이 교대로 바뀌는 결과를 만들어 주는 메소드
+        - 처리 이벤트는 mouseenter / mouseleave 이벤트로 설정되어있다.
+        -$('선택자').hover(){ //처리코드};
+        -$('선택자').hover(function(){},function(){});
+
+    
+    
+    
+    $('선택자') 의 매개변수
+      - $('선택자')
+      - $('선택자',this) -> 두번째 매개변수로 this를 사용하면.. 
+                            범위를 이벤트 발생 객체로 한정한다.(해당 이벤트 발생당시 그의 자식)
+                         
+     -->
+  </body>
+</html>

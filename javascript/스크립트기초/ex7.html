@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   let sum = 0; //총합계
+      //   let avg = 0; // 평균
+      //   let eng = []; //영어점수
+
+      //   for (let i = 0; i < 5; i++) {
+      //     eng[i] = Number(prompt(i + 1 + " 번째 영어점수 입력:", ""));
+      //   }
+
+      //   for (let i = 0; i < 5; i++) {
+      //     console.log(i + 1 + "번째 학생의 영어점수는 :" + eng[i] + "점입니다.");
+      //     sum += eng[i];
+      //   }
+      //   avg = sum / 5;
+      //   console.log("총점" + sum + "점이고 , 평균 :" + avg + "점이다.");
+    </script>
+
+    <script>
+      // 배열과 반복문의 콜라보
+
+      //   let eName = [
+      //     "피카츄",
+      //     "라이츄",
+      //     "파이리",
+      //     "꼬부기",
+      //     "버터플",
+      //     "야도란",
+      //     "피존투",
+      //     "또가스",
+      //   ];
+
+      //   for (let i = 0; i < eName.length; i++) {
+      //     console.log("가라 " + eName[i] + " 몸통 박치기!! ");
+      //   }
+    </script>
+
+    <script>
+      // 배열과 반복문의 콜라보 두번째
+
+      //   let eName = [
+      //     "피카츄",
+      //     "라이츄",
+      //     "파이리",
+      //     "꼬부기",
+      //     "버터플",
+      //     "야도란",
+      //     "피존투",
+      //     "또가스",
+      //   ];
+
+      //   for (let i in eName) {
+      //     console.log("가라 " + eName[i] + " 몸통 박치기!! ");
+      //   }
+    </script>
+
+    <script>
+      // let i = 1;
+      // let sum = 0; // 합계  1~10 합계
+      // while (i <= 10) {
+      //   sum += i; // 0  + 1  +2  +3 ... +10
+      //   i++; // 11
+      // }
+
+      // console.log("합계 : " + sum);
+    </script>
+
+    <script>
+      //  반복횟수가 불명확 할때 while 문을 사용한다 대표적인 예가 비밀번호 입력이닷
+
+      // let password = "1004";
+      // let pass = prompt("비밀번호 입력 햇 ", "");
+      // while (password != pass) {
+      //   alert("비밀번호가 일치하지 않은데?? ");
+      //   pass = prompt("비밀번호 입력 :", "");
+      // }
+      // console.log("비밀번호가 일치합니닷");
+    </script>
+
+    <script>
+      //  이건 무조건 1번은 실행되는 구문이다.! 하지만 이예지는 그닥...임.
+
+      // let password = "1004";
+      // let pass = "";
+
+      // do {
+      //   pass = prompt("비밀번호 입력", "");
+      // } while (password != pass);
+      // console.log("비밀번호가 일치합니닷");
+    </script>
+
+    <script>
+      // while() 문과 do ~ while() 문을 사용해서 무한 루프 만들어보기
+      /*
+      while(true){
+        if(조건절){
+          // 처리코드 
+          break; // 반복문을 강제로 벗어나게 한다.
+        }
+      }
+
+      */
+
+      // 엄마가 좋아? 아빠가 좋아? 헉...둘다싫다고??
+      // 그럴순 없어!!!!!!!!!!! 그래도 둘중에 한명은 좋아 해야해!!!!
+
+      // while (true) {
+      //   const parents = prompt(
+      //     "엄마가 좋아? 아빠가 좋아?( 엄마 vs 아빠 ) ",
+      //     ""
+      //   );
+      //   if (parents == "엄마") {
+      //     console.log("엄마가 좋구나!");
+      //     break;
+      //   } else if (parents == "아빠") {
+      //     console.log("아빠가 좋구나!");
+      //     break;
+      //   } else {
+      //     console.log("그럴순 없어 다시 생각해봐");
+      //   }
+      // }
+
+      // console.log("!!!!");
+    </script>
+
+    <script>
+      // 조건절에서 참이면 true 거짓이면 false
+      // 참  : true , 1 (바지사장 대표값) , (0이 아닌 모든 숫자) , (null이 아닌 모든 문자)
+      // 거짓 : false , 0 ,"",null,
+
+      let value = 0;
+
+      if (value) {
+        console.log("참");
+      } else {
+        console.log("거짓");
+      }
+    </script>
+
+    <!-- 
+
+        배열 과 반복문의 콜라보
+            for(let 지역변수 in 배열명 ){
+                //배열처리 코드
+         }
+
+
+        while()문
+        -반복횟수가 불명확할때 사용한다.
+        -조건절에 true 면 반복처리 ,false 면 loop문을 벗어난다.
+
+        while(){
+         // 반복처리코드
+        }
+
+
+        do ~ while()문
+        -반복횟수가 불명확할때 사용한다.
+        -조건절에 true 면 반복처리 ,false 면 loop문을 벗어난다.
+
+          do{
+            //반복처리코드
+          }while(조건절)
+
+-->
+  </body>
+</html>

@@ -1,0 +1,9 @@
+.bg_Change{width:600px; height:507px; background:url(img0.jpg) 0 0 no-repeat; position:relative; }
+ol{text-indent:-9999px;}
+.bg_Change span{position:absolute; width:30px; height:30px; display:block; cursor:pointer;}
+.bg_Change .span_1{left:290px; top:120px; background:url(1.png) 0 0 no-repeat;}
+.bg_Change .span_2{left:390px; top:180px; background:url(2.png) 0 0 no-repeat;}
+.bg_Change .span_3{left:390px; top:290px; background:url(3.png) 0 0 no-repeat;}
+.bg_Change .span_4{left:290px; top:353px; background:url(4.png) 0 0 no-repeat;}
+.bg_Change .span_5{left:180px; top:290px; background:url(5.png) 0 0 no-repeat;}
+.bg_Change .span_6{left:180px; top:180px; background:url(6.png) 0 0 no-repeat;}

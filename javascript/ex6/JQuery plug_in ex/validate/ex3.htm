@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="jquery-1.7.1.min.js"></script>
+    <script src="jquery.validate.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 메시지를 정의합니다.
+          
+
+            // Validate 플러그인을 적용합니다.
+            $('#my_form').validate({
+                rules: {
+                  
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="my_form">
+        <table>
+            <tr>
+                <td><label>이름</label></td>
+                <td><input type="text" name="name" /></td>
+            </tr>
+            <tr>
+                <td><label>이메일</label></td>
+                <td><input type="text" name="email" /></td>
+            </tr>
+            <tr>
+                <td><label>홈페이지</label></td>
+                <td><input type="text" name="homepage" /></td>
+            </tr>
+        </table>
+        <input type="submit" value="SEND"/>
+    </form>
+</body>
+</html>

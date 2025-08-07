@@ -1,0 +1,43 @@
+*아이프레임에 보여지는 서브 페이지의 코드
+
+
+1.<head>태그에 삽입
+
+<script type="text/javascript">
+function init(){
+  var doc = document.getElementById('ifr_content');
+  if(doc.offsetHeight == 0){
+  } else {
+  pageheight = doc.offsetHeight;
+
+  parent.document.getElementById("ifr").height = pageheight+"px";
+  }
+}
+window.onload = function(){
+  init();
+}
+
+</script>
+
+
+
+2.서브페이지의 컨텐츠를 묶고있는 <div>의 아이디를 준다.
+
+<div id="ifr_content">서브페이지의 상세 컨텐츠 코딩</div> 
+
+
+=========================================================================
+
+*부모 페이지에 소스.
+
+<iframe  src="불러올 초기 페이지 경로" frameborder="0" scrolling="no" width="아이프레임 너비"  height="100%" name="ifr" id="ifr" allowTransparency="true"></iframe>
+
+=====================================================================
+
+
+
+
+
+
+
+

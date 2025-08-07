@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="./swiper.min.css" />
+
+		<style>
+			body {
+				background: #fff;
+				font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+				font-size: 14px;
+				color: #000;
+				margin: 0;
+				padding: 0;
+			}
+			.box {
+				width: 800px;
+				height: 400px;
+				border: 1px solid red;
+				overflow: hidden;
+				margin: 50px auto;
+			}
+
+			.swiper-container {
+				width: 100%;
+				height: 100%;
+			}
+			.swiper-slide {
+				text-align: center;
+				font-size: 18px;
+				background: #fff;
+				width: 180px;
+			}
+
+			.swiper-slide:nth-of-type(2) {
+				width: 300px;
+			}
+			.swiper-slide:nth-of-type(3) {
+				width: 100px;
+			}
+			.swiper-slide:nth-of-type(4) {
+				width: 200px;
+			}
+			.swiper-slide:nth-of-type(5) {
+				width: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<!-- Swiper -->
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide" style="background: green">Slide 1</div>
+					<div class="swiper-slide" style="background: pink">Slide 2</div>
+					<div class="swiper-slide" style="background: orange">Slide 3</div>
+					<div class="swiper-slide" style="background: brown">Slide 4</div>
+					<div class="swiper-slide" style="background: green">Slide 5</div>
+					<div class="swiper-slide" style="background: pink">Slide 6</div>
+					<div class="swiper-slide" style="background: brown">Slide 7</div>
+					<div class="swiper-slide" style="background: green">Slide 8</div>
+					<div class="swiper-slide" style="background: brown">Slide 9</div>
+					<div class="swiper-slide" style="background: pink">Slide 10</div>
+				</div>
+				<!-- Add Pagination -->
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
+
+		<script src="./swiper.min.js"></script>
+		<script>
+			var swiper = new Swiper(".swiper-container", {
+				slidesPerView: "auto", // css 에게 선빵 양보
+				//centeredSlides: true,
+				spaceBetween: 10,
+				pagination: {
+					el: ".swiper-pagination",
+					clickable: true,
+				},
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        color: #333;
+        text-decoration: none;
+      }
+
+      .gallery li {
+        display: none;
+      }
+      .gallery li img {
+        width: 600px;
+      }
+      .gallery .btn {
+        display: block;
+        width: 100px;
+        padding: 20px 0;
+        text-align: center;
+        font-size: 24px;
+        background: orange;
+        color: #fff;
+      }
+      .gallery span {
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gallery">
+      <ul>
+        <li><img src="./images/big1.jpg" alt="" /></li>
+        <li><img src="./images/big2.jpg" alt="" /></li>
+        <li><img src="./images/big3.jpg" alt="" /></li>
+        <li><img src="./images/big4.jpg" alt="" /></li>
+      </ul>
+      <a class="btn" href="#">stop</a>
+      <span></span>
+    </div>
+
+    <script src="./js/jquery-1.7.1.min.js"></script>
+    <script src="./js/gallery4.js"></script>
+  </body>
+</html>

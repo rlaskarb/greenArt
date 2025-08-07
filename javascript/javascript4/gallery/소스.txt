@@ -1,0 +1,111 @@
+ex) gallery1.html
+
+<style type="text/css">
+  *{margin:0; padding:0;}
+  img{border:0;}
+  .gallery{width:400px; padding:10px; overflow:hidden; border:2px solid #CCC;}
+  .gallery ul{list-style:none; margin-top:10px;}
+  .gallery ul li{float:left;}
+  .gallery ul li img{ cursor:pointer;}
+</style>
+---------------
+<script type="text/javascript">
+  window.onload = function () {
+	  var main_img= document.getElementById('image');
+	  
+	  document.getElementById('img1').onclick = function () {
+		  main_img.src = "images/img1.jpg";
+	  };
+	  document.getElementById('img2').onclick = function () {
+		  main_img.src = 'images/img2.jpg';
+	  };
+	  document.getElementById('img3').onclick = function () {
+		  main_img.src = "images/img3.jpg";
+	  };
+	  document.getElementById('img4').onclick = function () {
+		  main_img.src = "images/img4.jpg";
+	  };
+  };
+</script>
+-------------------
+<div class="gallery">
+    <img id="image" src="images/img1.jpg" alt="´ÜÇ³ÀÌ¹ÌÁö" />
+    <ul>
+       <li><img id="img1" src="images/img1.jpg" width="100" height="80" alt="´ÜÇ³ÀÌ¹ÌÁö1" /></li>
+       <li><img id="img2" src="images/img2.jpg" width="100" height="80" alt="´ÜÇ³ÀÌ¹ÌÁö2" /></li>
+       <li><img id="img3" src="images/img3.jpg" width="100" height="80" alt="´ÜÇ³ÀÌ¹ÌÁö3" /></li>
+       <li><img id="img4" src="images/img4.jpg" width="100" height="80" alt="´ÜÇ³ÀÌ¹ÌÁö4" /></li>
+    </ul>
+ </div>
+
+=====================================
+ex) gallery2.html
+
+<style type="text/css">
+  *{margin:0; padding:0;}
+  img{border:0;}
+  .gallery{width:400px; padding:10px; overflow:hidden; border:2px solid #CCC;}
+  .gallery #image{width:400px; height:300px; background:url(images/img1.jpg) 0 0 no-repeat;}
+  .gallery ul{list-style:none; margin-top:10px;}
+  .gallery ul li{float:left;}
+  .gallery ul li img{ cursor:pointer;}
+</style>
+-------------------
+<script type="text/javascript">
+  window.onload = function () {
+	  var main_img= document.getElementById('image');
+	  
+	  document.getElementById('img1').onclick = function () {
+		  main_img.style.background = "url(images/img1.jpg)";
+	  };
+	  document.getElementById('img2').onclick = function () {
+		  main_img.style.background = 'url(images/img2.jpg)';
+	  };
+	  document.getElementById('img3').onclick = function () {
+		  main_img.style.background = "url(images/img3.jpg)";
+	  };
+	  document.getElementById('img4').onclick = function () {
+		  main_img.style.background = "url(images/img4.jpg)";
+	  };
+  };
+</script>
+------------------------
+  <div class="gallery">
+    <div id="image"></div>
+    <ul>
+       <li><img id="img1" src="images/img1.jpg" width="100" height="80" alt="´ÜÇ³ÀÌ¹ÌÁö1" /></li>
+       <li><img id="img2" src="images/img2.jpg" width="100" height="80" alt="´ÜÇ³ÀÌ¹ÌÁö2" /></li>
+       <li><img id="img3" src="images/img3.jpg" width="100" height="80" alt="´ÜÇ³ÀÌ¹ÌÁö3" /></li>
+       <li><img id="img4" src="images/img4.jpg" width="100" height="80" alt="´ÜÇ³ÀÌ¹ÌÁö4" /></li>
+    </ul>
+  </div>
+
+=====================================
+ex) gallery3.html
+
+<style type="text/css">
+  *{margin:0; padding:0;}
+  img{border:0;}
+  .gallery{width:400px; padding:10px; overflow:hidden; border:2px solid #CCC;}
+  .gallery #image{width:400px; height:300px; background:url(images/img1.jpg) 0 0 no-repeat;}
+  .gallery ul{list-style:none; margin-top:10px;}
+  .gallery ul li{float:left;}
+  .gallery ul li img{ cursor:pointer;}
+</style>
+---------------------------
+<script type="text/javascript">
+  function changeGallery(count) {
+	  var main_img= document.getElementById('image');
+	  main_img.style.background = "url(images/img"+count+".jpg)";
+  };
+</script>
+-----------------------------
+  <div class="gallery">
+    <div id="image"></div>
+    <ul>
+       <li><img id="img1" src="images/img1.jpg" width="100" height="80" alt="´ÜÇ³ÀÌ¹ÌÁö1" onclick="changeGallery(1);" /></li>
+       <li><img id="img2" src="images/img2.jpg" width="100" height="80" alt="´ÜÇ³ÀÌ¹ÌÁö2" onclick="changeGallery(2);" /></li>
+       <li><img id="img3" src="images/img3.jpg" width="100" height="80" alt="´ÜÇ³ÀÌ¹ÌÁö3" onclick="changeGallery(3);" /></li>
+       <li><img id="img4" src="images/img4.jpg" width="100" height="80" alt="´ÜÇ³ÀÌ¹ÌÁö4" onclick="changeGallery(4);" /></li>
+    </ul>
+  </div>

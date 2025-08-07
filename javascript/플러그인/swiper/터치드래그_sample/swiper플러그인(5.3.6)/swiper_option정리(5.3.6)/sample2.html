@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>swiper ex</title>
+		<link rel="stylesheet" href="./swiper.min.css" />
+		<link rel="stylesheet" href="./sample.css" />
+	</head>
+	<body>
+		<div class="swiper_box">
+			<div class="swiper-container">
+				<ul class="swiper-wrapper">
+					<li class="swiper-slide">1</li>
+					<li class="swiper-slide">2</li>
+					<li class="swiper-slide">3</li>
+					<li class="swiper-slide">4</li>
+					<li class="swiper-slide">5</li>
+					<li class="swiper-slide">6</li>
+					<li class="swiper-slide">7</li>
+					<li class="swiper-slide">8</li>
+					<li class="swiper-slide">9</li>
+					<li class="swiper-slide">10</li>
+					<li class="swiper-slide">11</li>
+					<li class="swiper-slide">12</li>
+					<li class="swiper-slide">13</li>
+					<li class="swiper-slide">14</li>
+				</ul>
+				<!-- Add Arrows -->
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
+				<!-- Add Pagination -->
+				<div class="swiper-pagination"></div>
+				<div class="swiper-scrollbar"></div>
+			</div>
+		</div>
+
+		<script src="./swiper.min.js"></script>
+		<script>
+			const swiper = new Swiper(".swiper-container", {
+				//autoHeight: true, //각각의 슬라이드의 높이를 다르게 쓰고싶을 때
+				slidesPerView: 3, //단수
+				spaceBetween: 5, // 단 사이 여백 (px 생략)
+				//loop: true, // 계속 반복
+				//freeMode: true, //터치하는만큼만이동
+				//centeredSlides: true, //센터 슬라이드 위치(만약 단수가 2개이면 양쪽은 반반씩 보임)
+				//initialSlide: 1, // 시작슬라이드(0~)
+				//effect: "fade", //페이드효과(단수가 1단이 된다)
+				//effect: "flip", //3D 회전효과(단수가 1단이 된다)
+				navigation: {
+					//이전/다음 버튼
+					nextEl: ".swiper-button-next",
+					prevEl: ".swiper-button-prev",
+				},
+				pagination: {
+					//페이지 네이션
+					el: ".swiper-pagination",
+					//dynamicBullets: true,
+					clickable: true,
+					//type: "fraction", //  현재/총개수 (페이지네이션블릿은 사라진다)
+				},
+				autoplay: {
+					//자동
+					delay: 1000,
+					disableOnInteraction: false,
+				},
+
+				// scrollbar: {
+				// 	//하단 스크롤바
+				// 	el: ".swiper-scrollbar",
+				// 	hide: true,
+				// },
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .events {
+        width: 2000px;
+        height: 1050px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="events">
+      <h2>이벤트 광고 입니다.</h2>
+      <img id="event_img" src="./gallery/images/main_visual1.png" alt="" />
+    </div>
+    <script>
+      const event_img = document.getElementById("event_img");
+      let cnt = 1;
+      function change() {
+        cnt++;
+
+        event_img.src = `./gallery/images/main_visual${cnt}.png`;
+
+        if (cnt > 3) {
+          cnt = 1;
+        }
+      }
+
+      setInterval(change, 3000);
+    </script>
+  </body>
+</html>

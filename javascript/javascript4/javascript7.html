@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 400px;
+        border: 2px solid red;
+        margin: 50px;
+      }
+      .box strong {
+        display: block;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .box ul {
+        display: flex;
+        list-style: none;
+      }
+
+      .box ul li {
+        width: 25%;
+        border: 0;
+        vertical-align: top;
+      }
+      .box ul li img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <img id="gallery_img" src="./gallery/images/img1.jpg" alt="" />
+      <strong id="gallery_text">이미지 제목1</strong>
+      <ul>
+        <li>
+          <a id="btn1" href="#"
+            ><img src="./gallery/images/img1.jpg" alt=""
+          /></a>
+        </li>
+        <li>
+          <a id="btn2" href="#"
+            ><img src="./gallery/images/img2.jpg" alt=""
+          /></a>
+        </li>
+        <li>
+          <a id="btn3" href="#"
+            ><img src="./gallery/images/img3.jpg" alt=""
+          /></a>
+        </li>
+        <li>
+          <a id="btn4" href="#"
+            ><img src="./gallery/images/img4.jpg" alt=""
+          /></a>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      const gallery_img = document.getElementById("gallery_img");
+      const gallery_text = document.getElementById("gallery_text");
+      const btn1 = document.getElementById("btn1");
+      const btn2 = document.getElementById("btn2");
+      const btn3 = document.getElementById("btn3");
+      const btn4 = document.getElementById("btn4");
+
+      function change(cnt) {
+        gallery_img.src = `./gallery/images/img${cnt}.jpg`;
+        gallery_text.innerHTML = `이미지 제목 ${cnt}`;
+      }
+
+      btn1.addEventListener("click", function () {
+        change(1);
+      });
+      btn2.addEventListener("click", function () {
+        change(2);
+      });
+      btn3.addEventListener("click", function () {
+        change(3);
+      });
+      btn4.addEventListener("click", function () {
+        change(4);
+      });
+    </script>
+  </body>
+</html>

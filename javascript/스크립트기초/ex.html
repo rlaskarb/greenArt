@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자바스트립트 기초 문법</title>
+    <link rel="stylesheet" href="./css/ex.css" />
+  </head>
+  <body>
+    <h1>자바스크립트 기초 문법</h1>
+
+    <script>
+      alert("javascript 를 공부 합시다.");
+      alert("21000");
+      alert('"javascript"를 \n 공부 합시다.');
+      alert(10 % 2);
+      console.log("100" + (100 + 100 + 100 + 100));
+      console.log("나는 " + "집에 " + "가고" + "싶다" + ".");
+      console.log("good" < "hello_world");
+      console.log(100 + 50 <= 200 * 2);
+      console.log(!100 > 20);
+      console.log(100 > 20 && 500 > 10);
+      console.log(100 > 20 || 500 < 10);
+
+      var koreanName = "김남규";
+      var weight = 63;
+      var height = 180;
+
+      console.log(
+        koreanName +
+          "의 신체는" +
+          " 첫번째 몸무게는" +
+          weight +
+          "kg 이에요" +
+          " 두번째 키는 " +
+          height +
+          "cm 조금 안돼요"
+      );
+
+      //   ++ 증감연산자가 앞에있을때
+      var num = 10;
+      var total = 0;
+      total = ++num;
+      console.log("++ total값:" + total + "입니다.");
+      console.log("++ num값:" + num + "입니다.");
+
+      //   ++ 증감연산자가 뒤에있을떄
+      var num = 10;
+      var total = 0;
+
+      total = num++;
+
+      console.log("total값 ++ :" + total + "입니다.");
+      console.log("num값 ++ :" + num + "입니다.");
+    </script>
+
+    <script>
+      var koreanName = prompt("이름을 입력하세요", "");
+
+      console.log(koreanName);
+
+      //월 급여 정산 프로그램을 작성하시요
+      // 입력: 이름 , 본봉(만원) , 수당(만원) , 보너스(만원)
+      // 출력: 당신의 이름 : 000 이고 , 총급여 : 본봉 + 수당 +보너스 (만원) 입니다.
+
+      var koreanName = prompt("이름을 입력하세요", "");
+      var pay = prompt("본봉을 입력하세요(만원)", "");
+      var pay2 = prompt("수당을 입력하세요(만원)", "");
+      var bonus = prompt("보너스을 입력하세요(만원)", "");
+      var total = Number(pay) + Number(pay2) + Number(bonus);
+
+      console.log("당신의 이름은 : " + koreanName + "입니다.");
+      console.log("당신의 총급여는 : " + total + "(만원)입니다.");
+    </script>
+
+    <!--
+
+    <javascript 문법 설명>
+
+        -언어의 특징
+
+            -javascript 는 웹브라우저에서 계산하는 웹용 스크립트 언어
+            -HTML 문서의 어디에서든 위치할수 있다.
+            -<script>
+                자바스크립트 코드~ 써봐요 function()->
+             </script>
+
+            -<script src="파일명.js"></script>
+
+            -대소문자로 구분한다.
+
+            - javascript 주석처리  // 또는  /* 여러 라인을 주석처리 합니다. */
+
+            - 한 라인(한줄)종료되면 (';')으로 처리한다.
+
+        - 비교 연산자 / 관계 연산자
+             - 특정의 값을 비교나 관계를 따질 수 있는 연산자
+             - 결과가 참/거짓 으로 판결 ->true ,false(거짓)
+             - '>' , '<' , '>='(작거나 같다) ,'<='(크거나 같다) 
+                , '=='(같다) , '!='(다르다) 
+             - 문자일 경우  사전식 자음 순서로  알파펫 사전식 순서로 뒤에 나오는게 크다
+        
+
+        
+        
+        - 논리 연산자
+             -true 와 false 를 계산하는 연산자
+             -"&&"(and) , "||" (or) , "!" (not)
+             - 결과가 참/거짓으로 판결 -> true , false
+             - !(not) -> true , false 를 뒤집는 녀석임
+             - "&&"(and) -> 참참참 (두 항이 모두 true 일때만 true) -> true && true = true
+             - "||"(or) -> 거짓거짓거짓 ( 두항이 모두 false 일때만 false -> 한 항이라도 true 면 true)
+
+
+
+
+
+    <javascript 의 자료형 (data 형)>
+        -script 가 처리 할 수 있는 자료(data)의 종류
+        -String(문자타입) -> '문자' or "문자" 
+                             이스케이프 문자(기능을 가지고 있는 문자) -> '/n'(엔터)
+        -Number(숫자타입) -> 음수 -30 /양수 30 /정수 30 /실수 0.2
+        -Boolean (논리타입) -> true , false
+        -NaN(Not a Number) -> 숫자가 아님을 나타내는 값.  숫자말고는 산술연산기호 쓰지마 쉐키야
+    
+
+    
+    <javascript 의 연산자>
+
+        -특정의 계산을 하기위한 부호/기호
+
+        
+            1) 산술 연산자
+                -수학적 계산을 하기위해 만들어 놓은 연산자
+                - + , - , * , / , %(mod) 
+                - '%' -> 나눗셈 -> 결과로  나머지 값을 취한다. 정수가 결과임
+                      -> 홀수/짝수/배수를 판별하는 역할 수행
+                - 우선순위 -> * , / , %(mod) > + , - 
+                - - , * , / , % => 산술의 능력만 가지고 있다.
+                - + 두가지 능력을 가지고 있다. 
+                -> 산술의 능력
+                -> 문자의 결합(연결)
+
+
+
+    <변수 와 배열>
+        1 변수(값을 저장할 때 사용하는 식별자 입니다.)
+        -변하는 값을 저장하는 그릇/방
+        -변수명 작명-> 영문(대/소)/숫자/_만 섞어서 만든다. 단! 첫글자는 영문
+        -변수를 선언(만드는)하는 방법
+          var 변수명; -> 빈방을 만드는 방법
+          var 변수명 = 초기값; -> 방을 만들고 그 방에 값을 초기화 하는 방법
+
+        변수를 선안 하는 방법
+         var 변수명 ; // 빈방을 만드는 방법
+         var 변수명 1 , 변수명 2 , 변수명 3
+    
+
+
+
+    <대입 연산자>
+        - " = "
+        - 변수 = 값; -> 우측의 값을 좌측의 방에 담아라!
+        - 덮어쓰기 -> 이전의 저장된 값을 소멸된다
+
+
+    <복합 연산자>
+        - 대입 연산자와  산술연산자가 결합되어 있는 연산자
+        - "+=" , "-=" , "*=" , "/=" , "%="
+        - num = num+10  == num+= 10;
+        - num = num-10  == num-= 10;
+        - num = num*10  == num*= 10;
+        - num = num/10  == num/= 10;
+        - num = num%10  == num%= 10;
+    
+    <증감 연산자>
+        - 변수에 값을 1씩 증가/감소 시키는 연산자
+        - 변수++ (1증가) , 변수-- (1감소)  -> 후위형!
+        - ++변수 (1증가) , --변수 (1감소)  -> 전위형!
+    
+    *********연산자들의 계산 우선순위
+    증감연산자 (전위형) > 산술연산자> 관계/비교연산자 > 논리 연산자 > 대입연산자/복합연산자> 증감연산자 (후위형)
+
+
+    <javascript 의 내장함수()>
+        -alert () 함수 -> 메세지를 출력하는 함수
+                    -> alert(출력하고 싶은 값 ); 
+
+        -console.log() 함수 -> console 창에 출력하는 함수
+                            -> console.log("출력하고싶은값");
+
+        -prompt() 함수 -> 사용자에 값(문자)을 입력받는 대화상자
+                -> var 변수 = prompt("입력메시지" ,"초기값");
+                -> 확인 버튼 클릭하면 변수에 입력된 값을 저장한다.
+        
+        -Number() 함수 -> 문자화된 숫자를 number 타입으로 변환하는 함수
+                    -> Number('100') -> 숫자 100 으로 변환해 준다.111
+
+-->
+  </body>
+</html>

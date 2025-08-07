@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/ex.css" />
+  </head>
+  <body>
+    <h2>안녕</h2>
+    <button type="button" onclick="calculation();">눌러봐!</button>
+
+    <button type="button" onclick="func();">자기소개서</button>
+
+    <button type="button" onclick="human('김남규',180 , 80);">매개변수</button>
+
+    <button type="button" onclick="alert(woman('운동','놀기','고기'));">
+      매개변수 리턴 둘다
+    </button>
+
+    <script>
+      // 사용자 정의 함수 (일반함수)
+      function calculation() {
+        const num1 = 100;
+        const num2 = 200;
+        alert("두수의 합은! :" + (num1 + num2) + "입니다");
+      }
+
+      function func() {
+        const koreanName = "김남규";
+        const age = 37;
+        alert("내 이름은" + koreanName + "이고" + "나이는 " + age + " 입니당");
+      }
+
+      function human(itsName, height, weight) {
+        const str =
+          "이름 :" +
+          itsName +
+          " , 키 :" +
+          height +
+          ", 몸무게 : " +
+          weight +
+          "kg 입니닷";
+
+        alert(str);
+      }
+
+      //    리턴값 불러오는 함수
+      function multi() {
+        const a1 = 100;
+        const a2 = 300;
+        const m1 = a1 * a2;
+        return m1;
+      }
+      const a3 = multi() * multi();
+      console.log(a3);
+
+      // 매개변수와 리턴값을 불러오는 함수
+      function woman(hobby, like, eat) {
+        const wo1 =
+          "취미 활동은 :" +
+          hobby +
+          "이고," +
+          "좋아하는 것은 " +
+          like +
+          "이고 음식은 " +
+          eat +
+          "을 좋아합니다.";
+
+        return wo1;
+      }
+
+      alert("출력할 값");
+
+      const kName = prompt("이름을 입력해봐", "");
+    </script>
+
+    <!-- 
+    
+        <**** 사용자 정의 함수>
+
+            - 내장함수 -> 자바스크립트에 내장되어있는 함수 (이미 만들어진 함수)
+            
+            -사용자 정의 함수 -> 프래그래머가 필요해 의해 만들어서 사용하는 함수 
+                             -> 코드의 재사용 / 재횔용 !!!
+                             -> 함수를 선언하면 그 함수안에 있는 처리코드가 자동으로 계산되지 않는다.
+                             -> 함수는 선언한 후 필요 시... 호출문(Call 문)을 사용해서 함수를 동작 시킨다. 
+                             -> 이벤트를 사용하여 함수를 원하는 시점에 호출할 수 있다.
+            
+            1)기본함수 (default)
+
+                function 함수명(){
+                    // 처리코드 작성
+                }
+
+                call문 -> 함수명()
+
+            2) 매개변수를 갖는 함수
+
+                -매개변수 -> 함수내에서 만들어진 변수 (var 생략)
+                -함수 호출시 매개 변수에 전달되는 값 -> 파라미터(인수/인자)
+                    function 함수명(매개변수1,매개변수2...){
+                        //처리 코드
+                    }
+
+                call문 -> 함수명(값1,값2...);
+
+
+            3) 리턴값을 가지는 함수
+                -함수 밖으로 특정의 값을 내보내는 (리턴한다) 함수!
+                -함수 밖으로 내보는 값 -> 리턴값
+                    function 함수명(){
+                        // 처리코드
+
+                        return(값);
+                    }
+
+                    const 변수 = 함수명();
+
+            4) 매개변수와 리턴값을 갖는 함수
+
+            매개변수와 리턴값을 모두 가지고있는함수 
+
+             function 함수명(매개변수1,매개변수2...){
+                        //처리 코드
+                    }
+
+                call문 -> const 변수명 = 함수명(값1, 값2...);
+
+    
+
+
+        <함수를 만드는 다양한 방법>
+            -고전적인 방식의 함수
+                -function(){} 방식
+
+            -익명함수
+    -->
+  </body>
+</html>

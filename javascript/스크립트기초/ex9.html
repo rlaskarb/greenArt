@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/ex.css" />
+  </head>
+  <body>
+    <script>
+      //   let kName = "",
+      //     age = 0,
+      //     height = 0;
+
+      //   function input() {
+      //     kName = "김남규";
+      //     age = 37;
+      //     height = 180;
+      //   }
+
+      //   function process() {
+      //     const str =
+      //       "이름은" +
+      //       kName +
+      //       ", 나이는 " +
+      //       age +
+      //       "세이며 , 키는 " +
+      //       height +
+      //       "cm 조금 안됩니다.";
+      //     return str;
+      //   }
+
+      //   function output(text) {
+      //     alert(text);
+      //   }
+
+      //   input();
+      //   const pro = process();
+      //   output(pro);
+
+      // ----------------------------------------
+
+      //   var num = 100;
+      //   console.log(num);
+
+      //   function func1() {
+      //     var num = 200;
+      //     console.log(num);
+      //   }
+
+      //   function func2() {
+      //     console.log(num);
+      //   }
+
+      //   func1();
+      //   func2();
+
+      //----------------------------------------------
+
+      // 입력함수 : 이름 ,국어점수, 영어점수, 수학점수 입력을 받는다.
+      // 처리함수 : 총점, 평균
+      // 출력함수 : ***의 총점은  ** 점이고, 평균은 ** 점입니다.
+
+      let kName = "",
+        koreanLanguage = 0,
+        english = 0,
+        mathematics = 0;
+
+      let totalScore = 0,
+        average = 0;
+
+      function input() {
+        kName = prompt("이름을 적어주세요", "");
+        koreanLanguage = Number(prompt("국어점수를 입력해주세요", ""));
+        english = Number(prompt("영어점수를 입력해주세요", ""));
+        mathematics = Number(prompt("수학점수를 입력해주세요", ""));
+      }
+
+      function process() {
+        totalScore = koreanLanguage + english + mathematics;
+        average = totalScore / 3;
+      }
+
+      function output() {
+        const str =
+          kName +
+          "의 총점은 " +
+          totalScore +
+          "점 이고," +
+          " 평균은 " +
+          average +
+          "점 입니다.";
+
+        alert(str);
+      }
+
+      input();
+      process();
+      output();
+    </script>
+
+    <!-- 
+
+
+     <함수를 만드는 다양한 방법>
+
+
+            -고전적인 방식의 함수
+                -function(){} 방식
+
+            -익명함수
+                const 함수명 = function(매개변수1,매개변수2..){
+                    //처리 코드   
+                    
+                    return 값;
+                }
+
+            - 화살표 함수
+
+
+     <함수 사용시 변수/ 배열 사용의 유효범위!!>
+
+        -지역(local)변수 (배열)
+            - 각각의 함수 내에서 만들어진 변수 (지역변수)는  그 해당 함수 내에서만 사용할수 있다.
+            - 금쪽이(내새끼)!!
+
+        -전역(global)변수 (배열)
+            - 모든 함수가 함께 사용할 수 있는 공유되는 변수 
+            - 함수 밖에서 만들어진 변수
+            - 머슴/노예 
+
+        * 같은 유효범위 에서 동일한 이름의 변수를 만들수 없다.
+          그러나 유효범위가 다를 경우에는 동일한 이름의 변수를 만들 수 있다.
+        * 우선순위는 지역변수 > 전역변수
+
+
+    -->
+  </body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/ex.css" />
+  </head>
+  <body>
+    <h1>자바 스크립트 기초문법 2일차</h1>
+
+    <script>
+      console.log("100" - "50"); // * 문자화된 숫자를 강제로 숫자로 변환해서 계산한다. '-' , '*' , '/' , '%'
+
+      // const input = confirm("수락하시겠습니까?");
+      // console.log(input);
+
+      const num = [100, 200, 300, 400, 500, 600];
+      console.log(num);
+      console.log(num[0]);
+      console.log(num[2]);
+      console.log(num[4]);
+
+      num[2] = 1000;
+
+      console.log(num);
+
+      const kName = new Array(); // = [] == new Array() 같은문법
+      kName[0] = "피카츄";
+      kName[1] = "라이츄";
+      kName[2] = "파이리";
+      kName[3] = "꼬부기";
+      kName[4] = "버터풀";
+      kName[5] = "야도란";
+      kName[6] = "피존투";
+      kName[7] = "또가스";
+
+      console.log(kName);
+      console.log(kName.length + "명이 투숙하고 있어요");
+
+      const arr = [100, "피카츄", true];
+      console.log(arr);
+
+      const arr1 = ["라이츄", "피카츄", "파이리"];
+      console.log(arr1);
+
+      arr1.pop();
+      console.log(arr1);
+
+      arr1[2] = "꼬부기";
+      console.log(arr1);
+
+      arr1.push("버터풀");
+      console.log(arr1);
+
+      arr1[5] = "야도란"; // 숫자 잘못 계산하게 되면 empty가 발생이되서 코드에 문제가 발생할수가 있다. 그러니까 push를 사용해라
+      console.log(arr1);
+
+      const number = 175678;
+      const name = "김남규";
+      const onoff = true;
+      const arr2 = [100, 200, 300, "또가스", false];
+
+      console.log(typeof "홍길동");
+      console.log(typeof 100);
+      console.log(typeof true);
+
+      console.log("number : " + typeof number);
+      console.log("onoff : " + typeof onoff);
+      console.log("arr2 : " + typeof arr2);
+
+      let kkName = null;
+
+      console.log(kkName);
+    </script>
+
+    <!-- 
+    
+     1) 산술 연산자
+                -수학적 계산을 하기위해 만들어 놓은 연산자
+                - + , - , * , / , %(mod) 
+                - '%' -> 나눗셈 -> 결과로  나머지 값을 취한다. 정수가 결과임
+                      -> 홀수/짝수/배수를 판별하는 역할 수행
+                - 우선순위 -> * , / , %(mod) > + , - 
+                - - , * , / , % => 산술의 능력만 가지고 있다.
+                            -> 문자화된 숫자를 강제로 숫자로 변환해서 사용한다.(강제변환형) *추가
+                - + 두가지 능력을 가지고 있다. 
+                -> 산술의 능력
+                -> 문자의 결합(연결)
+
+
+    <javascript 의 내장함수()>
+        -alert () 함수 -> 메세지를 출력하는 함수
+                    -> alert(출력하고 싶은 값 ); 
+
+        -console.log() 함수 -> console 창에 출력하는 함수
+                            -> console.log("출력하고싶은값");
+
+        -prompt() 함수 -> 사용자에 값(문자)을 입력받는 대화상자
+                -> var 변수 = prompt("입력메시지" ,"초기값");
+                -> 확인 버튼 클릭하면 변수에 입력된 값을 저장한다.
+        
+        -Number() 함수 -> 문자화된 숫자를 number 타입으로 변환하는 함수
+                    -> Number('100') -> 숫자 100 으로 변환해 준다.
+        
+        -confirm()함수 -> 대화상자를 띄우는 함수 -> 확인(yes) /취소(no)
+                       -> 사용자에게 선택권을 부여한다.
+                       -> 확인 true , 취소 false 를 반환하는 함수
+
+                
+
+            
+
+    
+    <변수 와 배열>
+        1 변수(값을 저장할 때 사용하는 식별자 입니다.)
+            -변하는 값을 저장하는 그릇/방
+            -변수명 작명-> 영문(대/소)/숫자/_만 섞어서 만든다. 단! 첫글자는 영문
+            -변수를 선언(만드는)하는 방법
+                const 변수명; -> 빈방을 만드는 방법
+                const 변수명 = 초기값; -> 방을 만들고 그 방에 값을 초기화 하는 방법
+    
+                const koreanName="남규" const number=300; const onoff = true;
+
+        2 배열(변수들의 묶음)
+            -여러개의 변수를 한번에 만들 수 있다.
+            -자바스크립트의 배열의 방을 필요시에 추가할수 있다.
+            -배열의 각방에는 서로다른 종류의 값을 담을수 있다.
+
+            - 다양한 배열선언방법
+                - const 배열명 =[100,200,300,400,500];
+                - const 배열명 =[]; //빈 호텔만 건설한다.(비유법활용)
+                
+            -배열명.length -> 총배열의 방의 총 개수를 알려준다.
+            -배열명.pop() -> 배열의 마지막을 제거한다
+            -배열명.push(담을값) -> 배열의 마지막을 추가한다
+
+
+
+    <javascript 의 자료형 (data 형)>
+        -script 가 처리 할 수 있는 자료(data)의 종류
+        -String(문자타입) -> '문자' or "문자" 
+                             이스케이프 문자(기능을 가지고 있는 문자) -> '/n'(엔터)
+        -Number(숫자타입) -> 음수 -30 /양수 30 /정수 30 /실수 0.2
+        -Boolean (논리타입) -> true , false
+        -NaN(Not a Number) -> 숫자가 아님을 나타내는 값.  숫자말고는 산술연산기호 쓰지마 쉐키야
+        -undefined -> 오류메시지 -> 변수/배열을 선언만 하고 아무값도 대입하지 않고 사용할때!
+        -null (널값) -> 아무값도 아닌 값. == "";
+        -object(객체) -> 배열
+
+
+
+-->
+  </body>
+</html>

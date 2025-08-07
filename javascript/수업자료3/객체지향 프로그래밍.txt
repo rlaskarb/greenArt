@@ -1,0 +1,279 @@
+<객체 지향 프로그래밍>
+
+ 1.객체(object)
+
+    ex1)
+     var product = {
+            name: '7D 건조 망고',
+            type: '당절임',
+            ingredient: '망고, 설탕, 메타중아황산나트륨, 치자황색소',
+            country: '필리핀'
+        };
+
+        alert(product.name+'\n'+product.type+'\n'+product.ingredient+'\n'+product.country);
+       
+        alert(product['name']+'\n'+product['type']+'\n'+product['ingredient']+'\n'+product['country']);
+
+ 
+        *객체의 키는 식별자 또는 문자열을 모두 사용할 수 있다.
+        *객체의 속성이 가질 수 있는 자료형
+          var object = {
+            number: 273,
+            string: 'RintIanTta',
+            boolean: true,
+            array: [52, 273, 103, 32],
+            method: function () {
+            }
+         };
+
+    ex2) 객체의 속성과 메서드
+        var person = {
+            name: '홍길동',
+            eat: function (food) {
+                alert(this.name + '이 ' + food + '을/를 먹습니다.');
+            }
+        };
+        person.eat('라면');
+        person.eat('아롱사태');
+
+        *자기 자신이 가지고 있는 속성은 this 키워드를 사용 한다.
+
+     ex3) 
+        var output = '';
+        var student = {
+            이름: '연하진',
+            국어: 92, 수학: 98,
+            영어: 96, 과학: 98
+        };
+        output += '이름: ' + student.이름 + '\n';
+        output += '국어: ' + student.국어 + '\n';
+        output += '수학: ' + student.수학 + '\n';
+        output += '영어: ' + student.영어 + '\n';
+        output += '과학: ' + student.과학 + '\n';
+        output += '총점: ' + (student.국어 + student.수학 + student.영어 + student.과학);
+        alert(output);
+
+     ex3-1)
+        var grade = {
+            name: '최순실',
+            kor: 15, 
+            math: 30,
+            eng: 8, 
+            sci: 18,
+            
+            result: function () {
+                var hap=this.kor + this.math + this.eng + this.sci;
+                alert(this.name + '의 과목 총점은 ' + hap + '점고, 평균은 '+(hap/4) +'점입니다');
+            }
+        };
+        
+        grade.result();
+
+     ex3-2)
+       var grade = {
+            name: '최순실',
+            kor: 15, 
+            math: 30,
+            eng: 8, 
+            sci: 18,
+            
+            result: function () {
+                var hap=this.kor + this.math + this.eng + this.sci;
+                alert(this.name + '의 과목 총점은 ' + hap + '점고, 평균은 '+(hap/4) +'점입니다');
+            }
+        };
+        
+        grade.result();
+        
+        grade.name='홍길동';
+        grade.kor=100;
+        grade.eng=90;
+        grade.math=85;
+        grade.sci=95;
+        grade.result();
+
+
+     ex4) with 키워드를 사용한 간결한 표현
+        var output = '';
+        var student = {
+          이름: '연하진',
+          국어: 92, 수학: 98,
+          영어: 96, 과학: 98
+        };
+        with (student) {
+            output += '이름: ' + 이름 + '\n';
+            output += '국어: ' + 국어 + '\n';
+            output += '수학: ' + 수학 + '\n';
+            output += '영어: ' + 영어 + '\n';
+            output += '과학: ' + 과학 + '\n';
+            output += '총점: ' + (국어 + 수학 + 영어 + 과학);
+        }
+        alert(output);
+
+*객체를 생성하는 또 다른 방법
+
+    ex5)축약형 표기법을 이용하여 객체 생성하기
+        var hotel = {};
+        
+        hotel.name='green';
+        hotel.rooms=50;
+        hotel.reserve=10;
+        
+        hotel.checkRoom = function(){
+          return this.rooms - this.reserve;  
+        };
+       
+        alert(hotel.checkRoom()+'개의 방이 남았습니다');
+
+
+    ex5-2) 생성자 문법을 이용하여 객체 생성하기
+
+        var hotel = new Object();
+        
+        hotel.name='green';
+        hotel.rooms=50;
+        hotel.reserve=10;
+        
+        hotel.checkRoom = function(){
+          return this.rooms - this.reserve;  
+        };
+       
+        alert(hotel.checkRoom()+'개의 방이 남았습니다');
+       
+       /*       
+          var  guest = hotel.checkRoom();
+          alert(guest+'개의 방이 남았습니다');
+
+       */       
+---------------------------------------------------------------
+  2.내장 객체
+
+     1)Number객체
+
+         ex1)
+           var number = 273.5210332;
+           var output = '';
+           output += number.toFixed(1) + '\n';
+           output += number.toFixed(4);
+           alert(output);
+
+    2)String객체
+
+        ex1)
+          var characters = prompt('사용할 비밀번호를 입력해주세요.', '6글자 이상');
+
+          if (characters.length < 6) {
+            alert('6글자 이상으로 입력하세요.');
+          } else {
+            alert('인증이 되었습니다');
+          }
+
+       ex2)
+          var string = 'abcdefg';
+
+          string = string.toUpperCase();
+          alert(string);
+
+      ex3)
+        var string = 'JavaScript';
+        var output = '';
+        output += 'anchor: ' + string.anchor() + '<br/>';
+        output += 'big: ' + string.big() + '<br/>';
+        output += 'blink: ' + string.blink() + '<br/>';
+        output += 'bold: ' + string.bold() + '<br/>';
+        output += 'fixed: ' + string.fixed() + '<br/>';
+        output += 'string: ' + string.fontcolor('Red') + '<br/>';
+        output += 'fontsize: ' + string.fontsize(15) + '<br/>';
+        output += 'italics: ' + string.italics() + '<br/>';
+        output += 'link: ' + string.link('http://hanb.co.kr') + '<br/>';
+        output += 'small: ' + string.small() + '<br/>';
+        output += 'strike: ' + string.strike() + '<br/>';
+        output += 'sub: ' + string.sub() + '<br/>';
+        output += 'sup: ' + string.sup() + '<br/>';
+
+        document.write(output);
+
+   3)Array 객체
+
+       ex1) 문자열의 오름차순 정렬(ㄱ~ㅎ)
+        var array = ['홍길동', '김태희', '김복남', '임창정','티파니'];
+        array.sort();
+
+        alert(array);
+
+      ex2)
+        var array = [52, 273, 103, 32,45];
+        array.sort();
+
+        alert(array);
+
+     ex3) 숫자의 오름 정렬
+        var array = [52, 273, 103, 32,48,1];
+        array.sort(function (left, right) {
+            return left - right;
+        });
+        
+        alert(array);
+
+    ex4) 숫자의 내림차순 정렬
+        var array = [52, 273, 103, 32,48,1];
+        array.sort(function (left, right) {
+            return  right-left;
+        });
+        
+        alert(array);
+
+   4)Date 객체
+
+     ex1)
+        var date = new Date();
+        alert(date);
+
+        *IE => UTC+0900시간으로 표시   그외 브라우저=>GMT+0900시간  (오차가 1초 미만)       
+
+     ex2)
+        var date = new Date();
+        date.setDate(date.getDate() + 7);  // 현재 시간에서 7일을 더합니다.
+        alert(date);
+
+     ex3)
+       var date = new Date();
+
+        alert('년:'+date.getFullYear());
+        alert('월:'+date.getMonth()+1);
+        alert('일:'+date.getDate());
+        alert('요일:'+date.getDay());   // 1~6=>월요일~토요일  0=>일요일
+        alert('시:'+date.getHours());
+        alert('분:'+date.getMinutes());
+        alert('초:'+date.getSeconds());
+
+   5)Math 객체
+
+      ex1)
+         alert(Math.abs(-800));   //절대값
+         alert(Math.sqrt(100));   //제곱근
+         alert(Math.floor(78.458));  //소수점이하 내림
+         alert(Math.max(-800,400,30));  //최대값
+         alert(Math.random()*10);  //0~1사이의 난수
+         alert(Math.cos(50));  //코사인
+         alert(Math.pow(10,2));  // 10*10 
+      
+         alert(Math.floor(Math.random()*10));  //0~10사이의 정수의 난수
+
+   6)HTML5 Audio 객체 (기본 내장 객체는 아님)
+
+        ex1)
+           <!DOCTYPE html>
+           <html>
+          <head>
+              <script>
+                  var audio = new Audio('Kalimba.mp3');
+              </script>
+          </head>
+          <body>
+            <button onclick="audio.play()">PLAY</button>
+            <button onclick="audio.pause()">PAUSE</button>
+            <input type="number" onchange="audio.currentTime=this.value"/>
+            <input type="number" onchange="audio.volume=this.value"/>
+          </body>
+         </html>

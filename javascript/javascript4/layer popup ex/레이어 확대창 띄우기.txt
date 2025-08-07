@@ -1,0 +1,82 @@
+
+*<head> 태그 안에 자바스크립트 삽입
+
+<script type="text/javascript">
+	<!--
+	//레이어 팝업 열기
+	var cnt = 0;
+	function openLayer(IdName, tpos, lpos){
+	  if(cnt==0){
+		cnt++;
+		var pop = document.getElementById(IdName);
+		pop.style.display = "block";
+		pop.style.top = tpos + "px";
+		pop.style.left = lpos + "px";
+	  }
+	}
+	//레이어 팝업 닫기
+	function closeLayer(IdName){
+		var pop = document.getElementById(IdName);
+		pop.style.display = "none";
+		cnt=0;
+	}	
+	//-->
+</script>
+
+====================================================================
+
+*작은 이미지 클릭시 팝업 띄우기
+
+<a  onclick="openLayer('layerPop',100,100)">
+    	<img style="border:none;" src="a1.jpg"  />   =>작은 이미지 삽입
+</a>
+
+
+* openLayer('확대이미가 있는 레이어 id명', x축의위치 , y축의위치)
+
+===================================================================
+
+*큰이미지는 레이어 스타일로 뜨고..큰 이미지 클릭시 닫힘 처리.
+
+  <div id="layerPop" style="position:absolute;width:514px;height:345px;
+    display:none;border:3px solid #ccc;">
+      <a  onclick="closeLayer('layerPop')" class="close">
+    	 <p><img style="border:none;" src="a2.jpg"  /></p>      =>큰 이미지 삽입
+      </a>
+  </div>
+
+
+
+====================================================================
+====================================================================
+
+*확대 이미지를 플래시로 할때...
+
+<div id="layerPop" style="position:absolute;width:514px;height:345px;
+    display:none;border:3px solid #ccc;">
+      이위치에 플래시 태그 삽입..
+</div>
+
+------------------------------
+*액션으로 닫기 처리(자바함수 호출)
+
+btn.addEventListener(MouseEvent.CLICK , big_link);
+
+function big_link(e:MouseEvent):void{
+	
+	ExternalInterface.call("closeLayer" ,"layerPop"); 
+}
+
+
+*테스트시 IE는 서버에서 테스트 하지 않아도 결과가 보이나.. 파이어폭스에서는 꼭 서버상에서만
+결과가 나온다..
+*<object id="아이디명"></object>   => 꼭 id 값을 줘야한다...  
+
+
+
+
+
+
+
+
+

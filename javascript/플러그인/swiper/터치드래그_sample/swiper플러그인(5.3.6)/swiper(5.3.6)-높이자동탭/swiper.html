@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+		<title>대한태권도협회</title>
+
+		<link rel="apple-touch-icon-precomposed" href="app_icon.png" />
+		<link rel="apple-touch-startup-image" href="startup.png" />
+
+		<meta name="format-detection" content="telephone=no" />
+
+		<link rel="stylesheet" href="css/swiper.min.css" />
+
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			a {
+				color: #333;
+				font-size: 100px;
+				text-decoration: none;
+			}
+
+			.page1 {
+				background: #ffc;
+			}
+			.page3 {
+				background: #ccc;
+			}
+			.page2 {
+				background: #fcc;
+			}
+
+			.active {
+				color: orange;
+				font-weight: bold;
+			}
+		</style>
+
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<!--[if lt IE 9]>
+			<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="tabs">
+			<a href="#" class="active">집에</a>
+			<a href="#">가고</a>
+			<a href="#">싶다</a>
+		</div>
+
+		<div class="swiper-container swiper_tab">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<div class="content-slide">
+						<div class="page1">한글자만 해도 돼</div>
+					</div>
+				</div>
+
+				<div class="swiper-slide">
+					<div class="content-slide">
+						<div class="page2">너무길어</div>
+					</div>
+				</div>
+
+				<div class="swiper-slide">
+					<div class="content-slide">
+						<div class="page3">한줄만 해도 돼</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/jquery-migrate-1.4.1.min.js"></script>
+
+		<script src="js/swiper.min.js"></script>
+
+		<script>
+			$(document).ready(function () {
+				var swiper_tab = new Swiper(".swiper_tab", {
+					autoHeight: true,
+					speed: 500,
+				});
+
+				swiper_tab.on("slideChange", function () {
+					$(".tabs .active").removeClass("active");
+					$(".tabs a").eq(swiper_tab.activeIndex).addClass("active");
+				});
+
+				$(".tabs a").on("touchstart mousedown", function (e) {
+					e.preventDefault();
+					$(".tabs .active").removeClass("active");
+
+					$(this).addClass("active");
+
+					swiper_tab.slideTo($(this).index()); // 인덱스번호에 맞는 해당 슬라이드로 이동시킨다
+				});
+			});
+		</script>
+	</body>
+</html>

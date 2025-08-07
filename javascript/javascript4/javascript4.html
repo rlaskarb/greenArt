@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>안녕엉어어어어!!</h1>
+    <div class="clock">
+      <span>AM</span> <span>00</span>:<span>00</span>:<span>00</span>
+    </div>
+    <script>
+      //   setTimeout(function () {
+      //     console.log("3초후에 내가 만든 사이트가 호출됩니다.");
+      //     location.href = "http://franky.dothome.co.kr/";
+      //   }, 3000);
+
+      //   setInterval(function () {
+      //     console.log("3초마다 함수가 호출됩니다! 자동으로~");
+      //   }, 3000);
+
+      const times = document.querySelectorAll(".clock span");
+      console.log(times);
+
+      function clock() {
+        const date = new Date();
+        let hour = date.getHours();
+        let min = date.getMinutes();
+        let sec = date.getSeconds();
+        let ampm = "";
+
+        if (hour < 12) {
+          ampm = "AM";
+        } else {
+          ampm = "PM";
+        }
+
+        if (hour < 10) {
+          hour = "0" + hour;
+        }
+
+        if (min < 10) {
+          min = "0" + min;
+        }
+
+        if (sec < 10) {
+          sec = "0" + sec;
+        }
+
+        times[0].innerHTML = ampm;
+        times[1].innerHTML = hour;
+        times[2].innerHTML = min;
+        times[3].innerHTML = sec;
+
+        console.log(hour + "시", min + "분", sec + "초");
+      }
+
+      setInterval(clock, 1000);
+    </script>
+
+    <!-- 
+
+setTimeout()함수 -> 해당시간이 지연된 후 험수가 자동으로.. 호출됩니다.
+    setTimeout(function(){//처리코드},지연시간);
+    function 함수명(){//처리코드}
+    -> 지연시간 1000 (1초)
+    -> 1회만 사용
+
+setInterval()함수 -> 해당시간이 경과되면 함수가 지속적으로 자동 호출됩니다.
+    setInterval(function(){//처리코드},지연시간);
+    -?
+
+-->
+  </body>
+</html>

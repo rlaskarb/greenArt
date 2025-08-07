@@ -1,0 +1,270 @@
+ 1. 이벤트 연결  
+
+     *bind()메소드 
+     *$(선택자).bind(eventName, function(event){  })
+      $(선택자).bind(object)
+     *이벤트 핸들러 안에서 this키워드는 이벤트를 발생한 객체.
+ 
+    ex1)
+        *{margin:0; padding:0}
+        a{color:#333; text-decoration:none}
+  
+       .qanda{width:500px; border:1px solid #ccc; padding:10px}
+       .qanda p{text-align:justify; line-height:1.5em; font-size:14px}
+       .qanda .q{ background:url(images/ico_q.gif) 0 0 no-repeat; 
+           padding-left:25px; margin-bottom:10px}
+       .qanda .a{ background:url(images/ico_a.gif) 0 0 no-repeat; 
+          padding-left:25px; display:none}
+ 
+       ------------
+        $(document).ready(function () {
+	  var cnt=0;
+	  $('.trigger').bind('click', function () {
+		  cnt++;
+		  if(cnt%2==1){
+			 $('.qanda .a').css('display','block');
+		   }else{
+			  $('.qanda .a').css('display','none');
+		   }
+		   
+	  });
+        });
+        ---------------------------
+         <div class="qanda">
+           <p class="q">  
+             <a class="trigger" href="#" >
+                제가 갖고 있는 물품을 기부하고 싶은데요. 어떻게 하면 되나요? 
+             </a>  
+          </p>  
+           <p class="a" >꿈이야기에서 ‘필요한 나눔’으로 등록되어 있는 물품에 
+              대한 기부를 원하시는 경우 ‘드림애플>아주특별한나눔>특별한나눔’
+              에서 기부 의사를 밝히실 수 있습니다. 또는 02-3472-3556(두드림)으로 
+              바로 연락 주시면 절차와 방법에 대해 안내해드리겠습니다.</p>  
+          </div> 
+
+     ex2)
+       .reverse {
+        background: Black;
+        color: White;
+        }
+        -----------------------------
+        $(document).ready(function () {
+            $('h2').bind({
+                mouseenter: function () { $(this).addClass('reverse'); },
+                mouseleave: function () { $(this).removeClass('reverse'); }
+            });
+        });
+       ------------------------------
+        <h2>Header-0</h2>
+        <h2>Header-1</h2>
+        <h2>Header-2</h2>  
+
+     ex3) toggle()/hover() 메소드
+         *{margin:0; padding:0}
+        a{color:#333; text-decoration:none}
+  
+       .qanda{width:500px; border:1px solid #ccc; padding:10px}
+       .qanda p{text-align:justify; line-height:1.5em; font-size:14px}
+       .qanda .q{ background:url(images/ico_q.gif) 0 0 no-repeat; 
+           padding-left:25px; margin-bottom:10px}
+       .qanda .a{ background:url(images/ico_a.gif) 0 0 no-repeat; 
+          padding-left:25px; display:none}
+ 
+       ------------
+    $(document).ready(function () {
+       $('.trigger').toggle(function () {
+          $('.qanda .a').css('display','block');
+       }, function () {
+          $('.qanda .a').css('display','none');
+      });
+   });
+    ----------------------------
+         <div class="qanda">
+           <p class="q">  
+             <a class="trigger" href="#" >
+                제가 갖고 있는 물품을 기부하고 싶은데요. 어떻게 하면 되나요? 
+             </a>  
+          </p>  
+           <p class="a" >꿈이야기에서 ‘필요한 나눔’으로 등록되어 있는 물품에 
+              대한 기부를 원하시는 경우 ‘드림애플>아주특별한나눔>특별한나눔’
+              에서 기부 의사를 밝히실 수 있습니다. 또는 02-3472-3556(두드림)으로 
+              바로 연락 주시면 절차와 방법에 대해 안내해드리겠습니다.</p>  
+          </div> 
+    -------
+   *hover메소드 이용
+
+      $(document).ready(function () {
+	  $('.trigger').hover(function () {
+          $('.qanda .a').css('display','block');
+       }, function () {
+          $('.qanda .a').css('display','none');
+      });
+     });
+
+    ex4)1depth menu만들기   click()메소드 => 직접 연결
+        #tabMenu ul{ list-style: none;overflow:hidden}
+        #tabMenu ul li{float:left;}
+        img{border:0;}
+        ----------------------------------
+         $(document).ready(function() {
+             $('.menu1 img').attr('src','images/tab1on.jpg');
+
+             $('.menu1').click(function(){
+                 $('.menu1 img').attr('src','images/tab1on.jpg');
+                 $('.menu2 img').attr('src','images/tab2.jpg');
+                 $('.menu3 img').attr('src','images/tab3.jpg');
+              });
+              $('.menu2').click(function(){
+                  $('.menu2 img').attr('src','images/tab2on.jpg');
+                  $('.menu1 img').attr('src','images/tab1.jpg');
+                  $('.menu3 img').attr('src','images/tab3.jpg');
+              });
+              $('.menu3').click(function(){
+                  $('.menu3 img').attr('src','images/tab3on.jpg');
+                  $('.menu1 img').attr('src','images/tab1.jpg');
+                  $('.menu2 img').attr('src','images/tab2.jpg');
+               });
+           });
+          ----------------------------------
+           <div id="tabMenu">
+             <ul>
+                <li><a class="menu1" href="#" ><img src="images/tab1.jpg" alt="서적" /></a></li>
+                <li><a class="menu2" href="#" ><img src="images/tab2.jpg" alt="인쇄" /></a></li>
+                <li><a class="menu3" href="#" ><img src="images/tab3.jpg" alt="잡지" /></a></li>
+             </ul>
+           </div>
+
+      ex5)toggle()을 이용한 더보기 기능
+           $(document).ready(function() {
+               $('.message').hide();
+
+               $('span.readmore').toggle(function(){
+                  $('.message').show();
+                  $(this).text("Read Less?");
+               },
+               function(){
+                $('.message').hide();
+                $(this).text("Read More?");
+               });
+           });
+        ------------------------
+        <div style="width: 400px;border:1px solid #ccc; padding:10px;text-align:justify;line-height:1.5em;font-size:14px">
+          <p>‘하면 된다’라는 정신을 갖고 목표를 달성하기 위해 온힘을 기울이는 자세를 말한다.</p>
+          <span class="readmore" style="cursor:pointer">Read More...</span>
+          <p class="message">현대는 다른 사람들이 불가능하다고 포기해 버린 일을 험난한 여건 속에서도 강인한 정신력과 추진력으로 성공시킨 역사와 경험을 가지고 있다. 앞으로 세계 곳곳에서 사업을 수행하는데 있어서 성취해야 할 많은 과제를 과감히 헤쳐나가기 위해서는 현대인 모두가 강인한 정신과 추진력을 더욱 배양하고 체질화해야 할 것이다.</p>
+        </div>
+        
+      ex6) 이벤트 동시에 발생 문제.
+        * { margin:0px; padding:0px }
+        div{width:200px;margin:5px; padding:3px;border:1px solid red;}
+        -----------------------
+        $(document).ready(function () {
+            $('div').click(function () {
+                var header = $('h1').text();
+                var paragraph = $('p').text();
+
+                alert(header + '\n' + paragraph);
+            });
+        });
+        ------------------------
+        <div>
+           <h1>Header 1</h1>
+           <p>Paragraph1</p>
+        </div>
+        <div>
+           <h1>Header 2</h1>
+           <p>Paragraph2</p>
+        </div>
+        <div>
+           <h1>Header 3</h1>
+           <p>Paragraph3</p>
+        </div>
+
+        * var header = $('h1', this).text();    
+          var paragraph = $('p', this).text();
+          =>this키워드를 $()메소드의 두번째 매개 변수로 넣어준다. 범위를 이벤트 발생 객체로 한정한다.
+              이벤트 발생 객체 안에만 선택자를 적용할 수 있다.
+
+      ex7) 좌우버튼 겔러리(최초자동)
+
+         <style type="text/css">
+            *{margin:0; padding:0}
+            ul{list-style:none}
+            img{border:0}
+ 
+            .gallery_box{width:200px; height:280px;overflow:hidden;border:5px solid #ccc; position:relative; padding-top:20px;}
+            .gallery_box span{ display:block; width:28px; position:absolute; right:10px; top:2px}
+            .gallery_box span a{display:block; width:14px; height:16px;text-indent:-9999px; overflow:hidden; float:left}
+            .gallery_box span .leftBtn{ background:url(images/left.jpg)}
+            .gallery_box span .RightBtn{background:url(images/right.jpg)}	 
+         </style>
+        -----------------------
+          <script type="text/javascript"  src="js/jquery-1.8.3.min.js"></script>
+          <script type="text/javascript">
+              $(document).ready(function () {
+	     var timeonoff;
+                  var cnt=true;
+		 
+	     $('.leftBtn').click(function () {
+	          clearInterval(timeonoff );
+	          cnt=true;
+                       $('.gallery_box li').first().appendTo('.gallery_box ul');
+                 });
+	    $('.RightBtn').click(function () {
+	          clearInterval(timeonoff );
+	          cnt=false;
+                      $('.gallery_box li').last().prependTo('.gallery_box ul');
+                 });
+	  
+	     timeonoff =  setInterval(function () { 
+	          if(cnt=true){
+		$('.gallery_box li').first().appendTo('.gallery_box ul');
+	          }else{
+		$('.gallery_box li').last().prependTo('.gallery_box ul');
+	          }
+                 }, 4000);
+	  });
+            </script>
+          --------------------------
+            <div class="gallery_box">
+                <ul>
+                   <li><a href="#"><img src="images/a1.jpg" alt="" /></a></li>
+                   <li><a href="#"><img src="images/a2.jpg" alt="" /></a></li>
+                   <li><a href="#"><img src="images/a3.jpg" alt="" /></a></li>
+                   <li><a href="#"><img src="images/a4.jpg" alt="" /></a></li>
+                   <li><a href="#"><img src="images/a5.jpg" alt="" /></a></li>
+                   <li><a href="#"><img src="images/a6.jpg" alt="" /></a></li>
+                </ul>
+               <span>
+                   <a href="#" class="leftBtn">왼쪽</a>
+                   <a href="#" class="RightBtn">오른쪽</a>
+               </span>
+           </div>
+
+
+------------------------------------------------------------------------
+  2. 윈도우 이벤트
+
+      ex1) 무한 스크롤 만들기 (window객체/document객체)
+           $(document).ready(function () {
+            // 스크롤 이벤트 발생 시
+            $(window).scroll(function () {
+                var scrollHeight = $(window).scrollTop() + $(window).height();
+                var documentHeight = $(document).height();
+
+                // 스크롤의 높이와 문서의 높이가 같을 때
+                if (scrollHeight == documentHeight) {
+                    for (var i = 0; i < 10; i++) {
+                        $('<h1>Infinity Scroll</h1>').appendTo('body');
+                    }
+                }
+            });
+        });
+
+        // 테스트를 위해 내부에 공간을 채워둡니다.
+        $(document).ready(function () {
+            for (var i = 0; i < 20; i++) {
+                $('<h1>Infinity Scroll</h1>').appendTo('body');
+            }
+        });
+         

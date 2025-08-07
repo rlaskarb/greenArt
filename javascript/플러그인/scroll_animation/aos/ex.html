@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		<link rel="stylesheet" href="./aos.css" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			div {
+				width: 1000px;
+				margin: 50px auto;
+				height: 300px;
+				background: orange;
+				font-size: 100px;
+				padding: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div data-aos="fade-up">fade-up</div>
+		<div data-aos="fade-down">fade-down</div>
+		<div data-aos="fade-right">fade-right</div>
+		<div data-aos="fade-left">fade-left</div>
+		<div data-aos="fade-up-right">fade-up-right</div>
+		<div data-aos="fade-up-left">fade-up-left</div>
+		<div data-aos="fade-down-right">fade-down-right</div>
+		<div data-aos="fade-down-left">fade-down-left</div>
+
+		<div data-aos="flip-left">flip-left</div>
+		<div data-aos="flip-right">flip-right</div>
+		<div data-aos="flip-up">flip-up</div>
+		<div data-aos="flip-down">flip-down</div>
+
+		<div data-aos="zoom-in">zoom-in</div>
+		<div data-aos="zoom-in-up">zoom-in-up</div>
+		<div data-aos="zoom-in-down">zoom-in-down</div>
+		<div data-aos="zoom-in-left">zoom-in-left</div>
+		<div data-aos="zoom-in-right">zoom-in-right</div>
+		<div data-aos="zoom-out">zoom-out</div>
+		<div data-aos="zoom-out-up">zoom-out-up</div>
+		<div data-aos="zoom-out-down">zoom-out-down</div>
+		<div data-aos="zoom-out-right">zoom-out-right</div>
+		<div data-aos="zoom-out-left">zoom-out-left</div>
+
+		<div data-aos="fade-up" data-aos-duration="3000">fade-up 3000</div>
+		<div data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+			fade-down linear 1500
+		</div>
+		<div
+			data-aos="fade-right"
+			data-aos-offset="300"
+			data-aos-easing="ease-in-sine"
+			data-aos-duration="1500">
+			fade-right 300 ease-in-sine
+		</div>
+
+		<!-- 
+    data-aos-easing="linear"
+    data-aos-easing="ease-in-sine"
+    data-aos-easing="ease-in-back"
+    data-aos-easing="ease-out-cubic"
+   -->
+
+		<script src="./aos.js"></script>
+		<script>
+			AOS.init({
+				easing: "ease-in-out-sine",
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>브라우저 객체 모델</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        width: 200px;
+        height: 100px;
+        border: 1px solid blue;
+        background: yellow;
+        text-align: center;
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      button {
+        width: 200px;
+        height: 50px;
+        border-radius: 10px;
+        padding: 5xp 20px;
+        color: #fff;
+        background: red;
+      }
+
+      ul {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+      }
+
+      li {
+        margin-top: 100px;
+        padding: 5px 10px;
+        box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.3);
+        border-radius: 15px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      li:hover {
+        background: rgba(255, 34, 27, 0.7);
+        transform: translateY(-2px);
+      }
+    </style>
+    <!-- <script>
+      //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!DOM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      window.onload = function () {
+        //onload (해석)=  window 가  body부분에  계산이 완료되면
+
+        let output = "";
+
+        output += "<h2> 제목입니다. </h2>";
+        output += "<p> 단락요소 입니다.</p>";
+
+        document.body.innerHTML += output;
+      };
+    </script> -->
+  </head>
+  <body>
+    <!-- <h1>브라우저 !!</h1>
+    <div id="box">
+      <h2>제목이야</h2>
+    </div>
+    <div class="box">
+      <h2>하나나나</h2>
+    </div>
+    <div class="box">
+      <h2>두우루루울</h2>
+    </div>
+    <div class="box">
+      <h2>세에에엣</h2>
+    </div>
+    <div class="box">
+      <h2>네에에엣</h2>
+    </div>
+    <div class="box">
+      <h2>다아아섯</h2>
+    </div> -->
+    <!-- <button type="button" onclick="link1();">세븐일레븐으로 이동</button> -->
+    <!-- <button type="button" onclick="add();">나야.. 버튼</button> -->
+
+    <script>
+      //   window.open("./popup.html", "win1", "lef=0 top=0 width=500,height =400");
+      //   window.open(
+      //     "http://google.com",
+      //     "win2",
+      //     "lef=0 top=0 width=500,height =400"
+      //   );
+
+      //   var width = window.screen.width;
+      //   var height = window.screen.height;
+
+      //   alert("스크린 너비 : " + width + "이고 , 높이는 :" + height);
+
+      //   function link1() {
+      //     // window.location = "http://franky.dothome.co.kr/";
+      //     window.location.replace("http://franky.dothome.co.kr/");
+      //   }
+    </script>
+
+    <script>
+      // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!DOM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+      //onload (해석)=  window 가  body부분에  계산이 완료되면
+
+      //   function add() {
+      //     let output = "";
+
+      //     output += "<h2> 제목입니다. </h2>";
+      //     output += "<p> 단락요소 입니다.</p>";
+
+      //     document.body.innerHTML += output;
+      //     document.body.innerHTML += '<img src="./gallery/images/img1.jpg">';
+      //   }
+    </script>
+
+    <!-- <ul>
+      <li>html</li>
+      <li>javascript</li>
+      <li>php</li>
+      <li>sql</li>
+    </ul> -->
+
+    <script>
+      //   let output = "";
+      //   const arr = ["html", "javascript", "php", "sql", "react", "vue", "java"];
+
+      //   output = "<ul>";
+      //   for (let i = 0; i < arr.length; i++) {
+      //     output += "<li>" + arr[i] + "</li>";
+      //   }
+      //   output += "</ul>";
+
+      //   document.body.innerHTML += output;
+
+      //   const box = document.getElementById("box");
+
+      //   box.innerHTML += "<p>단락요소이야</p>";
+
+      //   document.querySelectorAll(".box").innerHTML += "<h3>세번째 제목이야</h3>";
+
+      //   const boxed = document.getElementsByClassName("div");
+
+      //   boxed[0].innerHTML += "<p>첫번째 피</p>";
+      //   boxed[2].innerHTML += "<p>두번째 피</p>";
+
+      //   console.log(boxed);
+
+      //   const box = document.querySelectorAll(".box");
+
+      //   box[0].innerHTML += "<p>안녕</p>";
+      //   box[1].innerHTML += "<p>안녕</p>";
+    </script>
+
+    <!-- 
+
+    window 객체(브라우저 최 상의 객체)
+        
+        -BOM
+            -location 객체
+                -현재 URL에 대한 정보를 가지고 있는 객체
+                -location.reload() -> 페이지 세로고짐
+            -navigator 객체
+                -웹 문서를 실행하고 있는 브라우저에 대한 정보를 가지고 있는 객체
+            -history 객체
+                -브라우저 방문기록(history)에 대한 정보를 가지고 있는 객체
+            -screen 객체
+                -운영체제의 화면(스크린)에 대한 정보를 가지고 있는 객체()
+            
+        -DOM (Document Object Model) 문서객체모델
+            -document 객체
+                -HTML DOM은 HTML 구성요소들을 획득,변경,추가,삭제하기 위한 표준
+
+                *노드(계층) => 요소노드(태그의 계층) 와 텍스트노드(텍스트)로 구분됨
+
+                주의사항
+                    - DOM의 문법을 사용할때   javascript code 보다 body 태그를 먼저 계산 해야한다.
+
+                    - javascript 는 body태그의 가장 마지막 프로그래밍을 한다(추천)!
+
+                    - 난 꼭 <head></head> 태그 javascript를 작성할때는 꼭
+                        window.onload = function(){
+                        //body의 태그를 먼저 읽고  body를 읽으면 그다음 실행한다.
+                        }
+
+            1. 태그의 생성.
+                - 객체명.innerHTML
+
+            2. 요소(태그)의 접근하기 **
+            태그 하나를 부르는 방법
+                -const 객체명 document.getElementById("아이디명");
+                -const 객체명 = document.queySelector('css명'); // 여러개의 태그일 경우 첫번째 태그만 호출
+
+            여러개의 태그를 부르는 방법
+                const 객체명 = document.getElementByTagName('태그명') // 여러개의 태그를 리턴한다.(배열로 처리한다.)
+                const 객체명 = document.getElementByClassName('.클래스명') // 여러개의 태그를 리턴한다.(배열로 처리한다.)
+                const 객체명 = document.queySelectorAll('css선택자') // 여러개의 태그를 리턴한다.(배열로 처리한다.)
+    -->
+  </body>
+</html>

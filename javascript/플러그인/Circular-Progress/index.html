@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>jQuery Circle Progress Plugin Demos</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			.circle {
+				position: relative;
+			}
+			.circle strong {
+				position: absolute;
+				top: 130px;
+				left: 130px;
+				font-size: 30px;
+			}
+
+			.box {
+				width: 1000px;
+				height: 2000px;
+				background: pink;
+				text-align: center;
+				font-size: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">상단 콘텐츠</div>
+
+		<div class="second circle">
+			<strong></strong>
+		</div>
+
+		<div class="box">하단 콘텐츠</div>
+
+		<script src="./js/jquery-1.12.4.min.js"></script>
+		<script src="./js/circle-progress.js"></script>
+
+		<script>
+			const distance = $(".second").offset().top - 500;
+			let onoff = false;
+
+			$(window).on("scroll", function () {
+				var scroll = $(window).scrollTop();
+
+				if (scroll > distance && onoff == false) {
+					$(".second")
+						.circleProgress({
+							value: 0.95,
+						})
+						.on("circle-animation-progress", function (event, progress) {
+							$(this)
+								.find("strong")
+								.html(parseInt(80 * progress) + "<i>%</i>");
+						});
+
+					onoff = true;
+				} else if (scroll < distance) {
+					onoff = false;
+				}
+
+				$(".second")
+					.circleProgress({
+						value: 0,
+						thickness: 10,
+						lineCap: "round",
+						fill: { gradient: [skyblue] },
+					})
+					.on("circle-animation-progress", function (event, progress) {
+						$(this)
+							.find("strong")
+							.html(parseInt(95 * progress) + "<i>%</i>");
+					});
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,441 @@
+1. 기본적인 시각적 효과
+  
+  *show() / hide()
+   toggle()  => show() / hide()를 번갈아 실행
+   slideDown() / slideUp()
+   slideToggle() => slideDown() / slideUp()를 번갈아 실행
+   fadeIn() / fadeOut()
+   fadeToggle() => fadeIn() / fadeOut()를 번갈아 실행
+
+  *네가지 형식으로 사용.
+   $(selector).method();
+   $(selector).method(speed);
+   $(selector).method(speed, callback);
+   $(selector).method(speed, easing, callback);
+
+   -speed  => slow/normal/fast
+   -callback => 효과를 모두 완료 후에 실행할 함수를 지정
+   -easing => 애니메이션의 easing 속성을 지정
+
+   ex1) 
+
+  *{margin:0; padding:0}
+  a{color:#333; text-decoration:none}
+  img{border:0}
+  
+  .news{width:500px; border:1px solid #ccc; padding:10px}
+  .news .hgroup{position:relative; margin-bottom:15px}
+  .news .hgroup .more{position:absolute; right:0; top:0}
+  .news .newsContent{ background:#FC9 url(images/newsimg.jpg) 0 0 no-repeat;
+    padding-left:100px; display:none;}
+  .news p{text-align:justify; line-height:1.5em; font-size:12px}
+  ---------------
+
+   $(document).ready(function () {
+	  $('.news .more').toggle(function () {
+		  $('.newsContent').show();
+	  }, function () {
+		  $('.newsContent').hide();
+	  });
+   });
+
+  ---------------
+   <div class="news">
+     <div class="hgroup">
+       <h3>롯데그룹 복지재단, 기행문집 '중국, 세계 경제의...</h3>
+       <a class="more" href="#"><img src="images/more.jpg" alt="" /></a>
+     </div>
+     <div class="newsContent">
+       <p>소브콤플로트社로부터 수주한 극지용 쇄빙선‥러시아 해상유전 개발 
+       지원 예정. STX그룹은 STX유럽 자회사인 아크텍 헬싱키 
+       조선소(Arctech Heisinki Shipyard)에서 러시아 최대 국영...
+       장학으로 받은 혜택 멘토링 활동 통해 재능기부 실천. STX장학생들이 
+       청소년들과 함께 문화예술 프로그램을 진행하며 재능기부 활동에 
+       앞장서고 있다. STX는 지난 주 STX장학재단 지식나...</p>
+     </div>
+  </div>
+
+    *slideDown() / slideUp() , fadeIn() / fadeOut() 로 바꾸어 본다.
+
+   ex2) jquery 수정
+
+       $(document).ready(function () {
+            $('.news .more').click(function () {
+                $('.newsContent').toggle('slow');
+            });
+        });
+
+      *slideToggle() , fadeToggle() 로 바꾸어 본다.
+
+    ex3) 간단한 네비 만들기
+       $(document).ready(function(){
+          $('li.mainmenu ul').hide();
+
+          $('li.mainmenu').hover(
+             function() { 
+               $('ul', this).slideDown(); 
+             },
+            function() { 
+              $('ul', this).slideUp(); 
+            }
+        );
+      });
+      ------------------
+    <div id="menu1">
+      <ul id="dropdownmenu">
+         <li class="mainmenu">
+	<a href="#">Books</a>
+	 <ul>
+	  <li><a href="#">Web Development</a></li>
+	  <li><a href="#">Programming</a></li>
+	  <li><a href="#">RDBMS</a></li>
+	 </ul>
+        </li>
+        <li class="mainmenu">
+	  <a href="#">Movies</a>
+              <ul>
+	  <li><a href="#">Latest Movie Trailers</a></li>
+	  <li><a href="#">Movie Reviews</a></li>
+	  <li><a href="#">Celebrity Interviews</a></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+    <div id="content">
+      <p>Books of different subjects available at reasonable prices. Ranging from web development, programming languages and text books all are available at heavy discount. Shipping is free. Also available in stock the popular Magazines, E-books and Tutorial CDs at affordable prices</p>
+     <p>Find music videos, internet radio, music downloads and all the latest music news and information. We have a large collection of music and songs classified by type, language and region. All downloads are streamed through RealAudio. You can also watch free music videos, tune in to AOL Radio, and search for your favorite music artists</p>
+   </div>
+     --------------------------------
+      *{margin:0; padding:0;}
+      #menu1{width:400px; border:1px solid #333; }
+      #menu1 ul{ list-style-type:none; text-align:center;}
+      .mainmenu {float:left; width:200px;  list-style-type:none; }
+      a{width: 190px;display:block; text-decoration: none; background: #666;  color: #fff;padding:4px;   border: 1px solid #fff; }
+      ul#dropdownmenu li{position:relative;}
+      ul#dropdownmenu li ul{position:absolute;  left:0;}
+      ul#dropdownmenu li a:hover {  background: #000;}
+      #content{width:400px;border:1px solid #333; background:#645;} 
+
+  ex4) tab menu 만들기 (추가 활용 예제)
+      tab.js
+
+      $(document).ready(function() {
+         $('.books').show();
+         $('.movies').hide();
+         $('.music').hide();
+         $('#booksbutton').addClass('clickon');
+
+         $('a').hover(function(){
+                $(this).parent().addClass('clickon');
+          }, 
+          function(){
+                $(this).parent().removeClass('clickon');
+          });
+
+         $('#booksbutton').click(function(){
+             $('.books').show();
+             $('.movies').hide();
+             $('.music').hide();
+             $(this).addClass('clickon');
+
+             $('#moviesbutton').removeClass('clickon');
+             $('#musicbutton').removeClass('clickon');
+          });
+
+          $('#moviesbutton').click(function(){
+              $('.movies').show();
+              $('.books').hide();
+              $('.music').hide();
+              $(this).addClass('clickon');
+
+              $('#booksbutton').removeClass('clickon');
+              $('#musicbutton').removeClass('clickon');
+           });
+
+           $('#musicbutton').click(function(){
+              $('.music').show();
+              $('.books').hide();
+              $('.movies').hide();
+              $(this).addClass('clickon');
+
+              $('#booksbutton').removeClass('clickon');
+              $('#moviesbutton').removeClass('clickon');
+           });
+       });
+
+------------------------------------------------------------------------------------------
+ 2. 사용자 지정 효과  animate()메소드
+
+     *$(selector).animate(object);
+      $(selector).animate(object, speed);
+      $(selector).animate(object, speed, callback);
+      $(selector).animate(object, speed, easing, callback);
+
+     *사용 가능한 속성
+      top, left, right, bottom, width, height, opacity, margin, padding
+
+    ex1)
+       $(document).ready(function () {
+            $('.box img').toggle(function () {
+                $(this).animate({
+                    left: 500, opacity:0.5, width:150, height:150
+                }, 'slow');
+            }, function () {
+                $(this).animate({
+                    left: 0, opacity:1, width:300, height:300
+                }, 'slow');
+            });
+        });
+       ------------------------------
+       <div class="box"><img src="img1.jpg" width="300px" height="300px" alt="" /></div>
+       ------------------------------
+        .box img{width:300px; height:300px; position:relative;}
+
+    ex2) 기본 애니메이션
+       $(document).ready(function() {
+           $('.text1').fadeTo('fast',0);	
+          
+          function move1(){ 
+            $('.ani').animate({top: 4}, 'slow');
+         };
+         function move2(){ 
+            $('.text1').animate({left:20}, 'slow');
+            $('.text1').fadeTo('slow',1) ; 
+	$('.text1').fadeTo('slow',0) ;
+	$('.text1').fadeTo('slow',1) ;
+         };
+        setTimeout(move1, 1000);
+        setTimeout(move2, 2000);
+      });
+       -----------------------
+       <div id="main">
+         <div class="ani"></div>
+         <p class="text1">JUSTICE FOR ALL</p>
+       </div>
+       -----------------------
+        *{margin:0; padding:0;}
+        #main{width:700px; height:200px; overflow:hidden; background:url(images/back.jpg) 0 0 no-repeat; position:relative;}
+        .ani{width:400px; height:196px;  background:url(images/ca.png) 0 0 no-repeat;position:relative;left:270px; top:200px;}
+        .text1{width:300px;position:absolute;left:-300px; top:100px; 
+           font-family:"Times New Roman", Times, serif; font-size:36px; color:#CCC;}
+       ------------------
+       
+      *아래 스크립트로 수정. => $().delay(지연시간).animate();
+
+       $(document).ready(function() {
+          $('.text1').fadeTo('fast',0);	
+          $('.ani').delay(1000).animate({top: 4}, 'slow');
+          $('.text1').delay(2000).animate({left:20}, 'slow');
+          $('.text1').fadeTo('slow',1) ; 
+          $('.text1').fadeTo('slow',0) ;
+          $('.text1').fadeTo('slow',1) ;
+       });
+    
+      -------------------------------------
+    ex2-1) 이미지 오버시 슬라이드 효과
+
+ <style type="text/css">
+  *{margin:0; padding:0}
+  img{border:0}
+  div{margin:20px}
+  
+  .box1{width:296px; height:130px; overflow:hidden; border:1px solid #ccc;}
+  .box1 a{ display:block; width:296px; height:260px; position:relative;left:0; top:0}
+  .box2{width:296px; height:130px; overflow:hidden; border:1px solid #ccc;}
+  .box2 a{ display:block; width:592px; height:130px; position:relative;left:0; top:0}
+</style>
+  ------------------
+    $(document).ready(function() {
+              $('.box1 a').hover(
+                function(){
+                $(this).stop().animate({top:-130},500);
+              }, 
+                function(){
+                $(this).stop().animate({top:0},500);
+              });
+			  
+	  $('.box2 a').hover(
+                function(){
+                $(this).stop().animate({left:-296},500);
+              }, 
+                function(){
+                $(this).stop().animate({left:0},500);
+              });
+      });
+  ---------------------
+   <div class="box1">
+     <a href="#"><img src="images/image1.jpg" alt="" /></a>
+  </div>
+  <div class="box2">
+     <a href="#"><img src="images/image2.jpg" alt="" /></a>
+  </div>
+
+-----------------------------------------------------------
+ * jquery Rotate.
+
+  1) 마우스 오버시 회전/제자리
+
+  <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="jQueryRotate.2.2.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+       $(".cd1").rotate({ 
+          bind: 
+       { 
+        mouseover : function() { 
+            $(this).rotate({animateTo:180})
+        },
+        mouseout : function() { 
+            $(this).rotate({animateTo:0})
+        }
+     } 
+    });
+ });
+</script>
+-----------
+ <img class="cd1" src="images/cd1.png" alt=""  />
+-------------------------------
+ 2) 자동회전
+ 
+ <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="jQueryRotate.2.2.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var angle = 0;
+	setInterval(function(){
+		  angle+=5;
+		 $(".cd1").rotate(angle);
+	},50);
+});
+</script>
+--------
+ <img class="cd1" src="images/cd2.png" alt=""  />
+ 
+--------------------------------
+ 3) 클릭시 90도씩 회전
+
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="jQueryRotate.2.2.js"></script>
+<script type="text/javascript" src="jquery.easing.1.3.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  var value = 0
+  $(".cd1").rotate({ 
+	 bind: 
+	   { 
+		  click: function(){
+			  value +=90;
+			  $(this).rotate({ animateTo:value})
+		  }
+	   } 
+  });
+});
+</script>
+ -------------
+ <img class="cd1" src="images/cd1.png" alt=""  />
+------------------------
+ 4) 클릭시 easing 효과 추가
+
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="jQueryRotate.2.2.js"></script>
+<script type="text/javascript" src="jquery.easing.1.3.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+   $(".cd1").rotate({ 
+   bind: 
+     { 
+        click: function(){
+            $(this).rotate({ angle:0,animateTo:360,easing: $.easing.easeOutBounce })
+        }
+     } 
+   
+});
+});
+</script>
+-------------
+ <img class="cd1" src="images/cd2.png" alt=""  />
+
+  -----------------------------------------------------------------
+    ex3) jquery easing 효과 넣기 => http://jqueryui.com/demos/effect/#easing 
+         
+        -아래로 떨어지는 메뉴 추가 예제(hover() , click())
+
+         *hover()시
+             <ul class="fullNavUl">
+                   <li class="fullNavMenu m1"><h3>About Us</h3>
+                         <ul>
+                                <li class="m1"><a href="#">Spirit And Ideas</a></li>
+                                <li class="m2"><a href="#">History</a></li>
+                                <li class="m3"><a href="#">Finance</a></li>
+                        </ul>
+                   </li>
+                   <li class="fullNavMenu m2"><h3>Campaign</h3> 
+                           <ul>
+                                <li class="m1"><a href="#">Every One</a></li>
+                                <li class="m2"><a href="#">Change The Future</a></li>
+                                <li class="m3"><a href="#">Moja Season 5</a></li>
+                          </ul>
+                   </li>
+                   <li class="fullNavMenu m3"><h3>Participation</h3>         
+                          <ul>
+                                <li class="m1"><a href="#">Signature</a></li>
+                                <li class="m2"><a href="#">Volunteer  Work</a></li>
+                                <li class="m3"><a href="#">Giving Clup</a></li>
+                          </ul>
+                   </li>
+                   <li class="fullNavMenu m4"><h3>Helped</h3>
+                        <ul>
+                                <li class="m1"><a href="#">Helped</a></li>
+                     </ul>
+                   </li>
+                   <li class="fullNavMenu m5"><h3>Gallery</h3>
+                        <ul>
+                                <li class="m1"><a href="#">Gallery</a></li>
+                     </ul>
+                   </li>
+                   <li class="fullNavMenu m6"><h3>Board</h3>        
+                          <ul>
+                                <li class="m1"><a href="#">Notice</a></li>
+                                <li class="m2"><a href="#">FAQ</a></li>
+                          </ul>
+                   </li>
+             </ul>
+           ---------------------------------
+          $(document).ready(function() {
+              $('.fullNav').hover(
+                function(){
+                $(this).stop().animate({top:[0, 'easeOutBounce']},1000);
+              }, 
+                function(){
+                $(this).stop().animate({top:[-142, 'easeOutBounce']},1000)
+              });
+           });
+           
+         *click()시
+           $(document).ready(function() {
+             $('#header span').toggle(
+                function(){
+                $('div.fullNav').stop().animate({top:[0, 'easeOutBounce']},1000);
+             }, 
+                function(){
+                $('div.fullNav').stop().animate({top:[-160, 'easeOutBounce']},1000)
+             });
+           });
+
+    ex4) 순차적으로 animate() 실행
+          $(document).ready(function () {
+            $('div').click(function () {
+                $(this).animate({
+                    left: '+=60'
+                }, 2000).animate({
+                    width: '+=60'
+                }, 2000).animate({
+                    height: '+=60'
+                }, 2000);
+            });
+         });    
+         -----------------------
+         <div></div>
+        ------------------------
+          div {width:150px; height:150px; background-color:Orange;position:relative;}
+            

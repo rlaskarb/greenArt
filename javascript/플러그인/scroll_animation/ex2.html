@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+		<link rel="stylesheet" href="./ex2.css" />
+	</head>
+	<body>
+		<div class="wrap">
+			<header>헤더영역</header>
+			<div class="visual">비주얼</div>
+			<article id="content">
+				<section class="sec1" data-aos="flip-left" data-aos-duration="2000">
+					<h3 data-aos="fade-down-left">그냥 제목 일입니다</h3>
+				</section>
+				<section class="sec2" data-aos="flip-right" data-aos-duration="2000">
+					<h3 data-aos="fade-down-left">그냥 제목 이입니다</h3>
+				</section>
+				<section class="sec3" data-aos="flip-up" data-aos-duration="2000">
+					<h3 data-aos="fade-down-left">그냥 제목 삼입니다</h3>
+				</section>
+				<section class="sec4" data-aos="flip-down" data-aos-duration="2000">
+					<h3 data-aos="fade-down-left">그냥 제목 사입니다</h3>
+				</section>
+				<section class="sec5" data-aos="zoom-in" data-aos-duration="2000">
+					<h3 data-aos="fade-down-left">그냥 제목 오입니다</h3>
+				</section>
+			</article>
+			<footer>풋터</footer>
+		</div>
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		<script>
+			AOS.init();
+		</script>
+
+		<!-- 
+
+         추천 CDN 사이트 (북마크 필수!)
+
+            아래 사이트들은 전 세계 개발자들이 가장 많이 사용하는 안정적이고 빠른 CDN 서비스입니다.
+
+            1. cdnjs (by Cloudflare)
+                * 주소: https://cdnjs.com/ (https://cdnjs.com/)
+                * 특징: 가장 유명하고, 가장 많은 종류의 라이브러리를 보유하고 있습니다. 거의 모든 종류의 JS, CSS
+                    라이브러리를 찾을 수 있는, 가장 먼저 방문해야 할 곳입니다. AOS 라이브러리도 당연히 이곳에
+                    있습니다.
+
+            2. jsDelivr
+                * 주소: https://www.jsdelivr.com/ (https://www.jsdelivr.com/)
+                * 특징: cdnjs와 마찬가지로 매우 빠르고 안정적입니다. 특히 npm(자바스크립트 패키지 관리자)에 등록된
+                    모든 라이브러리를 바로 사용할 수 있다는 강력한 장점이 있습니다.
+
+            3. Google Hosted Libraries
+                * 주소: https://developers.google.com/speed/libraries
+                        (https://developers.google.com/speed/libraries)
+                * 특징: 구글이 직접 운영하는 만큼 매우 안정적이고 빠릅니다. 다만, jQuery, AngularJS, D3.js 등 가장
+                    대중적이고 검증된 라이브러리들만 제공한다는 단점이 있습니다.
+
+        -->
+	</body>
+</html>

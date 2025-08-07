@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   const number = prompt("숫자를 입력해", "");
+      //   switch (number % 2) {
+      //     case 1:
+      //       console.log("홀수");
+      //       break;
+      //     case 2:
+      //       console.log("짝수");
+      //       break;
+      //     default:
+      //       console.log("에러");
+      //   }
+
+      const result = Number(prompt("영어점수 입력해(1~100)", ""));
+      let grade = ""; // 학점을 담을 변수
+
+      if (result >= 0 && result <= 100) {
+        switch (parseInt(result / 10)) {
+          case 10:
+          case 9:
+            grade = "A";
+            break;
+          case 8:
+            grade = "B";
+            break;
+          case 7:
+            grade = "C";
+            break;
+          case 6:
+            grade = "D";
+            break;
+          case 5:
+            grade = "F";
+            break;
+          default:
+            grade = "힘내";
+        }
+        console.log(" 당신의 학점은 : " + grade + " 학점 입니다.");
+      } else {
+        console.log("잘못입력함");
+      }
+    </script>
+
+    <!-- 
+
+    switch 문
+        -다중 조건문(조간이 2개 이상일 때 사용)
+
+    switch(변수/연산식/값){
+    case 값1 : //처리코드작성; break;
+    case 값2 : //처리코드작성; break;
+    case 값3 : //처리코드작성; break;
+    default: // 위의 모든 case가 일치 하지 않을때 처리
+    }
+
+     break; 문을 사용해서 강제로 switch 문을 빠저나가게 한다.
+     break 문이 생략이 되면 또는 (or)
+
+
+     -parseInt()함수 -> 실수를 정수로 만들어주는 함수(소수점 이하를 버리는 함수).
+        -parseInt(45.999999) -> 45
+
+    
+    *if 문과 switch 문도 중첩이 가능하다.
+
+
+-->
+  </body>
+</html>

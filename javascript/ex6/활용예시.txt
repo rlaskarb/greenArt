@@ -1,0 +1,949 @@
+<활용 예제>
+
+     ex1) top navi(상단 네비게이션=>GNB)  => slide/fade
+         *slide 결과
+           $(document).ready(function() {
+               $('ul.dropdownmenu li ul').hide();
+               $('ul.dropdownmenu li.menu').hover(
+                  function() { 
+	        $(this).css({'height':'50px'});
+                    $('ul', this).slideDown('normal',function(){$(this).stop();});
+	        $('a', this).animate({top:-17},'fast').clearQueue();
+                  },
+                  function() {
+	        $(this).css({'height':'17px' })
+	        $('a', this).animate({top:0},'fast').clearQueue();
+	        $('ul', this).slideUp('fast');
+	        //$('ul.dropdownmenu li ul').hide();
+                 });
+           });
+
+        *fade 결과
+          $(document).ready(function() {
+              $('ul.dropdownmenu li ul').hide();
+              $('ul.dropdownmenu li.menu').hover(
+                 function() { 
+                    $('ul', this).fadeIn('normal',function(){$(this).stop();});
+	       $('a', this).animate({top:-17},'fast').clearQueue();
+                 },
+                function() {
+	      $('a', this).animate({top:0},'fast').clearQueue();
+	      $('ul', this).fadeOut('fast');
+	     //$('ul.dropdownmenu li ul').hide();
+               });
+          });
+         ------------------------------------
+         *tab키 처리
+
+             $('ul.dropdownmenu li.menu .depth1').bind('focus', function () {        
+                  $(this).parents('.menu').find('ul').fadeIn('fast');
+                  $(this).parents('.menu').siblings().find('ul').fadeOut('fast');
+             });
+
+            $('ul.dropdownmenu li.m6 li:last').find('a').bind('blur', function () {        
+                   $('ul.dropdownmenu li.m6 ul').fadeOut('fast');
+             });
+
+      ----------------------------------------------
+     ex1-1) drop_navi
+  
+     $(document).ready(function() {
+              $('ul.dropdownmenu li ul').hide();
+              $('.menu_box').hide();
+
+              $('ul.dropdownmenu').hover(
+                 function() { 
+                    $('ul.dropdownmenu li.menu ul').fadeIn('normal',function(){$(this).stop();});
+	        $('.menu_box').slideDown('normal',function(){$(this).stop();});
+                 },
+                function() {
+	    
+	      $('ul.dropdownmenu li.menu ul').fadeOut('fast');
+                    $('.menu_box').slideUp('fast');
+               });
+               
+               $('ul.dropdownmenu li.menu').hover(
+                 function() { 
+	       $('a', this).animate({top:-22},'fast').clearQueue();
+                 },
+                function() {
+	      $('a', this).animate({top:0},'fast').clearQueue();
+               });
+          });
+
+        --------------------------------------------------------------
+        *tab 처리
+
+          $('ul.dropdownmenu li.menu .depth1').bind('focus', function () {        
+                    $('ul.dropdownmenu li.menu ul').slideDown('fast');
+                    $('.menu_box').slideDown('fast');
+          });
+
+         $('ul.dropdownmenu li.m6 li:last').find('a').bind('blur', function () {        
+                  $('ul.dropdownmenu li.menu ul').slideUp('fast');
+                  $('.menu_box').slideUp('fast');
+         });
+
+ =========================================================================         
+     ex2) 슬라이드 겔러리 광고
+
+        <div id="main">
+          <div class="gallery">
+            <div class="g1">
+     	   <img src="images/img1.jpg" alt="광고1 내용" />
+            </div>
+            <div class="g1">
+     	   <img src="images/img2.jpg" alt="광고2 내용" />
+            </div>
+            <div class="g1">
+     	   <img src="images/img3.jpg" alt="광고3 내용" />
+            </div>
+         </div>
+         <div class="sub_menu">
+            <span class="m1 button">image01</span>
+            <span class="m2 button">image02</span>
+            <span class="m3 button">image03</span>
+         </div>
+       </div>
+        -----------------------------------------------
+        $(document).ready(function() {
+          $('.button').click(function(event){
+	var $target=$(event.target);
+	if($target.is('.m1')){
+    	      $('.gallery').animate({left:0}, 'slow');
+	}else if($target.is('.m2')){
+    	      $('.gallery').animate({left:-400}, 'slow');
+	}else if($target.is('.m3')){
+    	      $('.gallery').animate({left:-800}, 'slow');
+	}
+         });
+  
+        $('.button').hover(function(){
+            $(this).addClass('hover');
+        }, 
+        function(){
+            $(this).removeClass('hover');
+        });
+      });
+      -----------------------------------------------------------
+      자동 기능 추가1.
+
+        var timeonoff;
+        var imageCount=3;  
+        var cnt=1;
+        var direct=1;
+        var position=0;
+       timeonoff= setInterval(function () {
+           cnt+=direct;
+	
+		if(cnt==1){
+		   position=0;
+		}else if(cnt==2){
+	               position=-400;
+		}else if(cnt==3){
+		   position=-800;
+		}
+
+		$('.gallery').animate({left:position}, 'slow');
+		if(cnt==imageCount)direct=-1;
+                         if(cnt==1)direct=1;
+      }, 3000);
+      ------------------
+      clearInterval(timeonoff); 
+ 
+       cnt=1;
+       direct=1;
+ 
+       cnt=2;
+
+       cnt=3;
+       direct=-1;
+
+       timeonoff= setInterval(function () {
+                        cnt+=direct;
+	
+		if(cnt==1){
+		   position=0;
+		}else if(cnt==2){
+	               position=-400;
+		}else if(cnt==3){
+		   position=-800;
+		}
+
+		$('.gallery').animate({left:position}, 'slow');
+		if(cnt==imageCount)direct=-1;
+                         if(cnt==1)direct=1;
+       }, 3000);
+       --------------------------------------------------------------------
+       자동 기능 추가2.(함수)
+  
+       function moveg(){
+                         cnt+=direct;
+	
+		if(cnt==1){
+		   position=0;
+		}else if(cnt==2){
+	               position=-400;
+		}else if(cnt==3){
+		   position=-800;
+		}
+
+		$('.gallery').animate({left:position}, 'slow');
+		if(cnt==imageCount)direct=-1;
+                         if(cnt==1)direct=1;
+        }
+        timeonoff= setInterval( moveg , 3000);
+
+=========================================================================
+     ex3) 옆으로 열리는 슬라이드
+
+         <div class="eventSlideMenu">
+           <ul>
+             <li class="img01 eventMenu">
+                <a href="http://naver.com"><img src="images/img1.jpg" alt="아이스그린티:시원한 탄산수~" /></a>
+                <span class="buttonMenu01"></span></li>
+             <li class="img02 eventMenu">
+                <a href="http://nate.com"><img src="images/img2.jpg" alt="아이스그린티:시원한 탄산수~" /></a>
+                <span class="buttonMenu02"></span></li>
+             <li class="img03 eventMenu">
+                <a href="#"><img src="images/img3.jpg" alt="아이스그린티:시원한 탄산수~" /></a>
+                <span class="buttonMenu03"></span></li>
+             <li class="img04 eventMenu">
+                <a href="#"><img src="images/img4.jpg" alt="아이스그린티:시원한 탄산수~" /></a>
+                <span class="buttonMenu04"></span></li>
+          </ul>
+        </div>
+        -------------------------------------------------
+        $(document).ready(function(){
+          $('.eventSlideMenu ul li span').mouseenter(function(event){
+             var $target=$(event.target);
+	  
+	 if($target.is('.eventSlideMenu .buttonMenu01')){
+	       $('.eventSlideMenu .img02').animate({left:[350,'easeOutQuad']},450).clearQueue();
+	       $('.eventSlideMenu .img03').animate({left:[400,'easeOutQuad']},450).clearQueue();
+	       $('.eventSlideMenu .img04').animate({left:[450,'easeOutQuad']},450).clearQueue();
+	 }else if($target.is('.buttonMenu02')){
+	       $('.eventSlideMenu .img02').animate({left:[50,'easeOutQuad']},450).clearQueue();
+	       $('.eventSlideMenu .img03').animate({left:[400,'easeOutQuad']},450).clearQueue();
+	       $('.eventSlideMenu .img04').animate({left:[450,'easeOutQuad']},450).clearQueue();
+	 }else if($target.is('.buttonMenu03')){
+	       $('.eventSlideMenu .img02').animate({left:[50,'easeOutQuad']},450).clearQueue();
+	       $('.eventSlideMenu .img03').animate({left:[100,'easeOutQuad']},450).clearQueue();
+	       $('.eventSlideMenu .img04').animate({left:[450,'easeOutQuad']},450).clearQueue();
+	 }else if($target.is('.buttonMenu04')){
+	       $('.eventSlideMenu .img02').animate({left:[50,'easeOutQuad']},450).clearQueue();
+	       $('.eventSlideMenu .img03').animate({left:[100,'easeOutQuad']},450).clearQueue();
+	       $('.eventSlideMenu .img04').animate({left:[150,'easeOutQuad']},450).clearQueue();
+	 }
+          });
+       });
+       ------------------------------------------------
+       자동기능 추가
+
+        var timeonoff;
+        var imageCount=4;  
+        var cnt=1;		
+	
+        function move_gallery(){
+	     cnt++;
+	  
+	  if(cnt==1){
+		   $('.eventSlideMenu .img02').animate({left:[350,'easeOutQuad']},450).clearQueue();
+	       $('.eventSlideMenu .img03').animate({left:[400,'easeOutQuad']},450).clearQueue();
+	       $('.eventSlideMenu .img04').animate({left:[450,'easeOutQuad']},450).clearQueue(); 
+	  }else if(cnt==2){
+		  $('.eventSlideMenu .img02').animate({left:[50,'easeOutQuad']},450).clearQueue();
+	       $('.eventSlideMenu .img03').animate({left:[400,'easeOutQuad']},450).clearQueue();
+	       $('.eventSlideMenu .img04').animate({left:[450,'easeOutQuad']},450).clearQueue();
+	  }else if(cnt==3){
+		         $('.eventSlideMenu .img02').animate({left:[50,'easeOutQuad']},450).clearQueue();
+	       $('.eventSlideMenu .img03').animate({left:[100,'easeOutQuad']},450).clearQueue();
+	       $('.eventSlideMenu .img04').animate({left:[450,'easeOutQuad']},450).clearQueue();
+	  }else if(cnt==4){
+		  	       $('.eventSlideMenu .img02').animate({left:[50,'easeOutQuad']},450).clearQueue();
+	       $('.eventSlideMenu .img03').animate({left:[100,'easeOutQuad']},450).clearQueue();
+	       $('.eventSlideMenu .img04').animate({left:[150,'easeOutQuad']},450).clearQueue();
+	  }
+	  
+	   if(cnt==imageCount)cnt=0;
+       }
+	
+      timeonoff= setInterval(move_gallery, 4000);
+      --------------------------
+       clearInterval(timeonoff);
+
+       cnt=1; /cnt=2;/cnt=3;/cnt=0;
+
+       timeonoff= setInterval(move_gallery, 4000);
+
+=======================================================================
+     ex4) fade 겔러리
+
+          <div class="changeGallery">
+             <div class="visibleBox"><a href="#"></a></div>
+             <div class="selectBox">
+                 <span></span>
+                 <span></span>
+                 <span></span>
+                 <span></span>
+                 <span></span>
+                 <span></span>
+             </div>
+            <!-- 숨김 이미지 처리 -->
+            <div class="hiddenImage">
+               <ul>
+                 <li><a href="#"><img src="images/a0.jpg" alt="이미지 설명" /></a></li>
+                 <li><a href="#"><img src="images/a1.jpg" alt="이미지 설명" /></a></li>
+                 <li><a href="#"><img src="images/a2.jpg" alt="이미지 설명" /></a></li>
+                 <li><a href="#"><img src="images/a3.jpg" alt="이미지 설명" /></a></li>
+                 <li><a href="#"><img src="images/a4.jpg" alt="이미지 설명" /></a></li>
+                 <li><a href="#"><img src="images/a5.jpg" alt="이미지 설명" /></a></li>
+              </ul>
+            </div>
+          </div>
+         --------------------------------------------
+         $(document).ready(function() {
+             var timeonoff;
+             var imageCount=6;  
+             var cnt=0;
+  
+             $('.visibleBox').fadeTo('fast',0).fadeTo('normal',1).addClass('init');	
+  
+             timeonoff= setInterval(function () {
+	     cnt++;
+	     $('.visibleBox').fadeTo('fast',0).fadeTo('normal',1).css('background','url(images/a'+cnt+'.jpg)');
+	     //$('.selectBox span:eq('+cnt+')').css('background','#000000');
+	     if(cnt==imageCount-1)cnt=-1;
+             }, 4000);
+  
+             $('.selectBox span').each(function (index, item) {
+                 $(item).click(function(){
+	        clearInterval(timeonoff);
+     	        $('.visibleBox').fadeTo('fast',0).fadeTo('normal',1).css('background','url(images/a'+index+'.jpg)');
+	        cnt=index;
+	        if(cnt==imageCount-1)cnt=-1;
+	        
+                     timeonoff= setInterval(function () {
+	            cnt++;
+                         $('.visibleBox').fadeTo('fast',0).fadeTo('normal',1).css('background','url(images/a'+cnt+'.jpg)');
+		
+		//$('.selectBox span:eq('+cnt+')').css('background','#000000');
+	            if(cnt==imageCount-1)cnt=-1;
+                    }, 4000);
+                 });
+	   
+	   $(item).hover(function () {
+                    $(this).animate({height:50},'fast').css('background','#000000').clearQueue();
+                }, function () {
+                   $(this).animate({height:15},'fast').css('background','#ff0000').clearQueue();
+                });   
+            });
+          });         
+
+=====================================================================
+     ex5) 타이머 겔러리
+
+    <div class="changeGallery">
+        <div class="visibleBox">
+          <ul>
+            <li class="list1"><a href="http://naver.com"><img src="images/im0.jpg" alt="이미지 설명" /></a></li>
+            <li class="list2"><a href="http://naver.com"><img src="images/im1.jpg" alt="이미지 설명" /></a></li>
+            <li class="list3"><a href="http://naver.com"><img src="images/im2.jpg" alt="이미지 설명" /></a></li> 
+          </ul>
+        </div>
+        <div class="selectBox">
+           <span class="btn1"></span>
+           <span class="btn2"></span>
+           <span class="btn3"></span>
+        </div>
+     </div>
+         -----------------------------------------
+  $(document).ready(function() {
+       var timeonoff;
+       var imageCount=3;  
+       var cnt=1;
+       $('.btn1').addClass('clk1');
+       $('.btn2').addClass('clk1');
+       $('.btn3').addClass('clk1');
+       $('.btn1').addClass('clk2');
+       $('.visibleBox .list1').fadeIn('slow');	
+
+       function timer_gallery(){
+           cnt++;
+           for(var i=1;i<=imageCount;i++){
+              $('.visibleBox .list'+i).hide();
+           }
+          $('.visibleBox .list'+cnt).fadeIn('slow');
+		
+          for(var i=1;i<=imageCount;i++){
+               $('.btn'+i).removeClass('clk2');
+          }
+           $('.btn'+cnt).addClass('clk2'); 
+            if(cnt==imageCount)cnt=0;
+      }
+     timeonoff= setInterval(timer_gallery, 4000);
+	
+	 
+    $('.selectBox span').each(function (index) {
+      $(this).click(function(){
+          clearInterval(timeonoff);
+          for(var i=1;i<=imageCount;i++){
+               $('.visibleBox .list'+i).hide();
+          }
+          $('.visibleBox .list'+(index+1)).fadeIn('slow'); 
+      
+         for(var i=1;i<=imageCount;i++){
+            $('.btn'+i).removeClass('clk2');
+          }
+         $('.btn'+(index+1)).addClass('clk2');  
+          cnt=index+1;
+          if(cnt==imageCount)cnt=0;
+          timeonoff= setInterval(timer_gallery, 4000);
+          });
+       });
+  });
+
+
+=====================================================================
+  ex6) left_right_slide
+ 
+ <div id="slide_gallery_box">
+  <div class="slide_gallery">
+    <ul>
+       <li><img src="images/slide1.jpg" alt="" /></li>
+       <li><img src="images/slide2.jpg" alt="" /></li>
+       <li><img src="images/slide3.jpg" alt="" /></li>
+       <li><img src="images/slide4.jpg" alt="" /></li>
+       <li><img src="images/slide5.jpg" alt="" /></li>
+    </ul>   
+  </div>
+  <div class="sub_menu_box">
+        <img class="m1 button" src="images/btn_prev.jpg" alt="" />
+        <img class="m2 button" src="images/btn_next.jpg" alt="" />
+  </div>
+ </div>
+  ----------------------------------------
+  $(document).ready(function() {
+   var position=0;  //최초위치
+   var movesize=150; //이미지 하나의 너비
+   
+    $('.slide_gallery ul').after($('.slide_gallery ul').clone());
+       //슬라이드 겔러리를 한번 복제
+
+     $('.button').click(function(event){
+	var $target=$(event.target);
+	
+	if($target.is('.m1')){
+	     if(position==-750){
+	         $('.slide_gallery').css('left',0);
+	          position=0;
+	      }
+		
+	     position-=movesize;  // 150씩 감소
+    	     $('.slide_gallery').stop().animate({left:position}, 'fast',
+		  function(){							
+		    if(position==-750){
+			   $('.slide_gallery').css('left',0);
+			   position=0;
+		    }
+	      });
+	}else if($target.is('.m2')){
+	      if(position==0){
+	           $('.slide_gallery').css('left',-750);
+	           position=-750;
+                   }
+
+                   position+=movesize; // 150씩 증가
+    	      $('.slide_gallery').stop().animate({left:position}, 'fast',
+		  function(){							
+		    if(position==0){
+			   $('.slide_gallery').css('left',-750);
+			   position=-750;
+		    }
+	       });
+	}
+       });
+    });
+    ----------------------------------------------
+    *추가 =>  최초 자동 슬라이드 기능
+
+     var timeonoff;
+
+     timeonoff= setInterval(function () {
+            position-=movesize;  // 150씩 감소
+    	$('.slide_gallery').stop().animate({left:position}, 'fast',
+	         function(){							
+		    if(position==-750){
+			   $('.slide_gallery').css('left',0);
+			   position=0;
+		    }
+	 });
+     }, 2000);
+
+     clearInterval(timeonoff);
+
+====================================================================
+  ex7) backgurund_change
+
+  $(document).ready(function() {
+         $('.bg_Change').css('background','url(img1.jpg)');
+          $('.span_1').css('background','url(1_on.png)');
+
+         $('.bg_Change span').each(function(index) {
+                 $(this).click(function(){
+                      $('.bg_Change').css('background','url(img'+(index+1)+'.jpg)');
+                      for(var i=1;i<=6;i++){
+                         $('.span_'+i).css('background','url('+i+'.png)');
+                      }
+                      $(this).css('background','url('+(index+1)+'_on.png)');
+                  });
+        });
+  });
+
+===============================================================
+ ex8) 말풍선 만들기
+
+*{margin:0; padding:0;}
+.box{width:650px; height:600px; position:relative; margin:150px;
+   border:1px solid #999;}
+.toolTip_title{padding:10px 20px; cursor:pointer;
+  width:270px; float:left; font-weight:bold; }
+.toolTip{width:500px; padding:10px 20px; border:1px solid #F90;
+ position:absolute; top:-110px; left:20px; background:#FFC;
+ display:none;}
+.toolTip ul{ font-size:12px; line-height:1.5em;}
+   -------------------------
+ $(document).ready(function () {
+     $('.toolTip').hide();				   		     
+     $('.toolTip_title').hover(function(){ 
+	$(this).next('.toolTip').fadeIn(200);				
+             $(this).next('.toolTip').animate({top:-100},200);
+      },function(){ 	  					             
+             $(this).next('.toolTip').animate({top:-110},200,function(){
+	$(this).fadeOut(200);}).clearQueue();
+      });
+  });
+  ------------------------------
+ <div class="box">
+     <p class="toolTip_title">1. 녹색가치 사슬(Green Value Chain) : 녹색소비 → 녹색유통 → 녹색생산</p>
+     <div class="toolTip">
+       <ul>
+          <li>인센티브 제공을 통한 녹색소비 확대</li>
+          <li>기업의 녹색제품 제조 및 유통이 증가</li>
+          <li>녹색소비가 재촉진</li>
+          <li>녹색제품 확대 정책과 연계강화</li>
+       </ul>
+     </div>
+     
+     <p class="toolTip_title">2. 신용/체크카드 혜택안내</p>
+     <div class="toolTip">
+       <ul>
+          <li>국내 전 가맹점 최대 0.8% 에코머니 적립</li>
+          <li>대형할인점, 백화점, 학원, 병원, 의원</li>
+          <li>전국 문화, 레저 시설 최대 50% 현장할인</li>
+          <li>전기, 수도, 가스 절약 시 연 최대 7~10만원 에코머니 적립</li>
+       </ul>
+     </div>
+  </div>
+
+==================================================================
+  ex9)  accordion menu   
+
+   *{margin:0; padding:0;}
+  a{color:#000; text-decoration:none}
+   #menu1{width:200px; padding:10px; border:1px solid #666;background-color: #999;}
+   .menus{padding:5px; font-weight:bold; background-color: #ddd;
+           border-bottom: 1px solid #fff; cursor:pointer;}
+   .menuitems{display:none;}
+   div ul li a{display:block; border-bottom: 1px solid #fff; text-decoration: none; background: #666;
+          color: #fff;padding:10px; font-weight:bold;}
+   .menuitems a:hover {background: #000;}
+   li {display:inline;}
+   ul{display:inline;}
+  --------------------------------------------------
+  $(document).ready(function() {
+   var cnt=0;
+   var cnt1=0;
+   var cnt2=0;
+   $('p.book').click(function(){
+       cnt++;
+       if(cnt%2==1){
+         $(this).next("div.menuitems").slideDown(500);
+         $(this).siblings().next("div.menuitems").slideUp("slow"); //siblings()-자신을 제외한 형제 노드
+         cnt1=cnt2=0;
+       }else{
+         $(this).next("div.menuitems").slideUp("slow");
+       }
+    });
+
+   $('p.movie').click(function(){
+       cnt1++;
+       if(cnt1%2==1){
+         $(this).next("div.menuitems").slideDown(500);
+         $(this).siblings().next("div.menuitems").slideUp("slow");
+          cnt=cnt2=0;
+       }else{
+          $(this).next("div.menuitems").slideUp("slow");
+       }
+    });
+
+    $('p.music').click(function(){
+       cnt2++;
+       if(cnt2%2==1){
+         $(this).next("div.menuitems").slideDown(500);
+         $(this).siblings().next("div.menuitems").slideUp("slow");
+         cnt=cnt1=0;
+       }else{
+         $(this).next("div.menuitems").slideUp("slow");
+       }
+    });
+
+     $('p.menus').hover(function(){
+         $(this).css({'background-image':"url(down.png)", 'background-repeat':"no-repeat", 
+               'background-position':"right"});
+         $(this).siblings().css({'background-image':""});
+     });     
+  });
+ ------------------------------------------------------------
+ <div id="menu1">
+  <p class="menus book"><a href="#">Books</a></p>
+    <div class="menuitems">
+	 <ul>
+	  <li><a href="#">Web Development</a></li>
+	  <li><a href="#">Programming</a></li>
+	  <li><a href="#">RDBMS</a></li>
+	 </ul>
+    </div>
+  <p class="menus movie"><a href="#">Movies</a></p>
+    <div class="menuitems">
+	 <ul>
+	  <li><a href="#">Latest Movie Trailers</a></li>
+	  <li><a href="#">Movie Reviews</a></li>
+	  <li><a href="#">Celebrity Interviews</a></li>
+	 </ul>
+    </div>
+    <p class="menus music"><a href="#">Music</a></p>
+    <div class="menuitems">
+	 <ul>
+	  <li><a href="#">Latest Movie Trailers</a></li>
+	  <li><a href="#">Movie Reviews</a></li>
+	  <li><a href="#">Celebrity Interviews</a></li>
+	 </ul>
+    </div>
+ </div>    
+
+  ---------------------------------------------------
+ *tab키 처리
+
+         $('.menus a').bind('focus', function () {        
+                   $(this).parent('.menus').next().slideDown('fast');
+        });
+
+       $('.menuitems').find('li:last a,this').bind('blur', function () { 	      
+                  $('.menuitems').slideUp('fast');
+       });
+
+------------------------------------------------------------
+ex9-2)accordion menu over
+
+*{margin:0; padding:0;}
+body{font-family:"돋움", "돋움체"; font-size:12px; color:#333;}
+ul{list-style:none; line-height:1.5em; font-weight:bold;}
+a{color:#333; text-decoration:none;}
+
+
+#header #nav{ width:200px; padding:20px 0 20px 25px; border:1px solid #CCC;}
+#header #nav .menus{width:180px; height:30px; cursor:pointer; font-size:15px;}
+#header #nav .menuitems{display:none; padding-bottom:15px;}
+#header #nav .menuitems a{color:#66F;}
+#header #nav .menuitems a:hover{color:#69F;}
+
+--------------------------------------------------------------------
+<div id="header">
+ <div id="nav">
+       <h2 class="menus nav1"><a href="#">About Hanwha</a></h2>
+        <div class="menuitems">
+          <ul>
+            <li><a href="#">한화이야기</a></li>
+            <li><a href="#">CEO</a></li>
+            <li><a href="#">한화의 역사</a></li>
+          </ul>
+        </div>
+        <h2 class="menus nav2"><a href="#">63 TOUR</a></h2>
+        <div class="menuitems">
+          <ul>
+            <li><a href="#">sea world</a></li>
+            <li><a href="#">sky art</a></li>
+            <li><a href="#">art hall</a></li>
+            <li><a href="#">wax museum</a></li>
+          </ul>
+        </div>
+        <h2 class="menus nav3"><a href="#">RESTAURANT</a></h2>
+        <div class="menuitems">  
+          <ul>
+            <li><a href="#">63pavilion</a></li>
+            <li><a href="#">touch the sky</a></li>
+          </ul>
+        </div>
+        <h2 class="menus nav4"><a href="#">ADVERTISEMENT</a></h2>
+        <div class="menuitems"> 
+          <ul>
+            <li><a href="#">홍보영상</a></li>
+          </ul>
+        </div>
+        <h2 class="menus nav5"><a href="#">INFORMATION</a></h2>
+        <div class="menuitems"> 
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">찾아오시는길</a></li>
+            <li><a href="#">membsrship</a></li>
+          </ul>
+        </div>
+     </div>
+  <!-- 네비 --> 
+</div>
+
+-------------------------------------------------------------------
+$(document).ready(function() {
+    $('div#nav').mouseleave(function(){
+       
+            $('div.menuitems').hide(300);    
+            $('h2.menus').css({'backgroundImage':""});
+    
+    });
+
+   $('h2.menus').mouseenter(function(){
+         $(this).css({'background-image':"url(images/down.png)", 'background-repeat':"no-repeat", 
+               'background-position':"right"}).next("div.menuitems").stop(true,true).show(300);
+         $(this).siblings().next("div.menuitems").hide(300);
+         $(this).siblings().css({'backgroundImage':""});
+   });
+});
+ -----------------------------------
+  *tab키 처리
+
+         $('.menus a').bind('focus', function () {        
+                 $(this).parent('.menus').next().slideDown('fast');  
+         });
+
+        $('.menuitems').find('li:last a,this').bind('blur', function () {    	      
+             $('.menuitems').slideUp('fast');
+       });
+================================================================ 
+ ex10) Q&A 만들기
+
+ $(document).ready(function () {
+	var article = $('.faq .article');
+	article.find('.a').slideUp(100); 
+	
+	$('.faq .article .trigger').click(function(){  
+	var myArticle = $(this).parents('.article'); 
+	
+	if(myArticle.hasClass('hide')){   
+	    article.find('.a').slideUp(100);
+                  article.removeClass('show').addClass('hide'); 
+	    myArticle.removeClass('hide').addClass('show');  
+	    myArticle.find('.a').slideDown(100);  
+	 } else {  
+	   myArticle.removeClass('show').addClass('hide');  
+	   myArticle.find('.a').slideUp(100);  
+	}  
+  });       
+}); 
+------------------------------------
+-모두 여닫기 추가..
+
+<a class="all" href="#">모두여닫기</a>
+-----------------------
+           $('.all').toggle(function(){ 
+	    article.find('.a').slideDown(100);
+	    article.removeClass('hide').addClass('show');
+	},function(){ 
+	    article.find('.a').slideUp(100);
+	    article.removeClass('show').addClass('hide');
+	});
+ 
+============================================================
+ ex11)위로 흐르는 뉴스
+
+    #news_scroller{position:relative; height:200px; width:200px; overflow:hidden; border:2px solid ; padding:10px;} 
+    p{position:relative;} 
+    ----------------------------------------------
+    $(document).ready(function() {
+        ticker_height = $('#news_scroller').height();  
+        news_height=$('#news_scroller p').height();
+        no_oflines = 0;
+        rotate = true;
+
+       $('#news_scroller').hover(
+       function(){   
+          rotate = false;
+       }, 
+       function(){
+          rotate = true;
+       });
+      scroll();
+    });
+
+    function scroll() {
+      no_oflines += rotate ? -2 : 0;    //마우스가 아웃되어 있으면..2씩 감소, 올라가면 멈춤
+      $('#news_scroller p').css( 'top', ''+no_oflines+"px" );
+      if( no_oflines<-1*news_height ){  //위로 올라가 완전히 사라지면..
+          no_oflines = ticker_height;   //아래로 내려간다.
+      }
+      setTimeout( scroll, 50 );  //재귀함수
+    }
+    ----------------------------------------------
+ <div id="news_scroller">
+<p>Styles make the formatting job much easier and efficient. To give an attractive look to web sites, styles are heavily used. A person must have a good knowledge of HTML and CSS and a bit of Javascript.   
+jQuery is a powerful JavaScript library that allows us to add dynamic elements to our web sites. Not only it is easy to learn but easy to implement too. 
+jQuery is an open source project that provides a wide range of features with cross platform compatiblity. jQuery has hundreds of plug-ins to extend its features. JQuery helps in increasing interactions with a web site. 
+To give an attractive look to web sites, styles are heavily used. A person must have a good knowledge of HTML and CSS and a bit of Javascript.   
+jQuery is a powerful JavaScript library that allows us to add dynamic elements to our web sites. Not only it is easy to learn but easy to implement too. 
+</p>
+</div>
+
+=================================================================
+ex12) main_slide
+
+$(document).ready(function() {
+  var timeonoff;
+  var imageCount=5;  
+  var cnt=1;
+  var direct=1;
+  var position=0;
+  $('.btn1').css('background','url(images/onbtn1.png)'); 
+
+ function moveg(){
+      cnt+=direct;
+	
+		if(cnt==1){
+		   position=0;
+		}else if(cnt==2){
+	               position=-1000;
+		}else if(cnt==3){
+		   position=-2000;
+		}else if(cnt==4){
+		   position=-3000;
+		}else if(cnt==5){
+		   position=-4000;
+		}
+                                                
+                         for(var i=1;i<=imageCount;i++){
+                            $('.btn'+i).css('background','url(images/'+i+'.png)'); 
+                         }
+                         $('.btn'+cnt).css('background','url(images/onbtn'+cnt+'.png)'); 
+                           
+		$('.gallery').animate({left:position}, 'slow');
+		if(cnt==imageCount)direct=-1;
+                         if(cnt==1)direct=1;
+ }
+
+  timeonoff= setInterval( moveg , 4000);
+
+  $('.mbutton').click(function(event){
+
+	var $target=$(event.target);
+            clearInterval(timeonoff); 
+
+            for(var i=1;i<=imageCount;i++){
+                $('.btn'+i).css('background','url(images/'+i+'.png)'); 
+            }
+
+	if($target.is('.btn1')){
+    	   $('.gallery').animate({left:0}, 'slow');
+                cnt=1;
+                direct=1;
+	}else if($target.is('.btn2')){
+    	   $('.gallery').animate({left:-1000}, 'slow');
+                cnt=2;
+	}else if($target.is('.btn3')){
+    	   $('.gallery').animate({left:-2000}, 'slow');
+                cnt=3;
+	}else if($target.is('.btn4')){
+    	   $('.gallery').animate({left:-3000}, 'slow');
+                cnt=4;
+	}else if($target.is('.btn5')){
+    	   $('.gallery').animate({left:-4000}, 'slow');
+                cnt=5;
+                direct=-1;
+	}
+              $('.btn'+cnt).css('background','url(images/onbtn'+cnt+'.png)'); 
+           timeonoff= setInterval( moveg , 4000);
+  });
+});
+
+ex12-1) main_fade
+
+$(document).ready(function() {
+    var timeonoff;
+    var imageCount=5;  
+    var cnt=1;  
+
+    $('.btn1').css('background','url(images/onbtn1.png)'); 
+    $('.gallery .link1').fadeIn('slow');
+ 
+    function moveg(){
+      cnt++;
+     for(var i=1;i<=imageCount;i++){
+            $('.gallery .link'+i).hide();
+     }
+     $('.gallery .link'+cnt).fadeIn('slow');		                    
+     for(var i=1;i<=imageCount;i++){
+          $('.btn'+i).css('background','url(images/'+i+'.png)'); 
+      }
+      $('.btn'+cnt).css('background','url(images/onbtn'+cnt+'.png)');                 
+       if(cnt==imageCount)cnt=0;
+     }
+    timeonoff= setInterval( moveg , 4000);
+
+  $('.mbutton').click(function(event){
+	var $target=$(event.target);
+                clearInterval(timeonoff);     
+	 
+	for(var i=1;i<=imageCount;i++){
+	      $('.gallery .link'+i).hide();
+                 } 
+	 
+	if($target.is('.btn1')){
+    	   cnt=1;
+	}else if($target.is('.btn2')){
+    	   cnt=2; 
+	}else if($target.is('.btn3')){ 
+    	   cnt=3; 
+	}else if($target.is('.btn4')){
+    	   cnt=4; 
+	}else if($target.is('.btn5')){
+    	   cnt=5; 
+	} 
+	$('.gallery .link'+cnt).fadeIn('slow'); 
+	for(var i=1;i<=imageCount;i++){
+		$('.btn'+i).css('background','url(images/'+i+'.png)'); 
+	}
+               $('.btn'+cnt).css('background','url(images/onbtn'+cnt+'.png)'); 
+               if(cnt==5)cnt=0;
+              timeonoff= setInterval( moveg , 4000);
+    });
+});
+
+------------------------------------
+ex13) tab menu(접근성)
+
+$(document).ready(function(){
+  var cnt=3;
+  $('.tabs .contlist:eq(0)').show(); 
+  $('.tabs .tab1').css('background','url(images/tab1on.jpg)');
+  
+  $('.tabs .tab').each(function (index) {
+    $(this).click(function(){    
+	  $(".tabs .contlist").hide(); 
+	  $(".tabs .contlist:eq("+index+")").show();
+	  for(var i=1;i<=cnt;i++){
+           $('.tab'+i).css('background','url(images/tab'+i+'.jpg)');
+      }
+      $(this).css('background','url(images/tab'+(index+1)+'on.jpg)'); 
+   });
+  });
+});
+
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>ex</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			a {
+				color: #333;
+				text-decoration: none;
+			}
+			.current {
+				color: rgba(21, 156, 99, 0.8);
+				font-weight: bold;
+				font-size: 50px;
+			}
+		</style>
+		<script src="jquery-1.8.3.min.js"></script>
+		<script>
+			$(function () {
+				$("#subCon").load("./sub1.html");
+				$("#subCon").addClass("current");
+
+				$("#btn a").click(function (e) {
+					e.preventDefault();
+					$("#btn a").removeClass("current");
+					$("this").addClass("current");
+
+					if ($(this).hasClass("btnLoad")) {
+						$("#subCon").load("./sub1.html");
+					} else if ($(this).hasClass("btnLoad2")) {
+						$("#subCon").load("./sub2.html");
+					}
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<div id="btn">
+			<a href="#" class="btnLoad">읽어오기1</a>
+			<a href="#" class="btnLoad2">읽어오기2</a>
+		</div>
+		<div id="subCon">
+			<!-- 여기에 서브페이지가 동적으로 불러와 진다. -->
+		</div>
+	</body>
+</html>

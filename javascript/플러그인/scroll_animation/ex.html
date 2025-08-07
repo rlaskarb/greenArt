@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="./ex.css" />
+	</head>
+	<body>
+		<div class="wrap">
+			<header>헤더영역</header>
+			<div class="visual">비주얼</div>
+			<article id="content">
+				<section class="sec1"><h3>그냥 제목 일입니다</h3></section>
+				<section class="sec2"><h3>그냥 제목 이입니다</h3></section>
+				<section class="sec3"><h3>그냥 제목 삼입니다</h3></section>
+				<section class="sec4"><h3>그냥 제목 사입니다</h3></section>
+				<section class="sec5"><h3>그냥 제목 오입니다</h3></section>
+			</article>
+			<footer>풋터</footer>
+		</div>
+		<script src="./jquery-1.12.4.min.js"></script>
+		<script>
+			$(document).ready(function () {
+				const sec1_top = $(".sec1").offset().top - 300;
+				const sec2_top = sec1_top + 1000 * 1;
+				const sec3_top = sec1_top + 1000 * 2;
+				const sec4_top = sec1_top + 1000 * 3;
+				const sec5_top = sec1_top + 1000 * 4;
+
+				console.log(sec1_top);
+				console.log(sec2_top);
+				console.log(sec3_top);
+				console.log(sec4_top);
+				console.log(sec5_top);
+
+				$(window).on("scroll", function () {
+					const scroll = $(window).scrollTop();
+
+					if (scroll >= sec1_top && scroll < sec2_top) {
+						$(".sec1").addClass("ani");
+					} else if (scroll >= sec2_top && scroll < sec3_top) {
+						$(".sec2").addClass("ani");
+					} else if (scroll >= sec3_top && scroll < sec4_top) {
+						$(".sec3").addClass("ani");
+					} else if (scroll >= sec4_top && scroll < sec5_top) {
+						$(".sec4").addClass("ani");
+					} else if (scroll >= sec5_top) {
+						$(".sec5").addClass("ani");
+					} else {
+						$("section").removeClass("ani");
+					}
+				});
+			});
+		</script>
+	</body>
+</html>

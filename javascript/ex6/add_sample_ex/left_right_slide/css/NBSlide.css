@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* CSS Document */
+#slide_gallery_box{width:750px; overflow:hidden; 
+        position:relative; border:3px solid #CCC;}
+#slide_gallery_box *{margin:0; padding:0;}
+.slide_gallery{position:relative; left:0; top:0; width:1500px;}
+.slide_gallery ul li{float:left; list-style:none;}
+.sub_menu_box{width:70px;position:relative;left:340px;}
+#slide_gallery_box .sub_menu_box img{cursor:pointer;}
+#slide_gallery_box .sub_menu_box .m1{ margin-right:20px;}
+

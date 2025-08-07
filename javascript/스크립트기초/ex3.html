@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/ex.css" />
+  </head>
+  <body>
+    <h1>로직 머시기 .</h1>
+
+    <script>
+      // if 문에 중가로 없이 코드를 치면 처음 필터만 읽고 나머지는 읽지않는다 .
+      //   const num = 5;
+      //   if (num > 10) console.log("num 값은 : " + num);
+      //   console.log("10보다 큰값입니다.");
+      //   console.log("프로그램을 종료합니다.");
+
+      //    && 과 || 우선순위가 있다
+      //   const num = prompt("영문을 입력하세요","");
+      //   if ((num >= "a" && num <= "z") || (num >= "A" && num <= "Z")) {
+      //     console.log("입력된 정수는 : " + num + " 입니다.");
+      //     console.log("한글을 이해하셨다니 다행입니다.");
+      //   } else {
+      //     console.log("글을 좀 읽고 숫자를 입력해봐...");
+      //   }
+      //   console.log("프로그램을 종료합니다.");
+
+      //   const gender = prompt("성별을 입력하세요 남자면 : M 여자면 : F ","");
+      //   if (
+      //     gender == "M" ||
+      //     gender == "m" ||
+      //     gender == "남" ||
+      //     gender == "남자"
+      //   ) {
+      //     console.log("당신의 성별을 남자입니다.");
+      //   } else if (
+      //     gender == "F" ||
+      //     gender == "f" ||
+      //     gender == "여" ||
+      //     gender == "여자"
+      //   ) {
+      //     console.log("당신의 성별은 여자입니다.");
+      //   } else {
+      //     console.log("당신는 휴먼이 맞습니까?");
+      //   }
+
+      //   const day = prompt("요일을 입력하세요~", "");
+      //   if (day == "월요일" || day == "월") {
+      //     console.log("월요일을 입력했군요 Monday");
+      //   } else if (day == "화요일" || day == "화") {
+      //     console.log("화요일을 입력했군요 Tuesday");
+      //   } else if (day == "수요일" || day == "수") {
+      //     console.log("수요일을 입력했군요 Wednesday");
+      //   } else if (day == "목요일" || day == "목") {
+      //     console.log("목요일을 입력했군요 Thursday");
+      //   } else if (day == "금요일" || day == "금") {
+      //     console.log("금요일을 입력했군요 Friday");
+      //   } else if (day == "토요일" || day == "토") {
+      //     console.log("토요일을 입력했군요 Saturday");
+      //   } else if (day == "일요일" || day == "일") {
+      //     console.log("일요일을 입력했군요 Sunday");
+      //   } else {
+      //     console.log("잘 입력해봐요");
+      //   }
+
+      //90~100(A) 80~89(B) 70~79(C) 60~69(D) 59~0(F)
+
+      //   const jumSu = prompt("점수를 입력하세요(0~100)", "");
+      //   if (jumSu >= 90 && jumSu <= 100) {
+      //     const grade = "A";
+      //   } else if (jumSu >= 80 && jumSu <= 89) {
+      //     const grade = "B";
+      //   } else if (jumSu >= 70 && jumSu <= 79) {
+      //     const grade = "C";
+      //   } else if (jumSu2 >= 60 && jumSu <= 69) {
+      //     const grade = "D";
+      //   } else {
+      //     const grade = "F";
+      //   }
+      //   console.log("당신의 학점은 90" + grade + " 입니다.");
+      //   console.log("프로그램을 종료합니다");
+
+      let grade;
+      const jumSuInput = prompt("점수를 입력하세요(0~100)", "");
+
+      if (jumSuInput === null || jumSuInput.trim() === "") {
+        console.log("입력이 취소 되었거나 값이 없습니다.");
+      } else {
+        const jumSu = Number(jumSuInput);
+
+        if (!isNaN(jumSu) && jumSu >= 0 && jumSu <= 100) {
+          if (jumSu >= 90) {
+            grade = "A";
+          } else if (jumSu >= 80) {
+            grade = "B";
+          } else if (jumSu >= 70) {
+            grade = "C";
+          } else if (jumSu >= 60) {
+            grade = "D";
+          } else {
+            grade = "F";
+          }
+          console.log("당신의 학점은 : " + grade + " 입니다.");
+        } else {
+          console.log("0에서 100사이의 숫자만 정확히 입력해주세요.");
+        }
+      }
+      console.log("프로그램을 종료합니다");
+    </script>
+
+    <!-- 
+    
+    제어문
+
+    1. 조건문
+
+    2. 반복문
+
+
+
+    1. 조건문 
+        - 1) if문 
+                - {}(블럭문) 생략할수 있는데 ... if문이 참일떄 첫줄(한줄)만  수행문으로 계산
+
+                -단일 조건문(조건에 참(true 일때 처리하는 방식)
+                    -if(조건절){
+                        //조건에 true 일때 처리할 코드
+                    }     
+
+
+                -양자 택일문(조건에 참일때 와 거짓일때 각각 처리하는 방식)
+                    -if(조건절){
+                    //조건에 true 일때 처리할 코드
+                    }else{
+                    // 조건에 false 일때 처리할 코드
+                    }
+
+                -다중 조건문(조건이 2개 이상일때 처리한는 방식)
+                
+                    -if(조건절){
+                        //조건에 true 일때 처리할 코드
+                    }else{
+                        // 조건에 false 일때 처리할 코드
+                    }else{
+                        // 조건에 false 일때 처리할 코드
+                    }
+
+
+
+                -중첩 조건문
+                    -> if 문안에  또 if문을 중첩해서 사용할 수 있다.
+                
+
+    
+
+    -->
+  </body>
+</html>

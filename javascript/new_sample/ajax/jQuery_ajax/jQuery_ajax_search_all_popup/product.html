@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<title>포트폴리오평가</title>
+		<link rel="stylesheet" href="./css/sam.css" />
+	</head>
+	<body>
+		<h1>
+			<a href="./index.html"><img src="./images/logo_bk.png" alt="정샘물" /></a>
+		</h1>
+		<div class="product">
+			<h3>BEST PRODUCT</h3>
+			<div class="serch_box">
+				<label for="title">제품명</label>
+				<input
+					id="title"
+					type="text"
+					placeholder="정샘물 립프레션"
+					list="searchList" />
+				<button id="btn" type="button">검색</button>
+				<button class="btn_all" type="button">모두보기</button>
+				<datalist id="searchList">
+					<option value="정샘물 립프레션"></option>
+					<option value="정샘물 프로래스팅 피니쉬 파우더"></option>
+					<option value="정샘물 핑크 퍼펙션 에디션"></option>
+					<option value="정샘물 미니 파잉 스킨케어 세트"></option>
+					<option value="정샘물 미니 파잉 브이씨 앰플"></option>
+					<option value="정샘물 스킨 세팅 톤 매너 베이스"></option>
+				</datalist>
+			</div>
+			<div class="product_list">
+				<!-- 여기에 검색 리스트 -->
+			</div>
+			<div class="modal_box">
+				<div class="popup">
+					<div class="pop_con">
+						<!-- 팝업 내용 -->
+					</div>
+					<a href="#" class="close_pop">close</a>
+				</div>
+			</div>
+		</div>
+
+		<script src="./js/jquery-1.12.0.min.js"></script>
+		<script src="./js/sam.js"></script>
+	</body>
+</html>

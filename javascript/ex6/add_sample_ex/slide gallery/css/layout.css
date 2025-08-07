@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0; padding:0;}
+#main{width:400px; border:2px solid #CCC; overflow:hidden;position:relative;}
+.gallery{ width:1200px; height:220px; overflow:hidden;
+          position:relative; left:0; top:0;}
+.g1{width:400px; float:left; }
+.sub_menu{width:400px;}
+span{ font-size:14px; color:#333; font-weight:bold; display:block; 
+       padding:10px; float:left;}
+.hover{ cursor:pointer; color:#FFF; background-color:#FC0;}

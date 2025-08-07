@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7/21일 제이쿼리</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .bgcolor0 {
+      background: red;
+    }
+    .bgcolor1 {
+      background: green;
+    }
+    .bgcolor2 {
+      background: blue;
+    }
+    .bgcolor3 {
+      background: orange;
+    }
+    .bgcolor4 {
+      background: brown;
+    }
+  </style>
+  <body>
+    <p>문서의 첫번째단락요소입니다.</p>
+    <p>문서의 두번째단락요소입니다.</p>
+    <p>문서의 세번째단락요소입니다.</p>
+    <p>문서의 네번째단락요소입니다.</p>
+    <p>문서의 다섯번째단락요소입니다.</p>
+
+    <script src="./js/jquery-1.12.4.js"></script>
+    <script src="./js/jquery-migrate-1.4.1.js"></script>
+
+    <script>
+      //   $(".select").css("color", "red");
+
+      //   $("p").each(function (index) {
+      //     console.log(index);
+      //     if ($(this).is(".select")) {
+      //       $(this).css("color", "red");
+      //     }
+      //   });
+
+      $("p").each(function (i) {
+        $(this).addClass("bgcolor" + i);
+      });
+    </script>
+
+    <!-- 
+    
+    $('선택자').is()메소드
+        - $('선택자').is(.클래스명) / $('선택자').is('#아이디명')
+        -선택된 태그가 해당 클래스나 아이들ㄹ 가지고 있는지 판별하다.
+        -해당 클래스나 아이디를 가지고 있으면 -> true / 없으면 -> false
+        -if()문의 조건절로 사용한다.
+
+    $('선택자').hasClass()메소드
+
+
+    $('선택자').each()메소드
+        - 선택된 태그들을 순서대로 각각 접근할 수 있다.(태그의 반복문 처럼 사용된다.)
+        -$('선택자').each(function(index){
+        //처리코드
+        })
+        -index 매개변수에 선택된 태그들의 번호가 자동 할당 된다.
+    -->
+  </body>
+</html>

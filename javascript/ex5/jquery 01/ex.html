@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JQuery문법</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h2>1제목입니다.</h2>
+      <p>내용입니다.</p>
+      <div class="box2">
+        <h3>2제목입니다.</h3>
+        <p>내용입니다.</p>
+    
+      </div>
+    </div>
+    <script src="./js/jquery-1.12.4.js"></script>
+    <script src="./js/jquery-migrate-1.4.1.js"></script>
+    <script>
+      $(".box .box2").append("<address>주소 입니다.</address>");
+      $(".box .box2").append("<p>주소 입니다.</p>");
+      $(".box .box2").append("<p>주소 입니다.</p>");
+      $(".box .box2").remove();
+    </script>
+  </body>
+</html>

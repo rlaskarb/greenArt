@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .box {
+        width: 300px;
+        height: 300px;
+        /* border-radius: 50%; */
+        background: gold;
+        font-size: 1.5rem;
+        color: blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <strong>텍스트</strong>
+    </div>
+
+    <script src="./js/jquery-1.12.4.js"></script>
+    <script src="./js/jquery-migrate-1.4.1.js"></script>
+    <script src="./js/jquery.easing.1.3.js"></script>
+    <script>
+      $(".box").click(function () {
+        $(this)
+          .delay(500)
+          .animate(
+            {
+              left: "300px",
+              top: "300px",
+              width: "150px",
+              height: "150px",
+              borderRadius: "50%",
+              opacity: "0.5",
+            },
+            1000,
+            "easeOutBounce",
+            function () {
+              $(".box").html("네모가 좋아");
+            }
+          );
+      });
+    </script>
+
+    <!--                      
+
+    1 애니메이션
+      1) 기본적인 시각적 효과
+        * 해당 태그를 보이게 $().css('display','block');
+
+        -$().show(); 보여줘
+        -$().hide(); 가려줘
+         $().show('속도'); -> slow / normal /fast / 1000(1초) 
+         $().slideDown();
+         $().slideUp();
+         $().fadeIn();
+         $().fadeOut();
+
+      2) 가속도 효과(easing)를 줄수 있다. (32가지의 속도를 줄수 있음)
+        $().show(속도,easing);
+        https://easings.net/ 여기가면 너가 쓰고싶은 easing 미리볼수가 있는데 난 안쓸꺼야 그래도 마음이 바뀔수도 있으니 알아만 두자
+
+
+      3) callback() 사용
+        callback()는 애니매이션이 모두 처리된후에 자동으로 호출되는 함수
+        $().show(속도,easing,function(){//처리코드})
+             - top, left, right, bottom -> 위치이동(position 속성으로 지정되어야 한다.)
+             - width, height -> 크기
+             - opacity -> 투명도
+
+    2 사용자 지정효과  animate()메소드
+      -변경되는 값까지의 중간 단계의 애니메이션을 부드럽게 만들어 준다.(tween)
+      $(selector).animate(object);
+      $(selector).animate(object, speed);
+      $(selector).animate(object, speed, callback);
+      $(selector).animate(object, speed, easing, callback);
+
+
+
+     -->
+  </body>
+</html>

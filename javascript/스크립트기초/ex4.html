@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const code = prompt(
+        "직급코드를 입력해주세요.(A(과장), B(대리) , C (주임), D (신입))",
+        ""
+      );
+
+      const pay1 = Number(prompt("본봉을 입력하세요(단위:만원)", ""));
+      const pay2 = Number(prompt("수당을 입력하세요(단위:만원)", ""));
+      let total = 0; // 총 월급여
+      let bonus = 0; // 보너스
+      let level = ""; // 직급명
+
+      if (code == "A" || code == "a") {
+        level = "과장";
+        bonus = 50;
+      } else if (code == "B" || code == "b") {
+        level = "대리";
+        bonus = 40;
+      } else if (code == "C" || code == "c") {
+        level = "주임";
+        bonus = 30;
+      } else if (code == "D" || code == "d") {
+        level = "신입";
+        bonus = 10;
+      } else {
+        console.log("잘못된 코드 입력했어");
+      }
+
+      total = pay1 + pay2 + bonus; // 총 월급여
+      console.log(
+        "당신의 직급은" +
+          level +
+          "이고 , 보너스는" +
+          bonus +
+          "만원 이고, 총급여는 " +
+          total +
+          "만원 입니다."
+      );
+    </script>
+  </body>
+</html>

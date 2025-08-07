@@ -1,0 +1,467 @@
+<JQuery 플러그인>
+
+    ex1) LightBox 플러그인
+         
+         $(document).ready(function () {
+	  $('.lightBox a').lightBox({
+		  overlayBgColor: '#000',
+		  overlayOpacity: '0.7',
+		  keyToPrev: 'a',
+		  keyToNext: 's',
+		  keyToClose: 'd'
+	  });
+        });
+       -------------------------------------------------  
+       <div class="lightBox">
+          <h1>jQuery LightBox</h1>
+          <a rel="lightbox" title="" href="big/Chrysanthemum.jpg">Image-1</a>
+          <a rel="lightbox" title="" href="big/Desert.jpg">Image-2</a>
+          <a rel="lightbox" title="" href="big/Hydrangeas.jpg">Image-3</a>
+          <a rel="lightbox" title="" href="big/Jellyfish.jpg">Image-4</a>
+          <a rel="lightbox" title="" href="big/Koala.jpg">Image-5</a>
+          <a rel="lightbox" title="" href="big/Lighthouse.jpg">Image-6</a>
+          <a rel="lightbox" title="" href="big/Penguins.jpg">Image-7</a>
+          <a rel="lightbox" title="" href="big/Tulips.jpg">Image-8</a>
+      </div>
+
+================================================================           
+    ex2) FancyBox 플러그인
+        
+        1)기본 겔러리
+
+         $(document).ready(function () {
+            $('.fancyBox a').fancybox();
+        });   
+        ---------------------
+        <div class="fancyBox">
+          <h1>jQuery FancyBox</h1>
+          <a rel="fancybox" title="Chrysanthemum" href="Chrysanthemum.jpg">Image-1</a>
+          <a rel="fancybox" title="Desert" href="Desert.jpg">Image-2</a>
+          <a rel="fancybox" title="Hydrangeas" href="Hydrangeas.jpg">Image-3</a>
+          <a rel="fancybox" title="Jellyfish" href="Jellyfish.jpg">Image-4</a>
+          <a rel="fancybox" title="Koala" href="Koala.jpg">Image-5</a>
+          <a rel="fancybox" title="Lighthouse" href="Lighthouse.jpg">Image-6</a>
+          <a rel="fancybox" title="Penguins" href="Penguins.jpg">Image-7</a>
+          <a rel="fancybox" title="Tulips" href="Tulips.jpg">Image-8</a>
+       </div>
+
+       2)dialog.htm
+         $(document).ready(function () {
+            $('.fancyBox a').fancybox();
+         });
+        ----------------------------------
+        <div class="fancyBox">
+           <h1>jQuery FancyBox</h1>
+          <a rel="fancybox" href="#dialog">Dialog with FancyBox</a>
+          <!-- 다이얼로그 -->
+          <div id="dialogs" style="display:none;">
+            <div id="dialog">
+              <h1>Hello FancyBox..!</h1>
+              <p>Lorem ipsum dolor sit amet,</p>
+            </div>
+          </div>
+        </div>    
+      
+       3)iframe.htm
+         
+         $(document).ready(function () {
+            $('a[rel=fancybox]').fancybox();
+         });
+         ------------------------------
+         <h1>jQuery FancyBox</h1>
+         <a rel="fancybox" class="iframe" href="http://cafe.naver.com/greenjob">그린컴퓨터 취업전문반</a>
+       
+       4)movie.htm
+
+         $(document).ready(function () {
+            $('a[rel=fancybox]').fancybox();
+         });
+         --------------------------
+         <h1>jQuery FancyBox</h1>
+         <a rel="fancybox" href="#dialog">Dialog with FancyBox</a>
+         <a rel="fancybox" href="#video">Video with FancyBox</a>
+
+         <!-- 다이얼로그 -->
+         <div id="dialogs" style="display:none;">
+             <div id="dialog">
+                <h1>Hello FancyBox..!</h1>
+                <p>Lorem ipsum dolor sit amet,</p>
+             </div>
+             <!-- 다이얼로그-2 -->
+             <div id="video">
+               <iframe width="420" height="315" src="http://www.youtube.com/embed/-okWybhnkzc" frameborder="0" allowfullscreen></iframe>
+             </div>
+        </div>
+
+====================================================================        
+    ex3) inner fade 플러그인
+       
+        $(document).ready(function () {
+	  // innerfade 플러그인을 적용합니다.
+	  $('.inner_fade').innerfade({
+		  animationtype: 'fade',
+		  speed: 'slow',
+		  timeout: 2000,
+		  type: 'sequence',
+		  containerheight: '220px'
+	  });
+        });
+       ---------------------------------------
+      <ul class="inner_fade">
+        <li><img src="images/img1.jpg" alt="img1"/></li>
+        <li><img src="images/img2.jpg" alt="img2"/></li>
+        <li><img src="images/img3.jpg" alt="img3"/></li>
+        <li><img src="images/img4.jpg" alt="img4"/></li>
+        <li><img src="images/img5.jpg" alt="img5"/></li>
+     </ul>
+  
+     <ul class="inner_fade">
+        <li>Box Shadow and Text Shadow</li>
+        <li>Transparency with RGBA and Opacity</li>
+        <li>Custom Web Fonts with @Font-Face</li>
+     </ul>
+
+=======================================================================
+    ex4) UI Effect 플러그인
+        
+        .section{width:600px;}
+        .reverse {color:White; background-color:#F60;}
+       ----------------------------
+          $(document).ready(function () {
+	  $('div').hover(function () {
+		  $(this).addClass('reverse', 1000);
+	  }, function () {
+		  $(this).removeClass('reverse', 1000).stop(false,true);
+		  
+	  });
+          });
+       ---------------------------------
+       <div class="section">
+          <h2>Lorem ipsum</h2>
+          <p>Lorem ipsum dolor sit amet</p>
+      </div>
+      <div class="section">
+          <h2>Lorem ipsum</h2>
+          <p>Lorem ipsum dolor sit amet</p>
+      </div>
+      <div class="section">
+          <h2>Lorem ipsum</h2>
+          <p>Lorem ipsum dolor sit amet</p>
+      </div>  
+     
+=======================================================================
+    ex5) s3slider 플러그인
+
+      $(document).ready(function() {
+        $('#slider').s3Slider({
+            timeOut: 3000
+        });
+      });
+      --------------------------------------
+     <div id="slider">
+        <ul id="sliderContent">
+            <li class="sliderImage">
+                <img src="images/1.jpg" alt="" />
+                <span class="top"><strong>Title text 1</strong><br />Content text...</span>
+            </li>
+            <li class="sliderImage">
+                <img src="images/2.jpg" alt="" />
+                <span class="top"><strong>Title text 2</strong><br />Content text...</span>
+            </li>
+            <li class="sliderImage">
+                <img src="images/3.jpg" alt="" />
+                <span class="bottom"><strong>Title text 2</strong><br />Content text...</span>
+            </li>
+            <li class="sliderImage">
+                <img src="images/4.jpg" alt="" />
+                <span class="bottom"><strong>Title text 2</strong><br />Content text...</span>
+            </li>
+            <li class="sliderImage">
+                <img src="images/5.jpg" alt="" />
+                <span class="top"><strong>Title text 2</strong><br />Content text...</span>
+            </li>
+            <div class="clear sliderImage"></div>
+        </ul>
+    </div>     
+
+=======================================================================
+    ex6) move_banner 플러그인
+
+	$(document).ready(function(){
+		$('#motionj_slide_01').motionj_slide_banner({
+			width : 350, // 배너 이미지 너비
+			height : 150, // 배너 이미지 높이
+			speed : 500, // 슬라이딩 속도
+			delay : 3000, // 딜레이 시간
+			image : './images/', // 이미지 경로
+			pause : false // true is stop banner, false is auto moving banner
+		});
+	});
+
+       -------------------------------------
+       <div id="motionj_slide_01">
+             <ul>
+                  <li><a href="#"><img src="images/a1.jpg" alt='' /></a></li>
+	   <li><a href="#"><img src="images/a2.jpg" alt='' /></a></li>
+	   <li><a href="#"><img src="images/a3.jpg" alt='' /></a></li>
+	   <li><a href="#"><img src="images/a4.jpg" alt='' /></a></li>
+                  <li><a href="#"><img src="images/a5.jpg" alt='' /></a></li>
+            </ul>
+      </div>
+
+======================================================================
+    ex7) fadeBanner 플러그인
+
+        $(document).ready(function(){
+	$('#motionj_fade_01').motionj_fadeBanner({
+		width : 250,	//이미지의 너비
+		height: 300,	// 이미지의 높이
+		speed : 500,	// fade 속도 조절.
+		delay : 2000	// 모션이 되는 중간 딜레이
+	});
+       });
+       --------------------------------------------
+       <div id="motionj_fade_01">
+	<ul>
+	   <li><a href="#"><img src="images/a1.jpg" alt="" /></a></li>
+	   <li><a href="#"><img src="images/a2.jpg" alt="" /></a></li>
+	   <li><a href="#"><img src="images/a3.jpg" alt="" /></a></li>
+	   <li><a href="#"><img src="images/a4.jpg" alt="" /></a></li>
+	   <li><a href="#"><img src="images/a5.jpg" alt="" /></a></li>
+	</ul>
+               <p>
+	   <span><img src="images/1_off.gif" alt="" /></span>
+	   <span><img src="images/2_off.gif" alt="" /></span>
+	   <span><img src="images/3_off.gif" alt="" /></span>
+	   <span><img src="images/4_off.gif" alt="" /></span>
+	   <span><img src="images/5_off.gif" alt="" /></span>
+	</p>
+       </div>
+
+======================================================================
+    ex8) accordion 플러그인
+
+        *{margin:0;padding:0;}
+        img{border:0;}
+        li{list-style:none;}
+        #motionj_accrn_01{width:500px; border:2px solid #CCC;}
+        ---------------------------------
+        $(document).ready(function(){
+	$('#motionj_accrn_01').motionj_accordion_ad({
+		i_width :350, // 이미지 너비
+		width : 500, // 전체 박스 너비
+		height : 150, // 높이
+		speed : 300, // 넘어가는 속도
+		delay : 3000, // 컷 딜레이
+		start : 0 // 스타트
+	});
+        });
+        ------------------------------------
+        <div id="motionj_accrn_01">
+	<ul>
+	    <li><a href="#"><img src="images/a1.jpg" /></a></li>
+	    <li><a href="#"><img src="images/a2.jpg" /></a></li>
+	    <li><a href="#"><img src="images/a3.jpg" /></a></li>
+	    <li><a href="#"><img src="images/a4.jpg" /></a></li>
+	</ul>
+       </div>
+
+==============================================================
+ ex9) tooltip 플러그인(2가지 종류)
+  
+   ex9-1)tool tip
+
+        $(document).ready(function() {
+	$('#container a.tooltip').tooltip();
+        });
+       -------------------------------
+       <a href="#" class="tooltip" title="This is my title">English</a>
+       <a href="#" class="tooltip" title="The other day, I bla bla with WordPress.">over the years</a>
+
+   ex9-2)tool tip 2
+    
+       $(document).ready(function(){
+	$('.tTip').betterTooltip({speed: 150, delay: 300});
+       });
+       --------------------------------------
+        <div class="tTip"  title="The letter T. ">What's the difference between here and there?</div>
+        <div class="tTip"  title="To hold cows together.">What's the greatest worldwide use of cowhide?</div>
+        <div class="tTip"  title="Neither, both burn shorter (not longer).">Which burns longer, a red candle or a white one?</div>
+        <div class="tTip"  title="Sunday - the rest are week days">Which is the strongest day of the week?</div>
+        <div class="tTip"  title="2 hours after 11:00 is 1:00">When can you add two to eleven and get one as the correct answer?</div>
+
+=================================================================
+  ex10) top menu 플러그인
+
+    $(document).ready(function(){
+      $("#webwidget_menu_dropdown").webwidget_menu_dropdown({
+	m_w: '100',
+	m_t_c: '#FFF',
+	m_c_c: '#8FC45A',
+	m_bg_c: '#56A901',
+	m_b_s: '2',
+	m_bg_h_c: '#8FC45A',
+	s_s: 'fast',
+	m_s: 'small'
+     });		
+   });		
+
+=================================================================
+  ex11) left menu 플러그인
+
+      $(document).ready(function(){
+	  $(".webwidget_menu_vertical_menu1").webwidget_menu_vertical_menu1({
+		  style_color: 'red',
+		  font_color: '#666',
+		  font_decoration: 'none',
+		  animation_speed: 'normal',
+		  directory: 'images'
+	  });
+      });
+
+=================================================================
+ ex12) move image 플러그인
+
+  /* 움직임은 아래 2개의 css의 가로, 세로값에 결정됩니다 */
+#mouseover3d {width:1000px; height:200px; overflow:hidden; margin:0 auto}           
+#mouseover3d li{width:1242px; height:506px; overflow:hidden; margin:0; background: url(exImg.jpg) 0 0 no-repeat; text-indent:-9999px}
+--------------------------
+ $(document).ready(function() { 
+             $('#mouseover3d').smart3d({
+		invertHorizontal: true, 
+		invertVertical: true
+	});
+  });
+------------------------
+  <ul id="mouseover3d">
+      <li>서브 메인 이미지</li>
+    </ul>
+
+=================================================================
+ ex13) slide_left
+
+  .partner{width:945px; clear:both; overflow:hidden;
+           border:1px solid #999;}
+  .partner li img{border:0;}
+
+  .simply-scroll-clip{position:relative; overflow:hidden}
+  .simply-scroll-list{overflow:hidden; margin:0; padding:0; list-style:none}
+  .simply-scroll-list li{margin-right:4px; float:left; width:105px; height:33px}
+  .simply-scroll .simply-scroll-clip{width:945px; height:33px}
+
+  -----------------------------
+    $(document).ready(function(){
+	$("#scroller").simplyScroll();
+    });
+
+=================================================================
+ex14) coin-slider
+
+
+ $(document).ready(function() {
+        $('#coin-slider').coinslider({sDelay: 130,hoverPause: true});
+    });
+
+================================================================
+ex15) widescreen
+
+
+$(document).ready(function(){
+
+  jQuery(".slider .bd li").first().before( jQuery(".slider .bd li").last() );
+  jQuery(".slider").hover(function(){
+	 jQuery(this).find(".arrow").stop(true,true).fadeIn(300) 
+	 },function(){ 
+	 	jQuery(this).find(".arrow").fadeOut(300) });				
+	 jQuery(".slider").slide(
+	 	{ titCell:".hd ul", mainCell:".bd ul", effect:"leftLoop",autoPlay:true, vis:3,autoPage:true, trigger:"click"}
+	);
+
+});
+
+===============================================================
+ ex16) 입력 양식 검사(validate) 플러그인
+
+        1)ex1
+           $(document).ready(function () {
+               $('#my_form').validate();
+          });
+
+       ----------------------
+       2)ex2
+          $(document).ready(function () {
+            $('#my_form').validate({
+                rules: {
+                    name: {
+                        required: true,
+                        minlength: 2
+                    },
+                    email: 'required email',
+                    homepage: {
+                        required: true,
+                        url: true
+                    }
+                },
+                messages: {
+                    name: {
+                        required: '이름을 입력해주세요.',
+                        minlength: '{0}글자 이상 입력해주세요.'
+                    },
+                    email: {
+                        required: '이메일을 입력해주세요.',
+                        email: '이메일 형식에 맞게 입력해주세요.'
+                    },
+                    homepage: {
+                        required: '홈페이지 주소를 입력해주세요.',
+                        url: 'URL 형식에 맞게 입력해주세요.'
+                    }
+                }
+            });
+        });
+
+       ---------------------------
+       3)ex3
+         $(document).ready(function () {
+            // 메시지를 정의합니다.
+            $.extend(jQuery.validator.messages, {
+                required: '필수 입력 사항입니다.',
+                minlength: '{0}글자 이상 입력해주세요.',
+                email: '이메일 형식에 맞게 입력해주세요.',
+                url: 'URL 형식에 맞게 입력해주세요.'
+            });
+
+            // Validate 플러그인을 적용합니다.
+            $('#my_form').validate({
+                rules: {
+                    name: {
+                        required: true,
+                        minlength: 2
+                    },
+                    email: 'required email',
+                    homepage: {
+                        required: true,
+                        url: true
+                    }
+                }
+            });
+        });
+          
+        ------------------------------
+        4)ex4
+
+         $(document).ready(function () {
+            $('#my_form').validate({
+                rules: {
+                    name: {
+                        required: true,
+                        minlength: 2
+                    },
+                    password: { password: true },
+                    pass_check: { equalTo: "#password" }
+                },
+                errorPlacement: function (label, element) {
+                    label.prependTo(element.parent().next());
+                }
+            });
+        });
+          

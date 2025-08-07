@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #box {
+        width: 200px;
+        height: 50px;
+        margin: 10px 30px;
+        text-align: center;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        background: orange;
+        color: #fff;
+        font-weight: 700;
+        display: none;
+      }
+      button {
+        width: 100px;
+        height: 30px;
+        margin: 10px 100px 10px;
+        color: #fff;
+        background: green;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <button type="button" onclick="btn();">더보기</button>
+    <div id="box">박스안에 있는 텍스트입니닷</div>
+
+    <script>
+      const box = document.getElementById("box");
+      box.style["font-size"] = "1.3rem";
+      function btn() {
+        box.style.display = "block";
+      }
+    </script>
+
+    <!-- 
+ window 객체(브라우저 최 상의 객체)
+        
+        -BOM
+            -location 객체
+                -현재 URL에 대한 정보를 가지고 있는 객체
+                -location.reload() -> 페이지 세로고짐
+            -navigator 객체
+                -웹 문서를 실행하고 있는 브라우저에 대한 정보를 가지고 있는 객체
+            -history 객체
+                -브라우저 방문기록(history)에 대한 정보를 가지고 있는 객체
+            -screen 객체
+                -운영체제의 화면(스크린)에 대한 정보를 가지고 있는 객체()
+            
+        -DOM (Document Object Model) 문서객체모델
+            -document 객체
+                -HTML DOM은 HTML 구성요소들을 획득,변경,추가,삭제하기 위한 표준
+
+                *노드(계층) => 요소노드(태그의 계층) 와 텍스트노드(텍스트)로 구분됨
+
+                주의사항
+                    - DOM의 문법을 사용할때   javascript code 보다 body 태그를 먼저 계산 해야한다.
+
+                    - javascript 는 body태그의 가장 마지막 프로그래밍을 한다(추천)!
+
+                    - 난 꼭 <head></head> 태그 javascript를 작성할때는 꼭
+                        window.onload = function(){
+                        //body의 태그를 먼저 읽고  body를 읽으면 그다음 실행한다.
+                        }
+
+            1. 태그의 생성.
+                - 객체명.innerHTML
+
+            2. 요소(태그)의 접근하기 **
+            태그 하나를 부르는 방법
+                -const 객체명 document.getElementById("아이디명");
+                -const 객체명 = document.queySelector('css명'); // 여러개의 태그일 경우 첫번째 태그만 호출
+
+            여러개의 태그를 부르는 방법
+                const 객체명 = document.getElementByTagName('태그명') // 여러개의 태그를 리턴한다.(배열로 처리한다.)
+                const 객체명 = document.getElementByClassName('.클래스명') // 여러개의 태그를 리턴한다.(배열로 처리한다.)
+                const 객체명 = document.queySelectorAll('css선택자') // 여러개의 태그를 리턴한다.(배열로 처리한다.)
+
+            3. 태그의 CSS 속송 조작!
+                -객체명.style.css속성 = 값;
+                -객체명.style.fontSize='30px' javascript 에서는 '-'를 사용못함다 
+    -->
+  </body>
+</html>

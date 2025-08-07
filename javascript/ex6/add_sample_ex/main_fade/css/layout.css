@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0; padding:0;}
+.main{ position:relative;width:1000px; height:420px;
+    border:1px solid red; overflow:hidden}
+.gallery{position:relative;left:0; top:0; overflow:hidden; width:1000px; height:380px;}
+.gallery ul li{list-style:none; }
+.gallery .link1,.gallery .link2,.gallery .link3,.gallery .link4,.gallery .link5{display:none}
+
+.dock{width:330px; position:absolute; left:350px; top:350px;}
+
+.dock span.mbutton{ margin-right:15px; cursor:pointer; 
+    display:block; float:left; width:48px; height:48px;}
+
+.dock span.btn1{background:url(../images/1.png)}
+.dock span.btn2{background:url(../images/2.png)}
+.dock span.btn3{background:url(../images/3.png)}
+.dock span.btn4{background:url(../images/4.png)}
+.dock span.btn5{background:url(../images/5.png)}
+
+img{border:0; vertical-align:top;}
