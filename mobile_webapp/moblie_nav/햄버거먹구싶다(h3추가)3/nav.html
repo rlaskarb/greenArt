@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+    </style>
+
+    <style>
+*{margin: 0; padding:0;}
+body{font-size: 14px; color: #333;}   
+a{color: #333; text-decoration: none; display: block;} 
+ul{list-style: none;}
+
+.hidden,#skipNav{display: block; position: absolute; left:-1000%;top:0; width: 1px; height: 1px; overflow: hidden; color: #fff}
+.wrap{width: 100%; position: relative; overflow: hidden;}
+
+
+
+/* 헤더영역 */
+#headerArea{background: rgba(255,0,0,.3); position: fixed; width: 100%;z-index: 50;}
+#headerArea .header_top{overflow: hidden;}
+#headerArea h1{ font-size: 30px; text-align: center;}
+#headerArea h1 a{ color: #333; text-decoration: none; padding: 20px;}
+
+#headerArea .menu_ham {
+    position: absolute; right: 20px;top: 12px;
+    height: 50px;
+    border-radius: 5px;
+    z-index:50 ;
+}
+#headerArea .menu_ham span {
+    width: 20px;
+    height: 4px;
+    background: #fff;
+    position: relative;
+    text-indent: -9999px;
+    display: block;
+    margin: 26px 15px;
+    border-radius: 5px;
+    transition: all .3s;
+}
+#headerArea .menu_ham span::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 4px;
+    background: #fff;
+    position: absolute;
+    top: -7px;
+    left: 0;
+    border-radius: 5px;
+    transition: all .3s;
+}
+#headerArea .menu_ham span::after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 4px;
+    background: #fff;
+    position: absolute;
+    top: 7px;
+    left: 0;
+    border-radius: 5px;
+    transition: all .3s;
+}
+
+/* 메뉴가 열렸을때 */
+#headerArea.mn_open .menu_ham span, #headerArea.mn_open .menu_ham span::before, #headerArea.mn_open .menu_ham span::after {
+    background: #fff;
+}
+#headerArea.down .menu_ham span, #headerArea.down .menu_ham span::before, #headerArea.down .menu_ham span::after {
+    background: #333;
+}
+
+#headerArea.mn_open .menu_ham span {
+    background: rgba(0,0,0,0);
+}
+#headerArea.mn_open .menu_ham span::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+#headerArea.mn_open .menu_ham span::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+#headerArea .box{position: fixed; width: 100%; height: 100%;
+  left:0; top:0; background: rgba(0,0,0,.6); display: none;}
+/* nav 영역*/
+#gnb{position: absolute; width: 80%;  left:-100%; top:0; opacity: 0; background: #ccc;}
+
+#gnb>ul{margin-top: 80px;}
+#gnb li{border-top:1px solid #FFF;
+	        font-weight:bold; position: relative;}
+#gnb li a{display: block; padding: 15px 30px} 
+#gnb li a span{display: block; position: absolute; right: 35px;
+   top: 15px;}
+#gnb li ul{background:orange; display: none}
+#gnb .last{border-bottom:1px solid #FFF}
+
+
+
+.main{height: 500px; background: pink;}
+#content{height: 600px; background: orange;}
+#footerArea{height: 150px; background: green;}
+    </style>
+</head>
+<body>
+<div class="wrap">
+   
+    <header id="headerArea"> 
+       <div class="header_top"> 
+            <h1><a href="#">로고</a></h1>
+            <a href="#" class="menu_ham">
+                <span>햄버거</span>
+            </a>
+      </div>
+      <div class="box"></div>      
+      <nav id="gnb">
+        <h2 class="hidden">글로벌네비게이션영역</h2>
+        <ul class="mainMenu">  
+            <li class="depth1">
+                <h3>
+                    <a href="#">단체소개
+                        <span class="material-symbols-outlined">
+                            expand_more
+                        </span>
+                    </a>
+                </h3>
+                <ul>
+                    <li><a href="#">2depth menu01</a></li>
+                    <li><a href="#">2depth menu02</a></li>
+                    <li><a href="#">2depth menu03</a></li>
+                </ul>
+            </li>
+            <li class="depth1"><h3><a href="#">주요활동
+                <span class="material-symbols-outlined">
+                    expand_more
+                </span>
+            </a></h3>
+                <ul>
+                    <li><a href="#">2depth menu01</a></li>
+                    <li><a href="#">2depth menu02</a></li>
+                    <li><a href="#">2depth menu03</a></li>
+                </ul>
+            </li>
+            <li class="depth1"><h3><a href="#">인턴십/자원봉사
+                <span class="material-symbols-outlined">
+                    expand_more
+                </span>
+            </a></h3>
+                <ul>
+                    <li><a href="#">2depth menu01</a></li>
+                    <li><a href="#">2depth menu02</a></li>
+                    <li><a href="#">2depth menu03</a></li>
+                </ul>
+            </li>
+            <li class="depth1"><h3><a href="#">후원/파트너십</a></li></h3>
+            <li class="depth1"><h3><a href="#">뉴스/자료센터</a></li></h3>
+            <li class="depth1 last"><h3><a href="#">갤러리</a></li></h3>
+        </ul>
+    </nav>
+    </header>  
+
+    <div class="main">
+        비주얼영역
+        
+    </div>
+
+    <article id="content">
+        <h2 class="hidden">본문콘텐츠영역</h2>    
+    
+        본문
+    </article>
+
+    <footer id="footerArea">
+        푸터영역
+    </footer>
+</div>
+
+<script src="jquery-1.7.1.min.js"></script>
+<script src="nav_new2.js"></script>
+
+</body>
+</html>

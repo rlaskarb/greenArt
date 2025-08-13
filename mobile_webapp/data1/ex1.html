@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<!-- 강제로 주소창이 사라지게 한다 -->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<!-- 전화번호 텍스가 있어도 강제로 전화를 걸지않게 함 -->
+		<meta name="format-detection" content="telephone=no" />
+		<title>Document</title>
+		<!-- 아이콘 링크 -->
+		<script
+			src="https://kit.fontawesome.com/347816e35e.js"
+			crossorigin="anonymous"></script>
+		<!-- 로딩중 이미지 -->
+		<link rel="apple-touch-startup-image" href="./img/startup.png" />
+		<!-- 홈화면 아이콘 생성 -->
+		<link rel="apple-touch-icon-precomposed" href="./img/app_icon.png" />
+		<link rel="stylesheet" href="./css.css" />
+		<!-- 강제로 주소창이 사라지게하는 스크립트 (안드로이드 때문에 쓰는거임) -->
+		<script>
+			window.addEventListener(
+				"load",
+				function () {
+					setTimeout(scrollTo, 0, 0, 1);
+				},
+				false
+			);
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li><a href="tel:010-4270-2343">고객센터로 민원이메일 넣기</a></li>
+			<li><a href="sms:010-4270-2343">고객센터로 민원문자 넣기</a></li>
+			<li>
+				<a href="mailto:rlaskarb20@gmail.com">고객센터로 민원전화 넣기</a>
+			</li>
+		</ul>
+
+		<address>
+			서울시 .... <br />
+			tel: 010-4270-2343
+		</address>
+
+		<div class="box">
+			<ul>
+				<li><a href="#">상품제안</a></li>
+				<li>
+					<a href="#">나만의 꿀조합</a>
+				</li>
+				<li>
+					<a href="#">신상품후기</a>
+				</li>
+				<li>
+					<a href="#">신상품후기</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="box">
+			<ul>
+				<li><a href="#">상품제안</a></li>
+				<li>
+					<a href="#">나만의 꿀조합</a>
+				</li>
+				<li>
+					<a href="#">신상품후기</a>
+				</li>
+				<li>
+					<a href="#">신상품후기</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="box2">
+			<ul>
+				<li>
+					<img src="./img/new13.jpg" alt="이미지" />
+				</li>
+				<li>
+					<img src="./img/new10.jpg" alt="이미지" />
+				</li>
+				<li>
+					<img src="./img/new12.jpg" alt="이미지" />
+				</li>
+			</ul>
+		</div>
+
+		<div class="box3">
+			<ul class="left">
+				<li>
+					<a href="#"><i class="fa-brands fa-youtube"></i></a>
+				</li>
+				<li>
+					<a href="#"><i class="fa-brands fa-instagram"></i></a>
+				</li>
+			</ul>
+			<ul class="right">
+				<li>
+					<a href="#"><i class="fa-brands fa-facebook"></i></a>
+				</li>
+				<li>
+					<a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

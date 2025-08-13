@@ -1,0 +1,85 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	-webkit-text-size-adjust: none;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	display: block;
+	color: #333;
+	text-decoration: none; /*폰트 사이즈 유지*/
+}
+
+.box {
+	width: 100%;
+	padding: 30px 20px;
+	border: 1px solid red;
+	box-sizing: border-box;
+}
+
+.box ul {
+	overflow: hidden;
+}
+
+.box ul li {
+	width: 25%;
+	float: left;
+	/* margin: 0 0.5%; */
+}
+
+.box ul li a {
+	padding: 20px 0;
+	background: orange;
+	color: aliceblue;
+	text-align: center;
+	border-radius: 10px;
+	margin: 0 5px;
+	font-size: 20px;
+	font-weight: 600;
+	border: 2px solid red;
+}
+
+.box2 {
+	padding: 30px 20px;
+}
+
+.box2 ul {
+	display: flex;
+	gap: 10px;
+}
+
+.box2 ul li {
+	width: 33.33%;
+	box-sizing: border-box;
+}
+
+.box2 ul li img {
+	border: 0;
+	width: 100%;
+	object-fit: contain;
+}
+
+.box3 {
+	padding: 30px 20px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.box3 ul {
+	display: flex;
+}
+
+.box3 a {
+	width: 30px;
+	padding: 20px;
+	font-size: 30px;
+	background: orange;
+	text-align: center;
+}

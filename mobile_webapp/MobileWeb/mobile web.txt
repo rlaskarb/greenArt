@@ -1,0 +1,886 @@
+<mobile web>
+
+
+*모바일 페이지 제작
+
+1.<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
+ 
+2.<meta name="apple-mobile-web-app-capable" content="yes">
+ 
+3.<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+4.<link rel="apple-touch-icon" href="app_icon.png" />
+ 
+5.<link rel="apple-touch-icon-precomposed" href="app_icon.png" />
+ 
+6.<link rel="apple-touch-startup-image" href="startup.png"/>
+
+7. <link href="css/common.css" rel="stylesheet" type="text/css">
+ 
+8.<link href="css/main.css" rel="stylesheet" type="text/css">
+
+9.
+<script>
+  // <![CDATA[
+  try {
+   window.addEventListener('load', function(){
+    setTimeout(scrollTo, 0, 0, 1); 
+   }, false);
+  } 
+  catch(e) {}
+  // ]]>
+ </script>
+
+10.
+<script src="js/jquery-1.8.3.min.js"></script>
+ <script type="text/javascript"> 
+  $(document).ready(function() {
+   $("#btn1").toggle(function() {
+    $("#content").css("display","block");
+   }, function() {
+    $("#content").css("display","none");
+   });
+  });
+ </script>
+
+11. IE구버전 처리 js
+
+<!--[if lt IE 9]> 
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+
+
+
+-------------------------------------------------
+<body>태그 부분
+
+  <!--header s  -->
+ <header>
+  <div id="wrap_head">
+   <h1 class="main_logo bold helv"><a href="index.html" id="logo">HTML5 MOBILE</a></h1>
+   <a href="#" id="btn1"><span class="search_icon"></span></a>
+   <div id="content">
+    <form id="search" action="#" method="get">
+      <div class="bg_search">
+       <div class="wrapBox">
+        <input type="text" name="input_search" class="type_text" title="검색어 입력" maxlength="255"  />
+       </div>
+       <input type="submit" id="Btn" class="type_btn" title="검색" />
+      </div>
+    </form>
+   </div>
+  </div>
+  <nav>
+   <ul class="main_menu bold verd">
+    <li><a href="sub1_1.html" title="company" class="tab_m">COMPANY</a></li>
+    <li><a href="sub2_1.html" title="project" class="tab_m">PROJECT</a></li>
+    <li><a href="sub3_1.html" title="recruit" class="tab_m">REQUEST</a></li>
+    <li><a href="sub4_1.html" title="notice">Q&amp;A</a></li>
+   </ul>
+  </nav>
+ </header>
+ <!-- header e  -->
+ <!-- article s  -->
+ <article>
+  <div id="main">
+    <!-- 메인 겔러리 삽입부분 -->   
+
+   <h2 class="today_tit helv bold">Today's Story</h2>
+   <ul class="n_text_list">
+    <li><a href="#">블리자드, 디아블로3 전액 환불 실시</a></li>
+    <li><a href="#">아기젖병 가격 제각각..품질우수 제품은?</a></li>
+    <li><a href="#">"최고다" 해외서 만점 맞은 한국 TV</a></li>
+    <li><a href="#">동반성장-진정한 선진국으로의 마스트 키</a></li>
+   </ul>
+   <ul class="n_img_list">
+    <li><a href="02_01.html"><img src="images/thumb_main_01x2.png" alt="" width="85" height="60" /><span class="txt">강렬한 카리스마<br />
+    애프터스쿨</span></a></li>
+    <li><a href="02_01.html"><img src="images/thumb_main_02x2.png" alt="" width="85" height="60" /><span class="txt">스파이더맨을 꿈꾸다<br />
+    앤드류 가필드</span></a></li>
+    <li><a href="02_01.html"><img src="images/thumb_main_03x2.png" alt="" width="85" height="60" /><span class="txt">싱글들의 밥상<br />
+    전격 공개</span></a></li>
+   </ul>
+   
+  <!-- 공지사항 추가 -->    
+
+
+   <div class="banner">
+    <a href="#"><span class="text"> EVENT!!<br/>
+     <span class="small_text">MOBILE WEB SITE OPEN!</span>
+	</span></a>
+   </div>
+  </div>
+ </article>
+ <!-- article e  -->
+ <!-- footer s  -->
+ <footer>
+  <div id="footer">
+    <ul>
+     <li><a href="#">MY HOME</a></li>
+     <li><a href="#">ICON VIEW</a></li>
+     <li class="end"><a href="#">TOTAL VIEW</a></li>
+    </ul>
+    <input type="button" value="로그인">
+    <input type="button" value="PC버전">
+    <input type="button" value="고객센터">
+    <p class="privacy">
+	 <a href="#">개인정보취급방침</a>
+	 <span class="bar">|</span>
+	 <a href="#">이용약관</a>
+	</p>
+  </div>
+  <div class="end_bar">
+   <p class="copyrights helv">COPYRIGHT&copy; 2012 HTML5. ALL RIGHTS RESERVED.</p>
+   <a href="javascript:window.scrollTo(0,0);"><img src="images/btn_bot_top.png"></a>
+  </div>
+ </footer>
+ <!-- footer e  -->
+
+--------------------------------------
+main.css  부분
+
+/* HEADER */
+#wrap_head {
+ background:url(../images/bg_top_gnb.png) repeat-x;
+ color:#FFFFFF; }
+h1.main_logo {
+ display:inline-block;
+ height:35px; }
+#logo {
+ color:#FFFFFF;
+ margin:7px 0 0 10px;
+ display:block;
+ font-size:16px; }
+#btn1 {
+ float:right;
+ height:35px;
+ width:45px;
+ border:none;
+ display:block;
+ background:url(../images/img_top_slice.png) no-repeat; }
+
+
+.search_icon {
+ margin:10px 0 0 16px;
+ background:url(../images/btn_search.png) no-repeat;
+ display:block;
+ width:15px;
+ height:15px;
+ -webkit-background-size:15px 15px; }
+@media screen and (-webkit-device-pixel-ratio: 2) {
+ .search_icon { background: url("../images/btn_searchx2.png");
+   -webkit-background-size:15px 15px; }
+}
+
+/* 숨겨진 검색창 */
+#content {
+ display:none;
+ height:42px;
+ background:#cf0808;
+ width:100%;
+ padding-top:10px; }
+
+#content .bg_search {
+ margin:0 10px;
+ position:relative;
+ padding-right:36px;
+ }
+#content .wrapBox {
+ height:32px;
+ background-color:#fff; 
+ border-top-left-radius:5px;
+ -webkit-border-top-left-radius:5px;
+ border-bottom-left-radius:5px;
+ -webkit-border-bottom-left-radius:5px;}
+
+#content .wrapBox input.type_text {
+ width:90%;
+ height:20px;
+ color:#444;
+ border:0 none;
+ margin:5px 0 0 10px; }
+ 
+#content input.type_btn {
+ position:absolute;
+ top:0px;
+ right:0px;
+ display:block;
+ width:36px;
+ height:32px;
+ -webkit-background-size: 36px 32px;
+ background:url(../images/btn_down_search.png) no-repeat;
+ border:0;
+ text-indent:-500em; }
+ 
+@media screen and (-webkit-device-pixel-ratio: 2) {
+#content input.type_btn { background: url("../images/btn_down_searchx2.png");
+-webkit-background-size: 36px 32px; }
+}
+
+/* 대메뉴 */
+.main_menu {
+    width:100%;
+    border-bottom:1px solid #dddddd;
+    border-top:1px solid #dddddd;
+    background:#f6f6f6;
+    text-align:center;
+    overflow:hidden; }
+.main_menu li {
+    float:left;
+    width:25%;
+    height:31px; }
+.main_menu li a {
+    display:block;
+    border:none;
+    height:25px;
+    color:#333333;
+    padding-top:6px;
+    font-size:12px; }
+.main_menu li a.tab_m { border-right:1px solid #dddddd; }
+.main_menu li a.on { color:#cd0000; }
+
+/* 메인 컨텐츠 */
+#main { clear:both; }
+h2.today_tit {
+    color:#cd0000;
+    height:25px;
+    margin:0 0 0 10px; }
+.n_text_list li {
+    height:24px;
+    border-top:1px solid #dcdcdc; }
+.n_text_list li:last-child {
+     border-bottom:1px solid #dcdcdc;
+}
+.n_text_list li a {
+    height:20px;
+    padding:5px 0 0 10px;
+    display:block; }
+.n_img_list { margin-top:10px; overflow:hidden}
+.n_img_list li {
+    float:left;
+    width:33%;
+    text-align:center;
+    line-height:1.1em;}
+.n_img_list li a {
+    display:block;
+    width:100%; }
+.n_img_list li span {
+    display:block;
+    font-size:12px;
+    margin-top:5px; }
+
+/* 공지사항 부분 */
+
+
+.banner {
+    background:url(../images/bn_main.png) no-repeat 10px 7px;
+    clear:both;
+    height:43px;
+    background-color:#666; }
+.banner a {
+    width:100%;
+    height:43px;
+    display:block;
+    color:#FFFFFF; }
+.banner a span {
+    display:block;
+    float:left; }
+.banner a span.text { margin:8px 0 0 113px; }
+.banner a span.small_text { font-size:10px; }
+
+/* footer */
+#footer {
+    border-top:1px solid #aeaeae;
+    background-color:#dcdcdc;
+    text-align:center;
+    font-size:15px;
+    margin-top:5px; 
+    padding-bottom:20px;
+    border-top:1px solid #e2e2e2; 
+    clear:both; }
+#footer ul { margin:15px 0 15px 0; }
+#footer ul li {
+    display:inline-block;
+    height:16px;
+    margin:0;
+    text-align:left;
+    letter-spacing:-1px; }
+#footer ul li a {
+    height:16px;
+    padding:0 10px 0 5px;
+    font-size:15px;
+    color:#555;
+    background:url(../images/bg_bar.png) no-repeat right; }
+#footer ul li.end a { background:none; }
+#footer input {
+    height:26px;
+    padding:0px 8px 0 8px;
+    border:1px solid #aaaaaa;
+    font-size:.8em;
+    color:#222;
+    letter-spacing:-1px;
+    text-align:center;
+    box-shadow:0 1px 0 rgba(0, 0, 0, .1);
+    -webkit-box-shadow:0 1px 1px rgba(0, 0, 0, .15);
+    -moz-box-shadow:0 1px 0 rgba(0, 0, 0, .1);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff), color-stop(100%, #e5e5e5)); /*Safari*/
+    background: -webkit-linear-gradient(top, #fff, #e5e5e5); /*WebKit nightly*/
+    background: -moz-linear-gradient(top, #fff, #e5e5e5); /* Modzilla Firefox */ }
+#footer p.privacy {
+    width:100%;
+    margin:12px 0 0 0;
+    height:10px;
+    font-size:12px;
+    letter-spacing:-1px; }
+#footer p.privacy a { color:#787878; }
+#footer p.privacy span.bar {
+    padding:0 8px 0 8px;
+    font-size:11px;
+    color:#d1d1d1; }
+
+.end_bar {
+    height:25px;
+    background:#424242;
+    color:#CCCCCC;
+    font-size:0.65em; }
+.end_bar p.copyrights {
+    padding:6px 0 0 10px;
+    float:left; }
+.end_bar img {
+    float:right;
+    margin:5px 10px 0 0; }
+----------------------------------------------------------
+-메인 플래킹 배너 추가
+
+  <div class="flexslider">
+          <ul class="slides">
+            <li>
+  	    	    <img src="images/a1.png" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="images/a2.png" />
+  	    		</li>
+  	    		<li>
+  	    	    <img src="images/a3.png" />
+  	    		</li>
+  	    	
+          </ul>
+    </div>
+--------------css추가
+  <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+
+--------------스크립트 연결
+ <script defer src="js/jquery.flexslider.js"></script>
+
+  <script type="text/javascript">
+    $(function(){
+      SyntaxHighlighter.all();
+    });
+    $(window).load(function(){
+      $('.flexslider').flexslider({
+        animation: "slide"
+      });
+    });
+  </script>
+
+---------------------------------------------------
+-공지사항 추가부분
+
+<section>
+     <div class="notice_con">
+      <h1>공지사항</h1>
+      <div class="slide_box">
+        <div class="slide">
+          <ul>
+            <li><a href="#">2013 상반기 번역 플랜티어를 모집합니다.</a></li>
+            <li><a href="#">참 좋은 당신의 마음을 나누는 "참 좋은 기부"</a></li>
+            <li><a href="#">2013 플랜 클럽 7기 모집</a></li>
+            <li><a href="#">플랜, 세계경제위기와 아이들에 관한 보고서 발표</a></li>
+            <li><a href="#">말리, 분쟁으로 또 다시 난민 발생</a></li>
+          </ul>
+        </div>
+      </div>
+     </div>
+    </section>
+--------------스크립트 추가
+
+<script src="js/notice.js" language="javascript"></script>
+
+-------------main.css에 추가
+
+section{height:50px; background:#cd0000; margin-top:10px}
+section .notice_con{height:30px; margin:0 15px;line-height:1em; border-radius:7px; position:relative; top:10px; background:#fff;}
+section .notice_con h1{font-size:13px; font-weight:bold; color:#5c5c5c; padding:8px 6%;}
+section .notice_con .slide_box{width:67%; height:13px; overflow:hidden; position:absolute; left:30%; top:7px;}
+section .notice_con .slide_box .slide{position:absolute;}
+section .notice_con .slide ul{font-size:12px;}
+section .notice_con .slide ul li{height:13px; overflow:hidden; text-overflow:clip; -o-text-overflow:clip; margin-bottom:5px;}
+
+=======================================
+
+서브페이지 1(About us)
+
+*sub1_1.html
+
+<link href="css/sub_layout.css" rel="stylesheet" type="text/css">
+<link href="css/sub1_content1.css" rel="stylesheet" type="text/css">
+----------------------------
+<ul class="sub_menu verd">
+    <li><a href="sub1_1.html" class="on">ABOUT US</a></li>
+    <li><a href="sub1_2.html">LOCATION</a></li>
+    <li><a href="sub1_3.html">MOVIE</a></li>
+</ul>
+-----------------------------
+<h2>ABOUT US</h2>
+<h3>세계 최고를 향해 끊임없이 도전하겠습니다.</h3>     
+<img class="img1" src="images/com.png" alt="" /> 
+<p>2008년 1월. 국내 최고의 소비자마케팅 회사인 LG 생활 건강의 새로운 가족이 된 코카콜라 음료는 코카콜라사의 다양한 음료제품들을 국내에서 독점적으로 생산, 판매하는 회사입니다</p>
+<p>한국에서는 지난 50년대 초 국내에 소개된 이래 60년 가까운 기간 동안 특유의 상쾌한 맛으로 여러분의 사랑을 받아왔습니다. 코카-콜라 음료는 이처럼 여러분이 잘 아시는 '코카-콜라'뿐만 아니라 청량 음료 '킨사이다', '스프라이트', '환타', 스포츠 음료 '파워에이드', 프리미엄 주스'미닛메이드'를 비롯, '쿠우', '네스티', '순수100', '암바사' 등 다양한 맛과 감각의 음료들을 통해 소비자들의 생활에 즐거움을 드려 왔습니다. </p>
+<p>코카-콜라 음료는 이러한 성과에 만족하지 않고 세계1위의 캔커피 '조지아', 일본 1위의 혼합차 '소켄비차'를 출시하여 더욱 새로운 맛을 드리고자 노력하고 있습니다. </p>
+
+----------------------------
+
+*sub_layout.css
+
+/* 2depth menu 추가 */
+.sub_menu {
+   border-bottom:1px solid #dddddd;
+   height:29px;
+   overflow:hidden;
+   padding-left:10px; }
+.sub_menu li {
+   float:left;
+   height:29px;
+   padding-right:20px; }
+.sub_menu li a {
+   display:block;
+   border:none;
+   height:22px;
+   color:#999999;
+   padding-top:8px;
+   font-size:11px; }
+.sub_menu li a.on {
+   color:#F00;
+   font-weight:bold;
+   letter-spacing:-1px; }
+
+-----------------------
+*sub1_content1.css
+
+/* sub1_1의 내용 콘텐츠 */
+#main{padding:15px 10px 20px;}
+#main h2{font-family:Arial, Helvetica, sans-serif;
+       font-size:1.6em; margin-bottom:10px;}
+#main h3{font-size:1em; margin-bottom:15px;}
+#main .img1{float:left; margin-right:10px;}
+#main p{font-size:.95em; text-align:justify; line-height:1.5em; margin-bottom:10px;}
+
+=======================================================================
+서브페이지 2(Location)
+
+*sub1_2.html
+
+<link href="css/sub_layout.css" rel="stylesheet" type="text/css">
+<link href="css/sub1_content2.css" rel="stylesheet" type="text/css">
+---------------------------------
+<ul class="sub_menu verd">
+    <li><a href="sub1_1.html" >ABOUT US</a></li>
+    <li><a href="sub1_2.html" class="on">LOCATION</a></li>
+    <li><a href="sub1_3.html">MOVIE</a></li>
+</ul>
+--------------------------------
+<h2>LOCATION</h2>
+   <div class="m_cont">
+     <span class="map"><img src="images/m1_03_imgx2.png.png" width="100%" alt="망원역 1번출구 50m" /></span>
+   </div> 
+   <table width="100%" border="0" cellspacing="0" cellpadding="0" summary="주소와 연락처">
+    <tr>
+     <th>Address</th>
+     <td>서울시 마포구 서교동 467-9호</td>
+    </tr>
+    <tr>
+     <th>Tel</th>
+     <td>
+	  <span class="tab_text">02.1234.5678</span>
+	  <input type="button" class="btn_tel" value="통화하기" onClick="location.href='tel:0212345678'"; />
+	 </td>
+    </tr>
+    <tr>
+     <th>E-mail</th>
+     <td>
+	  <span class="tab_text">songtm@me.com</span>
+	  <input type="button" class="btn_email" value="메일전송" onClick="location.href='mailto:songtm@me.com'"; />
+	 </td>
+    </tr>
+   </table>
+-------------------------------------------------------------
+*sub1_content2.css
+
+/* sub1_2의 내용 콘텐츠 */
+#main{padding:15px 10px 20px;}
+#main h2{font-family:Arial, Helvetica, sans-serif;
+       font-size:1.6em; margin-bottom:10px;}
+#main .m_cont{ margin-bottom:15px; 
+       box-shadow:2px 2px 3px 3px  rgba(0, 0, 0, .1);
+       -webkit-box-shadow:2px 2px 3px 3px  rgba(0, 0, 0, .1);
+       -moz-box-shadow:2px 2px 3px 3px  rgba(0, 0, 0, .1);}
+#main .m_cont .map { display:block;text-align:center; }
+#main table th{width:20%; padding:10px; text-align:left;
+       border-bottom:1px solid #CCC;}
+#main table td{width:80%; padding:10px;
+       border-bottom:1px solid #CCC;}
+
+#main .btn_tel , #main .btn_email {
+    height:26px;
+    padding:0 8px 3px 8px;
+    border:1px solid #aaaaaa;
+    font-size:90%;
+    color:#FFFFFF;
+    letter-spacing:-1px;
+    text-align:center;
+    box-shadow:0 1px 0 rgba(0, 0, 0, .1);
+    -webkit-box-shadow:0 1px 1px rgba(0, 0, 0, .15);
+    -moz-box-shadow:0 1px 0 rgba(0, 0, 0, .1);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #989898), color-stop(100%, #787878)); 
+    background: -webkit-linear-gradient(top, #989898, #787878);
+    background: -moz-linear-gradient(top, #989898, #787878);
+    float:right;
+    margin-right:10px; }
+
+=========================
+서브페이지 3(Movie)
+
+*sub1_3.html
+
+<link href="css/sub_layout.css" rel="stylesheet" type="text/css">
+<link href="css/sub1_content3.css" rel="stylesheet" type="text/css">
+---------------------------------
+<ul class="sub_menu verd">
+    <li><a href="sub1_1.html" >ABOUT US</a></li>
+    <li><a href="sub1_2.html" >LOCATION</a></li>
+    <li><a href="sub1_3.html" class="on">MOVIE</a></li>
+</ul>
+--------------------------------
+
+   <h2>MOVIE</h2>
+   <p class="text">한국을 비롯해 세계 곳곳에서 땀을 흘리고 있는 두산의 임직원들은 기업가치를 극대화하고 한 차원 높은 고객 만족을 실현하기 위해 노력하고 있습니다. 또한 백 년 넘은 기업으로서 지나온 역사 만큼 미래도 책임진다는 자세로 사회 구성원으로서 당연히 해야 할 방어적 수준의 의무를 뛰어 넘어 한 발 앞서가는 사회 공헌을 실천하겠습니다.</p>
+   <div class="m_cont">
+     <video controls width="100%">
+        <source src="movie/movie.ogv" type="video/ogg" />
+        <source src="movie/movie.mp4" type="video/mp4" />
+     </video>
+    </div>
+
+----------------------------------
+*sub1_content3.css
+
+
+/* sub1_3의 내용 콘텐츠 */
+#main{padding:15px 10px 20px;}
+#main h2{font-family:Arial, Helvetica, sans-serif;
+       font-size:1.6em; margin-bottom:10px;}
+#main .text{font-size:0.9em; line-height:1.5em; text-align:justify;
+       border:1px solid #ccc; padding:5px}
+#main .m_cont{margin-top:15px}
+
+=======================================================
+서브페이지 4(Gallery)
+
+*sub2_1.html
+
+<link href="css/sub_layout.css" rel="stylesheet" type="text/css">
+<link href="css/sub2_content1.css" rel="stylesheet" type="text/css">
+
+--------------------------------
+
+   <h2>GALLERY</h2>
+   <div class="m_cont">
+    <ul class="pro_list">
+     <li><a href="#"><img src="images/s02_thumb_01.png" width="55" height="55" /><span>Gallery01</span></a></li>
+     <li><a href="#"><img src="images/s02_thumb_02.png" width="55" height="55" /><span>Gallery02</span></a></li>
+     <li><a href="#"><img src="images/s02_thumb_03.png" width="55" height="55" /><span>Gallery03</span></a></li>
+     <li><a href="#"><img src="images/s02_thumb_04.png" width="55" height="55" /><span>Gallery04</span></a></li>
+     <li><a href="#"><img src="images/s02_thumb_05.png" width="55" height="55" /><span>Gallery05</span></a></li>
+     <li><a href="#"><img src="images/s02_thumb_06.png" width="55" height="55" /><span>Gallery06</span></a></li>
+     <li><a href="#"><img src="images/s02_thumb_07.png" width="55" height="55" /><span>Gallery07</span></a></li>
+     <li><a href="#"><img src="images/s02_thumb_08.png" width="55" height="55" /><span>Gallery08</span></a></li>
+     <li><a href="#"><img src="images/s02_thumb_09.png" width="55" height="55" /><span>Gallery09</span></a></li>
+     <li><a href="#"><img src="images/s02_thumb_10.png" width="55" height="55" /><span>Gallery10</span></a></li>
+     <li><a href="#"><img src="images/s02_thumb_11.png" width="55" height="55" /><span>Gallery11</span></a></li>
+     <li><a href="#"><img src="images/s02_thumb_12.png" width="55" height="55" /><span>Gallery12</span></a></li>
+    </ul>
+ </div>
+
+----------------------------------
+*sub2_content1.css
+
+
+/* sub2_1의 내용 콘텐츠 */
+#main{padding:15px 10px 20px;}
+#main h2{font-family:Arial, Helvetica, sans-serif;
+       font-size:1.6em; margin-bottom:10px;}
+#main .pro_list {margin:15px 0; overflow:auto;}
+#main .pro_list li {display:inline; margin:0 0 10px 15px;
+  width:55px;float:left; }
+#main .pro_list li span {display:block;text-align:center;font-size:11px; }
+
+-----------------------------------
+-fancyBox 플러그인을 이용한 겔러리
+
+   <link rel="stylesheet" href="fancybox/jquery.fancybox-1.3.4.css"/>
+
+    <script src="fancybox/jquery.fancybox-1.3.4.js"></script>
+    <script src="fancybox/jquery.easing-1.3.pack.js"></script>
+    <script src="fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('a.fancyBox').fancybox();
+        });
+    </script>
+
+-----------
+<a rel="fancybox"  class="fancyBox" title="이미지 타이틀1" href="images/big1.jpg">Image-1</a>
+
+
+
+======================================================================
+
+서브페이지 5 (REQUEST)
+
+*sub3_1.html
+
+
+<link href="css/sub_layout.css" rel="stylesheet" type="text/css">
+<link href="css/sub3_content1.css" rel="stylesheet" type="text/css">
+-------------------------------------
+
+    <h2>REQUEST</h2>
+     <div id="form2">
+          <form action="form" method="post">
+                    <table summary="1:1 상담 문의">
+                      <caption>드림애플 신청하기</caption>
+                           <tr>
+                             <th scope="row">
+                             <label for="name"><span class="thBar">┃</span>이름</label></th>
+                             <td>
+                                <input type="text" id="name" name="name" size="" maxlength="30" class="inputbox01"/>
+                             </td>
+                           <tr>
+                             <th scope="row">
+                             <label for="question_choice"><span class="thBar">┃</span>유형</label></th>
+                             <td>
+                              <select id="question_choice" name="qestion_choice" tabindex="2">
+                              <option value="0">질문 유형을 선택해주세요.</option>
+                              <option value="1">기부관련</option>
+                              <option value="2">사업소개</option>
+                              <option value="3">꿈이야기</option>
+                              <option value="4">공지사항</option>
+                              <option value="4">두드림채널</option>
+                              <option value="4">사과카페</option>
+                              <option value="4">특별한나눔</option>
+                              <option value="5">기타질문</option>
+                               </select>
+                             </td>
+                          </tr>
+                          <tr>
+                         	 <th scope="row">
+                             <label for="subject"><span class="thBar">┃</span>제목</label></th>
+                             <td>
+                                <input type="text" id="subject" name="subject" size="" maxlength="36" tabindex="1" class="inputbox01"/>
+                             </td>
+                     	  </tr>
+                          <tr>
+                             <th scope="row">
+                             <label for="details"><span class="thBar">┃</span>내용</label></th>
+                             <td>
+                                <textarea class="inputbox01" id="details" name="details" rows="5" cols="30" tabindex="10" class="inputbox01">
+                                </textarea>
+                              <p class="ps">* 내용은 2,000자 까지만 등록 가능합니다.<br />
+                              * 두드림 이용에 대한 상담문의는 02-3472-3556로 연락하셔도 안내 받으실 수 있습니다.<br />
+                              (상담시간) 평일 09:00~19:00(토/일/공휴일은 운영되지 않습니다.)
+                              </p>
+                             </td>
+                         </tr>
+                         <tr>
+                             <th scope="row">
+                             <label for="SMS"><span class="thBar">┃</span>SMS</label></th>
+                             <td>
+                              <select id="SMS" name="SMS" tabindex="2" title="휴대폰 첫째자리">
+                              <option value="0">선택</option>
+                              <option value="010">010</option>
+                              <option value="011">011</option>
+                              <option value="017">017</option>
+                              <option value="018">018</option>
+                              <option value="019">019</option>
+                              </select>
+                              -
+                              <input type="text" name="SMS2" size="5" title="휴대폰 중간자리" maxlength="4" tabindex="1" class="inputbox01" />
+                              -
+                              <input type="text" name="SMS3" size="5" title="휴대폰 끝자리" maxlength="4" tabindex="1"  class="inputbox01"/><br />
+                              <input type="checkbox" id="check1" name="check1" value = "1" tabindex="5" />
+                              <label for="check1"> 답신여부를 SMS로 받음 </label> 
+                             </td>
+                         </tr>
+                          <tr>
+                             <th scope="row">
+                             <label for="email"><span class="thBar">┃</span>E-mail</label></th>
+                             <td>
+                              <input type="text" id="email" size="15" title="이메일 아이디" maxlength="15" tabindex="1"  class="inputbox01" />@
+                              <input type="text" name="emailAccount" size="15" maxlength="15" title="이메일 계정" tabindex="1"class="inputbox01" />
+                              <select name="emailselect" tabindex="2" class="inputbox01">
+                              <option value="0">선택</option>
+                              <option value="naver.com">naver.com</option>
+                              <option value="daum.net">daum.net</option>
+                              <option value="gmail.com">gmail.com</option>
+                              <option value="nate.com">nate.com</option>
+                              <option value="hotmail.com">hotmail.com</option>
+                              <option value="etc">기타</option>
+                              </select>
+                              <br />
+                              <input type="checkbox" id="check2" name="check2" value = "1" tabindex="5" /><label for="check2"> E-mail로 답변받음</label>
+                             </td>
+                         </tr>
+                         <tr>
+                          <td  colspan="2" class="btn"><input class="btn1" type="submit" id="ok" name="sumitbn" value="전송" /><input class="btn2" type="button" id="cancel" name="reset" value="취소" /></td>
+                      </tr>
+                    </table>
+                  </form>
+            </div>
+
+-------------------------------
+*sub3_content1.css
+
+/* sub3_1의 내용 콘텐츠 */
+#main{padding:15px 10px 20px;}
+#main h2{font-family:Arial, Helvetica, sans-serif;
+       font-size:1.6em; margin-bottom:10px;}
+
+#form2{width:100%;float:left}
+#form2 .addr div, .addr span{float:left}
+#form2 .thBar{color:#cf0808}
+#form2 table{width:100%;font-size:.95em;line-height:1.5em; border-collapse:collapse;
+      color:#333;border-top:2px solid #cf0808; margin-bottom:30px}
+#form2 caption{text-indent:-9999px}
+#form2 th, td{padding:10px 1%}
+#form2 th{width:20%;color:#666;text-align:left;border-bottom:1px dotted #fff}
+#form2 td{width:62%;border-bottom:1px dotted #693;background:#FFF}
+#form2 .width{display:inline-block;width:;}
+#form2 .text li{color:#693;margin:5px 0;letter-spacing:-1px}
+#form2 .text .txt_indent{display:inline-block;text-indent:14px}
+#form2 .height{height:100px;width:;}
+#form2 input#user_name{ border:0;background:#CCC; color:#FFF; font-weight:bold;}
+.inputbox01 {font-size:9pt; color:#555555; border:1px solid #ccc; 
+          background-color:#fff;  padding:1%; line-height:18px;}
+#name,#subject,#details{width:90%}
+.ps{margin-top:10px;color:#999;width:95%}
+.btn{width:100%}
+.btn1{background:url(../images/btn_send.jpg); width:101px; height:23px; text-indent:-999px;overflow:hidden; border:0;margin:0 2% 0 20%}
+.btn2{background:url(../images/btn_cancle.jpg); width:101px; height:21px; text-indent:-999px;overflow:hidden; border:0; }
+.black{color:#666}
+
+
+===================================================
+
+서브페이지 6 (Q&A)
+
+*sub4_1.html
+
+
+<link href="css/sub_layout.css" rel="stylesheet" type="text/css">
+<link href="css/sub4_content1.css" rel="stylesheet" type="text/css">
+-------------------------------------
+
+ <h2>Q&amp;A</h2>
+      <div class="faq">  
+         <div class="hgroup"> 
+           <p>고객님들께서 '자주 묻는 질문내용'을 정리하여 모았습니다.</p> 
+           <a class="all" href="#"><span class="brown">▼ 모두여닫기</span></a>
+         </div>  
+         <ul>  
+          <li class="article hide">  
+              <p class="q">  
+                <a class="trigger" href="#a1" >가족 중 누나가 지적장애를 가지고 있습니다. 동생인 제가 두드림 지원을 받고 싶은데 신청가능할까요? </a>  
+              </p>  
+              <p class="a" >신청이 불가합니다. 두드림은 부모가 장애인이거나 본인이 장애인일 경우에만 지원 신청 가능합니다. 다만 부모가 사망한 조손가정의 경우에 한해서 주 양육자인 조부, 조모가 장애인일 경우 가능합니다.  </p>  
+        </li> 
+         
+          <li class="article hide">  
+              <p class="q">  
+                  <a class="trigger" href="#a2" >두드림 대상 기준이 만 10세~29세로 되어있는데 만 나이는 생일 기준인가요? </a>  
+              </p>  
+              <p class="a">두드림은 2002년~1984년 출생자에 한해 지원신청가능합니다.</p>  
+          </li>
+          
+          <li class="article hide">  
+              <p class="q">  
+                  <a class="trigger" href="#a3" >소득기준 확인은 어떻게 하면 되나요?</a>  
+              </p>  
+              <p class="a" >두드림은 직장, 지역가입자 구분없이 건강보험료 납부액을 기준으로 소득액을 확인합니다. 단, 신청서 접수 시 건강보험료 사본과 납부증명서를 첨부하셔야 합니다. (두드림신청서 맨 뒷장을 확인하세요.) </p>  
+          </li>
+          <li class="article hide">  
+              <p class="q">  
+                  <a class="trigger" href="#a3" >꼭 추천기관이 있어야 선정이 유리한가요? </a>  
+              </p>  
+              <p class="a" >그렇지 않습니다. 개인신청이라 할지라도 신청서의 내용을 명확하고 구체적으로 작성하시면 선정에 차이가 없습니다. </p>  
+          </li>
+          <li class="article hide">  
+              <p class="q">  
+                  <a class="trigger" href="#a3" >신청서를 우편접수하면 안되나요? </a>  
+              </p>  
+              <p class="a" >두드림은 온라인접수를 원칙으로 합니다. 다만 인터넷 접근이 어려운 신청자는 두드림에 연락 후 (02-3472-3556) 우편접수해주시기 바랍니다. 우편접수는 20일 도착분에 한합니다. </p>  
+          </li>
+          <li class="article hide">  
+              <p class="q">  
+                  <a class="trigger" href="#a3" >신청서 작성 Tip을 알려주세요. </a>  
+              </p>  
+              <p class="a" >신청서 작성 시 가장 중요한 것은 꿈에 대한 명확한 동기와 목표가 드러나야 합니다. 또한 꿈을 이루기 위한 그동안의 준비과정이 있었다면 꼭 기입해주세요. </p>  
+          </li>
+          <li class="article hide">  
+              <p class="q">  
+                  <a class="trigger" href="#a3" >꿈 관련 활동사진이 무엇인가요? </a>  
+              </p>  
+              <p class="a" >신청한 꿈과 관련하여 그동안의 준비과정이 있었다면 그 과정을 담은 사진을 말합니다. </p>  
+          </li>
+          <li class="article hide">  
+              <p class="q">  
+                  <a class="trigger" href="#a3" >방송이나 사진촬영, 인터넷 공개를 하고 싶지 않아요. 지원받는데 어려움이 있을까요? </a>  
+              </p>  
+              <p class="a" >그렇습니다. 두드림은 위의 사항에 동의를 원칙으로 합니다. </p>  
+          </li>
+          <li class="article hide">  
+              <p class="q">  
+                  <a class="trigger" href="#a3" >꿈 신청을 하였는데 지원대상자로 선정되지 못하였어요. 하지만 꼭 지원을 받고 싶은데 다시 재신청할 수 있나요? </a>  
+              </p>  
+              <p class="a" >신청서를 보완, 수정하여 재신청 가능합니다.</p>  
+          </li> 
+    </ul>
+  </div>
+  <!-- faq e -->
+
+------------------------------------
+<script src="js/faq.js"></script>
+
+
+----------------------------------
+/* sub4_1의 내용 콘텐츠 */
+#main{padding:15px 10px 20px;}
+#main h2{font-family:Arial, Helvetica, sans-serif;
+       font-size:1.6em; margin-bottom:10px;}
+
+.faq{width:100%;border-bottom:1px solid #ddd;font-size:12px;float:left}  
+.faq .hgroup{position:relative;font-weight:bold}  
+.faq .hgroup p{ color:#cd0000; margin-bottom:10px}
+.faq .hgroup .all{float:right;color:#333;text-decoration:none}  
+.faq ul{margin-top:30px;padding:0;list-style:none}  
+.faq p.q{margin:0;border-top:1px solid #ddd;background:url(../images/ico_q.gif) 2% center no-repeat;padding-left:50px}  
+.faq p.a{margin:0;padding:10px 10px 10px 50px;background:url(../images/ico_a.gif) 2% center no-repeat;line-height:1.5;display:none;overflow:hidden;border-top:1px dotted #9c3}
+.faq .q a.trigger{display:block;padding:10px 0;color:#333;text-align:left;text-decoration:none}  
+.faq .hide .q a.trigger{font-weight:normal;background:none}  
+.faq .q a.trigger:hover, .faq .q a.trigger:active, .faq .q a.trigger:focus{color:#000}  
+
+=================================================
