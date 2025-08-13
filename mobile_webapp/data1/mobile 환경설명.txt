@@ -266,10 +266,8 @@ header, footer, section, article, aside, nav, hgroup, details, menu, figure, fig
 <script>
 const uAgent = navigator.userAgent.toLowerCase();
 
-const mobilePhones =
-
- new Array ('iphone','ipod','android','blackberry','windowsce','nokia','webos',
-'operamini','sonyericsson','operamobi','iemobile');
+const mobilePhones = new Array ('iphone','ipod','android','blackberry',
+'windowsce','nokia','webos','operamini','sonyericsson','operamobi','iemobile');
 
 for(var i=0;i<mobilePhones.length;i++)
 
@@ -321,13 +319,31 @@ W3C mobileOK Checker    http://validator.w3.org/mobile/
 모바일웹 프랙티스 한국     http://www.w3c.or.kr/Translation/mwbp_flip_cards/
 모바일웹 프랙티스 원본     http://www.w3.org/TR/mobile-bp/
 
+320*480 = > iphone3
 
 
+<모바일  css 코딩의 특징 >
 
+- 고정 -> 유동 
+- 단만들기 =>  100/ 단수 %
 
+모바일 웹 퍼블리셔 
 
+시안 사이즈 ???
+ -개발자가 어느 해상도까지 서비스를 해줄것이냐?
+- 320*480 = > iphone3 -> pixel ratio(픽셀밀도) 1
+- 640*960 => iphone4 -> pixel ratio (픽셀밀도) 2
+- 960*1440 => iphone6 -> pixel ratio (픽셀밀도)3
 
+각각의 디바이스 / 기기에 따른 해상도 서비스 방법!
 
+1) 배경이미지로 처리할때 (배경이미지가 크기 고정)
+	미디어 쿼리 (해상도를 감지하는 센서)를 사용한해상도 처리
+
+ @media screen and (-webkit-device-pixel-ratio: 2)
+2)
+
+3)
 
 
 

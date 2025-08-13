@@ -1,1 +1,92 @@
-﻿
+﻿/* 메인 본문 컨텐츠 */
+#main {
+	clear: both;
+}
+h2.today_tit {
+	color: #cd0000;
+	height: 25px;
+	margin: 0 0 0 10px;
+	font-size: 1.2rem;
+	font-weight: bold;
+	padding: 10px 0 5px;
+}
+.n_text_list li {
+	height: 24px;
+	padding: 5px 0;
+	border-top: 1px solid #dcdcdc;
+}
+.n_text_list li:last-child {
+	border-bottom: 1px solid #dcdcdc;
+}
+.n_text_list li a {
+	height: 20px;
+	padding: 5px 0 0 10px;
+	display: block;
+}
+
+.n_img_list {
+	margin-top: 10px;
+	overflow: hidden;
+}
+
+.n_img_list li {
+	float: left;
+	width: 33.33%;
+	text-align: center;
+	line-height: 1.1em;
+}
+
+.n_img_list li a {
+	display: block;
+	width: 100%;
+}
+.n_img_list li span {
+	display: block;
+	font-size: 12px;
+	margin-top: 5px;
+}
+
+/*  움직이는 이미지 만들기 */
+.n_img_list2 {
+	display: flex;
+	gap: 10px;
+}
+
+.n_img_list2 li {
+	width: 33.33%;
+}
+
+.n_img_list2 img {
+	width: 100%;
+}
+
+.n_img_list2 li span {
+	display: block;
+	text-align: center;
+	padding: 10px 0;
+}
+
+/* 공지사항 부분 */
+
+.banner {
+	background: url(../images/bn_main.png) no-repeat 10px 7px;
+	clear: both;
+	height: 43px;
+	background-color: #666;
+}
+.banner a {
+	width: 100%;
+	height: 43px;
+	display: block;
+	color: #ffffff;
+}
+.banner a span {
+	display: block;
+	float: left;
+}
+.banner a span.text {
+	margin: 8px 0 0 113px;
+}
+.banner a span.small_text {
+	font-size: 10px;
+}
