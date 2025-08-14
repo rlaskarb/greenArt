@@ -1,100 +1,169 @@
-﻿<!doctype html>
+﻿<!DOCTYPE html>
 <html lang="ko">
-<head>
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
- <meta name="apple-mobile-web-app-capable" content="yes">
- <meta name="apple-mobile-web-app-status-bar-style" content="black">
- <title>LOCATION</title>
- <link rel="apple-touch-icon" href="app_icon.png" />
- <link rel="apple-touch-icon-precomposed" href="app_icon.png" />
- <link rel="apple-touch-startup-image" href="startup.png"/>
- <link href="css/common.css" rel="stylesheet" type="text/css">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>LOCATION</title>
+		<link rel="apple-touch-icon" href="app_icon.png" />
+		<link rel="apple-touch-icon-precomposed" href="app_icon.png" />
+		<link rel="apple-touch-startup-image" href="startup.png" />
+		<link href="./css/common.css" rel="stylesheet" />
+		<link href="./css/sub_layout.css" rel="stylesheet" />
+		<link href="./css/sub1_content3.css" rel="stylesheet" />
 
+		<script>
+			// <![CDATA[
+			try {
+				window.addEventListener(
+					"load",
+					function () {
+						setTimeout(scrollTo, 0, 0, 1);
+					},
+					false
+				);
+			} catch (e) {}
+			// ]]>
+		</script>
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$("#btn1").toggle(
+					function () {
+						$("#content").css("display", "block");
+					},
+					function () {
+						$("#content").css("display", "none");
+					}
+				);
+			});
+		</script>
+	</head>
+	<body>
+		<!--header s  -->
+		<header>
+			<div id="wrap_head">
+				<h1 class="main_logo bold helv">
+					<a href="index.html" id="logo">HTML5 MOBILE</a>
+				</h1>
+				<a href="#" id="btn1"><span class="search_icon"></span></a>
+				<div id="content">
+					<form id="search" action="#" method="get">
+						<div class="bg_search">
+							<div class="wrapBox">
+								<input
+									type="text"
+									name="input_search"
+									class="type_text"
+									title="검색어 입력"
+									maxlength="255" />
+							</div>
+							<input type="submit" id="Btn" class="type_btn" title="검색" />
+						</div>
+					</form>
+				</div>
+			</div>
+			<nav>
+				<ul class="main_menu bold verd">
+					<li>
+						<a href="sub1_1.html" title="company" class="tab_m">COMPANY</a>
+					</li>
+					<li>
+						<a href="sub2_1.html" title="project" class="tab_m">PROJECT</a>
+					</li>
+					<li>
+						<a href="sub3_1.html" title="recruit" class="tab_m">REQUEST</a>
+					</li>
+					<li><a href="sub4_1.html" title="notice">Q&amp;A</a></li>
+				</ul>
+				<!-- 서브 2depth메뉴 삽입 부분 -->
+			</nav>
+		</header>
+		<!-- header e  -->
+		<!-- article s  -->
+		<article>
+			<div id="main">
+				<!-- 내용 콘텐츠 삽입 부분 -->
+				<h2>MOVIE</h2>
+				<p class="text">
+					한국을 비롯해 세계 곳곳에서 땀을 흘리고 있는 두산의 임직원들은
+					기업가치를 극대화하고 한 차원 높은 고객 만족을 실현하기 위해 노력하고
+					있습니다. 또한 백 년 넘은 기업으로서 지나온 역사 만큼 미래도
+					책임진다는 자세로 사회 구성원으로서 당연히 해야 할 방어적 수준의
+					의무를 뛰어 넘어 한 발 앞서가는 사회 공헌을 실천하겠습니다.
+				</p>
 
- <script>
-  // <![CDATA[
-  try {
-   window.addEventListener('load', function(){
-    setTimeout(scrollTo, 0, 0, 1); 
-   }, false);
-  } 
-  catch(e) {}
-  // ]]>
- </script>
- <script src="js/jquery-1.8.3.min.js"></script>
- <script type="text/javascript"> 
-  $(document).ready(function() {
-   $("#btn1").toggle(function() {
-    $("#content").css("display","block");
-   }, function() {
-    $("#content").css("display","none");
-   });
-  });
- </script>
- 
-</head>
-<body>
- <!--header s  -->
- <header>
-  <div id="wrap_head">
-   <h1 class="main_logo bold helv"><a href="index.html" id="logo">HTML5 MOBILE</a></h1>
-   <a href="#" id="btn1"><span class="search_icon"></span></a>
-   <div id="content">
-    <form id="search" action="#" method="get">
-      <div class="bg_search">
-       <div class="wrapBox">
-        <input type="text" name="input_search" class="type_text" title="검색어 입력" maxlength="255"  />
-       </div>
-       <input type="submit" id="Btn" class="type_btn" title="검색" />
-      </div>
-    </form>
-   </div>
-  </div>
-  <nav>
-   <ul class="main_menu bold verd">
-    <li><a href="sub1_1.html" title="company" class="tab_m">COMPANY</a></li>
-    <li><a href="sub2_1.html" title="project" class="tab_m">PROJECT</a></li>
-    <li><a href="sub3_1.html" title="recruit" class="tab_m">REQUEST</a></li>
-    <li><a href="sub4_1.html" title="notice">Q&amp;A</a></li>
-   </ul>
-   <!-- 서브 2depth메뉴 삽입 부분 -->
- 
-
-  </nav>
- </header>
- <!-- header e  -->
- <!-- article s  -->
- <article>
-  <div id="main">
-   <!-- 내용 콘텐츠 삽입 부분 -->
-
-
-  </div>
- </article>
- <!-- article e  -->
- <!-- footer s  -->
- <footer>
-  <div id="footer">
-    <ul>
-     <li><a href="#">MY HOME</a></li>
-     <li><a href="#">ICON VIEW</a></li>
-     <li class="end"><a href="#">TOTAL VIEW</a></li>
-    </ul>
-    <input type="button" value="로그인">
-    <input type="button" value="PC버전">
-    <input type="button" value="고객센터">
-    <p class="privacy">
-	 <a href="#">개인정보취급방침</a>
-	 <span class="bar">|</span>
-	 <a href="#">이용약관</a>
-	</p>
-  </div>
-  <div class="end_bar">
-   <p class="copyrights helv">COPYRIGHT&copy; 2012 HTML5. ALL RIGHTS RESERVED.</p>
-   <a href="javascript:window.scrollTo(0,0);"><img src="images/btn_bot_top.png"></a>
-  </div>
- </footer>
- <!-- footer e  -->
-</body>
+				<div id="testVideo">
+					<iframe
+						width="560"
+						height="315"
+						src="https://www.youtube.com/embed/eUqIiJlG3Io?si=xJ35OmalSTb9VyTr"
+						title="YouTube video player"
+						frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerpolicy="strict-origin-when-cross-origin"
+						allowfullscreen></iframe>
+				</div>
+				<ul>
+					<li>
+						<a
+							href="https://www.youtube.com/embed/FZWwNtjeeBA?si=QygLaBBoF5Qn79rL"
+							onclick="changeVideo(this);return false"
+							>1</a
+						>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<a
+							href="https://www.youtube.com/embed/9y9rRw6iG60?si=Cx9rLLqE8RBTsaKJ"
+							onclick="changeVideo(this);return false"
+							>2</a
+						>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<a
+							href="https://www.youtube.com/embed/Jywylf_2j3Q?si=3Lv9_uFQUsRM2wK0"
+							onclick="changeVideo(this);return false"
+							>3</a
+						>
+					</li>
+				</ul>
+			</div>
+		</article>
+		<!-- article e  -->
+		<!-- footer s  -->
+		<footer>
+			<div id="footer">
+				<ul>
+					<li><a href="#">MY HOME</a></li>
+					<li><a href="#">ICON VIEW</a></li>
+					<li class="end"><a href="#">TOTAL VIEW</a></li>
+				</ul>
+				<input type="button" value="로그인" />
+				<input type="button" value="PC버전" />
+				<input type="button" value="고객센터" />
+				<p class="privacy">
+					<a href="#">개인정보취급방침</a>
+					<span class="bar">|</span>
+					<a href="#">이용약관</a>
+				</p>
+			</div>
+			<div class="end_bar">
+				<p class="copyrights helv">
+					COPYRIGHT&copy; 2012 HTML5. ALL RIGHTS RESERVED.
+				</p>
+				<a href="javascript:window.scrollTo(0,0);"
+					><img src="images/btn_bot_top.png"
+				/></a>
+			</div>
+		</footer>
+		<!-- footer e  -->
+		<script src="./js/movie.js"></script>
+	</body>
 </html>

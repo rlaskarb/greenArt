@@ -227,51 +227,149 @@ h1.main_logo {
 }
 
 /* 메인 컨텐츠 */
-#main { clear:both; }
+#main {
+	clear: both;
+}
 h2.today_tit {
-    color:#cd0000;
-    height:25px;
-    margin:0 0 0 10px; }
+	color: #cd0000;
+	height: 25px;
+	margin: 0 0 0 10px;
+}
 .n_text_list li {
-    height:24px;
-    border-top:1px solid #dcdcdc; }
+	height: 24px;
+	border-top: 1px solid #dcdcdc;
+}
 .n_text_list li:last-child {
-     border-bottom:1px solid #dcdcdc;
+	border-bottom: 1px solid #dcdcdc;
 }
 .n_text_list li a {
-    height:20px;
-    padding:5px 0 0 10px;
-    display:block; }
-.n_img_list { margin-top:10px; overflow:hidden}
+	height: 20px;
+	padding: 5px 0 0 10px;
+	display: block;
+}
+.n_img_list {
+	margin-top: 10px;
+	overflow: hidden;
+}
 .n_img_list li {
-    float:left;
-    width:33%;
-    text-align:center;
-    line-height:1.1em;}
+	float: left;
+	width: 33%;
+	text-align: center;
+	line-height: 1.1em;
+}
 .n_img_list li a {
-    display:block;
-    width:100%; }
+	display: block;
+	width: 100%;
+}
 .n_img_list li span {
-    display:block;
-    font-size:12px;
-    margin-top:5px; }
+	display: block;
+	font-size: 12px;
+	margin-top: 5px;
+}
 
 /* 공지사항 부분 */
 .banner {
-    background:url(../images/bn_main.png) no-repeat 10px 7px;
-    clear:both;
-    height:43px;
-    background-color:#666; }
+	background: url(../images/bn_main.png) no-repeat 10px 7px;
+	clear: both;
+	height: 43px;
+	background-color: #666;
+}
 .banner a {
-    width:100%;
-    height:43px;
-    display:block;
-    color:#FFFFFF; }
+	width: 100%;
+	height: 43px;
+	display: block;
+	color: #ffffff;
+}
 .banner a span {
-    display:block;
-    float:left; }
-.banner a span.text { margin:8px 0 0 113px; }
-.banner a span.small_text { font-size:10px; }
-
+	display: block;
+	float: left;
+}
+.banner a span.text {
+	margin: 8px 0 0 113px;
+}
+.banner a span.small_text {
+	font-size: 10px;
+}
 
 /* 풋터 영역 */
+#footer {
+	border-top: 1px solid #aeaeae;
+	background-color: #dcdcdc;
+	text-align: center;
+	font-size: 15px;
+	margin-top: 5px;
+	padding-bottom: 20px;
+	border-top: 1px solid #e2e2e2;
+	clear: both;
+}
+#footer ul {
+	margin: 15px 0 15px 0;
+}
+#footer ul li {
+	display: inline-block;
+	height: 16px;
+	margin: 0;
+	text-align: left;
+	letter-spacing: -1px;
+}
+#footer ul li a {
+	height: 16px;
+	padding: 0 10px 0 5px;
+	font-size: 15px;
+	color: #555;
+	background: url(../images/bg_bar.png) no-repeat right;
+}
+#footer ul li.end a {
+	background: none;
+}
+#footer input {
+	height: 26px;
+	padding: 0px 8px 0 8px;
+	border: 1px solid #aaaaaa;
+	font-size: 0.8em;
+	color: #222;
+	letter-spacing: -1px;
+	text-align: center;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+	background: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0%, #fff),
+		color-stop(100%, #e5e5e5)
+	); /*Safari*/
+	background: -webkit-linear-gradient(top, #fff, #e5e5e5); /*WebKit nightly*/
+	background: -moz-linear-gradient(top, #fff, #e5e5e5); /* Modzilla Firefox */
+}
+#footer p.privacy {
+	width: 100%;
+	margin: 12px 0 0 0;
+	height: 10px;
+	font-size: 12px;
+	letter-spacing: -1px;
+}
+#footer p.privacy a {
+	color: #787878;
+}
+#footer p.privacy span.bar {
+	padding: 0 8px 0 8px;
+	font-size: 11px;
+	color: #d1d1d1;
+}
+
+.end_bar {
+	height: 25px;
+	background: #424242;
+	color: #cccccc;
+	font-size: 0.65em;
+}
+.end_bar p.copyrights {
+	padding: 6px 0 0 10px;
+	float: left;
+}
+.end_bar img {
+	float: right;
+	margin: 5px 10px 0 0;
+}

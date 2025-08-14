@@ -18,6 +18,7 @@
 		<link rel="apple-touch-startup-image" href="./startup.png" />
 		<link rel="stylesheet" href="./css/common.css" />
 		<link rel="stylesheet" href="./css/main.css" />
+		<link rel="stylesheet" href="./css/swiper.min.css" />
 		<!-- 안드로이드 ,아이폰 브라우져 상단에 주소입력창을 올려 안보이게 한다-->
 		<script>
 			// <![CDATA[
@@ -71,6 +72,27 @@
 					<li><a href="./sub4_1.html" title="notice">Q&amp;A</a></li>
 				</ul>
 			</nav>
+			<div class="visual">
+				<div class="swiper-container swiper1">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<img src="./imagenew/new2.jpg" alt="" />
+						</div>
+						<div class="swiper-slide">
+							<img src="./imagenew/new11.jpg" alt="" />
+						</div>
+						<div class="swiper-slide">
+							<img src="./imagenew/new16.jpg" alt="" />
+						</div>
+					</div>
+					<!-- Add Arrows -->
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+					<!-- Add Pagination -->
+					<div class="swiper-pagination"></div>
+					<div class="swiper-scrollbar"></div>
+				</div>
+			</div>
 		</header>
 		<!-- header e  -->
 		<!-- article s  -->
@@ -206,6 +228,43 @@
 					$("#content").css("display", "none");
 				}
 			);
+		</script>
+
+		<script src="./js/swiper.min.js"></script>
+		<!-- Initialize Swiper -->
+		<script>
+			var swiper1 = new Swiper(".swiper1", {
+				autoHeight: true, //높이유동  ( .swiper-container에 height:auto)
+				slidesPerView: 2, //단수
+				spaceBetween: 5, //단사이 여백
+				loop: true, //무한 loop
+				//freeMode: true,  //터치 만큼 자유롭게 이동
+				//centeredSlides: true, //센터 슬라이드 위치(만약 단수가 2개이면 양쪽은 반반씩 보임)
+				//effect: 'fade',   //페이드효과(단수가 1단이 된다)
+				//effect: 'flip',  //3D 회전효과(단수가 1단이 된다)
+				navigation: {
+					//이전/다음 버튼
+					nextEl: ".swiper-button-next",
+					prevEl: ".swiper-button-prev",
+				},
+				pagination: {
+					//페이지 네이션
+					el: ".swiper-pagination",
+					dynamicBullets: true,
+					clickable: true,
+					//type: 'fraction'   //  현재/총개수 (페이지네이션블릿은 사라진다)
+				},
+				autoplay: {
+					//자동
+					delay: 3000,
+					disableOnInteraction: false,
+				},
+				// scrollbar: {
+				// 	//하단 스크롤바
+				// 	el: ".swiper-scrollbar",
+				// 	hide: true,
+				// },
+			});
 		</script>
 	</body>
 </html>

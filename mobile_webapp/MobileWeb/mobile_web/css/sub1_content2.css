@@ -1,0 +1,62 @@
+#main {
+	padding: 20px;
+}
+#main h2 {
+	font-size: 1.9rem;
+	margin-bottom: 10px;
+}
+
+.m_cont {
+	box-shadow: 1px 1px 10px rgba(217, 41, 38, 0.8);
+}
+.m_cont img {
+	width: 100%;
+}
+
+#main table {
+	margin-top: 10px;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#main table th,
+#main table td {
+	padding: 20px;
+	border: 1px solid #ccc;
+}
+
+#main table th {
+	width: 20%;
+}
+
+#main table td {
+	width: 80%;
+}
+
+#main table input {
+	padding: 0 20px;
+	border: 0;
+	background: salmon;
+	border-radius: 20px;
+	float: right;
+}
+
+#main .t2 td:nth-of-type(4n + 1) {
+	width: 20%;
+	background: orange;
+}
+
+#main .t2 td:nth-of-type(4n + 2) {
+	width: 35%;
+	background: rgba(217, 41, 38, 0.8);
+}
+
+#main .t2 td:nth-of-type(4n + 3) {
+	width: 30%;
+	background: pink;
+}
+
+#main .t2 td:nth-of-type(4n + 4) {
+	width: 5%;
+	background: sienna;
+}

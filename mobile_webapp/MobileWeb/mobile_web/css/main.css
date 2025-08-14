@@ -1,4 +1,21 @@
-﻿/* 메인 본문 컨텐츠 */
+﻿/* 메인 비주얼 */
+.visual {
+}
+.swiper1 .swiper-container {
+	width: 100%;
+	height: auto;
+}
+.swiper1 .swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+}
+
+.swiper-slide img {
+	width: 100%;
+}
+
+/* 메인 본문 컨텐츠 */
 #main {
 	clear: both;
 }
