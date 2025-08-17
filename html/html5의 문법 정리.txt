@@ -753,6 +753,8 @@
  -부모 (container) -> display:flex;   (item들의 단이 구성되고.. 부모도 잘 감싼다)
  -flex에서 사용되는 주요 속성들
 
+
+ -부모 (container)에 설정하는 속성들....
       1)flex-direction
             -Container 안에 있는 Item을 어떤방향으로 나열할지를 지정합니다.
               row                      Item을 수평방향으로 좌에서 우로 나열함 (기본값) 
@@ -770,7 +772,7 @@
              -flex-direction 과 flex-wrap을 한번에 축약할 수 있다
              -flex-flow: row nowrap;
 
-      4)justify-content
+      4)justify-content *** 
              -Container안에 있는 Item들을 수평방향으로 정렬하는 방법을 지정합니다.
                flex-start             Container안에 있는 Item들을 왼쪽으로 정렬함 (기본값) 
                flex-end              Container안에 있는 Item들을 오른쪽으로 정렬함 
@@ -781,7 +783,8 @@
 
        5)gap
              -Container안에 있는 Item들의 사이 간격을 지정한다
-             -gap:10px;
+             -gap:10px;   -> 여러 줄일때 -> x축/y축의 여백을 한꺼번에 설정
+               gap:20px 10px;   ->  gap:20px(위아래여백) 10px(좌우여백);
 
        6)align-items (한줄)
             -Container안에 있는 Item들이 한줄일 때 수직방향으로 정렬하는 방법을 지정합니다.
@@ -800,7 +803,48 @@
                 space-around      Container안에 있는 Item들의 줄을 일정간격으로 수직방향으로 정렬함 
                 space-evenly       Container안에 있는 Item들의 여백을 동일하게 할당한다
                 stretch               Container안에 있는 Item들의 줄의 높이를 Container의 높이와 맞게 늘려서 정렬함 
-      
+
+
+  -item 들에게 적용하는 속성들...
+    1)order
+      -Container안에서 Item의 순서를 지정합니다. 
+       음수값도 사용할 수 있으며 숫자가 작을 수로 왼쪽에, 클수록 오른쪽에 위치합니다.
+
+    2)flex-grow
+       -Container의 너비 - Item들의 너비를 한 나머지 공간을 배수로 지정!!
+       -각 Item의 넓이를 배수로 지정을 합니다.
+         item-1의 flex-grow가 1이고 item-2의 flex-grow가 2라면
+         item-2는 item-1보다 2배가 크게 됩니다. 
+         기본값은 0 이며 음수는 사용하지 않습니다.
+  
+   3)flex-shrink
+       -Container의 너비 - Item들의 너비를 한 나머지 공간을 배수로 지정!!
+      -flex-grow와 반대로 각 Item의 넓이를 배수로 빼집니다.
+        item-1의 flex-grow가 1이고 item-2의 flex-grow가 2라면
+        item-2는 item-1보다 2배가 작게 됩니다. 
+        기본값은 1 이며 음수는 사용하지 않습니다.
+
+    4)flex
+       -flex-grow와 flex-shrink, flex-basis를 flex로 한 줄에 지정할 수 있습니다. 
+        첫번째 요소는 flex-grow 의 설정값을, 
+        두번째 요소는 flex-shrink의 설정값을, 
+        세번째 요소는 flex-basis의 설정값을 지정하면 됩니다.
+        기본값은 flex: 0 1 auto 입니다.
+        ex)flex: 0 1 200px;
+
+    5)align-self
+       -지정된 Item의 독자적인 수직방향 정렬을 지정합니다. 
+        align-items의 속성과 동일하게 지정됩니다.
+
+       flex-start         Container안에 있는 지정된 Item을 상단에 정렬함 
+       flex-end          Container안에 있는 지정된 Item을 하단에 정렬함 
+       center             Container안에 있는 지정된 Item을 수직방향의 중앙에 정렬함 
+       baseline           Container안에 있는 지정된 Item을 baseline으로 정렬함 
+       stretch             Container안에 있는 지정된 Item을 Container의 높이와 동일하게 상하로 늘려서 상단과 하단에 정렬함 
+
+--------------------------------------------------------
+
+        
  
 ---------------------------------------------------------------------
 
