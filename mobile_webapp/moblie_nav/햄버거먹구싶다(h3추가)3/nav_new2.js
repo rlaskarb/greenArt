@@ -13,7 +13,7 @@ $(document).ready(function() {
         op=true;
         $('#headerArea .box').show();
       }else{
-        $("#gnb").animate({left:'-100%',opacity:0}, 'fast');
+        $("#gnb").animate({left:'-100%',opacity:0}, 'fast'); 
         $('#headerArea').removeClass('mn_open');
         op=false;
         $('#headerArea .box').hide();
