@@ -1,0 +1,89 @@
+/* 와이드pc  1281px ~ */
+
+.sec1 {
+    width: 90%;
+    margin: 0 auto;
+    border: 3px solid #999;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.sec1 {
+    background: green;
+}
+
+.sec1 h2 {
+    font-size: 100px;
+    color: red;
+}
+
+.sec1 p {
+    font-size: 40px;
+    color: red;
+}
+
+/* 일반pc 1025px~1280px */
+@media screen and (max-width: 1280px) {
+    .sec1 {
+        background: pink;
+    }
+
+    .sec1 h2 {
+        font-size: 80px;
+        color: blue;
+    }
+
+    .sec1 p {
+        font-size: 30px;
+        color: blue;
+    }
+}
+/* 일반 테블릿  769px ~1024px */
+@media screen and (max-width: 1024px) {
+    .sec1 {
+        background: yellow;
+    }
+
+    .sec1 h2 {
+        font-size: 60px;
+        color: #333;
+    }
+
+    .sec1 p {
+        font-size: 25px;
+        color: #333;
+    }
+}
+/* 소형 태블릿 641px ~768px */
+@media screen and (max-width: 768px) {
+    .sec1 {
+        background: skyblue;
+    }
+
+    .sec1 h2 {
+        font-size: 50px;
+        color: #fff;
+    }
+
+    .sec1 p {
+        font-size: 15px;
+        color: #fff;
+    }
+}
+
+/* 모바일 320px ~ 640px */
+@media screen and (max-width: 640px) {
+    .sec1 {
+        background: brown;
+    }
+
+    .sec1 h2 {
+        font-size: 40px;
+        color: green;
+    }
+
+    .sec1 p {
+        font-size: 15px;
+        color: green;
+    }
+}

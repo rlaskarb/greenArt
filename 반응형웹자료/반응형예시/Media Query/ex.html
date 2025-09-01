@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>미디어쿼리 스타일로 반응형 사용</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+        <style media="screen and (min-width:1025px)">
+            #exampleSub {
+                margin: 15px auto;
+                padding: 100px 0;
+                width: 70%;
+                border: red solid 10px;
+                color: red;
+                font-size: 100px;
+                text-align: center;
+                background: url(images/img1.jpg) no-repeat center 70%;
+            }
+        </style>
+
+        <!-- 테블릿 해상도 641~1024 -->
+        <style media="screen and (min-width:641px) and (max-width:1024px)">
+            #exampleSub {
+                margin: 15px auto;
+                width: 70%;
+                padding: 100px 0;
+                border: green solid 10px;
+                color: green;
+                font-size: 80px;
+                text-align: center;
+                background: url(images/img2.jpg) no-repeat center 70%;
+            }
+        </style>
+
+        <!-- 모바일 해상도 320~640 -->
+        <style media="screen and (max-width:640px)">
+            #exampleSub {
+                margin: 15px auto;
+                width: 70%;
+                padding: 100px 0;
+                border: skyblue solid 10px;
+                color: skyblue;
+                font-size: 50px;
+                text-align: center;
+                background: url(images/img3.jpg) no-repeat center 70%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="example">
+            <div id="exampleSub">
+                <p>Media Query</p>
+            </div>
+        </div>
+    </body>
+</html>
