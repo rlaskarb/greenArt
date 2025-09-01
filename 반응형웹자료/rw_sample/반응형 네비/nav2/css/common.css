@@ -1,0 +1,52 @@
+/* CSS Document */
+html,body{ height:100%}
+*{margin:0; padding:0}
+img{border: 0; vertical-align: top;}
+a{ color:#333; text-decoration:none; display: block;}
+ul{ list-style:none}
+.hidden{display: block; position: absolute;left:-1000%; top:0;
+    width: 1px; height: 1px; overflow: hidden; color: #fff;}
+
+#wrap{width: 100%;overflow:hidden; position:relative}
+
+#headerArea{width: 100%; position: fixed;left:0; top:0;z-index: 100; background: rgba(255,255,255,.8);}
+#headerArea h1{margin-left: 20px;float: left;margin: 20px;}
+.menuOpen{ font-size:2em; color:#333;
+    position:absolute; top:15px; right:20px; display:none}
+#gnb{}	
+#gnb ul{overflow: hidden; float: right; margin-top: 20px;} 
+#gnb li{font-size:1.5em;  float:left; margin-right: 20px;}
+#gnb .close{ display:none}
+
+.main{}
+#content{height: 800px; background: green;}
+#footerArea{height: 80px; background: pink;}
+
+@media screen and (max-width:1280px) {  
+
+}
+
+@media screen and (max-width:1024px) {
+
+}
+
+@media screen and (max-width:768px) {  
+.menuOpen{ display:block; }
+#gnb{ width:100%; height:400px; position:absolute; 
+    right:-100%; top:0;
+	     background:#acbc59; opacity:0;}
+#gnb ul{float: none; padding-top: 80px;}         
+#gnb li{ float:none; width:auto; text-align: center;line-height: 1.5em;margin: 0;}
+#gnb li a{ font-size: 1.5em;padding: 10px 0;transition: all .5s;}
+#gnb li a:hover{background: green; color: #fff;}
+#gnb .close{ display:block; position:absolute; right:20px; top:20px; color:#fff; font-size: 2em; }
+}
+
+@media screen and (max-width:640px) {  
+
+}
+
+
+
+
+

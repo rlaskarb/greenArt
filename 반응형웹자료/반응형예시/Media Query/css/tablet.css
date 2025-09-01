@@ -1,0 +1,8 @@
+/* 테블릿 화면 */
+#exampleSub{
+   
+    border:green solid 10px;
+    color:green;
+    font-size:80px;
+    background:url(../images/img2.jpg) no-repeat center 70%;
+ }

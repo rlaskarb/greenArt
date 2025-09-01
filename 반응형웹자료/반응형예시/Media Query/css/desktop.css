@@ -1,0 +1,9 @@
+/* 데스트탑 화면 */
+
+#exampleSub{
+  
+    border:red solid 10px;
+    color:red;
+    font-size:100px;
+    background:url(../images/img1.jpg) no-repeat center 70%;
+ }

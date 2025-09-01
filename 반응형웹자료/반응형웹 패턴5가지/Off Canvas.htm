@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)http://uhb.kr/book/wiki/rwd/templet/005.html -->
+<html><script id="tinyhippos-injected">if (window.top.ripple) { window.top.ripple("bootstrap").inject(window, document); }</script><head><meta http-equiv="Content-Type" content="text/html; charset=windows-949">
+<meta charset="EUC-KR">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Off Canvas</title>
+<style>
+* {margin:0; padding:0;}
+#wrap {width:1000px; margin:0 auto;}
+#wrap_box {width:100%; display:block;}
+#box_a {height:400px; background:#fcb354; float:left; width:30%;}
+#box_b {height:400px; background:#f1779e; width:40%; float:left;}
+#box_c {height:400px; background:#24bbaf; width:30%; float:left;}
+
+@media screen and (max-width:1024px) {
+#wrap {width:100%;}
+}
+
+@media screen and (max-width:800px) {
+#wrap_box { position:absolute; width:150%;}
+#box_a {width:33.333%;}
+#box_b {width:33.333%; float:left;}
+#box_c {width:33.334%; float:left;}
+}
+
+@media screen and (max-width:480px) {
+#wrap_box {width:300%; margin-left:-100%;}
+}
+
+</style>
+</head>
+
+<body>
+<div id="wrap">
+        <div id="wrap_box">
+            <div id="box_a"></div>
+            <div id="box_b"></div>
+            <div id="box_c"></div>
+        </div>
+</div>
+
+
+</body></html>

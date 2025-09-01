@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mostly Fluid</title>
+<style>
+* {margin:0; padding:0;}
+#wrap {width:1200px; margin:0 auto;}
+#box_a {height:400px; background:#f1779e;}
+#box_b {height:400px; background:#fcb354; width:50%; float:left;}
+#box_c {height:400px; background:#24bbaf; width:50%; float:right;}
+#box_c p { margin:1.0em; float:left;}
+
+@media screen and (max-width:1024px) {
+#wrap {width:100%; margin:0}
+}
+@media screen and (max-width:768px) {
+
+}
+@media screen and (max-width:640px) {
+#box_b {float:none; width:auto;}
+#box_c {float:none; width:auto; }
+}
+</style>
+</head>
+
+<body>
+<div id="wrap">
+    <div id="box_a"></div>
+    <div id="box_b"></div>
+    <div id="box_c"></div>
+</div>
+
+
+</body>
+</html>

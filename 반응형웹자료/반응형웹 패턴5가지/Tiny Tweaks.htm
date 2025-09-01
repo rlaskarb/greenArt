@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiny Tweaks</title>
+<style>
+* {margin:0; padding:0;}
+ul {list-style:none;}
+
+#wrap{ width:1200px; margin:0 auto}
+#box_a {height:400px; background:#f1779e;}
+.list_man {margin:0 auto; width:80%; padding-top:50px;}
+.list_man li {width:18%; margin:1%; background:#fff; float:left; transition:all 1s ease-out}
+
+@media screen and (max-width:1024px) {
+#wrap{ width:auto; margin:0}
+.list_man {width:95%;}
+.list_man li {width:23%; margin:1%;}
+}
+
+@media screen and (max-width:768px) {
+.list_man li {width:31.333%; margin:1%;}
+}
+
+@media screen and (max-width:640px) {
+.list_man li {width:48%; margin:1%;}
+}
+
+</style>
+</head>
+
+<body>
+<div id="wrap">
+    <div id="box_a">
+        <ul class="list_man">
+            <li>a</li>
+            <li>b</li>
+            <li>c</li>
+            <li>d</li>
+            <li>e</li>
+            <li>f</li>
+            <li>g</li>
+            <li>h</li>
+            <li>i</li>
+            <li>j</li>
+        </ul>    
+    </div>
+</div>
+
+</body>
+</html>

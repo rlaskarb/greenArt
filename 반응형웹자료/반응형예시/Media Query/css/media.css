@@ -1,0 +1,31 @@
+
+
+	#exampleSub{
+	  margin:15px auto;
+	  padding-bottom:100px;
+	  width:70%;
+	  border:red solid 10px;
+	  color:red;
+	  font-size:100px;
+	  text-align:center;
+	  background:url(../images/img1.jpg) no-repeat center 70%;
+    }
+
+
+@media screen and (max-width:999px) {
+	#exampleSub{
+	  border:green solid 10px;
+	  color:green;
+	  font-size:80px;
+	  background:url(../images/img2.jpg) no-repeat center 70%;
+   }
+}
+
+@media screen and (max-width:639px) {
+	#exampleSub{
+	  border:skyblue solid 10px;
+	  color:skyblue;
+	  font-size:50px;
+	  background:url(../images/img3.jpg) no-repeat center 70%;
+   }
+}

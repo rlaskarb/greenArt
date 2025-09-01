@@ -1,0 +1,445 @@
+<Media query>
+-미디어 쿼리란 웹을 접속하는 기기의 화면 해상도에 따라 각각 다른 CSS를 적용해 주는 기능을 합니다.
+media 속성에는 screen,print,all 등의 값을 지정하고 웹이 표시되는 대상별로 디자인을 달리 지정해 줄 수 있습니다.
+미디어쿼리는 같은 screen 이라도 기기의 해상도에 따라 css를 다르게 지정할 수 있습니다.
+
+
+<!--데스크 톱 환경 : 가로 해상도가 1,000px 이상에서 적용됨-->
+<style type="text/css" media="screen and (min-width:1000px)">
+    #exampleSub{}
+</style>
+
+ 
+
+<!--테블릿 환경 : 가로 해상도가 1,000px 미만 640px이상에서 적용됨-->
+<style type="text/css" media="screen and (min-width:640px) and (max-width:999px)">
+    #exampleSub{}
+</style>
+
+ 
+
+<!--모바일 환경 : 가로 해상도가 640px 미만에서 적용됨-->
+<style type="text/css" media="screen and (max-width:639px)">
+   #exampleSub{}
+</style>
+
+ 
+
+-----------------------------
+
+http://www.seoul.go.kr/main/index.html    =>서울시 사이트
+
+http://mediaqueri.es/
+
+
+
+ex1)
+ <!--데스크 톱 환경 : 가로 해상도가 1,000px 이상에서 적용됨-->
+<style media="screen and (min-width:1000px)">
+#exampleSub{
+	margin:15px auto;
+	padding-bottom:100px;
+	width:70%;
+	border:red solid 10px;
+	color:red;
+	font-size:100px;
+	text-align:center;
+	background:url(images/img1.jpg) no-repeat center 70%;
+}
+</style>
+
+<!--테블릿 환경 : 가로 해상도가 1,000px 미만 640px이상에서 적용됨-->
+<style media="screen and (min-width:640px) and (max-width:999px)">
+#exampleSub{
+	margin:15px auto;
+	width:70%;
+	padding-bottom:100px;
+	border:green solid 10px;
+	color:green;
+	font-size:80px;
+	text-align:center;
+	background:url(images/img2.jpg) no-repeat center 70%;
+}
+</style>
+
+<!--모바일 환경 : 가로 해상도가 640px 미만에서 적용됨-->
+<style media="screen and (max-width:639px)">
+#exampleSub{
+	margin:15px auto;
+	width:70%;
+	padding-bottom:100px;
+	border:skyblue solid 10px;
+	color:skyblue;
+	font-size:50px;
+	text-align:center;
+	background:url(images/img3.jpg) no-repeat center 70%;
+}
+</style>
+--------------------
+  <div id="example">
+	<div id="exampleSub">
+		<p>Media Query</p>
+	</div>
+  </div>
+
+
+
+-------------------------------------------------------------------------------
+ex2) link로 연결시 (권장)
+
+-media.css
+<link rel="stylesheet" href="css/media.css"/>
+
+@media only screen and (min-width:1000px) {
+	#exampleSub{
+	  margin:15px auto;
+	  padding-bottom:100px;
+	  width:70%;
+	  border:red solid 10px;
+	  color:red;
+	  font-size:100px;
+	  text-align:center;
+	  background:url(../images/img1.jpg) no-repeat center 70%;
+               }
+}
+
+@media only screen and (min-width:640px) and (max-width:999px) {
+	#exampleSub{
+	  margin:15px auto;
+	  width:70%;
+	  padding-bottom:100px;
+	  border:green solid 10px;
+	  color:green;
+	  font-size:80px;
+	  text-align:center;
+	  background:url(../images/img2.jpg) no-repeat center 70%;
+   }
+}
+
+@media only screen and (max-width:639px) {
+	#exampleSub{
+	  margin:15px auto;
+	  width:70%;
+	  padding-bottom:100px;
+	  border:skyblue solid 10px;
+	  color:skyblue;
+	  font-size:50px;
+	  text-align:center;
+	  background:url(../images/img3.jpg) no-repeat center 70%;
+   }
+}
+
+-------------------------------------------------
+ex3)link로 각각의 css파일 연결시
+
+<link rel="stylesheet" href="css/desktop.css" media="screen and (min-width:1000px)"/>
+<link rel="stylesheet" href="css/tablet.css" media="screen and (min-width:640px) and (max-width:999px)"/>
+<link rel="stylesheet" href="css/mobile.css" media="screen and (max-width:639px)"/>
+
+
+-desktop.css
+#exampleSub{
+	  margin:15px auto;
+	  padding-bottom:100px;
+	  width:70%;
+	  border:red solid 10px;
+	  color:red;
+	  font-size:100px;
+	  text-align:center;
+	  background:url(../images/img1.jpg) no-repeat center 70%;
+   }
+
+-tablet.css
+#exampleSub{
+	  margin:15px auto;
+	  width:70%;
+	  padding-bottom:100px;
+	  border:green solid 10px;
+	  color:green;
+	  font-size:80px;
+	  text-align:center;
+	  background:url(../images/img2.jpg) no-repeat center 70%;
+   }
+
+-mobile.css
+#exampleSub{
+	  margin:15px auto;
+	  width:70%;
+	  padding-bottom:100px;
+	  border:skyblue solid 10px;
+	  color:skyblue;
+	  font-size:50px;
+	  text-align:center;
+	  background:url(../images/img3.jpg) no-repeat center 70%;
+   }
+
+===================================
+속성으로 구분
+
+
+스마트폰 (가로/세로): 
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles */
+}
+
+스마트폰 (가로): 
+@media only screen and (min-width : 321px) {
+/* Styles */
+}
+
+스마트폰 (세로): 
+@media only screen and (max-width : 320px) {
+/* Styles */
+}
+
+--------------------------------
+
+iPad (가로/세로): 
+@media only screen and
+(min-device-width : 768px) and (max-device-width : 1024px) {
+/* Styles */
+}
+
+iPad (가로): 
+@media only screen and
+(min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+/* Styles */
+}
+
+iPad (세로): 
+@media only screen and
+(min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+/* Styles */
+}
+
+---------------------------------
+
+데스크탑 브라우저 (가로): 
+@media only screen and (min-width : 1224px) {
+/* Styles */
+}
+
+큰 모니터: 
+@media only screen and (min-width : 1824px) {
+/* Styles */
+}
+
+=============================================
+* sample.html
+
+
+/*  Layout*/
+#wrap { width:1200px; margin:0 auto; background:#ccc; position:relative; }
+#header { width:243px; height:400px; float:left;background:#f00; } 
+#main {height:700px; background:#0F0; margin:0 220px 0 243px; 
+        border-left:1px solid #ddd; border-right:1px solid #ddd;  
+	
+	
+	box-sizing: border-box; 
+	-o-box-sizing: border-box; 
+	-ms-box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+}
+#contents { width:220px;height:700px; background:#F90; position:absolute; top:0; right:0;}
+#foot { clear:both; height:120px; border-top:1px solid #ddd; background:#F6F; }
+
+
+@media screen and (max-width:1280px) {
+	#wrap { width:95%; margin:0 auto; }
+}
+@media screen and (max-width:1024px) {
+	#wrap { width:100%; }
+	#main { margin:0 0 0 243px; border:none;}
+	#contents { margin:0 0 0 243px; width:auto; position:relative; 
+	     clear:both; overflow:auto; padding-bottom:10px;}
+}
+@media screen and (max-width:768px) {
+
+}
+@media screen and (max-width:600px) {
+	#header { width:100%; float:none;  }
+	#main { border-left:0;margin:0; clear:both; }
+	#contents { margin:0; }	
+}
+@media screen and (max-width:480px) {
+	#wrap { min-width:300px; }
+}
+
+==============================================
+* 미디어 쿼리 종합 예시
+
+1)html
+
+<!--[if lt IE 9]> 
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> 
+<![endif]-->
+
+<!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+---------------------
+    <div id="wrap">
+   <header>
+    <h1><a href="#">Media Company</a></h1>
+   </header>
+   <div id="container">
+	<!-- sidebar/menu -->
+    <div id="sidebar">
+     <nav id="menu">
+      <ul>
+       <li><a href="#" class="current">company</a></li>
+       <li><a href="#">Products</a></li>
+       <li><a href="#">Services</a></li>
+       <li><a href="#">Profile</a></li>
+       <li><a href="#">Contact</a></li>
+      </ul>
+     </nav>
+     <aside>
+      <dl>
+         <dt>Company Info</dt>
+         	<dd>서울시 강남구</dd>
+            <dd>Tel:000-0000-0000</dd>
+            <dd>Fax:00-0000-0000</dd>
+            <dd>Email:Media@n.net</dd>
+      </dl>
+     </aside>
+     <!-- sidebar/menu -->
+    </div>
+    <!-- content -->
+    <article id="content">
+     <h1>COMPANY</h1>
+     <div id="quick-links">
+      <section class="services">
+       <h2>Our services</h2>
+       <ul>
+        <li><a href="">Hardmetal &amp; Wolframcarbide</a></li>
+        <li><a href="#">Sharpening &amp; Grinding</a></li>
+        <li><a href="#">CNC Milling</a></li>
+       </ul>
+      </section>
+      <!-- services e -->
+      <section class="products">
+       <h2>Our products</h2>
+       <ul>
+        <li><a href="#">Insulation knives &amp; saws</a></li>
+        <li><a href="#">Granulator &amp; shredder knives</a></li>
+        <li><a href="#">Circular knives</a></li>
+        <li><a href="#">Industrial knives</a></li>
+       </ul>
+      </section>
+      <!-- products e -->
+     </div>
+     <!-- quick-links e -->
+     <section class="bi">
+       <h2>Brand Identity</h2>
+       <img src="img/orange.jpg" alt="orange logo"/>
+       <p>밝고 긍정적인 감성을 불러일으키는 오렌지색 로고는 창조적 발상과 그에 걸맞은 실천으로 고객에게 활력넘치는 주거공간을 제공하겠다는 의지를 전달하며 둥근 글자 형태로 더욱 친근한 이미지를 심어준다. 
+</p>
+       <img src="img/green.jpg" alt="green logo" />
+       <p>자연과 안락함을 상징하는 푸른잎은 친환경 주거 문화를 선도하는 e편한세상의 신념과 변함없는 고객서비스에 대한 약속을 내포하고있다.</p>
+     </section>
+     <!-- bi e -->
+     <section class="video">
+        <h2>Movie</h2>
+        <video controls>
+          <source src="movie/movie.ogv" type="video/ogg" />
+          <source src="movie/movie.mp4" type="video/mp4" />
+          <p>익스8 이하 버전에서는 영상을 지원하지 않습니다.</p>
+        </video>
+     </section>
+    </article>
+    <!-- content e -->
+   </div>
+   <!-- container e -->
+  </div>
+  <!-- wrap e -->
+  <footer>
+   <p>2012 Copyright &copy; Media Company.All Rights Reserved.</p>
+  </footer>
+-------------------------------------------------------------------
+2) css
+
+body{font-family:"돋움", "돋움체"; font-size:14px; color:#333;
+  background:url(../img/top.png) repeat-x 0 0}
+#wrap,footer p{width:950px;margin:0 auto}
+header{padding:13px;height:260px;
+	background:#fff url(../img/header-home.jpg) no-repeat 13px 13px;
+	position:relative}
+header,#sidebar aside{
+	-webkit-box-shadow:1px 1px 10px rgba(0,0,0,.37);
+	-moz-box-shadow:1px 1px 10px rgba(0,0,0,.37);
+	box-shadow:1px 1px 10px rgba(0,0,0,.37);
+	border:1px solid #b9b9b9}
+header h1 a{
+	display:block;width:287px;height:100px;
+	background:#fff url(../img/logo.png) no-repeat center center;
+	text-indent:-9999px; overflow:hidden;position:absolute;
+	bottom:13px; left:26px}
+#container{margin-top:35px;padding-bottom:35px;overflow:hidden}	
+#container a{color:#0e3092;border-bottom:1px solid #b6c0de}
+#container a:hover,#container a:focus{border-color:#0e3092}
+#container h1 {color:#0e3092;font-size:2em; margin-bottom:.5em}
+#container h2{color:#0e3092;font-size:1.5em;margin-bottom:.5em}	
+
+/* 사이드바 / 메뉴 */
+#sidebar{width:165px;margin:1px 40px 0 30px;
+	float:left; display:inline}
+#menu a{display:block;color:#0e3092;text-transform:uppercase;
+    padding:8px;border:1px solid #FC9;font-weight:bold;
+	background:url(../img/nav.png) no-repeat 97% center}
+#menu a.current, #menu a:hover{background-color:#FC9; color:#FFF}
+#sidebar aside{padding:10px;margin:2em 0}
+#sidebar aside dl{line-height:1.5em;color:#0e3092}
+#sidebar aside dt{font-size:1.2em; margin-bottom:10px; font-weight:bold}
+
+article#content{width:710px; float:left}
+#quick-links{overflow:hidden;margin:2em 0}
+#quick-links li{list-style:disc;margin-left:25px;line-height:2em}
+#content .services,#content .products{
+	float:left;width:250px;padding-top:.5em;padding-left:60px}
+#content .services{background:url(../img/services.png) no-repeat 0 0}
+#content .products{background:url(../img/products.png) no-repeat 0 0}
+.bi img{margin-bottom:10px}
+.bi p{ text-align:justify; line-height:1.5em; 
+       margin-bottom:20px; font-size:12px}
+video{width:80%}
+footer{height:35px;background:#F90;line-height:34px;
+	color:#fff;font-size:.95em}
+
+@media screen and (max-width:950px){
+	body{background:none;
+		border-top:45px solid #F90}
+	#wrap,footer p{width:100%; margin:0}
+	article#content{
+	   	width:auto; float:none; margin:0 0 0 235px}
+	#content .services,#content .products {
+		width:auto; float:none}
+	.bi p{ width:95%}
+	header{background:#fff!important;
+		height:100px;margin-top:0}
+	header h1 a{left:13px}
+	#content .services{margin-bottom:30px}
+	video{width:95%}
+}
+@media screen and (max-width:640px){
+	#wrap,#container,#sidebar,article#content,footer,#quick-links,.bi{
+		width:98%;padding:0 1%;margin-bottom:1em}
+	header h1 a{background-position:center}
+	#sidebar{margin-left:0;float:none}
+	article#content{margin-left:0}
+	footer{margin:0;text-align:center}
+	#content h1, #content h2{color:#F60}
+	#quick-links, .bi{
+	   -webkit-box-shadow:1px 1px 10px rgba(0,0,0,.37);
+	   -moz-box-shadow:1px 1px 10px rgba(0,0,0,.37);
+	   box-shadow:1px 1px 10px rgba(0,0,0,.37);
+	   border:1px solid #b9b9b9;}
+	.bi img, .bi p{width:96%; margin:5px 2%}
+	.video{display:none}
+}
+@media screen and (max-width:480px) {
+	#wrap { min-width:300px; }
+}
+

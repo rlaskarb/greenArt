@@ -1,0 +1,72 @@
+<반응형 웹 - rw web>
+
+-다양한 디바이스/기기/해상도..에 따라 그 크기에 반응하는 UI를 구현하는 제작 기술!!
+-해상도의 구분
+    -데스트톱(pc)
+          -와이드 pc - 1281px~이상
+          -일반 pc - 1025px~1280px
+    -테블릿
+          -일반 테블릿(아이패드) - 769px~1024px
+          -소형 테블릿(아이패드미니) - 641px~768px
+    -모바일   -> 320px~640px
+-기기(디바이스)의 해상도를 처리하는 방법!!
+    -미디어쿼리(css3) -> 해상도를 감지하는 센서!!!
+    -자바스크립트를 사용한 해상도의 처리!!! 
+-유동적인 레아아웃/ 유동크기의 이미지(비디오)
+    -px -> %
+    -추가된 반응형 단위 - vw / vh (유동단위)
+    -유동크기의 이미지
+         -<img> / <video>  ->  width:100%;  ->너비/높이를 함께 유동 사이즈
+         -<img>   -> 너비(유동) / 높이(고정)   -> 
+             width:100%; height:300px; object-fit:cover; object-position:center; 
+
+------------------------------------
+<미디어 쿼리를 연결하는 3가지 방법>
+
+-쿼리 작성 방법
+      - min-width: ???px;   -> 이상~~
+         screen and (min-width:1025px)
+      - max-width:???px;    -> 이하~
+         screen and (max-width:640px)
+      - 해상도의 범위를 지정할 때
+         screen and (min-width:641px) and (max-width:1024px)  
+      - 디바이스의 가로
+            @media screen and (orientation:landscape) { }
+      -디바이스의 세로
+            @media screen and (orientation:portrait) { }
+
+1. <style> 태그에 직적 미디어 쿼리를 지정하는 방법
+    <style media="screen and (min-width:1025px)">
+          선택자{css속성:값}
+    </style>
+
+2. css 파일을 만들어서 <link>로 연결해서 사용 => 권장!!!
+    -css파일에서 작성
+    -큰해상도 -> 작은해상도 순서로 css마크업을 하세요!!! 
+    @media screen and (min-width:1025px){
+          선택자{css속성:값}
+    }
+    
+3. <link> 태그에 직적 미디어 쿼리를 지정하는 방법
+     -각각의 해상에 맞는 css파일을 만든다 (mobile.css / tablet.css / desktop.css)
+     -<link> 태그에 미디어 쿼리를 작성한다
+     <link rel="stylesheet" href="./css/desktop.css" media="screen and (min-width:1025px)">
+
+----------------------------------------------
+<미디어 쿼리를 사용한 레이아웃의 변화!!>
+-float / display:flex
+-css 속성을 해제하는 방법
+      -width:500px / 50%;    -> width:100%;  /   width:auto;(권장)
+      -float:left/right;   -> float:none;
+      -font-weight:bold/100~900;  ->  font-weight:normal;
+      -font-style:italic;   -> font-style:normal;
+      -border:3px solid red;   ->  border:none;
+      -background:url(./이미지파일); -> background:none;
+      -position:fixed/relative/absolute;  ->  position:static;
+
+
+
+
+
+
+

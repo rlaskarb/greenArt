@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      *{margin: 0; padding: 0;}
+
+
+        /* 와이드pc */
+        #wrap{width: 1200px; margin: 0 auto; overflow: hidden;}
+        .box1{background: orange; height: 800px; width: 30%; float: left;}
+        .box2{background: green;height: 400px; width: 70%; float:right;}
+        .box3{background: red;height: 400px; width: 70%; float:right;}
+      
+
+
+
+        /* 일반pc */
+        @media screen and (max-width:1280px){
+            #wrap{width: 90%; margin: 0 5%;}
+        }
+
+        /* 일반테블릿 */
+        @media screen and (max-width:1024px){
+            #wrap{width: auto; margin: 0;}
+        }
+
+        /* 소형테블릿 */
+        @media screen and (max-width:768px){
+            .box1{width: auto; float:none;}
+            .box2{width: auto; float:none;}
+            .box3{width: auto; float:none;}
+        }
+
+        /* 모바일 */
+        @media screen and (max-width:640px){
+          
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="box1">1</div>
+        <div class="box2">2</div>
+        <div class="box3">3</div>
+    </div>
+</body>
+</html>

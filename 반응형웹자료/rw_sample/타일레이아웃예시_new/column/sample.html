@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>ex</title>
+		
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+        
+    
+
+ <style>
+   body {
+    font: 1em/1.67 'Open Sans', Arial, Sans-serif;
+    margin: 0;
+    background: #e9e9e9;
+   }
+   ul{list-style: none;}
+
+.wrapper {
+    width: 95%;
+    margin: 3em auto;
+}
+
+.masonry {
+    margin: 1.5em 0;
+    padding: 0;
+    column-count: 5;
+    column-gap: 1.5em;
+    font-size: .85em;
+}
+
+.masonry li {
+    display: inline-block;
+    background: #fff;
+    padding: 1em;
+    margin: 0 0 1.5em;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 4px 0 #ccc;
+}
+.masonry li img{width:100%;}
+.masonry li span{display: block; line-height: 1.5em;}
+     
+
+@media only screen and (max-width: 1280px) {
+    .masonry {
+        column-count: 4;
+    }
+}  
+
+ @media only screen and (max-width: 1024px) {
+    .masonry {
+      
+        column-count: 3;
+    }
+}
+     
+@media only screen and (max-width: 768px) {
+    .masonry {
+     
+        column-count: 2;
+    }
+}
+     
+@media only screen and (max-width: 640px) {
+    .masonry {
+  
+        column-count: 1;
+    }
+}
+     
+     
+     
+/* 최소의 사이즈는 320px 고정 */
+@media screen and (max-width:480px) {
+    .masonry {
+  
+        column-count: 1;
+    }
+	.wrapper { min-width:320px; }
+}
+     
+
+        </style>
+		
+	</head>
+
+	<body>
+        <div class="wrapper">
+            <ul class="masonry">
+                <li>
+                    <img src="./images/celeb_01.jpg" alt="">
+                    <span>1 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                </li>
+                <li>
+                    <img src="./images/celeb_02.jpg" alt="">
+                    <span>2 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+
+                </li>
+                <li>
+                    <img src="./images/celeb_03.jpg" alt="">
+                    <span>3 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                </li>
+                <li>
+                    <img src="./images/celeb_04.jpg" alt="">
+                    <span>4 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                </li>
+                <li>
+                    <img src="./images/celeb_05.jpg" alt="">
+                    <span></span>5 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                </li>
+                <li>
+                    <img src="./images/celeb_06.jpg" alt="">
+                    <span>6 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                </li>
+                <li>
+                    <img src="./images/celeb_07.jpg" alt=""> 
+                    <span>7 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                </li>
+                <li>
+                    <img src="./images/celeb_08.jpg" alt="">
+                    <span>8 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                </li>
+                <li>
+                    <img src="./images/celeb_09.jpg" alt="">
+                    <span>9 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                </li>
+                <li>
+                    <img src="./images/celeb_10.jpg" alt="">
+                    <span>10 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                </li>
+            </ul>
+        </div>
+	</body>
+</html>

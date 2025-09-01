@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    
+    <title>Document</title>
+    
+    <style>
+        .img1{width: 100%}
+    
+    </style>
+    
+    <script src="jquery-1.8.3.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        
+     var screenSize = $(window).width();  //가로 해상도
+ 
+    function screenW(){     
+        if(screenSize>1280){  //와이드 pc
+            $('.img1').attr('src','a1.jpg');
+        }else if(screenSize>1024){  //일반pc
+            $('.img1').attr('src','a2.jpg');
+        }else if(screenSize>768){ //테블릿
+            $('.img1').attr('src','a3.jpg');
+        }else if(screenSize>640){ //소형테블릿
+            $('.img1').attr('src','a4.jpg');
+        }else{   //모바일
+            $('.img1').attr('src','a5.jpg');
+        }
+    }
+     
+    screenW();  //함수호출    
+        
+    $(window).resize(function(){ 
+      screenSize = $(window).width(); 
+        
+      screenW();//함수호출
+    });     
+
+});
+    
+    </script>
+</head>
+<body>
+    
+  <div class="box">
+    <img class="img1" src="a1.jpg" alt="">
+  </div>    
+    
+</body>
+</html>

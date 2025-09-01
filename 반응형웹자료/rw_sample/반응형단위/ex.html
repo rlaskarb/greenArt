@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        html{font-size: 20px;}
+
+     
+
+        h2:nth-of-type(1){font-size: 2rem;}
+        h2:nth-of-type(2){font-size: 5vw; color: red;}
+        h2:nth-of-type(3){color: blue;  font-size: 10vmax;}
+
+
+        @media screen and (max-width:1024px) {
+            h2:nth-of-type(1){font-size: 1.5rem;}
+            h2:nth-of-type(2){font-size: 10vw; color: red;}
+        }
+
+        @media screen and (max-width:640px) {
+            h2:nth-of-type(1){font-size: 1rem;}
+            h2:nth-of-type(2){font-size: 15vw; color: red;}
+        }
+    </style>
+</head>
+<body>
+     <div class="wrap">
+        
+            <h2>제목1 입니다</h2>
+            <p>단락1 입니다</p>
+        
+          
+        
+            <h2>제목2 입니다</h2>
+            <p>단락2 입니다</p>
+        
+
+        
+            <h2>제목3 입니다</h2>
+            <p>단락3 입니다</p>
+      
+
+     </div>
+</body>
+</html>

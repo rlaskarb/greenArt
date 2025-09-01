@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Column Drop</title>
+<style>
+* {margin:0; padding:0;}
+#wrap{width:1200px; margin:0 auto; overflow:hidden}
+#box_a {height:400px; background:#fcb354; float:left; width:30%;}
+#box_b {height:400px; background:#f1779e; width:50%; float:left;}
+#box_c {height:400px; background:#24bbaf; width:20%; float:right;}
+#box_c p { margin:1.0em; float:left;}
+
+@media screen and (max-width:1024px) {
+#wrap{ width:auto; margin:0}
+#box_b {float:none; width:auto;}
+#box_c { float:none;  clear:both; width:auto; }
+}
+
+@media screen and (max-width:768px) {
+#box_a {float:none; width:auto;}
+}
+
+@media screen and (max-width:640px) {
+#box_a {float:none; width:auto;}
+}
+</style>
+</head>
+
+<body>
+<div id="wrap">
+    <div id="box_a"></div>
+    <div id="box_b"></div>
+    <div id="box_c"></div>
+</div>
+
+</body>
+</html>

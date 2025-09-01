@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        a{color: #333; text-decoration: none; display: block;}
+        ul{list-style: none;}
+
+        /* main character */
+        #content .character{background:url(./images/character_bg.jpg) center no-repeat ; 
+            background-size:cover; overflow: hidden;}
+
+        #content .character .ttl h3{display:inline-block; font-size:2.7777rem; color:#fff; 
+            font-family: 'Suez One', serif; margin: 30px;
+            background:linear-gradient(to right, #f99e1a, #ef519e);  
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+        #content .character .ttl p{text-align:justify; color:rgba(163,166,255,.5); 
+            margin:0 20px 50px; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp: 2; overflow:hidden; text-overflow: ellipsis;}
+        #content .character ul{display:flex; flex-wrap:wrap; justify-content:center;}
+        #content .character ul li{width:24%; text-align:center; margin:50px .5% 0; transition:transform .3s;}
+        #content .character ul li img{width: 100%;border-radius: 10% 40% / 50% 20%; margin-bottom: 20px; transition: all .5s;}
+        #content .character ul li:nth-of-type(even) img{border-radius: 40% 20% / 10% 30% ;}
+        #content .character ul li:hover img{filter:invert(1);}
+        #content .character ul li strong{display:block; color:#fff; font-size:1.3888rem; font-family: 'Suez One', serif;}
+        #content .character ul li p{color:#ffdfb0; padding:20px; line-height: 1.5em;}
+        #content .character ul li:hover{transform:translateY(-20px);}
+
+        #content .character .more{width:20%; font-size:1.2em; color:#fff; background:orange;
+            padding: 15px 20px;border-radius:15px; text-align: center ;
+            margin: 30px auto;transition:all .3s;}
+        #content .character .more:hover{color:333; background:rgba(255,255,255,.6);}
+
+        /* 일반pc */
+        @media screen and (max-width:1280px) {
+        
+        }
+
+        /* 테블릿 */
+        @media screen and (max-width:1024px) {
+            #content .character ul li{width:32.33%;}
+            #content .character ul li:nth-of-type(7){display: none;}
+            #content .character ul li:nth-of-type(8){display: none;}
+        }
+
+        /* 소형 테블릿 */
+        @media screen and (max-width:768px) {
+            #content .character ul li{width:49%;}
+            #content .character ul li:nth-of-type(5){display: none;}
+            #content .character ul li:nth-of-type(6){display: none;}
+            #content .character ul li p{display: none;}
+            #content .character{background:url(./images/character_bg2.jpg) center no-repeat ; }
+        }
+
+        /* 모바일 */
+        @media screen and (max-width:640px) {
+            #content .character ul li{width:90%; margin:40px 5% 0;}
+            #content .character ul li:nth-of-type(4){display: none;}
+            #content .character{background:rgb(17, 5, 74);}
+            #content .character ul li img{border-radius: 50%;}
+            #content .character ul li:nth-of-type(even) img{border-radius: 50%;}
+        }
+
+    </style>
+
+</head>
+<body>
+
+ <article id="content">
+       <section class="character">
+           <div class="ttl">
+               <h3>Character</h3>
+               <p>Inhabiting the Land of the Dead is a rich and vibrant community. But these characters had to be built without many of the usual traits because they are all skeletons. “We had to figure out how to give them personality without skin, muscles, noses or even lips,” says character art director Daniel Arriaga. “We played with shapes and did a lot of paintings. We sculpted and studied skulls from every angle to figure out where we could add appeal and charm.”</p>
+           </div>
+           <ul>
+               <li>
+                   <a href="#">
+                       <img src="./images/character1.jpg" alt="">
+                       <strong>Miguel</strong>
+                       <p>Miguel is a 12-year-old who struggles against his family’s generations-old ban on music. “Miguel secretly nurtures this love of music,” says director Lee Unkrich.</p>
+                   </a>
+               </li>
+               <li>
+                   <a href="#">
+                    <img src="./images/character2.jpg" alt="">
+                       <strong>Héctor</strong>
+                       <p>Héctor, a charming trickster in the Land of the Dead, enlists Miguel’s help to visit the Land of the Living.</p>
+                   </a>
+               </li>
+               <li>
+                   <a href="#">
+                    <img src="./images/character3.jpg" alt="">
+                       <strong>Dante</strong>
+                       <p>Dante is a Xolo dog short for Xoloitzcuintli the national dog of Mexico. Nearly hairless, Dante has trouble keeping his tongue in his mouth due to his missing teeth but he’s a loyal companion to Miguel.</p>
+                   </a>
+               </li>
+               <li>
+                   <a href="#">
+                    <img src="./images/character4.jpg" alt="">
+                       <strong>Ernesto de la Cruz</strong>
+                       <p>Miguel’s idol Ernesto de la Cruz, is the most famous musician in the history of Mexico. Revered by fans worldwide until his untimely death, the charming and charismatic musician is even more beloved in the Land of the Dead.</p>
+                   </a>
+               </li>
+               <li>
+                   <a href="#">
+                    <img src="./images/character5.jpg" alt="">
+                       <strong>Abuelita</strong>
+                       <p>Abuelita is Miguel’s grandmother and the ultimate enforcer of the Rivera family rules. She loves her family very much and will do anything to protect them.</p>
+                   </a>
+               </li>
+               <li>
+                   <a href="#">
+                    <img src="./images/character6.jpg" alt="">
+                       <strong>Mamá Imelda</strong>
+                       <p>Miguel is a 12-year-old who struggles against his family’s generations-old ban on music. “Miguel secretly nurtures this love of music,” says director Lee Unkrich.</p>
+                   </a>
+               </li>
+               <li>
+                   <a href="#">
+                    <img src="./images/character7.jpg" alt="">
+                       <strong>Miguel</strong>
+                       <p>Mamá Imelda, Miguel’s great-great-grandmother, is the matriarch of the Rivera family and the founder of their successful shoemaking business. Miguel meets Mamá Imelda in the Land of the Dead and discovers she really does not share his passion for music.</p>
+                   </a>
+               </li>
+               <li>
+                   <a href="#">
+                    <img src="./images/character8.jpg" alt="">
+                       <strong>Frida</strong>
+                       <p>Frida, a ground breaking artistic figure in Mexican culture, continues her expressive vision in the Land Of The Dead and is one of Miguel’s first artistic allies, helping him to see that a life of an artist could actually be more than just a dream.</p>
+                   </a>
+               </li>
+           </ul>
+           <a href="#" class="more">MORE</a>
+       </section>
+    
+ </article>
+</body>
+</html>

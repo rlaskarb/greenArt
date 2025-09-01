@@ -1,0 +1,9 @@
+/* 모바일 화면 */
+
+#exampleSub{
+	
+	  border:skyblue solid 10px;
+	  color:skyblue;
+	  font-size:50px;
+	  background:url(../images/img3.jpg) no-repeat center 70%;
+   }

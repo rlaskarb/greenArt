@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      *{margin: 0; padding: 0;}
+
+
+        /* 와이드pc */
+        #wrap{width: 1200px; margin: 0 auto; overflow: hidden;}
+        .box1{background: orange; height: 600px; width: 10%; float: left;}
+        .box2{background: green;height: 600px; width: 10%; float: left;}
+        .box3{background: red;height: 600px; width: 70%; float: left;}
+        .box4{background: blue;height: 600px; width: 10%; float: left;}
+
+
+
+        /* 일반pc */
+        @media screen and (max-width:1280px){
+            #wrap{width: auto; margin: 0;}
+            .box3{width: 80%;}
+            .box4{float: none; width: auto; clear: both;}
+        }
+
+        /* 일반테블릿 */
+        @media screen and (max-width:1024px){
+            .box1{width: 50%;}
+            .box2{width: 50%;}
+            .box3{width: auto; float: none; clear: both;}
+        }
+
+        /* 소형테블릿 */
+        @media screen and (max-width:768px){
+           
+        }
+
+        /* 모바일 */
+        @media screen and (max-width:640px){
+            .box1{width: auto; float: none;}
+            .box2{width: auto; float: none;}
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="box1">1</div>
+        <div class="box2">2</div>
+        <div class="box3">3</div>
+        <div class="box4">4</div>
+    </div>
+</body>
+</html>

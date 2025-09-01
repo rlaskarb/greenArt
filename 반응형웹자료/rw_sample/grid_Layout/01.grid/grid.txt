@@ -1,0 +1,330 @@
+<grid>
+
+Grid의 속성들은 Flex와 마찬가지로,
+-컨테이너에 적용하는 속성
+-아이템에 적용하는 속성
+
+1.컨테이너에 적용하는 속성
+
+ex1) display:grid
+ -grid-template-columns   => 단(열)의 개수와 크기를 설정한다
+ -grid-template-rows:  =>  행의 개수와 크기를 설정한다
+ -grid-auto-rows:  => 한꺼번에 행의 높이를 설정한다
+
+ -repeat()함수 -> 반복되는 값을 자동으로 처리할 수 있는 함수입니다.
+  repeat(반복횟수, 반복값)
+
+ -minmax()함수
+  minmax(100px, auto)의 의미는 최소한 100px, 최대는 자동으로(auto) 늘어나게.. 입니다. 
+  즉 아무리 내용의 양이 적더라도 최소한 높이 100px은 확보하고, 내용이 많아 100px이 넘어가면 알아서 늘어나도록 처리해 준다.
+
+<link rel="stylesheet"  href="./basic-style.css"></link>
+ <style>
+       .container{
+        display: grid;
+
+        /* grid-template-columns: 100px 100px 100px;
+        grid-template-rows: 100px 200px 100px 100px; */
+
+        /* grid-template-columns: repeat(5,100px);
+        grid-template-rows: repeat(2,100px); */
+
+        /* grid-template-columns: repeat(5,20%);
+        grid-template-rows: repeat(2,100px); */
+
+        /* grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: repeat(2,100px) repeat(2,200px); */
+
+        /* grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: repeat(2,100px) repeat(2,200px); */
+
+        /* grid-template-columns:  repeat(5, 1fr);
+        grid-template-rows: repeat(2,100px); */
+
+        /* grid-template-columns:  repeat(5, 1fr);
+        grid-auto-rows:150px ; */
+
+        /* grid-template-columns:  repeat(5, 1fr);
+        grid-auto-rows:minmax(150px,auto) ; */
+       }
+        
+    </style>
+
+    <div class="container">
+        <div class="item color1">
+            Item01
+            <!-- <br>
+            내용1<br>
+            내용2<br>
+            내용3<br>
+            내용4<br>
+            내용5<br>
+            내용6<br>
+            내용7<br>
+            내용8<br>
+            내용9<br>
+            내용10 -->
+        </div>
+        <div class="item color2">Item02</div>
+        <div class="item color3">Item03</div>
+        <div class="item color4">Item04</div>
+        <div class="item color5">Item05</div>
+        <div class="item color1">Item06</div>
+        <div class="item color2">Item07</div>
+        <div class="item color3">Item08</div>
+        <div class="item color4">Item09</div>
+        <div class="item color5">Item10</div>
+    </div>
+---------------------------
+
+ex2)  간격(여백처리)
+  -grid-column-gap   -> 단 사이의 간격
+  -grid-row-gap   -> 행 사이의 간격
+  -grid-gap  -> 단과행 간격을 한꺼번에 
+
+    <style>
+       .container{
+        display: grid;
+        
+        padding: 10px;
+        
+        grid-template-columns:  repeat(5, 1fr);
+        grid-auto-rows:150px ;
+
+        grid-column-gap:10px ;
+        grid-row-gap:10px ;
+
+        /* grid-gap:10px ; */
+       }
+        
+    </style>
+
+   <div class="container">
+        <div class="item color1">Item01</div>
+        <div class="item color2">Item02</div>
+        <div class="item color3">Item03</div>
+        <div class="item color4">Item04</div>
+        <div class="item color5">Item05</div>
+        <div class="item color1">Item06</div>
+        <div class="item color2">Item07</div>
+        <div class="item color3">Item08</div>
+        <div class="item color4">Item09</div>
+        <div class="item color5">Item10</div>
+    </div>
+
+--------------------------------------------------
+*<flex와 동일한 속성>
+
+1)컨테이너에 적용하는 속성
+ -justify-content  
+       - Grid 아이템들의 너비를 모두 합한 값이 Grid 컨테이너의 너비보다 작을 때 Grid 아이템들을 통째로 수평 정렬합니다.
+       	/* justify-content: stretch; */
+	/* justify-content: start; */
+	/* justify-content: center; */
+	/* justify-content: end; */
+	/* justify-content: space-between; */
+	/* justify-content: space-around; */
+	/* justify-content: space-evenly; */
+
+ -align-content    
+       - Grid 아이템들의 높이를 모두 합한 값이 Grid 컨테이너의 높이보다 작을 때 Grid 아이템들을 통째로 정렬합니다.
+              /* align-content: stretch; */
+	/* align-content: start; */
+	/* align-content: center; */
+	/* align-content: end; */
+	/* align-content: space-between; */
+	/* align-content: space-around; */
+	/* align-content: space-evenly; */
+
+ -place-content
+        - align-content와 justify-content를 같이 쓸 수 있는 단축 속성이에요.
+              /* place-content: space-between center; */
+
+ -justify-items
+       - 아이템들을 가로(row축) 방향으로 정렬합니다. 컨테이너에 적용합니다.
+              /* justify-items: stretch; */
+	/* justify-items: start; */
+	/* justify-items: center; */
+	/* justify-items: end; */
+
+ -align-items
+       - 아이템들을 세로(column축) 방향으로 정렬합니다. 컨테이너에 적용합니다.
+              /* align-items: stretch; */
+	/* align-items: start; */
+	/* align-items: center; */
+	/* align-items: end; */
+
+ -place-items
+       - align-items와 justify-items를 같이 쓸 수 있는 단축 속성이에요.
+           /* place-items: center start; */
+
+2)아이템에 적용하는 속성
+  -align-self
+        -해당 아이템을 세로(column축) 방향으로 정렬합니다. 아이템에 적용합니다.
+              /* align-self: stretch; */
+	/* align-self: start; */
+	/* align-self: center; */
+	/* align-self: end; */
+
+  -justify-self
+       -해당 아이템을 가로(row축) 방향으로 정렬합니다. 아이템에 적용합니다.
+              /* jjustify-self: stretch; */
+	/* justify-self: start; */
+	/* justify-self: center; */
+	/* justify-self: end; */
+
+  -place-self
+      -align-self와 justify-self를 같이 쓸 수 있는 단축 속성이에요.
+              /* place-self: start center; */
+
+  -order
+      -각 아이템들의 시각적 나열 순서를 결정하는 속성이에요. 숫자값이 들어가며, 작은 숫자일 수록 먼저 배치됩니다.
+      - "시각적" 순서일 뿐, HTML 자체의 구조를 바꾸는 것은 아니므로 접근성 측면에서 사용에 주의하셔야 합니다. 
+        시각 장애인분들이 사용하는 스크린 리더로 화면을 읽을 때, order를 이용해 순서를 바꾼 것은 의미가 없다는 것을 기억해 주세요.
+               /*  order: 3; */
+
+  -z-index
+       -z-index로 Z축 정렬을 할 수 있어요. 숫자가 클 수록 위로 올라옵니다. (position에서의 z-index랑 똑같이 생각하시면 됩니다.)
+             /* z-index: 1;
+	transform: scale(2);  */
+
+--------------------------
+
+ex3) 각각의 셀의 크기 변경(grid line)
+
+     <style>
+       .container{
+        display: grid;
+        
+        padding: 10px;
+        grid-template-columns:  repeat(5, 1fr);
+        grid-auto-rows:150px ;
+        grid-gap:10px ;
+       }
+       .item2{
+         grid-column-start:2;
+         grid-column-end:4;
+
+         grid-row-start:1;
+         grid-row-end:3;
+
+         /* grid-column:2/4;
+         grid-row:1/3; */
+
+         /* grid-column:2/span 3;
+         grid-row:1/3; */
+
+         /* grid-column:2/-1;
+         grid-row:1/3; */
+       } 
+    </style>
+
+    <div class="container">
+        <div class="item color1">Item01</div>
+        <div class="item item2 color2">Item02</div>
+        <div class="item color3">Item03</div>
+        <div class="item color4">Item04</div>
+        <div class="item color5">Item05</div>
+        <div class="item color1">Item06</div>
+        <div class="item color2">Item07</div>
+        <div class="item color3">Item08</div>
+        <div class="item color4">Item09</div>
+        <div class="item color5">Item10</div>
+    </div>
+
+----------------------
+
+ex4) grid-template-areas
+
+    <style>
+        body{
+            padding: 5rem;
+            background-color: #000;
+        }
+       .container{
+        display: grid;
+        grid-template-columns:  repeat(3, 1fr);
+        grid-auto-rows: 150px;
+        grid-gap: 1rem;
+
+        grid-template-areas: 
+         'a a a'
+         'b c c'
+         'b d e'
+         'f g e';
+       }
+       .image{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+       }
+       .image1{
+         grid-area: a;
+       }
+       .image2{
+         grid-area: b;
+       }
+       .image3{
+         grid-area: c;
+       }
+       .image4{
+         grid-area: d;
+       }
+       .image5{
+         grid-area: e;
+       }
+       .image6{
+         grid-area: f;
+       }
+       .image7{
+         grid-area: g;
+       }
+    </style>
+
+    <section class="container">
+        <img
+          src="https://images.unsplash.com/photo-1546548970-71785318a17b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZnJ1aXRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+          alt="img"
+          class="image image1"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1618897996318-5a901fa6ca71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZnJ1aXRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+          alt="img"
+          class="image image2"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGZydWl0c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+          alt="img"
+          class="image image3"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGZydWl0c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+          alt="img"
+          class="image image4"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1425934398893-310a009a77f9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fGZydWl0c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+          alt="img"
+          class="image image5"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1577069861033-55d04cec4ef5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDV8fGZydWl0c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+          alt="img"
+          class="image image6"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1577003811926-53b288a6e5d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzd8fGZydWl0c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+          alt="img"
+          class="image image7"
+        />
+      </section>
+
+
+
+
+
+
+
+
+
+

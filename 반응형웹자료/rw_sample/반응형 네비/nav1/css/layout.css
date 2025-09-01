@@ -1,0 +1,29 @@
+/* 와이드 pc  */
+
+.main{margin-top: 80px;}
+#content{height: 800px; background: green;}
+#footerArea{height: 80px; background: pink;}
+
+/* 일반 pc */
+@media screen and (max-width:1280px) {
+	
+}
+
+
+/* 테블릿 */
+@media screen and (max-width:1024px) {
+	
+}
+
+/* 소형 테블릿 */
+@media screen and (max-width:768px) {
+ 
+}
+
+/* 모바일 */
+@media screen and (max-width:640px) {
+  
+}
+
+
+
