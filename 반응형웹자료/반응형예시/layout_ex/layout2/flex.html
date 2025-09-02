@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            /* 와이드 pc  */
+            .wrap {
+                width: 90%;
+                box-sizing: border-box;
+                margin: 0 auto;
+                border: 2px solid red;
+                font-size: 30px;
+            }
+
+            header,
+            footer {
+                box-sizing: border-box;
+                border: 1px solid #999;
+                height: 100px;
+            }
+
+            .visual {
+                box-sizing: border-box;
+                border: 1px solid #999;
+                height: 200px;
+                background: pink;
+            }
+
+            .content section div {
+                box-sizing: border-box;
+                border: 1px solid #999;
+                height: 150px;
+            }
+
+            .content .sec1 {
+                background: orange;
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .content .sec1 div {
+                width: 25%;
+            }
+
+            .content .sec2 {
+                background: green;
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .content .sec2 div {
+                width: 33.33%;
+            }
+
+            .content .sec3 {
+                background: skyblue;
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .content .sec3 div {
+                width: 50%;
+            }
+
+            /* 일반 pc */
+
+            @media screen and (max-width: 1280px) {
+                .wrap {
+                    width: 94%;
+                }
+                .content .sec1 div {
+                    width: 50%;
+                }
+            }
+            /* 일반 테블릿 */
+            @media screen and (max-width: 1024px) {
+                .wrap {
+                    width: 100%;
+                    margin: 0;
+                }
+
+                .content .sec1 div:nth-of-type(3) {
+                    width: 100%;
+                }
+                .content .sec1 div:nth-of-type(4) {
+                    width: 100%;
+                }
+
+                .content .sec2 div:nth-of-type(3) {
+                    width: 100%;
+                }
+
+                .content .sec2 div:nth-of-type(1),
+                .content .sec2 div:nth-of-type(2) {
+                    width: 50%;
+                }
+            }
+
+            /* 소형 테블릿 */
+            @media screen and (max-width: 768px) {
+                .content .sec1 div:nth-of-type(3),
+                .content .sec1 div:nth-of-type(4) {
+                    display: none;
+                }
+
+                .content .sec3 div {
+                    width: 100%;
+                }
+            }
+
+            /* 모바일  */
+            @media screen and (max-width: 640px) {
+                .content .sec1 div {
+                    width: 100%;
+                }
+
+                .content .sec2 div:nth-of-type(1),
+                .content .sec2 div:nth-of-type(2) {
+                    width: 100%;
+                }
+
+                .content .sec2 div:nth-of-type(3) {
+                    display: none;
+                }
+
+                .content .sec3 div:nth-of-type(1),
+                .content .sec3 div:nth-of-type(2) {
+                    height: 100px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <header>1</header>
+            <div class="visual">2</div>
+            <article class="content">
+                <section class="sec1">
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                </section>
+                <section class="sec2">
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                </section>
+                <section class="sec3">
+                    <div>10</div>
+                    <div>11</div>
+                </section>
+            </article>
+            <footer>12</footer>
+        </div>
+    </body>
+</html>

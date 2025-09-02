@@ -54,6 +54,7 @@
 
 ----------------------------------------------
 <미디어 쿼리를 사용한 레이아웃의 변화!!>
+
 -float / display:flex
 -css 속성을 해제하는 방법
       -width:500px / 50%;    -> width:100%;  /   width:auto;(권장)
@@ -63,8 +64,15 @@
       -border:3px solid red;   ->  border:none;
       -background:url(./이미지파일); -> background:none;
       -position:fixed/relative/absolute;  ->  position:static;
+      -margin:10px 20px; / padding:10px 20px;   -> margin:0 / padding:0
 
+-float이 적용된 단을 해제(단이 떨어진다)
+       -float:left/right;  width:30%/300px;    ->  float:none; width:auto; clear:both;
+-display:flex; 가 적용된 단을 해제(단이 떨어진다)
+       -컨테이너 -> display:flex; flex-wrap: wrap;
+       -아이템 -> width:100%;
 
+---------------------------------------------------------
 
 
 

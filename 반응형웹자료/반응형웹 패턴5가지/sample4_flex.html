@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            /* 와이드 pc  */
+            .container {
+                width: 90%;
+                margin: 0 auto;
+                box-sizing: border-box;
+                border: 2px solid red;
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .container div {
+                box-sizing: border-box;
+                border: 1px solid #999;
+                width: 24%;
+                margin: 0.5% 0.5%;
+                height: 150px;
+            }
+
+            /* 일반 pc */
+
+            @media screen and (max-width: 1280px) {
+                .container {
+                    width: 96%;
+                }
+            }
+            /* 일반 테블릿 */
+            @media screen and (max-width: 1024px) {
+                .container {
+                    width: 100%;
+                }
+                .container div {
+                    width: 32.33%;
+                }
+                .container div:nth-of-type(4) {
+                    display: none;
+                }
+                .container div:nth-of-type(8) {
+                    display: none;
+                }
+                .container div:nth-of-type(12) {
+                    display: none;
+                }
+            }
+
+            /* 소형 테블릿 */
+            @media screen and (max-width: 768px) {
+                .container div {
+                    width: 49%;
+                }
+                .container div:nth-of-type(11) {
+                    display: none;
+                }
+            }
+
+            /* 모바일  */
+            @media screen and (max-width: 640px) {
+                .container div {
+                    width: 100%;
+                }
+                .container div:nth-of-type(4) {
+                    display: block;
+                }
+                .container div:nth-of-type(6) {
+                    display: none;
+                }
+                .container div:nth-of-type(7) {
+                    display: none;
+                }
+                .container div:nth-of-type(9) {
+                    display: none;
+                }
+                .container div:nth-of-type(10) {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div>01</div>
+            <div>02</div>
+            <div>03</div>
+            <div>04</div>
+            <div>05</div>
+            <div>06</div>
+            <div>07</div>
+            <div>08</div>
+            <div>09</div>
+            <div>10</div>
+            <div>11</div>
+            <div>12</div>
+        </div>
+    </body>
+</html>

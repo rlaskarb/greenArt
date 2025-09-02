@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            /* 와이드 pc  */
+            .wrap {
+                width: 90%;
+                margin: 0 auto;
+                box-sizing: border-box;
+                font-size: 30px;
+                border: 2px solid red;
+            }
+
+            header {
+                box-sizing: border-box;
+                border: 1px solid #999;
+                height: 100px;
+            }
+
+            .content div {
+                box-sizing: border-box;
+                border: 1px solid #999;
+                height: 150px;
+            }
+
+            .content .sec_1 {
+                background: pink;
+                overflow: hidden;
+            }
+
+            .content .sec_1 div {
+                float: left;
+                width: 50%;
+            }
+
+            .content .sec_2 {
+                background: green;
+                overflow: hidden;
+            }
+
+            .content .sec_2 div {
+                float: left;
+                width: 33.33%;
+            }
+
+            .content .sec_3 {
+                background: orange;
+                overflow: hidden;
+            }
+
+            .content .sec_3 div {
+                float: left;
+                width: 50%;
+            }
+
+            footer {
+                box-sizing: border-box;
+                border: 1px solid #999;
+                height: 100px;
+            }
+
+            /* 일반 pc */
+
+            @media screen and (max-width: 1280px) {
+                .wrap {
+                    width: 95%;
+                }
+            }
+            /* 일반 테블릿 */
+            @media screen and (max-width: 1024px) {
+                .wrap {
+                    width: 100%;
+                    margin: 0;
+                }
+                .content .sec_2 div {
+                    float: none;
+                    width: auto;
+                }
+            }
+
+            /* 소형 테블릿 */
+            @media screen and (max-width: 768px) {
+                .content .sec_2 div {
+                    height: 100px;
+                }
+            }
+
+            /* 모바일  */
+            @media screen and (max-width: 640px) {
+                .content .sec_1 div {
+                    float: none;
+                    width: auto;
+                }
+
+                .content .sec_3 div {
+                    float: none;
+                    width: auto;
+                }
+
+                .content .sec_2 div:nth-of-type(1) {
+                    height: 200px;
+                }
+
+                .content .sec_2 div:nth-of-type(2) {
+                    display: none;
+                }
+
+                .content .sec_2 div:nth-of-type(3) {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <header>1</header>
+            <article class="content">
+                <section class="sec_1">
+                    <div>2</div>
+                    <div>3</div>
+                </section>
+                <section class="sec_2">
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                </section>
+                <section class="sec_3">
+                    <div>7</div>
+                    <div>8</div>
+                </section>
+            </article>
+            <footer>9</footer>
+        </div>
+    </body>
+</html>

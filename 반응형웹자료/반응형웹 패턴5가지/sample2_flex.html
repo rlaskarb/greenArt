@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            /* 와이드 pc  */
+            .container {
+                width: 90%;
+                margin: 0 auto;
+                box-sizing: border-box;
+                border: 1px solid red;
+                display: flex;
+            }
+
+            .container div {
+                width: 20%;
+                height: 200px;
+                font-size: 50px;
+            }
+
+            .container .item1 {
+                background: pink;
+            }
+
+            .container .item2 {
+                background: green;
+            }
+
+            .container .item3 {
+                background: yellow;
+            }
+
+            .container .item4 {
+                background: orange;
+            }
+
+            .container .item5 {
+                background: skyblue;
+            }
+
+            /* 일반 pc */
+
+            @media screen and (max-width: 1280px) {
+                .container {
+                    width: 95%;
+                    flex-wrap: wrap;
+                }
+                .container .item5 {
+                    width: 100%;
+                }
+                .container .item4 {
+                    width: 40%;
+                }
+            }
+            /* 일반 테블릿 */
+            @media screen and (max-width: 1024px) {
+                .container {
+                    width: 100%;
+                    margin: 0;
+                }
+
+                .container .item4 {
+                    width: 100%;
+                }
+                .container .item3 {
+                    width: 60%;
+                }
+            }
+
+            /* 소형 테블릿 */
+            @media screen and (max-width: 768px) {
+                .container .item3 {
+                    width: 100%;
+                }
+                .container .item1,
+                .container .item2 {
+                    width: 50%;
+                }
+            }
+
+            /* 모바일  */
+            @media screen and (max-width: 640px) {
+                .container .item1,
+                .container .item2 {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="item1">1</div>
+            <div class="item2">2</div>
+            <div class="item3">3</div>
+            <div class="item4">4</div>
+            <div class="item5">5</div>
+        </div>
+    </body>
+</html>
