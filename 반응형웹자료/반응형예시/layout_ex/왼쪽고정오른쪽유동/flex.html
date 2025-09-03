@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            .container {
+                width: 100%;
+                border: 2px solid red;
+                display: flex;
+            }
+            .container .left {
+                width: 300px;
+                height: 500px;
+                background: pink;
+            }
+
+            .container .right {
+                height: 700px;
+                background: green;
+                flex-grow: 1;
+            }
+
+            .container2 {
+                width: 100%;
+                border: 2px solid red;
+            }
+
+            .container2 .right {
+                width: 300px;
+                height: 500px;
+                background: green;
+            }
+
+            .container2 .left {
+                height: 700px;
+                background: pink;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="left">왼쪽 단</div>
+            <div class="right">오른쪽 단</div>
+        </div>
+        <div class="container2">
+            <div class="right">오른쪽 단</div>
+            <div class="left">왼쪽 단</div>
+        </div>
+    </body>
+</html>

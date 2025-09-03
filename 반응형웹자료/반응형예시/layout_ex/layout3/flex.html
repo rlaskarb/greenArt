@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>레이아웃 3</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            /* 와이드 pc */
+            .wrap {
+                width: 90%;
+                height: auto;
+                margin: 0 auto;
+                box-sizing: border-box;
+                border: 2px solid red;
+                font-size: 30px;
+                text-align: center;
+            }
+
+            div {
+                box-sizing: border-box;
+                border: 1px solid #999;
+                height: 100px;
+                padding-top: 25px;
+            }
+
+            header {
+                display: flex;
+                background: pink;
+            }
+
+            header div:nth-of-type(1) {
+                width: 20%;
+            }
+
+            header div:nth-of-type(2) {
+                width: 80%;
+            }
+
+            .visual {
+                height: 150px;
+                padding-top: 50px;
+            }
+
+            .content .sec1 {
+                background: brown;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .content .sec1 div {
+                width: 50%;
+            }
+            .content .sec2 {
+                background: green;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .content .sec2 div {
+                width: 50%;
+            }
+
+            .content .sec3 {
+                background: skyblue;
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .content .sec3 div {
+                width: 33.33%;
+            }
+
+            .content .sec4 {
+                background: yellow;
+                overflow: hidden;
+            }
+
+            .content .sec4 div {
+                width: 50%;
+                float: left;
+            }
+
+            .content .sec4 div:nth-of-type(1) {
+                height: 200px;
+                padding-top: 70px;
+            }
+            .content .sec4 div:nth-of-type(2) {
+                height: 100px;
+            }
+            .content .sec4 div:nth-of-type(3) {
+                height: 100px;
+            }
+
+            footer {
+                height: 100px;
+                border: 1px solid #999;
+                padding-top: 50px;
+            }
+
+            /* 일반 pc */
+
+            @media screen and (max-width: 1280px) {
+                .wrap {
+                    width: 95%;
+                }
+            }
+
+            /* 일반 테블릿 */
+
+            @media screen and (max-width: 1024px) {
+                .wrap {
+                    width: 100%;
+                    margin: 0;
+                }
+
+                .content .sec1 div:nth-of-type(3),
+                .content .sec1 div:nth-of-type(4) {
+                    width: 100%;
+                }
+
+                .content .sec3 div:nth-of-type(1),
+                .content .sec3 div:nth-of-type(2) {
+                    width: 100%;
+                }
+
+                .content .sec4 div:nth-of-type(1) {
+                    height: 100px;
+                    padding-top: 25px;
+                }
+
+                .content .sec4 div:nth-of-type(3) {
+                    width: auto;
+                    float: none;
+                    clear: both;
+                }
+            }
+
+            /* 소형 테블릿 */
+
+            @media screen and (max-width: 768px) {
+                .content .sec1 div:nth-of-type(4) {
+                    display: none;
+                }
+
+                .content .sec2 div {
+                    width: 100%;
+                }
+
+                .content .sec3 div:nth-of-type(1),
+                .content .sec3 div:nth-of-type(2) {
+                    width: 100%;
+                }
+
+                .content .sec3 div:nth-of-type(3) {
+                    display: none;
+                }
+            }
+
+            /* 모바일 */
+            @media screen and (max-width: 640px) {
+                header div:nth-of-type(1),
+                header div:nth-of-type(2) {
+                    width: 100%;
+                }
+                .content .sec1 div {
+                    width: 100%;
+                }
+
+                .content .sec1 div:nth-of-type(3) {
+                    display: none;
+                }
+
+                .content .sec2 div {
+                    width: 50%;
+                }
+
+                .content .sec3 div {
+                    width: 50%;
+                }
+
+                .content .sec4 div:nth-of-type(1),
+                .content .sec4 div:nth-of-type(2) {
+                    width: auto;
+                    float: none;
+                }
+
+                .content .sec4 div:nth-of-type(3) {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <header>
+                <div>1</div>
+                <div>2</div>
+            </header>
+            <div class="visual">3</div>
+            <article class="content">
+                <section class="sec1">
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                </section>
+                <section class="sec2">
+                    <div>8</div>
+                    <div>9</div>
+                </section>
+                <section class="sec3">
+                    <div>10</div>
+                    <div>11</div>
+                    <div>12</div>
+                </section>
+                <section class="sec4">
+                    <div>13</div>
+                    <div>14</div>
+                    <div>15</div>
+                </section>
+            </article>
+            <footer>16</footer>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            /* 와이드 pc */
+            .container {
+                width: 90%;
+                margin: 0 auto;
+                border: 5px solid red;
+                overflow: hidden;
+                position: relative;
+            }
+
+            .container .left {
+                width: 300px;
+                height: 400px;
+                background: pink;
+                float: left;
+            }
+            .container .center {
+                height: 600px;
+                background: green;
+                margin: 0 300px;
+            }
+            .container .right {
+                width: 300px;
+                height: 200px;
+                background: skyblue;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+
+            /* 일반 pc */
+
+            @media screen and (max-width: 1280px) {
+                .container {
+                    width: 95%;
+                }
+            }
+
+            /* 일반 테블릿 */
+
+            @media screen and (max-width: 1024px) {
+                .container {
+                    width: 100%;
+                    margin: 0;
+                }
+
+                .container .center {
+                    margin-right: 0;
+                }
+
+                .container .right {
+                    width: auto;
+                    position: static;
+                    margin-left: 300px;
+                }
+            }
+
+            /* 모바일 */
+            @media screen and (max-width: 640px) {
+                .container .left {
+                    float: none;
+                    width: auto;
+                }
+                .container .center {
+                    margin: 0;
+                }
+
+                .container .right {
+                    margin: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="left">왼쪽 단</div>
+            <div class="center">중앙 단</div>
+            <div class="right">오른쪽 단</div>
+        </div>
+    </body>
+</html>

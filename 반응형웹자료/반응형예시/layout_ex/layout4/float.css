@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* 와이드 pc */
+.warp {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border: 1px solid red;
+    font-size: 30px;
+}
+
+div {
+    box-sizing: border-box;
+    border: 1px solid #999;
+    height: 100px;
+}
+
+header {
+    background: pink;
+    overflow: hidden;
+}
+
+header div {
+    width: 33.33%;
+    float: left;
+}
+
+.content .sec1 {
+    background: mediumspringgreen;
+    overflow: hidden;
+}
+
+.content .sec1 div {
+    width: 33.33%;
+    float: left;
+}
+
+.content .sec2 {
+    background: orange;
+    overflow: hidden;
+}
+
+.content .sec2 div {
+    width: 25%;
+    float: left;
+}
+
+.content .sec3 {
+    background: skyblue;
+    overflow: hidden;
+}
+
+.content .sec3 div {
+    width: 33.33%;
+    float: left;
+}
+
+footer {
+    background: yellow;
+    overflow: hidden;
+}
+
+footer div {
+    width: 33.33%;
+    float: left;
+}
+
+/* 일반 pc */
+
+@media screen and (max-width: 1280px) {
+    .warp {
+        width: 95%;
+    }
+}
+
+/* 일반 테블릿 */
+
+@media screen and (max-width: 1024px) {
+    .warp {
+        width: 100%;
+        margin: 0;
+    }
+
+    header div:nth-of-type(1) {
+        width: auto;
+        float: none;
+        clear: both;
+    }
+
+    header div:nth-of-type(2),
+    header div:nth-of-type(3) {
+        width: 50%;
+    }
+
+    .content .sec1 div:nth-of-type(1),
+    .content .sec1 div:nth-of-type(2) {
+        width: 50%;
+    }
+
+    .content .sec1 div:nth-of-type(3) {
+        width: auto;
+        float: none;
+        clear: both;
+    }
+
+    .content .sec2 div {
+        width: 50%;
+    }
+
+    .content .sec3 div:nth-of-type(1),
+    .content .sec3 div:nth-of-type(2) {
+        width: 50%;
+    }
+
+    .content .sec3 div:nth-of-type(3) {
+        width: auto;
+        float: none;
+        clear: both;
+    }
+}
+
+/* 소형 테블릿 */
+
+@media screen and (max-width: 768px) {
+    header div:nth-of-type(1) {
+        width: 20%;
+        float: left;
+    }
+
+    header div:nth-of-type(2) {
+        width: 80%;
+        float: right;
+    }
+
+    header div:nth-of-type(3) {
+        display: none;
+    }
+
+    .content .sec1 div:nth-of-type(3) {
+        display: none;
+    }
+
+    .content .sec2 div:nth-of-type(3),
+    .content .sec2 div:nth-of-type(4) {
+        width: auto;
+        float: none;
+        clear: both;
+    }
+
+    .content .sec3 div:nth-of-type(3) {
+        display: none;
+    }
+
+    footer div:nth-of-type(1) {
+        width: 20%;
+    }
+
+    footer div:nth-of-type(2) {
+        width: 80%;
+    }
+
+    footer div:nth-of-type(3) {
+        display: none;
+    }
+}
+
+/* 모바일 */
+@media screen and (max-width: 640px) {
+    .content .sec1 div:nth-of-type(1),
+    .content .sec1 div:nth-of-type(2) {
+        width: auto;
+        float: none;
+        clear: both;
+    }
+
+    .content .sec2 div:nth-of-type(1),
+    .content .sec2 div:nth-of-type(2) {
+        width: auto;
+        float: none;
+        clear: both;
+    }
+
+    .content .sec2 div:nth-of-type(4) {
+        display: none;
+    }
+    .content .sec3 div:nth-of-type(1),
+    .content .sec3 div:nth-of-type(2) {
+        width: auto;
+        float: none;
+        clear: both;
+    }
+    footer div:nth-of-type(1) {
+        width: 100%;
+    }
+
+    footer div:nth-of-type(2) {
+        display: none;
+    }
+}
