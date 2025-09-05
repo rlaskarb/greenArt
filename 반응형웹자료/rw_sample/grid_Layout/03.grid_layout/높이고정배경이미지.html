@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./basic-style.css">
+    <style>
+        /* pc */
+        .container{
+            width:90%; margin: 0 auto;
+            border: 5px solid red;
+            padding: 10px;
+            list-style: none;
+
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-auto-rows: 200px;
+            gap: 10px;
+            grid-template-areas: 
+            'a a a'
+            'b c c'
+            'b d e'
+            'f g e'
+            ;
+        }
+
+        .item:nth-child(1){grid-area: a;
+            background: url(./images/gallery1.jpg) center;
+            background-size: cover;
+        }
+        .item:nth-child(2){grid-area: b;
+            background: url(./images/gallery2.jpg) center;
+            background-size: cover;
+        }
+        .item:nth-child(3){grid-area: c;
+            background: url(./images/gallery3.jpg) center;
+            background-size: cover;
+        }
+        .item:nth-child(4){grid-area: d;
+            background: url(./images/gallery4.jpg) center;
+            background-size: cover;
+        }
+        .item:nth-child(5){grid-area: e;
+            background: url(./images/gallery5.jpg) center;
+            background-size: cover;
+        }
+        .item:nth-child(6){grid-area: f;
+            background: url(./images/gallery6.jpg) center;
+            background-size: cover;
+        }
+        .item:nth-child(7){grid-area: g;
+            background: url(./images/gallery7.jpg) center;
+            background-size: cover;
+        }
+        .item{transition: all .5s ease-out;}
+        .item:hover{filter: grayscale(100%);}
+
+
+        /* 테블릿 */
+        @media screen and (max-width:1024px) {
+            .container{
+                width:100%; margin: 0;
+                grid-template-areas: 
+                'a a b'
+                'c c b'
+                'd e e'
+                'd f f'
+                ;
+            }
+
+            .item:nth-child(7){display: none;}
+        } 
+
+        /* 모바일 */
+        @media screen and (max-width:640px) {
+             .container{
+                grid-template-columns: repeat(2,1fr);
+                grid-auto-rows: 150px;
+                grid-template-areas: 
+                'a b'
+                'c b'
+                'c d'
+                'e e'
+                ;
+             }
+
+            .item:nth-child(6){display: none;}
+        }
+    </style>
+</head>
+<body>
+     <ul class="container">
+        <li class="item">01</li>
+        <li class="item">02</li>
+        <li class="item">03</li>
+        <li class="item">04</li>
+        <li class="item">05</li>
+        <li class="item">06</li>
+        <li class="item">07</li>
+     </ul>
+</body>
+</html>

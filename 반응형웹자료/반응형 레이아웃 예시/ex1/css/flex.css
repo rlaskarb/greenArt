@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+}
+ul {
+  list-style: none;
+}
+
+/* main character */
+#content .character {
+  background: url(../images/character_bg.jpg) center no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+#content .character .ttl h3 {
+  display: inline-block;
+  font-size: 2.7rem;
+  color: #fff;
+  font-family: "Suez One", serif;
+  margin: 30px;
+  background: linear-gradient(to right, #f99e1a, #ef519e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#content .character .ttl p {
+  text-align: justify;
+  color: rgba(163, 166, 255, 0.5);
+  margin: 0 20px 50px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#content .character ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#content .character ul li {
+  width: 24%;
+  text-align: center;
+  margin: 50px 0.5% 0;
+  transition: transform 0.3s;
+}
+#content .character ul li img {
+  width: 100%;
+  border-radius: 10% 40% / 50% 20%;
+  margin-bottom: 20px;
+  transition: all 0.5s;
+}
+#content .character ul li:nth-of-type(even) img {
+  border-radius: 10% 10% / 0% 0%;
+}
+#content .character ul li:hover img {
+  filter: grayscale(1);
+}
+#content .character ul li strong {
+  display: block;
+  color: #fff;
+  font-size: 1.3rem;
+  font-family: "Suez One", serif;
+}
+#content .character ul li p {
+  color: #ffdfb0;
+  padding: 20px;
+  line-height: 1.5em;
+}
+#content .character ul li:hover {
+  transform: translateY(-20px);
+}
+
+#content .character .more {
+  width: 20%;
+  font-size: 1.2em;
+  color: #fff;
+  background: orange;
+  padding: 15px 20px;
+  border-radius: 15px;
+  text-align: center;
+  margin: 30px auto;
+  transition: all 0.3s;
+}
+#content .character .more:hover {
+  color: 333;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* 일반pc */
+@media screen and (max-width: 1280px) {
+}
+
+/* 테블릿 */
+@media screen and (max-width: 1024px) {
+  #content .character ul li {
+    width: 32.33%;
+  }
+  #content .character ul li:nth-of-type(7) {
+    display: none;
+  }
+  #content .character ul li:nth-of-type(8) {
+    display: none;
+  }
+}
+
+/* 소형 테블릿 */
+@media screen and (max-width: 768px) {
+  #content .character ul li {
+    width: 49%;
+  }
+  #content .character ul li:nth-of-type(5) {
+    display: none;
+  }
+  #content .character ul li:nth-of-type(6) {
+    display: none;
+  }
+  #content .character ul li p {
+    display: none;
+  }
+  #content .character {
+    background: url(../images/character_bg2.jpg) center no-repeat;
+  }
+}
+
+/* 모바일 */
+@media screen and (max-width: 640px) {
+  #content .character ul li {
+    width: 90%;
+    margin: 40px 5% 0;
+  }
+  #content .character ul li:nth-of-type(4) {
+    display: none;
+  }
+  #content .character {
+    background: rgb(17, 5, 74);
+  }
+  #content .character ul li img {
+    border-radius: 50%;
+  }
+  #content .character ul li:nth-of-type(even) img {
+    border-radius: 50%;
+  }
+}
