@@ -1,53 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
     <title>Document</title>
-    
+
     <style>
-        .img1{width: 100%}
-    
+      .img1 {
+        width: 100%;
+      }
     </style>
-    
+  </head>
+  <body>
+    <div class="box">
+      <img class="img1" src="a1.jpg" alt="" />
+    </div>
+
     <script src="jquery-1.8.3.min.js"></script>
     <script>
-    $(document).ready(function(){
-        
-     var screenSize = $(window).width();  //가로 해상도
- 
-    function screenW(){     
-        if(screenSize>1280){  //와이드 pc
-            $('.img1').attr('src','a1.jpg');
-        }else if(screenSize>1024){  //일반pc
-            $('.img1').attr('src','a2.jpg');
-        }else if(screenSize>768){ //테블릿
-            $('.img1').attr('src','a3.jpg');
-        }else if(screenSize>640){ //소형테블릿
-            $('.img1').attr('src','a4.jpg');
-        }else{   //모바일
-            $('.img1').attr('src','a5.jpg');
-        }
-    }
-     
-    screenW();  //함수호출    
-        
-    $(window).resize(function(){ 
-      screenSize = $(window).width(); 
-        
-      screenW();//함수호출
-    });     
+      $(document).ready(function () {
+        var screenSize = $(window).width(); //가로 해상도
 
-});
-    
+        function screenW() {
+          if (screenSize > 1280) {
+            //와이드 pc
+            $(".img1").attr("src", "a1.jpg");
+          } else if (screenSize > 1024) {
+            //일반pc
+            $(".img1").attr("src", "a2.jpg");
+          } else if (screenSize > 768) {
+            //테블릿
+            $(".img1").attr("src", "a3.jpg");
+          } else if (screenSize > 640) {
+            //소형테블릿
+            $(".img1").attr("src", "a4.jpg");
+          } else {
+            //모바일
+            $(".img1").attr("src", "a5.jpg");
+          }
+        }
+
+        // screenW(); //함수호출
+
+        //resize() 메소드  : 윈도우(브라우져)의 크기가 변경되면 발생하는 메소드
+        $(window).resize(function () {
+          screenSize = $(window).width();
+
+          screenW(); //함수호출
+        });
+      });
     </script>
-</head>
-<body>
-    
-  <div class="box">
-    <img class="img1" src="a1.jpg" alt="">
-  </div>    
-    
-</body>
+  </body>
 </html>

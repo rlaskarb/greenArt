@@ -1,77 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
     <title>Document</title>
-    
+
     <style>
-        .img1{width: 100%}
-    
+      .img1 {
+        width: 100%;
+      }
     </style>
-    
-</head>
-<body>
-    
-  <div class="box">
-    <img class="img1" src="./a1.jpg" alt="">
-  </div>    
-  
-  <script>
+  </head>
+  <body>
+    <div class="box">
+      <img class="img1" src="./a1.jpg" alt="" />
+    </div>
 
-   /*     
-     var screenSize = $(window).width();  //가로 해상도
- 
-    function screenW(){     
-        if(screenSize>1280){  //와이드 pc
-            $('.img1').attr('src','a1.jpg');
-        }else if(screenSize>1024){  //일반pc
-            $('.img1').attr('src','a2.jpg');
-        }else if(screenSize>768){ //테블릿
-            $('.img1').attr('src','a3.jpg');
-        }else if(screenSize>640){ //소형테블릿
-            $('.img1').attr('src','a4.jpg');
-        }else{   //모바일
-            $('.img1').attr('src','a5.jpg');
+    <script>
+      var image = document.querySelector(".img1");
+
+      var screenSize = window.innerWidth;
+
+      function screenW() {
+        if (screenSize > 1280) {
+          //와이드 pc
+          image.src = "./a1.jpg";
+        } else if (screenSize > 1024) {
+          //일반pc
+          image.src = "./a2.jpg";
+        } else if (screenSize > 768) {
+          //테블릿
+          image.src = "./a3.jpg";
+        } else if (screenSize > 640) {
+          //소형테블릿
+          image.src = "./a4.jpg";
+        } else {
+          //모바일
+          image.src = "./a5.jpg";
         }
-    }
-     
-    screenW();  //함수호출    
-        
-    $(window).resize(function(){ 
-      screenSize = $(window).width(); 
-        
-      screenW();//함수호출
-    });     
-*/
+      }
 
-var image = document.querySelector('.img1');
+      //screenW();  //함수호출
 
-var screenSize = window.innerWidth;
-
-function screenW(){     
-    if(screenSize>1280){  //와이드 pc
-        image.src = './a1.jpg';
-    }else if(screenSize>1024){  //일반pc
-        image.src = './a2.jpg';
-    }else if(screenSize>768){ //테블릿
-        image.src = './a3.jpg';
-    }else if(screenSize>640){ //소형테블릿
-        image.src = './a4.jpg';
-    }else{   //모바일
-        image.src = './a5.jpg';
-    }
-}
-     
-screenW();  //함수호출  
-
-window.onresize = function(event){
-    screenSize = window.innerWidth;
-    screenW(); 
-}
-
-    
+      // onresize 이벤트
+      window.onresize = function (event) {
+        screenSize = window.innerWidth;
+        screenW();
+      };
     </script>
-</body>
+  </body>
 </html>

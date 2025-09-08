@@ -34,7 +34,8 @@ ul {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 1fr 1fr 1fr 1fr  */
-  grid-gap: 20px;
+  grid-auto-rows: auto;
+  gap: 20px;
   grid-template-areas:
     "a a b c "
     "d e f h "

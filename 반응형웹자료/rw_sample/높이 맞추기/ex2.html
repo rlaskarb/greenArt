@@ -1,137 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<style>
-		*{margin: 0; padding: 0}
-		img{border: 0; vertical-align: top}
-	
-		
-.contactUs{margin: 0 5% 100px 5%; overflow: hidden; width: 90%}
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      img {
+        border: 0;
+        vertical-align: top;
+      }
 
-.contactUs h3{text-align: center; margin-bottom: 50px}
+      .contactUs h4 {
+        text-align: center;
+        margin-bottom: 1.5%;
+      }
 
-.contactUs div{ border: 1px solid #ccc; float: left; box-sizing: border-box; box-shadow:3px 3px 3px #bbb; margin: 1% .5%; padding: 2%; width: 32%}
+      .contactUs address,
+      p {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5em;
+      }
 
-.contactUs h4{text-align: center; margin-bottom: 1.5%}
+      /* 플롯 처리시 스크립트까지 해야함 안하지*/
+      /* .contactUs {
+        margin: 0 5% 100px 5%;
+        overflow: hidden;
+        width: 90%;
+      }
 
-.contactUs address, p{text-align: center; font-family: Arial, Helvetica, sans-serif; line-height: 1.5em}
-	</style>
-	
-	
-	<script src="jquery-1.7.1.min.js"></script>
-	
-	
-</head>
-<body>
-	
-<div class="contactUs">
-            <div class="guest">
+      .contactUs h3 {
+        text-align: center;
+        margin-bottom: 50px;
+      }
 
-                <h4>Guest Education Centre</h4>
+      .contactUs div {
+        border: 1px solid #ccc;
+        float: left;
+        box-sizing: border-box;
+        box-shadow: 3px 3px 3px #bbb;
+        margin: 1% 0.5%;
+        padding: 2%;
+        width: 32%;
+      } */
 
-                <address>
+      /* 이건 이제 플렉스 버전 */
+      /* .contactUs {
+        margin: 0 auto;
+        width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+      }
 
-                    Questions or concerns about products?<br>The GEC is here to help.<br><br>
+      .contactUs h3 {
+        text-align: center;
+        margin-bottom: 50px;
+      }
 
-                    text us on your mobile: 1.877.263.9300<br><br>
+      .contactUs div {
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        box-shadow: 3px 3px 3px #bbb;
+        margin: 1% 0.5%;
+        padding: 2%;
+        width: 32%;
+      } */
 
-                    phone: 1.877.263.9300<br>phone: 1.604.215.9300<br><br>
+      /* 그리드로 처리 */
+      .contactUs {
+        margin: 0 5% 100px 5%;
+        width: 90%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 5px 10px;
+      }
 
-                    Weekdays 5am-9pm<br>Weekends 6am-6pm<br><br>
+      .contactUs h3 {
+        text-align: center;
+        margin-bottom: 50px;
+      }
 
-                    1380 Burrard Street, Suite 200<br>Vancouver, BC<br>Canada<br>V6Z 2H3
+      .contactUs div {
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        box-shadow: 3px 3px 3px #bbb;
+        padding: 2%;
+      }
+    </style>
 
-                </address>
+    <script src="jquery-1.7.1.min.js"></script>
+  </head>
+  <body>
+    <div class="contactUs">
+      <div class="guest">
+        <h4>Guest Education Centre</h4>
 
-            </div>
+        <address>
+          Questions or concerns about products?<br />The GEC is here to help.<br /><br />
 
-            <div class="store">
+          text us on your mobile: 1.877.263.9300<br /><br />
 
-                    <h4>Store Support Centre</h4>                
+          phone: 1.877.263.9300<br />phone: 1.604.215.9300<br /><br />
 
-                    <address>
+          Weekdays 5am-9pm<br />Weekends 6am-6pm<br /><br />
 
-                    Our Store Support Centre (SSC) is home to everyone from business operations to community relations.<br><br>
+          1380 Burrard Street, Suite 200<br />Vancouver, BC<br />Canada<br />V6Z
+          2H3
+        </address>
+      </div>
 
-                    Contact the SSC at:<br>1818 Cornwall Avenue<br>Vancouver, BC<br>Canada<br>V6J 1C7<br><br>
+      <div class="store">
+        <h4>Store Support Centre</h4>
 
-                    phone: 1.604.732.6124<br>fax: 1.604.874.6124
+        <address>
+          Our Store Support Centre (SSC) is home to everyone from business
+          operations to community relations.<br /><br />
 
-                    </address>
+          Contact the SSC at:<br />1818 Cornwall Avenue<br />Vancouver, BC<br />Canada<br />V6J
+          1C7<br /><br />
 
-            </div>
+          phone: 1.604.732.6124<br />fax: 1.604.874.6124
+        </address>
+      </div>
 
-            <div class="email">
+      <div class="email">
+        <h4>Email</h4>
 
-                <h4>Email</h4>
+        <p>
+          For answers to general questions about lululemon athletica, please
+          email the Guest Education Centre. If you're looking to speak with
+          someone quickly, you can text or call the GEC at 1.877.263.9300 or try
+          out our live chat (available Weekdays 5am-9pm, Weekends 6am-6pm).
+        </p>
+      </div>
 
-                <p>For answers to general questions about lululemon athletica, please email the Guest Education Centre. If you're looking to speak with someone quickly, you can text or call the GEC at 1.877.263.9300 or try out our live chat (available Weekdays 5am-9pm, Weekends 6am-6pm).</p>
+      <div class="press">
+        <h4>Press Inquiries</h4>
 
-            </div>
+        <p>
+          Members of the media can email our Public Relations Department.<br /><br />am
+          - 10pm PST weekdays<br />6am - 6pm PST weekends
+        </p>
+      </div>
 
-            <div class="press">
+      <div class="chat">
+        <h4>Live Chat</h4>
 
-                <h4>Press Inquiries</h4>
+        <p>online chat<br /><br />Weekdays 5am-9pm<br />Weekends 6am-6pm</p>
+      </div>
 
-                <p>Members of the media can email our Public Relations Department.<br><br>am - 10pm PST weekdays<br>6am - 6pm PST weekends</p>
+      <div class="sales">
+        <h4>Strategic Sales</h4>
 
-            </div>            
+        <address>
+          Please email us or call 1.877.263.9300.<br /><br />You can also read
+          more about our Strategic Sales program here.
+        </address>
+      </div>
+    </div>
 
-            <div class="chat">
+    <!-- <script>
+      $(document).ready(function () {
+        var boxHeight2 = $(".contactUs div:eq(0)").outerHeight();
 
-                <h4>Live Chat</h4>
+        for (var i = 0; i < 6; i++) {
+          $(".contactUs div:eq(" + i + ")").css("height", boxHeight2);
+        }
 
-                <p>online chat<br><br>Weekdays 5am-9pm<br>Weekends 6am-6pm</p>
+        $(window).resize(function () {
+          $(".contactUs .guest").css("height", "auto");
+          boxHeight2 = $(".contactUs div:eq(0)").outerHeight();
 
-            </div>
-
-            <div class="sales">
-
-                <h4>Strategic Sales</h4>
-
-                <address>Please email us or call 1.877.263.9300.<br><br>You can also read more about our Strategic Sales program here.</address>
-
-            </div>    
-
-        </div>
-	
-	
-<script>
-	$(document).ready(function() {
-		var boxHeight2 =  $('.contactUs div:eq(0)').outerHeight();
-
-		for(var i=0; i<6; i++){
-					$(".contactUs div:eq("+ i +")").css('height',boxHeight2);
-		}
-
-	$(window).resize(function(){ 
-		$('.contactUs .guest').css('height','auto');  
-    boxHeight2 =  $('.contactUs div:eq(0)').outerHeight();
-
-		for(var i=0; i<6; i++){
-					$(".contactUs div:eq("+ i +")").css('height',boxHeight2);
-		}
-
-	});
-
- });
-</script>
-
-</body>
+          for (var i = 0; i < 6; i++) {
+            $(".contactUs div:eq(" + i + ")").css("height", boxHeight2);
+          }
+        });
+      });
+    </script> -->
+  </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,48 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>반응형 단위</title>
     <style>
-        *{margin: 0; padding: 0;}
-        html{font-size: 20px;}
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        font-size: 20px;
+      }
 
-     
+      .font section {
+        border: 2px solid red;
+        width: 90%;
+        margin: 0 auto 30px;
+        padding: 30px;
+      }
 
-        h2:nth-of-type(1){font-size: 2rem;}
-        h2:nth-of-type(2){font-size: 5vw; color: red;}
-        h2:nth-of-type(3){color: blue;  font-size: 10vmax;}
+      .sec1 h2 {
+        font-size: 3rem;
+        color: red;
+      }
 
+      .sec1 p {
+        font: 20px;
+      }
 
-        @media screen and (max-width:1024px) {
-            h2:nth-of-type(1){font-size: 1.5rem;}
-            h2:nth-of-type(2){font-size: 10vw; color: red;}
+      .sec2 h2 {
+        font-size: 4vw; /*vw : 전체 브라우져의 너비의 %*/
+        color: green;
+      }
+
+      .sec2 p {
+        font: 1.5vw;
+      }
+
+      .sec3 h2 {
+        font-size: 5vh; /*vh : 전체 브라우져의 높이의 %*/
+        color: orange;
+      }
+
+      .sec3 p {
+        font: 2vh;
+      }
+
+      .sec4 h2 {
+        font-size: 5vmax; /*vmax : 전체 브라우져의 너비와 높이중에 큰쪽의 %*/
+        color: skyblue;
+      }
+
+      .sec4 p {
+        font: 2vmax;
+      }
+
+      .sec5 h2 {
+        font-size: 5vmin; /*vmin : 전체 브라우져의 너비와 높이중에 작은쪽의 %*/
+        color: pink;
+      }
+
+      .sec5 p {
+        font: 2vmin;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .sec1 h2 {
+          font-size: 2rem;
+          color: red;
         }
 
-        @media screen and (max-width:640px) {
-            h2:nth-of-type(1){font-size: 1rem;}
-            h2:nth-of-type(2){font-size: 15vw; color: red;}
+        .sec1 p {
+          font: 18px;
         }
+      }
+
+      @media screen and (max-width: 640px) {
+        .sec1 h2 {
+          font-size: 1.5rem;
+          color: red;
+        }
+
+        .sec1 p {
+          font: 16px;
+        }
+      }
     </style>
-</head>
-<body>
-     <div class="wrap">
-        
-            <h2>제목1 입니다</h2>
-            <p>단락1 입니다</p>
-        
-          
-        
-            <h2>제목2 입니다</h2>
-            <p>단락2 입니다</p>
-        
+  </head>
+  <body>
+    <div class="font">
+      <section class="sec1">
+        <h2>제목1 입니다</h2>
+        <p>단락1 입니다</p>
+      </section>
 
-        
-            <h2>제목3 입니다</h2>
-            <p>단락3 입니다</p>
-      
+      <section class="sec2">
+        <h2>제목2 입니다</h2>
+        <p>단락2 입니다</p>
+      </section>
 
-     </div>
-</body>
+      <section class="sec3">
+        <h2>제목3 입니다</h2>
+        <p>단락3 입니다</p>
+      </section>
+
+      <section class="sec4">
+        <h2>제목4 입니다</h2>
+        <p>단락4 입니다</p>
+      </section>
+
+      <section class="sec5">
+        <h2>제목5 입니다</h2>
+        <p>단락5 입니다</p>
+      </section>
+    </div>
+  </body>
 </html>
