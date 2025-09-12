@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./swiper.min.css" />
+
+    <style>
+      body {
+        background: #fff;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+      img {
+        border: 0;
+        vertical-align: top;
+      }
+
+      .box1 {
+        border: 5px solid #ccc;
+        width: 90%;
+        margin: 30px auto;
+      }
+
+      .swiper-container {
+        width: 100%;
+        padding: 0;
+      }
+      .swiper-wrapper {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-auto-rows: auto;
+        gap: 10px;
+      }
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+      }
+      .swiper-slide img {
+        width: 100%;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .swiper-container {
+          width: 100%;
+          height: auto;
+          padding: 20px 0 40px;
+        }
+        .swiper-wrapper {
+          display: flex;
+          gap: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1">
+      <!-- Swiper -->
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="./images/nature-1.jpg" width="100%" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/nature-2.jpg" width="100%" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/nature-3.jpg" width="100%" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/nature-4.jpg" width="100%" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/nature-5.jpg" width="100%" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/nature-6.jpg" width="100%" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/nature-7.jpg" width="100%" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/nature-8.jpg" width="100%" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/nature-9.jpg" width="100%" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./images/nature-10.jpg" width="100%" alt="" />
+          </div>
+        </div>
+        <!-- Add Arrows -->
+        <!-- <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div> -->
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <script src="./jquery-1.12.4.min.js"></script>
+    <script src="./swiper.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      var ww = $(window).width();
+      var mySwiper = undefined; // 스와이퍼 객체가 생성되지 않았을떄.
+
+      function initSwiper() {
+        if (ww <= 1024 && mySwiper == undefined) {
+          mySwiper = new Swiper(".swiper-container", {
+            slidesPerView: 4,
+            spaceBetween: 10,
+            //simulateTouch: true,
+            // loop: true,
+            // autoplay: {
+            //   delay: 500,
+            //   disableOnInteraction: false,
+            // },
+            pagination: {
+              //페이지 네이션
+              el: ".swiper-pagination",
+              dynamicBullets: true,
+              clickable: true,
+              //type: 'fraction'   //  현재/총개수 (페이지네이션블릿은 사라진다)
+            },
+          });
+        } else if (ww > 1024 && mySwiper != undefined) {
+          mySwiper.destroy(); // 생성된 스와이퍼를 객체를 제거? 소멸? 한다.
+          mySwiper = undefined;
+        }
+      }
+
+      initSwiper();
+
+      $(window).on("resize", function () {
+        ww = $(window).width();
+        initSwiper();
+      });
+    </script>
+  </body>
+</html>

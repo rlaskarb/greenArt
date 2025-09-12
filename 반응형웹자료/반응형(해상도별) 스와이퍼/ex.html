@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./swiper.min.css">
+
+    <style>
+    body {
+      background: #fff;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+    }
+    img{border: 0; vertical-align: top;}
+   
+    .box1{border: 5px solid #ccc;
+       width: 90%; margin: 30px auto;}
+
+    .swiper-container {
+      width: 100%;
+      height: auto;
+      padding:20px 0 40px;
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+    }
+    .swiper-slide img{width: 100%;}
+      </style>
+</head>
+<body>
+    
+<div class="box1">
+      <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="./images/nature-1.jpg" width="100%" alt=""></div>
+      <div class="swiper-slide"><img src="./images/nature-2.jpg" width="100%" alt=""></div>
+      <div class="swiper-slide"><img src="./images/nature-3.jpg" width="100%" alt=""></div>
+      <div class="swiper-slide"><img src="./images/nature-4.jpg" width="100%" alt=""></div>
+      <div class="swiper-slide"><img src="./images/nature-5.jpg" width="100%" alt=""></div>
+      <div class="swiper-slide"><img src="./images/nature-6.jpg" width="100%" alt=""></div>
+      <div class="swiper-slide"><img src="./images/nature-7.jpg" width="100%" alt=""></div>
+      <div class="swiper-slide"><img src="./images/nature-8.jpg" width="100%" alt=""></div>
+      <div class="swiper-slide"><img src="./images/nature-9.jpg" width="100%" alt=""></div>
+      <div class="swiper-slide"><img src="./images/nature-10.jpg" width="100%" alt=""></div>
+    </div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+
+  <script src="./swiper.min.js"></script>
+   <!-- Initialize Swiper -->
+   <script>
+    var swiper = new Swiper('.swiper-container', {
+      autoHeight: true, //높이유동  ( .swiper-container에 height:auto)
+      slidesPerView:1,  //단수 (breakpoints: 의 포인트는 먼저 초기값을 모바일로 두어야 한다.640보다 작을 때)
+      spaceBetween: 10,  //단사이 여백
+      //loop: true,  //무한 loop
+      //freeMode: true,  //터치 만큼 자유롭게 이동
+      //centeredSlides: true, //센터 슬라이드 위치(만약 단수가 2개이면 양쪽은 반반씩 보임)
+      navigation: {    //이전/다음 버튼
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {   //페이지 네이션
+        el: '.swiper-pagination',
+        //dynamicBullets: true,
+        clickable: true,
+        //type: 'fraction'   //  현재/총개수 (페이지네이션블릿은 사라진다)
+      },
+      // autoplay: {  //자동
+      //   delay: 3000,
+      //   disableOnInteraction: false
+      // },
+      breakpoints:{
+        640 : {   //브라우저가 640이상
+          slidesPerView: 2
+        },
+        768 : {   //브라우저가 768이상
+          slidesPerView: 3
+        },
+        1024 : {  //브라우저가 1024이상
+          slidesPerView: 4
+        },
+        1280 : {  //브라우저가 1280이상
+          slidesPerView: 5 
+        }
+      }
+    });
+  </script>
+ 
+</body>
+</html>

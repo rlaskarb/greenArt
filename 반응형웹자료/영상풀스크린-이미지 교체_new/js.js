@@ -10,7 +10,7 @@ $(document).ready(function () {
 
     if (screenSize > 768 && current == false) {
       $("#videoBG").show();
-      $("#videoBG").attr("src", "22.mp4");
+      $("#videoBG").attr("src", "back.mp4");
       $("#imgBG").hide();
       current = true;
     }
