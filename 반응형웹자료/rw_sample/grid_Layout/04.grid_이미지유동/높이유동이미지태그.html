@@ -1,94 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./basic-style.css">
+    <link rel="stylesheet" href="./basic-style.css" />
     <style>
-        /* pc */
-        .container{width: 90%; margin: 0 auto;
-            border: 5px solid red;
-            padding: 10px; list-style: none;
+      /* pc */
+      .container {
+        width: 90%;
+        margin: 0 auto;
+        border: 5px solid red;
+        padding: 10px;
+        list-style: none;
 
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: auto;  /* 높이를 유동 */
-            gap:5px;
-            grid-template-areas: 
-             'a a b c'
-             'a a d e'
-             'f g h h'
-            ;
-        
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: auto; /* 높이를 유동 */
+        gap: 5px;
+        grid-template-areas:
+          "a a b c"
+          "a a d e"
+          "f g h h";
+      }
+
+      .item {
+        overflow: hidden;
+        position: relative;
+      }
+      .item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: all 0.5s ease-out;
+      }
+      .item:hover img {
+        filter: contrast(150%);
+        transform: scale(1.1);
+      }
+      .item span {
+        display: block;
+        position: absolute;
+        bottom: -70px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 20px 0;
+        text-align: center;
+        color: #fff;
+        backdrop-filter: blur(3px);
+        transition: all 0.5s ease-out;
+      }
+      .item:hover span {
+        bottom: 0;
+      }
+
+      .item:nth-child(1) {
+        grid-area: a;
+      }
+      .item:nth-child(2) {
+        grid-area: b;
+      }
+      .item:nth-child(3) {
+        grid-area: c;
+      }
+      .item:nth-child(4) {
+        grid-area: d;
+      }
+      .item:nth-child(5) {
+        grid-area: e;
+      }
+      .item:nth-child(6) {
+        grid-area: f;
+      }
+      .item:nth-child(7) {
+        grid-area: g;
+      }
+      .item:nth-child(8) {
+        grid-area: h;
+      }
+
+      /* 테블릿 */
+      @media screen and (max-width: 1024px) {
+        .container {
+          width: 100%;
+          margin: 0;
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-areas:
+            "a a b"
+            "a a d"
+            "f h h";
         }
 
-        .item{overflow: hidden; position: relative;}
-        .item img{width: 100%; height: 100%;
-           object-fit: cover; object-position: center;
-           transition: all .5s ease-out;}
-        .item:hover img{
-            filter: contrast(150%);
-            transform: scale(1.1);
-        }
-        .item span{display: block; 
-          position: absolute; bottom:-70px; left:0;
-          width: 100%; background: rgba(0,0,0,.6);
-          padding: 20px 0; text-align: center;
-          color: #fff; backdrop-filter: blur(3px);
-          transition: all .5s ease-out;}
-        .item:hover span{bottom: 0;}
-
-        .item:nth-child(1){grid-area: a;}
-        .item:nth-child(2){grid-area: b;}
-        .item:nth-child(3){grid-area: c;}
-        .item:nth-child(4){grid-area: d;}
-        .item:nth-child(5){grid-area: e;}
-        .item:nth-child(6){grid-area: f;}
-        .item:nth-child(7){grid-area: g;}
-        .item:nth-child(8){grid-area: h;}
-
-        /* 테블릿 */
-        @media screen and (max-width:1024px) {
-            .container{width: 100%; margin: 0;
-                grid-template-columns: repeat(3, 1fr);
-                grid-template-areas: 
-                'a a b'
-                'a a d'
-                'f h h'
-                ;
-            }
-
-            .item span{bottom: 0;}
-
-            .item:nth-child(3),
-            .item:nth-child(5),
-            .item:nth-child(7){display: none;}
+        .item span {
+          bottom: 0;
         }
 
-        /* 모바일 */
-        @media screen and (max-width:640px) {
-            .container{
-                 grid-template-areas: 
-                 'a a a'
-                 'b d f'
-                 'h h h'
-                 ;
-            }
-            .item span{padding:5px 0; font-size: .8rem;}
+        .item:nth-child(3),
+        .item:nth-child(5),
+        .item:nth-child(7) {
+          display: none;
         }
+      }
+
+      /* 모바일 */
+      @media screen and (max-width: 640px) {
+        .container {
+          grid-template-areas:
+            "a a a"
+            "b d f"
+            "h h h";
+        }
+        .item span {
+          padding: 5px 0;
+          font-size: 0.8rem;
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <ul class="container">
-        <li class="item"><img src="./images/gallery1.jpg" alt=""><span>images01</span></li>
-        <li class="item"><img src="./images/gallery2.jpg" alt=""><span>images02</span></li>
-        <li class="item"><img src="./images/gallery3.jpg" alt=""><span>images03</span></li>
-        <li class="item"><img src="./images/gallery4.jpg" alt=""><span>images04</span></li>
-        <li class="item"><img src="./images/gallery5.jpg" alt=""><span>images05</span></li>
-        <li class="item"><img src="./images/gallery6.jpg" alt=""><span>images06</span></li>
-        <li class="item"><img src="./images/gallery7.jpg" alt=""><span>images07</span></li>
-        <li class="item"><img src="./images/gallery8.jpg" alt=""><span>images08</span></li>
+      <li class="item">
+        <img src="./images/gallery1.jpg" alt="" /><span>images01</span>
+      </li>
+      <li class="item">
+        <img src="./images/gallery2.jpg" alt="" /><span>images02</span>
+      </li>
+      <li class="item">
+        <img src="./images/gallery3.jpg" alt="" /><span>images03</span>
+      </li>
+      <li class="item">
+        <img src="./images/gallery4.jpg" alt="" /><span>images04</span>
+      </li>
+      <li class="item">
+        <img src="./images/gallery5.jpg" alt="" /><span>images05</span>
+      </li>
+      <li class="item">
+        <img src="./images/gallery6.jpg" alt="" /><span>images06</span>
+      </li>
+      <li class="item">
+        <img src="./images/gallery7.jpg" alt="" /><span>images07</span>
+      </li>
+      <li class="item">
+        <img src="./images/gallery8.jpg" alt="" /><span>images08</span>
+      </li>
     </ul>
-</body>
+  </body>
 </html>
