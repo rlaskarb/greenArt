@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    ul{list-style: none;}
+
+    body {
+    font: 1em/1.67 'Open Sans', Arial, Sans-serif;
+    margin: 0;
+    background: #e9e9e9;
+    }
+    
+    .wrapper {
+    width: 95%;
+    margin: 20px auto;
+    }
+    
+    .masonry {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: start;
+    max-height: 1000px;
+    background: red;
+    }
+    
+    .item {
+    padding: 10px;
+    margin: .5%;
+    width: 24%;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 4px 0 #ccc;
+    }
+    
+    .box1{ height:300px; background:#006600}
+    .box2{ height:250px; background:#05E0D8}
+    .box3{ height:200px; background:#FCB354}
+    .box4{ height:400px; background:pink}
+    
+    @media screen and (max-width: 1280px) {
+    
+    }
+    @media screen and (max-width: 1024px) {
+    .masonry {max-height: 1300px;}
+    .item {width: 32.33%;}
+    }
+    @media screen and (max-width: 768px) {
+    
+    }
+    @media screen and (max-width: 640px) {
+    .masonry {max-height: 1800px;}
+    .item {width: 49%;}
+    }
+    /* 최소의 사이즈는 320px 고정 */
+    @media screen and (max-width:480px) {
+    .wrapper { min-width:320px; }
+    }
+    </style>
+</head>
+<body>
+  <div class="wrapper">
+    <ul class="masonry">
+      <li class="item box1">1 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+      <li class="item box3">2 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+      <li class="item box4">3 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+      <li class="item box4">4 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+      <li class="item box2">5 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+      <li class="item box3">6 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+      <li class="item box2">7 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+      <li class="item box3">8 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+      <li class="item box2">9 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+      <li class="item box4">10 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+      <li class="item box1">11 Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+    </ul>
+    </div>
+</body>
+</html>

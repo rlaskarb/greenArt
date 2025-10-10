@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>instyle magazine</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="app_icon.png" />
+    <link rel="apple-touch-startup-image" href="startup.png" />
+
+    <link rel="stylesheet" href="css/sample.css" />
+  </head>
+
+  <body>
+    <div class="masonry">
+      <div class="grid">
+        <div class="grid-sizer"></div>
+        <div class="grid-item">
+          <img src="images/celine.avif" />
+        </div>
+        <div class="grid-item">
+          <img src="images/huntrx5.avif" />
+        </div>
+        <div class="grid-item">
+          <img src="images/huntrxsee.avif" />
+        </div>
+        <div class="grid-item">
+          <img src="images/jinuu.avif" />
+        </div>
+        <div class="grid-item">
+          <img src="images/mmm.avif" />
+        </div>
+        <div class="grid-item">
+          <video autoplay loop muted>
+            <source src="./images/dence.webm" type="video/webm" />
+          </video>
+        </div>
+        <div class="grid-item">
+          <video autoplay loop muted>
+            <source src="./images/duffygif.webm" type="video/webm" />
+          </video>
+        </div>
+        <div class="grid-item">
+          <video autoplay loop muted>
+            <source src="./images/miraa.webm" type="video/webm" />
+          </video>
+        </div>
+        <div class="grid-item">
+          <video autoplay loop muted>
+            <source src="./images/rumii.webm" type="video/webm" />
+          </video>
+        </div>
+        <div class="grid-item">
+          <video autoplay loop muted>
+            <source src="./images/zoyee.webm" type="video/webm" />
+          </video>
+        </div>
+        <div class="grid-item">
+          <video autoplay loop muted>
+            <source src="./images/dence.webm" type="video/webm" />
+          </video>
+        </div>
+        <div class="grid-item">
+          <video autoplay loop muted>
+            <source src="./images/dence.webm" type="video/webm" />
+          </video>
+        </div>
+        <div class="grid-item">
+          <video autoplay loop muted>
+            <source src="./images/dence.webm" type="video/webm" />
+          </video>
+        </div>
+        <div class="grid-item">
+          <video autoplay loop muted>
+            <source src="./images/dence.webm" type="video/webm" />
+          </video>
+        </div>
+        <div class="grid-item">
+          <video autoplay loop muted>
+            <source src="./images/dence.webm" type="video/webm" />
+          </video>
+        </div>
+        <div class="grid-item">
+          <video autoplay loop muted>
+            <source src="./images/dence.webm" type="video/webm" />
+          </video>
+        </div>
+        <div class="grid-item">
+          <video autoplay loop muted>
+            <source src="./images/dence.webm" type="video/webm" />
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/masonry.pkgd.min.js"></script>
+    <script src="./js/imagesloaded.pkgd.js"></script>
+    <script>
+      var grid = document.querySelector(".grid");
+
+      var msnry = new Masonry(grid, {
+        itemSelector: ".grid-item",
+        columnWidth: ".grid-sizer",
+        percentPosition: true,
+      });
+
+      imagesLoaded(grid).on("progress", function () {
+        // layout Masonry after each image loads
+        msnry.layout();
+      });
+    </script>
+  </body>
+</html>

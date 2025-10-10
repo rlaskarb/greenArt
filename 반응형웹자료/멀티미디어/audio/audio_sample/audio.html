@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+   <style>
+       *{margin: 0; padding: 0}
+       ul{list-style: none;}
+       a{color: #333; text-decoration: none;}
+
+       .audioBox{margin: 50px;padding: 20px; border: 2px solid #ccc;}
+       .audioBox img{width: 70%; filter: grayscale(100);}
+       .audioBox ul{overflow:hidden;}
+       .audioBox li{width: 50%; float: left; text-align: center;}
+       .audioBox li a{display: block;}
+       .audioBox ul span{display: block; font-size: 20px;padding: 10px 0; }
+      
+       .audioBox .audio_control{width: 300px; border: 3px solid #ccc; margin: 30px auto;
+          border-radius: 40px; padding: 20px 0; text-align: center;}
+
+        .audioBox li img.current {
+              animation:animationRotation1 2s .5s infinite linear;
+              filter: grayscale(0);
+        }  
+        @keyframes animationRotation1 {
+          from {
+              transform:rotate(0deg) ;
+          }
+          to {
+              transform:rotate(360deg);
+          }
+      }  
+
+      @media screen and (max-width:1024px){
+        .audioBox li{width: auto; float: none;}   
+      }
+   </style>
+
+  
+<body>
+ 
+  <div class="audioBox"> 
+    <ul>
+      <li>
+         <a href="#" onclick="changeSound(1);">
+            <img id="img1" src="./images/music1.png" alt="">
+            <span>OST Num.01</span> 
+         </a>
+      </li>
+      <li>
+        <a href="#" onclick="changeSound(2);">
+           <img id="img2" src="./images/music2.png" alt="">
+           <span>OST Num.02</span> 
+        </a>
+     </li>
+    </ul>
+
+     <div class="audio_control">  
+       <audio id="testAudio">
+        <source src="./music/music1.mp3" type="audio/mp3">
+      </audio>
+      <a href="#" onclick="play();">▶</a>
+      <a href="#" onclick="stop();">■</a>
+     </div>
+    
+  </div>
+
+
+  <script>
+    const audio=document.getElementById('testAudio');
+    const img1=document.getElementById('img1');
+    const img2=document.getElementById('img2');
+    let currnum = 1;  //현재 선택된 사운드 순서
+
+    function changeSound(num){
+      if(num==1){
+         audio.src="./music/music1.mp3";
+         audio.play();
+         img2.classList.remove("current");
+         img1.classList.add("current");
+      }else if(num==2){
+         audio.src="./music/music2.mp3";
+         audio.play();
+         img1.classList.remove("current");
+         img2.classList.add("current");
+      }
+      currnum = num;
+    }
+
+    function play(){
+        audio.play(); //오디오를 재생한다.
+     
+        if(currnum==1){
+          img2.classList.remove("current");
+          img1.classList.add("current");
+        }else if(currnum==2){
+          img1.classList.remove("current");
+          img2.classList.add("current");
+        } 
+    }
+
+    function stop(){ 
+        audio.pause(); //오디오를 멈춘다.
+        img1.classList.remove("current");
+        img2.classList.remove("current");
+    }
+</script>
+</body>
+</html>

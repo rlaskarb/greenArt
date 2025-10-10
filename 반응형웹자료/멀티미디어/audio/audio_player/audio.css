@@ -1,0 +1,39 @@
+*{margin: 0; padding: 0;}
+a{color: #333; text-decoration: none;}
+/* ALBUM */
+@keyframes rotation {
+  100% {transform: rotate(360deg);}
+}
+@keyframes eq {
+  100% {outline-offset: 100px;}
+}
+
+section{padding: 30px 10%;}
+section h3{font-size: 2em; margin-bottom: 20px;}
+section .playerWrap{}
+
+section .playerImg{width: 50%; float: left; }
+section .playerImg img {width: 100%; transition: all .2s; }
+section .playerImg img.current{animation: rotation 6s linear infinite , eq .5s linear infinite; 
+ border-radius: 50%; outline: 5px solid rgba(255,0,0,.5);position: relative; z-index: 10;}
+
+
+section .info{margin-left: 51%;}
+section .info dt{margin-bottom: 30px; font-size: 1.8em; font-weight: 500}
+section .info dd{margin-bottom: 30px;}
+section .info p{line-height: 1.5em; text-align: justify;margin-bottom: 30px;}
+section .info ol{margin-left:25px; margin-bottom: 30px;}
+section .info ol li{line-height: 2em; font-size: 1.2em;}
+section .info a.curr{background: red; color: #fff; border-radius: 10px; padding: 5px 10px;}
+
+section .info .audio_control{}
+section .info .audio_control .playerControler{background:#a1a2d6;width: 150px; height: 50px; padding: 15px 0 0 25px;border-radius: 20px;}
+section .info .audio_control .playerControler i{font-size: 1.3em; color: #333; background:none;  cursor: pointer; display: block; float: left; display: block; float: left; padding:10px;}
+
+@media screen and (max-width:1024px) { 
+  section h3{text-align: center; font-size: 1.4em;} 
+  section .playerImg{width:60%;margin: 0 auto; float: none;}
+  section .info{margin-left:0;}
+  section .info dt{font-size: 1.2em; text-align: center;}
+  section .info dd{display: none;}
+} 

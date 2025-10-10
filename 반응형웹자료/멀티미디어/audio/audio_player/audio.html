@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./audio.css">
+  <script src="https://kit.fontawesome.com/56f415dbb0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <section class="album1">
+    <h3>[EP] NewJeans 1st EP 'New Jeans'</h3>
+    <div class="playerWrap">
+        <div class="playerImg">
+            <img src="./images/album1.jpg" alt="뉴진스 앨범 커버">
+        </div>
+        <div class="info">
+            <dl>
+                <dt>The 1st EP "New Jeans" asks questions about the "good music" pursued by New Jeans</dt>
+                <dd>1st EP "New Jeans" didn't follow the familiar formula of standardized K-POP, and I didn't stick to specific 
+                    styles even though it was based on POP. While pursuing sophisticated easy listening pop that 
+                    can be heard comfortably anywhere, it also produced the original voices of New Jeans members 
+                    with natural sound engineering without exaggeration.
+                </dd>
+            </dl>
+            <p>
+                <span>RELEASE DATE</span>2022.08.01
+                <span>TYPE</span>Dance, R&B/Soul
+            </p>
+            <ol class="playInfo">
+                <li><a href="#a1" onclick="changeSound(1);" class="curr">Attention</a></li>
+                <li><a href="#a2" onclick="changeSound(2);">Hype boy</a></li>
+                <li><a href="#a3" onclick="changeSound(3);">Cookie</a></li>
+                <li><a href="#a4" onclick="changeSound(4);">Hurt</a></li>
+            </ol>
+            <div class="audio_control">                              
+                <audio id="main_audio" src="./music/music1.mp3"></audio>            
+                <div class="playerControler">
+                    <a href="#" id="controlPrev"><i title="이전곡" class="fa-solid fa-backward"></i></a>
+                    <a href="#" id="controlPlay"><i title="재생" class="fa-solid fa-play"></i></a>
+                    <a href="#" id="controlNext"><i title="다음곡" class="fa-solid fa-forward"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="./js/jquery-1.12.4.min.js"></script>
+<script>
+    var audio=document.getElementById('main_audio'); // 사운드 태그는 바닐라
+    var currnum = 1;  //현재 선택된 사운드 순서
+    var ps=false; //false(stop), true(play)
+
+    function changeSound(num){
+         $('#main_audio').attr('src','./music/music'+num+'.mp3');
+         audio.play();
+         $('.playerImg img').addClass("current");
+         $('#controlPlay i').removeClass().addClass('fa-solid fa-stop');
+
+         $('.playInfo li a').removeClass('curr');
+         $('.playInfo li:eq('+(num-1)+') a').addClass('curr');
+         currnum = num;
+         ps=true;
+
+         var ran = Math.floor(Math.random()*4)+1;  //0*4~1*4 -> 0~4 +1
+         $('.playerImg img').attr('src','./images/album'+ran+'.jpg');
+    }
+
+    $('#controlPlay').click(function(e){
+        e.preventDefault();
+
+        if(ps==false){ //중지중이면
+            audio.play();
+            $('.playerImg img').addClass("current");
+            $('#controlPlay i').removeClass().addClass('fa-solid fa-stop');
+            ps=true;
+        }else{  //재생중이면
+            audio.pause();
+            $('.playerImg img').removeClass("current");
+            $('#controlPlay i').removeClass().addClass('fa-solid fa-play');
+            ps=false;
+        }
+    });
+
+    
+    function np_play(){
+        $('.playerImg img').addClass("current");
+        $('.playInfo li:eq('+(currnum-1)+') a').addClass('curr');
+
+        $('.playInfo li a').removeClass('curr');
+        $('.playInfo li:eq('+(currnum-1)+') a').addClass('curr');
+
+        $('#controlPlay i').removeClass().addClass('fa-solid fa-stop');
+        ps=true;
+
+        $('#main_audio').attr('src','./music/music'+currnum+'.mp3');
+        audio.play();
+    }
+
+    $('#controlNext').click(function(e){  //다음버튼 클릭시
+        e.preventDefault();
+
+        currnum++; // 1 2 3 4
+        if(currnum==5)currnum=1;
+        np_play(); //재생한다
+    });
+
+
+    $('#controlPrev').click(function(e){ //이전버튼 클릭시
+        e.preventDefault();
+
+        currnum--; // 4 3 2 1
+        if(currnum==0)currnum=4;
+        np_play();//재생한다
+    });
+</script>
+</body>
+</html>
