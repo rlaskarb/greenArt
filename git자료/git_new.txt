@@ -1,0 +1,402 @@
+<Git 작업> => 버전관리 시스템
+-Git은 프로젝트의 시간과 차원을 자유롭게 넘나들수 있도록 해줍니다.
+-Git은 여러 사람들이 프로젝트에서 협업할 수 있도록 도와줍니다.
+
+- https://www.git-scm.com/   => git을 설치한다
+- https://www.sourcetreeapp.com/  => 소스트리 설치
+- vs_code의 확장 추가  =>    Material Icon Theme   ,  Git History -> 설치하고 프로그램 재시작해야 적용됨
+
+1. Git 최초 설정
+     -Git 전역으로 사용자 이름과 이메일 주소를 설정
+     -GitHub 계정과는 별개
+
+- $ git --version      => 버전확인
+- $ git config --global user.name "binijjang"
+- $ git config --global user.email "nhbini@nate.com"
+- $ git config --global user.name    =>  이름확인
+- $ git config --global user.email    =>  메일확인
+
+*기본 브랜치명 변경(master->main)
+ - $ git config --global init.defaultBranch main
+
+----------------------------
+2. 프로젝트 생성 & Git 관리 시작
+
+- 임의의 폴더를 만든다 =>  git_sample1   (로컬 저장소가 될 폴더)
+- 폴더에 a1.html , a2.html 파일 두개를 만든다
+- git_sample 폴더에서 마우스 오른쪽 버튼 팝업 메뉴 에서 Git Gash Here 를 선택 또는 vs_code의 터미널 사용
+
+- $ git init       =>   .git 폴더가 만들어져 있다(로컬저장소) -> 폴더에 가서 숨김파일/폴더를 해제한다
+- $ git status     => 현재 로컬폴더와 git과의 싱크 상태를 체크
+- $ git add -A     => 로컬 폴더의 모든 파일을 git의 타임캡슐(?)에 넣는다  (= $ git add .) , 파일은 하나 담을때( $ git add 파일명.확장자 )
+- $ git status     => 상태를 체크
+- $ git commit -m "first commit"    => 인식할 수 있는 commit을 달아준다 (타임캡슐1을 묻는다)
+            -add와 commit 한꺼번에 =>  git commit -am "(메시지)"     -> 단 새로 추가된(untracked) 파일이 없을 때 한정
+- $ git status     =>  확인하면 nothing to commit,  (더이상 묻을 캡슐이 없다)
+- $ git log        =>  커밋의 로그 정보를 볼 수 있다
+          -위로 스크롤(k)   -> git log등에서 내역이 길 때 사용
+          -아래로 스크롤(j) -> git log등에서 내역이 길 때 사용
+          -끄기(:q) ->  :가 입력되어 있으므로 q만 눌러도 됨
+          -$ git log --oneline    -> 한줄에 간략하게 표시
+- 소스트리를 실행하고 폴더를 드래그 하면 로그 정보를 볼 수 있다
+- a3.html 을 하나 더 만든다.
+- $ git status 
+- $ git add .    => 로컬 폴더의 모든 파일을 git의 타임캡슐(?)에 넣는다
+- $ git status     => 상태를 체크
+- $ git commit -m "second commit"    => 인식할 수 있는 commit을 달아준다 (타임캡슐2를 묻는다)
+- $ git status     =>  확인하면 nothing to commit,  (더이상 묻을 캡슐이 없다)
+- $ git log     
+
+- a4.html 을 하나 더 만든다.
+- a1.html, a2.html 은 내용을 수정한다 
+- $ git status 
+- $ git add .     => 로컬 폴더의 모든 파일을 git의 타임캡슐(?)에 넣는다
+- $ git status     => 상태를 체크
+- $ git commit -m "third commit"    => 인식할 수 있는 commit을 달아준다 (타임캡슐3을 묻는다)
+- $ git status     =>  확인하면 nothing to commit,  (더이상 묻을 캡슐이 없다)
+- $ git log    =>  캡슐의 정보들과 메시지들을 볼 수 있다 
+
+
+*한줄씩 간략하게 로그를 확인 할 수 있습니다.
+  $ git log --oneline
+ 
+-------------------------------------------------------
+3.Git의 관리에서 특정 파일/폴더를 배제
+-포함할 필요가 없을 때   => 자동으로 생성 또는 다운로드되는 파일들 (빌드 결과물, 라이브러리)
+-포함하지 말아야 할 때   => 보안상 민감한 정보를 담은 파일
+
+-해당 root 폴더에 secrets.txt 파일을 생성하고    id:bini  pass:1234  입력한다
+- $ git status
+- 해당 root 폴더  .gitignore 파일을 생성하고 secrets.txt 를 입력한다
+- $ git status
+
+
+*.gitignore 형식
+
+# 모든 file.c
+file.c
+
+# 최상위 폴더의 file.c
+/file.c
+
+# 모든 .c 확장자 파일
+*.c
+
+# .c 확장자지만 무시하지 않을 파일
+!not_ignore_this.c
+
+# logs란 이름의 파일 또는 폴더와 그 내용들
+logs
+
+# logs란 이름의 폴더와 그 내용들
+logs/
+
+# logs 폴더 바로 안의 debug.log와 .c 파일들
+logs/debug.log
+logs/*.c
+
+# logs 폴더 바로 안, 또는 그 안의 다른 폴더(들) 안의 debug.log
+logs/**/debug.log
+
+-------------------------------------------------------
+4.Git에서 과거로 돌아가는 두 방식
+-reset : 원하는 시점으로 돌아간 뒤 이후 내역들을 지웁니다.
+-revert : 되돌리기 원하는 시점의 커밋을 거꾸로 실행합니다.
+            revert는 커밋을 했던 기록이 남으며 revert로 커밋을 취소했다는 기록까지 남기는 명령어입니다.
+            
+<reset>
+-복원할 여지없이 그 이후는 완전히 삭제
+  $ git reset 옵션 일련번호6자리(git log시 일련번호)   
+-reset 에는 아래 세 가지 옵션이 존재합니다.
+   --soft 커밋만 취소하고 파일 변경 내용은 보존 (stage 상태 유지)
+   --mixed 커밋을 취소하고 stage는 비우지만, 파일 변경 사항은 보존
+   --hard 커밋을 취소하고, stage 및 파일 변경 사항까지 모두 삭제
+   *옵션을 주지 않는 경우 기본 mixed로 동작하게 됩니다.
+
+<revert>
+-과거로 돌아갔다가 다시 돌아올 수 있는 방법
+-돌아갈 시점이 아닌 취소할 시점을 선택한다
+  $ git revert 일련번호7자리(git log시 일련번호) 
+-그대로 저장하겠다는 vi명령어  =>  :wq 를 입력한다
+*주의)한 단계씩 이전 단계로 이동해야한다
+-몇 단계 이전으로 한번에 이동할 때
+  $ git revert [commit id] [commit id] [commit id] 
+  $ git revert [이동 할 git log 일련번호]..[최종 단계 git log 일련번호]
+  ex)$ git revert 4788f12..d0dad5e
+   *이동 할 최종 git log시 일련번호 아이디는 삭제 커밋에 포함되지 않는다.
+     취소하고 싶은 커밋의 한 단계 전 커밋아이디를 입력해 주어야한다
+
+-----------------------------------
+
+-root 폴더의 .git 폴더를 복사를 해둔다(백업)   -> 맥에서 숨김 파일 보기: command + shift + .
+-.git 폴더 없앤 다음 git 상태 확인해보기
+
+------------------------------------
+1)reset 
+  1-1)과거로 돌아가기
+       - $ git log --oneline
+       - $ git reset --hard (돌아갈 커밋 해시-7자리만 써도 됨)    =>   second commit 으로 돌아가보기  -> git reset --hard db224f9
+       - $ git status 
+       - $ git log --oneline
+   -reset 하기 전 시점으로 복원하기
+       - 백업해 둔 .git 폴더 사용
+       - $ git status 
+       - $ git log --oneline
+   -reflog를 사용하여  전 시점으로 복원하기
+       -$ git reflog    -> 모든 commit 기록되어있다
+      - $ git reset --hard (돌아갈 커밋 해시) 
+
+  1-2)
+   -$ git reset --hard (과거 커밋 해시-7자리만 써도 됨)
+    $ git log --oneline
+   -$ git reset --hard (현재 커밋 해시-7자리만 써도 됨)
+    $ git log --oneline
+
+  1-3) HEAD 사용
+      -최근 하나의 커밋 지우기 
+       $ git reset HEAD^
+       $ git reset --hard (현재 커밋 해시-7자리만 써도 됨)
+       $ git log --oneline
+
+      -여러개의 커밋 동시에 지우기
+       $ git reset HEAD~개수
+       $ git reset --hard (현재 커밋 해시-7자리만 써도 됨)
+       $ git log --oneline
+
+2)revert 
+   *(main|REVERTING) 리버팅 되어있을 때 강제 종료
+    $ git revert --quit
+
+  2-1)한 단계 이전
+  -과거의 커밋 되돌리기     
+       -$ git revert --no-edit (되돌릴 한 단계 전 커밋 해시)   또는  $ git revert --no-edit HEAD
+       - --no-edit은 커밋 메시지를 변경하지 않을 때
+       -:wq로 커밋 메시지 저장
+  -reset 사용해서 revert 전으로 되돌아가기
+       - $ git reset --hard (돌아갈 커밋 해시)    =>   revert 하기전의 마지막  commit 으로 돌아가보기      
+       - $ git status 
+       - $ git log --oneline
+
+  2-2)여러 단계 이전으로 이동1
+  -과거의 커밋 되돌리기  
+       - $ git revert --no-edit d0dad5e 8ce79c6   => 두 단계 이전으로 이동 (앞의 아이디가 최근 해시 아이디)
+         $ git log --oneline
+  -reset 사용해서 revert 전으로 되돌아가기
+       - $ git reset --hard (돌아갈 커밋 해시)  
+         $ git log --oneline   
+
+  2-3)여러 단계 이전으로 이동2
+   -과거의 커밋 되돌리기
+       - $ git revert --no-edit 4788f12..d0dad5e  => [앞의 아이디가 최종 이동할 id]..[뒤의 아이디가 최근 아이디]
+         $ git log --oneline
+   -reset 사용해서 revert 전으로 되돌아가기
+       - $ git reset --hard (돌아갈 커밋 해시)  
+         $ git log --oneline
+----------------------------------------------------------------------------
+<Branch>
+-프로젝트를 하나 이상의 모습으로 관리해야 할 때
+       -예) 실배포용, 테스트서버용, 새로운 시도용
+-여러 작업들이 각각 독립되어 진행될 때
+       -예) 신기능 1, 신기능 2, 코드개선, 긴급수정...
+       -각각의 차원에서 작업한 뒤 확정된 것을 메인 차원에 통합
+
+-브랜치 관련 명령어
+   - $ git branch 브랜치명   => 브랜치 생성
+   - $ git branch  => 브랜치 목록 확인
+   - $ git switch 이동할브랜치  => 해당 브랜치로 이동  (*checkout 명령어가 Git 2.23 버전부터 switch, restore로 분리)
+   - $ git switch -c  브랜치명   =>  브랜치 생성과 동시에 이동하기 (*기존의 git checkout -b (새 브랜치명))
+   - $ git branch -d (삭제할 브랜치명)   =>  브랜치 삭제하기 (다른 브랜치로 가져오지 않은 내용이 있는 브랜치를 지울 때는 -d 대신 -D(대문자)로 강제 삭제해야 합니다.)
+   - $ git branch -m (기존 브랜치명) (새 브랜치명)  => 브랜치 이름 바꾸기
+   - $ git log --all --decorate --oneline --graph    =>  여러 브랜치의 내역 편리하게 보기
+
+
+*branch폴더를 만들고 a1.html/ a2.html 파일을 만든다
+  -$ git init
+
+1.서브 브랜치 만들기
+-$ git branch my-job1   
+-$ git branch          =>   main , my-job1  두개의 branch가 보여진다
+-$ git switch my-job1   => 브랜치 이동
+-$ git branch
+-$ git switch main
+-$ git branch
+-$ git branch my-job2       
+-$ git branch         =>    main, my-job1 ,  my-job2  세개의 branch가 보여진다
+-$ git branch team-job       
+-$ git branch 
+-$ git branch -m team-job team-project    => 브랜치명 변경
+-$ git branch 
+-$ git branch -d team-project   => 브랜치 삭제
+-$ git branch
+
+2.각각의 브랜치에서 작업하기
+
+-main 브랜치
+    - $ git switch main
+    - a1.html 파일에 <h2>main 브랜치 입니다</h2><p>main 브랜치 내용 입니다</p>
+    - $ git status     => 상태를 체크
+    - $ git add .
+    - $ git commit -m "main 브랜치 commit1 입니다"
+    - $ git status
+    - $ git log --oneline  
+    - a2.html 파일에 <h2>main 브랜치 입니다</h2><p>main 브랜치 내용 입니다</p>
+    - $ git status     => 상태를 체크
+    - $ git add .
+    - $ git commit -m "main 브랜치 commit2 입니다"
+    - $ git status
+    - $ git log --oneline
+
+-my-job1 브랜치
+    - $ git switch my-job1
+    - a1.html 파일에 <h3>my-job1 브랜치 입니다</h3><p>my-job1 브랜치 내용 입니다</p>
+    - $ git status
+    - $ git add .
+    - $ git commit -m "my-job1 브랜치 commit1 입니다"
+    - $ git status
+    - $ git log --oneline 
+    - a2.html 파일에 <h3>my-job1 브랜치 입니다</h3><p>my-job1 브랜치 내용 입니다</p>
+    - $ git status
+    - $ git add .
+    - $ git commit -m "my-job1 브랜치 commit2 입니다"
+    - $ git status
+    - $ git log --oneline
+
+-my-job2 브랜치
+    - $ git switch my-job2
+    - a3.html 파일에 <h3>my-job2 브랜치 입니다</h3><p>my-job2 브랜치 내용 입니다</p>
+    - $ git status
+    - $ git add .
+    - $ git commit -m "my-job2 브랜치 commit1 입니다"
+    - $ git status
+    - $ git log --oneline  
+    - a4.html 파일에 <h3>my-job2 브랜치 입니다</h3><p>my-job2 브랜치 내용 입니다</p>
+    - $ git status
+    - $ git add .
+    - $ git commit -m "my-job2 브랜치 commit2 입니다"
+    - $ git status
+    - $ git log --oneline
+
+-모든 브랜치 커밋 확인
+       - $ git switch main
+       - $ git log --all --decorate --oneline --graph 
+       - 소스트리에서도 확인해 본다
+-------------------------------------------------------------------------
+<서로 다른 브랜치를 합치는 두 방식>
+
+-merge : 두 브랜치를 한 커밋에 이어붙입니다.
+   -브랜치 사용내역을 남길 필요가 있을 때 적합한 방식입니다.
+   -다른 형태의 merge에 대해서도 이후 다루게 될 것입니다.
+
+-rebase : 브랜치를 다른 브랜치에 이어붙입니다.
+   -한 줄로 깔끔히 정리된 내역을 유지하기 원할 때 적합합니다.
+   -이미 팀원과 공유된 커밋들에 대해서는 사용하지 않는 것이 좋습니다.
+
+1.merge를 사용한 브랜치 통합
+- 새로운 폴더를 만든다
+- a1.html~a4.html 파일을 만든다
+- 각각의 파일에 <h2>main 브랜치 입니다</h2><p>main 브랜치 내용 입니다</p> 를 추가한다
+- $ git init
+- $ git add .    
+- $ git status   
+- $ git commit -m "main 브랜치 commit 입니다"   
+- $ git status
+- $ git log 
+- my-project1,  my-project2 브랜치 추가
+- $ git branch my-project1       
+- $ git branch       
+- $ git branch my-project2       
+- $ git branch
+
+- my-project1 브랜치로 이동해서 a1.html, a2.html  코드 추가
+- $ git switch my-project1
+- a1.html, a2.html 파일에  <h3>my-project1 브랜치 입니다</h3><p>my-project1 브랜치 내용 입니다</p> 추가
+- $ git add .
+- $ git commit -m "my-project1 commit 입니다"
+- $ git status
+- $ git log 
+
+- my-project2 브랜치로 이동해서 a3.html, a4.html  코드 추가
+- $ git switch my-project2
+- a3.html, a4.html 파일에  <h3>my-project2 브랜치 입니다</h3><p>my-project2 브랜치 내용 입니다</p> 추가
+- $ git add .
+- $ git commit -m "my-project2 commit 입니다"
+- $ git status
+- $ git log 
+
+- 병합을 하기위해서 main branch로 이동
+- $ git switch main    =>  main branch로 이동
+- $ git branch
+- $ git merge my-project1   =>   main branch 에서 my-project1 branch 의 내용을 가져와 병합한다
+- a1.html, a2.html 파일의 병합된 내용 확인
+- $ git merge my-project2   =>   main branch 에서 my-project2 branch 의 내용을 가져와 병합한다
+  -이 때... 커밋을 주라는 메시지가 뜬다
+   Merge branch 'my-project2'
+   # Please enter a commit message to explain why this merge is necessary,  
+   # especially if it merges an updated upstream into a topic branch.       
+   #
+   # Lines starting with '#' will be ignored, and an empty message aborts   
+   # the commit.
+ 
+-vs code의 왼쪽 깃(source control) 메뉴를 클릭하고 
+  커밋 메시지를 입력하고 commit버튼을 클릭하면 병합이 완료된다
+-:q 를 입력하면 메시지에서 빠져 나온다
+- a3.html, a4.html 파일의 병합된 내용 확인
+
+-$ git switch my-project1 으로 이동한다
+- a1.html, a2.html 파일에  태그를 추가 한다
+- $ git add .
+- $ git commit -m "my-project1 commit2 입니다"
+- $ git status
+- $ git switch main    =>  main branch로 이동
+- $ git merge my-project1  
+  -역시... 커밋을 주라는 메시지가 뜬다
+   Merge branch 'my-project2'
+   # Please enter a commit message to explain why this merge is necessary,  
+   # especially if it merges an updated upstream into a topic branch.       
+   #
+   # Lines starting with '#' will be ignored, and an empty message aborts   
+   # the commit.
+-vs code의 왼쪽 깃(source control) 메뉴를 클릭하고 
+  커밋 메시지를 입력하고 commit버튼을 클릭하면 병합이 완료된다
+-:q 를 입력하면 메시지에서 빠져 나온다
+
+-$ git switch my-project2 으로 이동한다
+- a3.html, a4.html 파일에  태그를 추가 한다
+- $ git add .
+- $ git commit -m "my-project2 commit2 입니다"
+- $ git status
+- $ git switch main    =>  main branch로 이동
+- $ git merge my-project2  
+  -역시... 커밋을 주라는 메시지가 뜬다
+   Merge branch 'my-project2'
+   # Please enter a commit message to explain why this merge is necessary,  
+   # especially if it merges an updated upstream into a topic branch.       
+   #
+   # Lines starting with '#' will be ignored, and an empty message aborts   
+   # the commit.
+-vs code의 왼쪽 깃(source control) 메뉴를 클릭하고 
+  커밋 메시지를 입력하고 commit버튼을 클릭하면 병합이 완료된다
+-:q 를 입력하면 메시지에서 빠져 나온다
+
+-$ git log --oneline    => 병합된 내용을 확인한다
+---------------------------------------------------------------
+*merge 시 충돌 해결하기
+   - 오류 메시지와 git status 확인
+   - 충돌 난 부분 상단의 글자 버튼들 (Accept Current...) 등이 나타나지 않습니다.
+   - 충돌시 직접 해당 부분을 직접 타이핑해서 수정한 다음 merge를 계속 진행하시면 됩니다.
+   - 당장 충돌 해결이 어려울 경우 아래 명령어로 merge 중단
+      $ git merge --abort
+    - 해결 가능 시 충돌 부분을 수정한 뒤 git add ., git commit으로 병합 완료
+--------------------------------------------
+
+
+
+
+   
+
+
+
+
+
+
+

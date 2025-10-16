@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+      *{margin: 0; padding: 0;}
+
+      .contain{overflow: hidden;margin: 100px 5% 0;
+         background: pink;}
+      .img_box{width:47%; float: left; margin-right: 3%;
+             position: relative;}
+      .img_box .pc{position:relative;left: 0; top:0; z-index: 10;
+               width: 100%;}
+      .img_box .gif{position:absolute;left: 2%; top:2%;
+        width: 96%;}
+      .text_box{width: 50%; float: right;}
+  </style>
+</head>
+<body>
+  <div class="box1">
+
+     <div class="contain">
+        <div class="img_box">
+          <img class="pc" src="./pc.png" alt="">
+          <img class="gif" src="./pc.gif" alt="">
+        </div>
+        <div class="text_box">
+          기업형 포트폴리오
+        </div>
+     </div>
+
+  </div>
+
+
+</body>
+</html>
