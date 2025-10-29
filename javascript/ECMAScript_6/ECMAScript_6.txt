@@ -1,0 +1,1356 @@
+1.let 과 const
+
+-var 변수=초기값;
+-범위(지역/전역):함수 , 재선언가능/재할당가능
+
+-let 변수=초기값;
+-범위(지역/전역):블럭({}) , 재선언불가능/재할당가능
+
+-const 변수=초기값; //상수(바뀌지않는수)
+-범위(지역/전역):블럭({}) , 재선언불가능/재할당불가능
+-변수 선언시 초기값을 꼭!! 대입하여 사용. ex) const pi=3.1415926535;
+
+ex1)
+ <script>
+          var a=100;
+          function f(){
+              var a=200;
+              console.log(a);
+          }
+          f(); //함수호출
+          console.log(a);
+ </script>
+
+ex1-1)
+    <script>
+          var a=100;
+          if(a>10){
+              var a=200;
+              console.log(a);
+          }
+          console.log(a);
+    </script>
+
+
+ex1-2)
+    <script>
+          let a=100;
+          if(a>10){
+              let a=200;
+              console.log(a);  // 200
+          }
+          console.log(a);  // 100
+    </script>
+
+ex1-3) var은 반복문 안에서 변수가 공유되는 문제가 있음
+  -비동기인 setTimeout 함수 콜백이 공유되어 실행 시점이 반복문보다 늦어 변수의 값이 동일하게 처리됨
+
+    <script>
+       for(var i=0; i<10; i++){
+          setTimeout(
+             function(){
+                 console.log(i);
+             }
+          , 100);
+       }
+    </script>
+
+ex1-4)let을 사용하여 처리 0~9 까지 출력
+    <script>
+       for(let i=0; i<10; i++){
+          setTimeout(
+             function(){
+                 console.log(i);
+             }
+          , 100);
+       }
+    </script>
+
+ex1-5)let은 같은 스코프({}) 내에서 변수 중복 선언이 불가능 하다
+    <script>
+       function f(){
+           var a=100;
+           var a=200;
+           //let a=100;
+           //let a=200;
+           console.log(a);
+       }
+       f();
+    </script>
+
+ex1-6)const (상수)
+
+    <script>
+       function f(){
+           //const name; 
+           const name = 'kim';
+           //name='nam';
+           console.log(name);
+       }
+       f();
+    </script>
+
+
+ex1-7)호이스팅(hoisting)
+인터프리터가 변수와 함수의 메모리 공간을 선언 전에 미리 할당하는 것을 의미합니다. 
+var로 선언한 변수의 경우 호이스팅 시 undefined로 변수를 초기화합니다. 
+반면 let과 const로 선언한 변수의 경우 호이스팅 시 변수를 초기화하지 않습니다.
+
+단순하게 설명하자면 단어 뜻 처럼 스크립트 내 변수와 함수의 선언 순서에 상관 없이 순서가 '끌어올려~~'진 듯한 현상이다. 
+
+포인트는 물리적으로 '끌어올려'지는 것이 아니라 자바스크립트 엔진이 먼저 전체 코드를 한 번 스캔하고 실행컨텍스트에 미리 기록해 놓기 때문에 이런 현상이 발생하는 것이다.
+
+
+ex1-7-1) var로 선언한 변수 호이스팅
+console.log(name); // undefined (에러가 발생하지 않는다)
+var name = "James";
+console.log(name); //James
+
+/*
+var name;
+var undefined;
+console.log(name); // undefined (에러가 발생하지 않는다)
+name = "James";
+console.log(name); //James
+*/
+
+ex1-7-2) const, let로 선언한 변수 호이스팅
+const와 let은 var의 모호하고 too much로 유연한 문제점을 보완하기 위해 등장한 개념인 만큼 const와 let으로 변수가 선언되기 이전 라인에 해당 변수를 출력하는 코드를 작성한 경우 참조 오류가 발생한다.
+
+console.log(name); // ReferenceError
+const name = "James";
+console.log(name); // ReferenceError
+let name = "James";
+
+--------------------------------------------------------------
+2. for...of문
+    -배열의 반복문
+
+ex2)
+
+<script>
+      var arr = [10,20,30,40,50];
+      for(var i in arr){
+          console.log(i);  //index값 출력
+      }
+
+      let arr2 = [10,20,30,40,50];
+      for(let value of arr2){
+          console.log(value); //배열원소의 값만 전달
+      }
+
+      let str = '홍길동입니다';
+      for(let value of str){
+          console.log(value); //배열원소의 값만 전달
+      }
+</script>
+-------------------------------------------------------------
+3. 템플릿 리터럴
+ -문자열 안에 표현식을 포함시킬 수 있고, 여러 줄 작성을 허용하여 간편하게 문자열을 만들 수 있다
+
+ex3)여러 줄 문자열 (`` - 역따옴표 사용)
+  -문자열을 여러 줄로 작성하려면 줌 바꿈 문자(\n)를 입력해야 했다
+
+<script>
+   let str = '여러 줄\n입력 테스트';
+   console.log(str);
+
+   let str2 = '여러 줄\n'
+   str2 += '입력 테스트';
+   console.log(str2);
+
+   let str3 = `여러 줄
+입력 테스트`;  
+   console.log(str3);             
+</script>
+
+
+ex3-1)
+
+<div id="user"></div>
+<script>
+      const user = {
+            name: '홍길동',
+            age: 30,
+            job: 'programmer'
+        };
+ 
+	let html = `<table border="1">
+	                <thead>
+	                    <tr>
+	                        <th>이름</th>
+	                        <th>나이</th>
+	                        <th>직업</th>
+	                    </tr>
+	                </thead>
+	                <tbody>
+	                    <tr>
+	                        <td>${user.name}</td>
+	                        <td>${user.age}</td>
+	                        <td>${user.job}</td>
+	                    </tr>
+	                </tbody>
+	            </table>`;
+	document.getElementById('user').innerHTML = html;
+</script>
+
+ex3-1-1)객체 배열로 수정
+
+    <script>
+      const user =[ 
+        {
+            name: '홍길동',
+            age: 30,
+            job: 'programmer'
+        },
+        {
+            name: '이은경',
+            age: 50,
+            job: '사춘기소년'
+        },
+        {
+            name: '양진성',
+            age: 40,
+            job: '예비군'           
+        }
+    ];
+ 
+	let html = `<table border="1">
+	                <thead>
+	                    <tr>
+	                        <th>이름</th>
+	                        <th>나이</th>
+	                        <th>직업</th>
+	                    </tr>
+	                </thead>
+	                <tbody>`;
+    for(let i in user){  
+        html += `<tr>
+                    <td>${user[i].name}</td>
+                    <td>${user[i].age}</td>
+                    <td>${user[i].job}</td>
+                 </tr>`
+    }
+   /*
+    for(let i of user){  
+        html += `<tr>
+                    <td>${i.name}</td>
+                    <td>${i.age}</td>
+                    <td>${i.job}</td>
+                 </tr>`
+    }
+    */
+    html +=  ` </tbody>
+	        </table>`;
+	document.getElementById('user').innerHTML = html;
+    </script>
+
+ex3-2)보간 표현법
+
+<script>
+    let a = 100;
+    let b = 200;
+    let str = 'a+b의 결과는 : ' + (a+b) + ' 입니다.';
+    console.log(str);           
+    
+    a = 200;
+    b = 300;
+    let str2 = `a+b의 결과는 : ${a+b} 입니다.`;
+    console.log(str2);
+</script> 
+
+
+ex3-3)태그드 템플릿 리터럴
+
+<script>
+     function big(str,a,b){
+       let bigger;
+       bigger = (a>b) ? 'A' : 'B';
+       return str[0] +  bigger + '가 더 큽니다';
+    }
+
+    let a=100;
+    let b=200;
+    let str = big`A와 B 둘중 ${a} ${b}`; //함수호출
+    console.log(str);
+
+    /*
+    function big(str,a,b){
+       let bigger;
+       bigger = (a>b) ? 'A' : 'B';
+       return str[0] +  bigger + str[1];
+    }
+
+    let a=100;
+    let b=200;
+    let str = big`A와 B 둘중 ${a}가 더 큽니다 ${b}`; //함수호출
+    console.log(str);
+    */
+</script>
+
+------------------------------------------------
+4 추가된 메서드
+
+ex4) 배열에 includes() 메서드는 특정 원소가 포함되는지 여부를 쉽게 확인할 수 있다.
+
+<script>
+  let arr=[10,20,30,40,50];
+  let arr2=['바나나','사과','배','참외','수박'];
+  let str='good morning';
+
+  console.log(arr.includes(30)); // true -> 배열 원소 중 30이 포함되어 있는가?
+  console.log(arr2.includes('참외')); // true -> 배열 원소 중 '참외'가 포함되어 있는가?
+  console.log(str.includes('m')); // true -> 문자열에 'm'이 포함되어 있는가?
+  
+  console.log(arr.includes(30,2)); // true -> index 2 이상에서 30이라는 값이 있는가?
+  console.log(arr2.includes('사과',2)); // false  -> index 2 이상에서 '사과'라는 값이 있는가?
+</script>
+
+
+ex4-1) 지수연산
+<script>
+    const square = Math.pow(10,2); 
+    const square2 = 10 ** 2; 
+    console.log(square, square2);
+</script>
+
+
+ex4-2) Object.values() -> 객체의 속성값을 열거하여 배열의 원소로 만든다
+<script>
+    let obj={1:'바나나',2:'사과',3:'배',4:'참외',5:'수박'};
+    let arr=Object.values(obj);
+    console.log(arr);  //  ['바나나', '사과', '배', '참외', '수박']
+
+  /*
+  let arr=[];
+ for(let i=0; i<5 ; i++){
+    arr[i]=obj['key'+(i+1)];
+ }
+ console.log(arr);
+ */
+</script>
+
+
+ex4-3) String.padStart() , String.padEnd()
+<script>
+    let str = '-morning';
+    let str2 = 'morning-';
+
+    let padString = str.padStart(20, 'good'); // str 문자열 앞에 'good'문자열을 20자가 될때까지 반복하여 채워넣음
+    console.log(padString);
+
+    let padString2 = str2.padEnd(20, 'good'); // str 문자열 뒤에 'good'문자열을 20자가 될때까지 반복하여 채워넣음
+    console.log(padString2);
+</script>
+
+
+--------------------------------------------------
+5.펼침 연산자(전개 연산자)
+
+ -펼침 연산자는 (...)으로 표기한다
+ -객체 속성 전부를 한번에 다른 객체 속성에 포함시킬 수 있다
+ -함수 인수에 활용하여 한꺼번에 인자를 전달 받을 수 있다
+ -객체 넘길 때에는 새로운 객체 안에 넣어서 파라미터로 넘겨야하고, 받을 때도 새로운 객체 안에서 받는 형태여야만 가능
+  그게 아닐 시 TypeError: Found non-callable @@iterator 에러남!!
+
+ex5)
+
+<script>
+
+    //배열 원소 전부를 한 번에 다른 리터럴 배열 원소에 포함
+    let arr = [1,2,3];
+    let arr2 = [0,arr[0],arr[1],arr[2],4,5];
+    console.log(arr2);
+    
+    let arr3 = [1,2,3];
+    let arr4 = [0,...arr3,4,5];  //펼침 연산자 사용
+    console.log(arr4);
+
+    //배열 원소 전부를 한 번에 함수 인수에 전달
+    let arr5 = [10,20,30];
+    function foo(p1,p2,p3){
+        console.log(p1,p2,p3);
+    }
+    foo(arr5[0],arr5[1],arr5[2]);
+
+    let arr6 = [10,20,30];
+    function foo(p1,p2,p3){
+        console.log(p1,p2,p3);
+    }
+    foo(...arr6); //펼침 연산자 사용
+
+    //객체 속성 전부를 한번에 다른 객체 속성에 포함
+    let obj = {p1:10 , p2:20};
+    let obj2 = {p3:30 , p4:40};
+    obj2.p1 = obj.p1;
+    obj2.p2 = obj.p2;
+    console.log(obj2);
+
+    let obj3 = {p1:10 , p2:20};
+    let obj4 = {...obj3, p3:30 , p4:40};//펼침 연산자 사용
+    console.log(obj4);
+
+    //객체 속성 전부를 한 번에 함수 인수에 전달
+    let obj5 = {p1:10 , p2:20};
+    function foo2({p1, p2}){
+        console.log(p1, p2);
+    }
+    foo2({...obj5});
+
+    /*
+    //TypeError: Found non-callable @@iterator 에러남
+// 객체를 펼쳐야 할때는 중가로를 써야한다
+
+    let obj5 = {p1:10 , p2:20};
+    function foo2(p1, p2){
+        console.log(p1, p2);
+    }
+    foo2(...obj5);
+    */
+</script>
+
+
+ex5-1)arguments 객체 또한 펼침 연산자 활용 가능
+
+<script>
+    let arr = [2,3,4];
+    
+    function myFunction(){
+        let arr2 = [0, 1, ...arguments, 5,6];
+        console.log(arr2);
+    }
+    myFunction(...arr);
+</script>
+
+
+ex5-2) 객체의 복제와 참조
+let person={name:"홍길동",age:20};
+
+let person2 = {...person};
+let person3 = person;
+
+console.log(person2); //새로운 객체가 생성된다(복제)
+console.log(person3); //person 객체를 참조(가르키는) 객체가 생성된다
+
+console.log(person==person2);  //false
+console.log(person==person3);  //true
+
+person.name='이순신';
+console.log(person2); 
+console.log(person3);
+
+let person4 = {...person, name:"최순실", address:"서울"}; //값 변경 및 속성 추가하면서 복제
+console.log(person4);
+
+//배열도 가능
+/*
+let a=[1,2];
+let b=[...a,3];
+console.log(b);
+
+let c=[...a,...b];
+console.log(c);
+*/
+
+-----------------------------------------------------
+6. 비구조할당
+ -배열 또는 객체에서 변수를 추출해내는 표현식
+ -함수의 전달 인자가 객체 또는 배열일 경우 인수를 바로 원소와 속성으로 지정할 수 있어 편리하다
+
+ex6) 배열 디스트럭쳐링
+
+<script>
+    let arr = [10,20,30];
+    let a = arr[0];
+    let b = arr[1];
+    let c = arr[2];
+    console.log(a,b,c); // 10 20 30
+    
+    let [a2 ,b2, c2] = [10,20,30];
+    console.log(a2,b2,c2); // 10 20 30
+
+    let [a3 ,b3, c3] = arr;
+    console.log(a3,b3,c3); // 10 20 30
+
+    //일부 배열 원소는 생략할 수 있다
+    let [a4 , , c4] = arr;
+    console.log(a4,c4);  // 10 30
+
+    let [a5=10 , b5=20, c5=30] = [ , , 100];
+    console.log(a5,b5,c5);  // 10 20 100
+
+    let [a6, b6, c6] = [10,20,30,40,50,60];
+    console.log(a6,b6,c6);  // 10 20 30
+
+    let [a7, b7, ...c7] = [10,20,30,40,50,60];
+    console.log(a7,b7,c7);  //c7은 배열[30,40,50,60]
+
+     let a8 = [];
+    a8 = [100,200,300];
+    console.log(a8); 
+
+    let a9 = [];
+    let a10 = ['홍길동','이순신','최순실'];
+    a9 = a10 ;
+    console.log(a9); 
+</script>
+
+
+ex6-1) 객체 디스트럭쳐링
+
+<script>
+    let obj = {a:10, b:20, c:30};
+    let a = obj.a;
+    let b = obj.b;
+    let c = obj.c;
+    console.log(a,b,c); // 10 20 30
+
+    let {a2,b2,c2} = {a2:10, b2:20, c2:30};
+    console.log(a2,b2,c2); // 10 20 30
+
+    //객체 디스트럭쳐링 변수와 같은 이름의 객체 속성이어야 한다(이름이 다르면 undefined 가 할당된다)
+    let obj3 = {a3:10, b3:20, c3:30};  
+    let {a3,b3,c3} = obj3;
+    console.log(a3,b3,c3); // 10 20 30
+   
+    let obj4 = {a4:10, b4:20};
+    let {a4,b4,c4} = obj4;  
+    console.log(a4,b4,c4); // 10 20 undefined
+
+    let obj5 = {};
+    let obj6 = {name:'최순실', age:60, weight:'100kg', height:'130cm'};
+    obj5=obj6;
+    console.log(obj5);
+</script>
+
+
+ex6-2) 함수 매개변수 전달
+
+<script>
+  //함수 매개변수 배열 전달인자
+  function arr_func([a,b,c=a+b]){
+      console.log(a,b,c);  //100 200 300
+  }
+  arr_func([100,200]);
+
+ 
+  let arr2 = [100,200];
+  function arr_func2([a,b,c=a+b]){
+      console.log(a,b,c);  //100 200 300
+  }
+  arr_func2(arr2);
+ 
+
+★★★
+  let arr3 = ['이순신','최순실','콘도르'];
+  function arr_func3(a){
+      console.log(a[0],a[1],a[2]);  
+  }
+  arr_func3(arr3);
+ 
+
+   //함수 매개변수 객체 전달인자
+   function obj_func({a,b,c=a+b}){
+      console.log(a,b,c);  //100 200 300
+   }
+   obj_func({a:100,b:200});
+
+  
+   let obj2 = {a:100, b:200};
+   function obj_func2({a,b,c=a+b}){
+      console.log(a,b,c);  //100 200 300
+   }
+   obj_func2(obj2);
+ 
+
+
+   let obj3 = {name:'최순실', age:100};
+   function obj_func3(a){
+      console.log(a.name, a.age); 
+   }
+   obj_func3(obj3);
+  
+</script>
+
+---------------------------------------------------------
+7. 함수(나머지 매개변수, 기본 매개변수)
+
+ex7) 나머지 매개변수(Rest Parameter) - 코드의 가독성을 높일 수 있다
+
+<script>
+    function myfnc(p1){
+        if(arguments[1]){ //두번째 전달인자가 있을때
+            console.log(p1 + arguments[1]); //300
+        }else{
+            console.log(p1);
+        }
+    }
+    myfnc(100,200);
+
+    //나머지 매개변수 사용
+    function myfnc2(p1, ...args){ // ...args 나머지 매개변수 추가(배열로처리)
+        if(args[0]){ //두번째 전달인자가 있을때
+            console.log(p1 + args[0]); //300
+        }else{
+            console.log(p1);
+        }
+    }
+    myfnc2(100,200);
+
+    function myfnc3(p1, ...args){ // ...args 나머지 매개변수 추가(배열로처리)
+        if(args[0]){ //두번째 전달인자가 있을때
+            console.log(p1 + args[0]+ args[1]+ args[2]); //1000
+        }else{
+            console.log(p1);
+        }
+    }
+    myfnc3(100,200,300,400);
+</script>
+
+
+ex7-1) 기본 매개변수(default Parameter)
+ -이전에는 매개변수에 기본값을 설정할 수 없어 전달 인자가 없는 경우 매개변수에는
+  undefined가 할당된다(초기값을 다시 설정해야하는 번거러움이 있다)
+ 
+<script>
+    function myfnc(p1){
+        p1= (typeof p1 != 'undefined')? p1:0 ; //전달인자 없을 시 0으로 초기화
+        console.log(p1);
+    }
+    myfnc();
+
+    //기본 매개변수 사용
+    function myfnc2(p1=0){
+        console.log(p1);
+    }
+    myfnc2();
+
+    //먼저 선언된 매개변수의 값은 나중의 기본 매개변수에 이용 가능
+    function myfnc3(a,b=100, c=a+b){
+        console.log(a,b,c); // 100 100 100
+    }
+    myfnc3(100);
+
+    function myfnc4(a=100,b=200, c=a+b){
+        console.log(a,b,c); // 100 200 300
+    }
+    myfnc4();
+
+    function myfnc5(a=100,b=200, c=a+b){
+        console.log(a,b,c); // 10 20 30
+    }
+    myfnc5(10,20);
+</script>
+
+
+ex7-2) 
+<script>
+    function message(){
+       return '자바스크립트 ES6를 공부합시다';
+    }
+
+    function sendMessage(msg=message()){
+       console.log(msg);
+    }
+    sendMessage();
+</script>
+
+----------------------------------------------------
+8. 화살표 함수
+
+ex8)
+<script>
+    //일반 함수
+    function func1(a){
+       console.log(a + '를 공부합시다!');
+    }
+    func1('자바스크립트');
+
+    let func2 = function(a){
+        console.log(a + '를 공부합시다!');
+    }
+    func2('자바스크립트');
+
+    //화살표 함수 사용
+
+    let func3 = (a) =>{
+        console.log(a + '를 공부합시다!');
+    }
+    func3('자바스크립트');
+
+    let func4 = (a,b) =>{
+        console.log(`${a}이 ${b}를 공부합니다`);
+    }
+    func4('최순실','사기');
+
+    //블럭 생략 가능
+    let func5 = (a,b) => console.log(`${a}가 ${b}를 공부합니다`);
+    func5('김아무개','자바스크립트');
+
+    /*
+    //주의 : 블록 생략시 return은 사용할 수 없다(에러)
+    let func6 = (a,b) => return `${a}이 ${b}를 공부합니다`;
+    func6('김개똥','자바스크립트');
+    */
+
+    //매개변수 없을 때
+    let func6 =() => console.log('자바스크립트를 공부합시다!');
+    func6();
+</script>
+
+
+-----------------------------------------
+9. 배열에 관한 함수
+
+1) forEach : 반환값이 없다, 단순 for문과 같이 작동한다.
+2) map : 반환값을 배열에 담아 반환한다.
+3) filter: 조건에 충족하는(true) 아이템만 배열에 담아 반환한다.
+4) some: 조건에 충족하는 아이템이 하나라도 있으면 true 반환, 아니면 flase.
+5) every: 모든 배열에 아이템이 조건을 충족하면 true 반환, 아니면 false.
+6) find : 조건에 충족하는 아이템 하나만 반환(여러개라면 첫번째것만 반환)
+7) findIndex : 조건에 충족하는 아이템의 인덱스값 반환 (여러개라면 첫번째아이템의 인덱스번호만 반환)
+
+*형식
+    let 변수명/배열명=배열명/객체배열명.배열에관한함수(function(value,index){// 처리코드});
+    let 변수명배열명=배열명/객체배열명.배열에관한함수((value,index)=>{// 처리코드});
+
+ex9)
+
+<script>
+  let names = [
+  "Steven Paul Jobs",
+  "Bill Gates",
+  "Mark Elliot Zuckerberg",
+  "Elon Musk",
+  "Jeff Bezos",
+  "Warren Edward Buffett",
+  "Larry Page",
+  "Larry Ellison",
+  "Tim Cook",
+  "Lloyd Blankfein",
+  ];
+
+  let ceoList = [
+    {name:'홍길동', age:50, height: 180},
+    {name:'이순신', age:60, height: 190},
+    {name:'강감찬', age:70, height: 170}
+  ];
+
+  //1) forEach()
+  /*
+  function printName(item){
+      console.log(item);
+  }
+  names.forEach(printName);
+  */
+  /*
+  names.forEach((item)=>{console.log(item);});
+  names.forEach((item,index)=>{console.log(item,index);});
+  */
+
+  //2) map()
+  /*
+  let data = names.map((item)=>{
+    return  item;
+    //return '이름:' + item;
+  });
+  console.log(data);
+  */
+  /*
+  let data2 = ceoList.map((item)=>{
+    return  item.name; 
+  });
+  console.log(data2);
+  */
+/*
+ceoList.map((item,index)=>{
+    console.log((index+1)+':'+item.name+' '+item.age+' '+item.height);
+  });
+*/
+  //3) filter()
+  /*
+  let data3 = ceoList.filter((item)=>{
+    //return  item.name=='이순신'; 
+    return  item.age>=60;
+  });
+  console.log(data3);
+  */
+ /*
+  let data4 = names.filter((item)=>{
+    return  item.startsWith('L');  //첫번째 문자를 찾는 메소드
+  });
+  console.log(data4); 
+  */
+
+  //4) some()
+  /*
+  let data5 = names.some((item)=>{
+    return  item.startsWith('L'); 
+    //return  item.startsWith('K'); 
+  });
+  console.log(data5);
+  */
+  
+  //5) every()
+  /*
+  let data6 = names.every((item)=>{
+    return  item.startsWith('L');
+    //return  item.length>1; 
+  });
+  console.log(data6);
+  */
+ /*
+  let data7 = ceoList.every((item)=>{
+    //return  item.name=='이순신'; 
+    return  item.age>=50;
+  });
+  console.log(data7);
+*/
+
+//6) find()
+ /*
+ let data8 = names.find((item)=>{
+    return  item.startsWith('L');
+  });
+  console.log(data8);
+  */
+
+//7) findIndex()
+  /*
+  let data9 = names.findIndex((item)=>{
+    return  item.startsWith('L');
+  });
+  console.log(data9);
+  */
+
+</script>
+
+
+ex9-1-1) forEach()를 사용한 테이블 출력
+<div id="user"></div>
+
+<script>
+let names = [
+  "Steven Paul Jobs",
+  "Bill Gates",
+  "Mark Elliot Zuckerberg",
+  "Elon Musk",
+  "Jeff Bezos",
+  "Warren Edward Buffett",
+  "Larry Page",
+  "Larry Ellison",
+  "Tim Cook",
+  "Lloyd Blankfein",
+  ];
+
+let str ='';
+  str+= `
+    <table>
+        <tr>
+          <th scope="col">번호</th>
+          <th scope="col">이름</th>
+        </tr>    
+  `;
+  names.forEach((item,index)=>{
+      str+=`
+        <tr>
+          <td>${index+1}</td>
+          <td>${item}</td>
+        </tr> 
+      `;
+  });
+  str+= `</table>`;
+  document.getElementById('user').innerHTML = str;
+</script>
+
+
+ex9-1-2) map()를 사용한 테이블 출력
+<div id="user"></div>
+
+<script>
+let str ='';
+  str+= `
+    <table>
+        <tr>
+          <th scope="col">번호</th>
+          <th scope="col">이름</th>
+        </tr>    
+  `;
+ names.map((item,index)=>{
+    str+=`
+        <tr>
+          <td>${index+1}</td>
+          <td>${item}</td>
+        </tr> 
+      `;
+  });
+  str+= `</table>`;
+  document.getElementById('user').innerHTML = str;
+</script>
+
+ex9-1-3) map()를 사용한 테이블 출력2
+<div id="user"></div>
+
+<script>
+  let ceoList = [
+    {name:'홍길동', age:50, height: 180},
+    {name:'이순신', age:60, height: 190},
+    {name:'강감찬', age:70, height: 170}
+  ];
+
+   let html2;
+    html2 = `<table>
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>이름</th>
+                    <th>나이</th>
+                    <th>키</th>
+                </tr>
+            </thead>
+            <tbody>`;
+    ceoList.map((e,index)=>{
+        html2+=`<tr>
+                    <td>${index+1}</td>
+                    <td>${e.name}</td>
+                    <td>${e.age}</td>
+                    <td>${e.height}</td>
+                </tr>`;
+    });
+    html2+=`</tbody>
+            </table>`;
+    document.getElementById('user').innerHTML = html2;
+</script>
+
+
+ex9-2)
+
+<script>
+  let names = [
+  "Steven Paul Jobs",
+  "Bill Gates",
+  "Mark Elliot Zuckerberg",
+  "Elon Musk",
+  "Jeff Bezos",
+  "Warren Edward Buffett",
+  "Larry Page",
+  "Larry Ellison",
+  "Tim Cook",
+  "Lloyd Blankfein",
+  ];
+
+//<map 문제> 
+//모든 이름을 대문자로 바꾸어서 출력하시오.
+let upperCaseName = names.map((item)=>item.toUpperCase());
+console.log(upperCaseName);
+
+//성을제외한 이름만 출력하시오. (예-[“Steven”,“Bill”,“Mark”,“Elon”…])
+let firstNames = names.map((item)=>item.split(' ')[0]);
+console.log(firstNames);
+
+//이름의 이니셜만 출력하시오. (예-[“SPJ”,“BG”,“MEZ”,“EM”…])
+let initialOnly = names.map((item) => {
+    let splitName = item.split(" ");
+    let initial = "";
+    splitName.forEach((nameItem) => (initial += nameItem[0]));
+    return initial;
+  });
+console.log(initialOnly);
+
+//<filter 문제>
+//이름에 a를 포함한 사람들을 출력하시오.
+let includeA = names.filter((item)=>item.includes('a'));
+console.log(includeA);
+
+//<some 문제>
+//전체 이름의 길이가 20자 이상인 사람이 있는가?
+console.log(names.some((item)=>item.length>=20));
+
+//<every 문제>
+//모두의 전체 이름의 길이가 20자 이상인가?
+console.log(names.every((item)=>item.length>=20));
+
+//모두의 이름에 a 가 포함되어 있는가?
+console.log(names.every((item)=>item.includes('a')));
+
+//<find 문제>
+//전체 이름의 길이가 20자 이상인 사람을 찾으시오.
+console.log(names.find(item=>item.length>=20));
+
+//미들네임이 포함되어있는 사람을 찾으시오.(예-Steven Paul Jobs)
+console.log(names.find(item=>item.split(' ').length>=3));
+
+//<findIndex 문제>
+//전체 이름의 길이가 20자 이상인 사람의 인덱스 번호를 찾으시오.
+console.log(names.findIndex(item=>item.length>=20));
+
+//미들네임이 포함되어있는 사람의 인덱스 번호를 찾으시오.
+console.log(names.findIndex(item=>item.split(' ').length>=3));
+
+</script>
+
+---------------------------------------------------
+10.클래스(class)
+
+-클래스는 미리 선언해 두었다가 클래스 선언문의 이름 앞에 new 키워드를 붙여 호출하여
+ 인스턴스를 생성하여 사용한다. 이때 클래스 안의 this 키워드는 생성된 인스턴스를 참조한다
+-메서드 사이엔 쉼표가 없다.
+
+-클래스 선언
+ class Dog{
+      constructor() {
+            //생성자함수
+      }
+      함수명1() {
+          //클래스 메소드
+      }
+      함수명2() {
+          //클래스 메소드
+      }
+ }
+
+ let dog = new Dog(); 
+
+ex10)생성자 함수
+-자바스크립트의 클래스 문법에선 인스턴스 변수를 반드시 지정하지 않고 
+ 생성자(constructor)을 통해 this.변수 문법으로 자동 생성될수 있다는 점이다.
+
+<script>
+class Person {
+   height = 180; // 인스턴스 변수
+
+   // constructor는 이름을 바꿀 수 없다.
+   constructor(name, age) {
+      // this는 클래스가 생성할 인스턴스를 가리킨다.
+      this.name = name; // 인스턴스 변수의 초기화
+      this.age = age;
+   }
+}
+
+let person1 = new Person('john', 23);
+console.log(person1.name); // john
+console.log(person1.age); // 23
+console.log(person1.height); // 180
+</script>
+
+ex10-1)
+
+-클래스의 인스턴스 생성 시에 자동으로 한번 호출되는 함수. 내부 구문에 의해서 호출할 수 없다
+-constructor 키워드를 사용하여 선언하고 function을 붙이지 않는다
+-constructor는 클래스 안에 한 개만 존재할 수 있다
+-변수의 초기화에 주로 사용한다
+
+<script>
+    class Display{
+
+        constructor(x,y){  //생성자 함수 선언
+            this.x = x;
+            this.y = y;
+            console.log(this.x, this.y);  //100 200
+        }
+
+    }
+    const display = new Display(100,200);
+</script>
+
+
+ex10-1-1) 프로토타입 메서드
+
+-인스턴스를 통해서 호출 가능한 함수.
+-클래스 선언문 블록 내부에 선언하고, function을 붙이지 않는다
+
+<script>
+    class Display{
+        foo(){  //메서드 선언
+            console.log(this, 'foo 메서드 호출되었습니다');  
+        }
+        foo2(x,y){   //메서드 선언
+            console.log(x,y, 'foo2 메서드 호출되었습니다');  
+        }
+        
+    }
+    const display = new Display();
+    display.foo();
+    display.foo2('홍길동',200);
+</script>
+
+ex10-1-2)
+<script>
+class Person {
+   // 이전에서 사용하던 생성자 함수는 클래스 안에 `constructor`라는 이름으로 정의합니다.
+   constructor({name, age}) { //생성자
+     this.name = name;
+     this.age = age;
+   }
+   // 객체에서 메소드를 정의할 때 사용하던 문법을 그대로 사용하면, 메소드가 자동으로 `Person.prototype`에 저장됩니다.
+   introduce() {
+     return `안녕하세요, 제 이름은 ${this.name}이고, 나이는 ${this.age}세 입니다.`;
+   }
+}
+
+const person = new Person({name: '최순실', age: 60});
+console.log(person.introduce()); 
+</script>
+
+ex10-1-3)정적 메서드 (static)
+-정적 메서드는 클래스의 인스턴스가 아닌 클래스 이름으로 곧바로 호출되는 메서드이다.
+-static 키워드를 메소드 이름 앞에 붙여주면 해당 메소드는 정적 메소드가 된다.
+
+<script>
+class Person {
+   constructor({ name, age }) { // 생성자 인스턴스
+      this.name = name;
+      this.age = age;
+   }
+   static static_name = '이순신'; // 정적 인스턴스
+
+   getName() { // 인스턴스(프로토타입) 메소드
+      return this.name;
+   }
+   static static_getName() { // 정적 메소드
+      return this.static_name;
+   }
+}
+
+const person = new Person({ name: '최순실', age: 60 });
+console.log(person.getName()); // jeff
+console.log(Person.static_getName()); // STATIC
+</script>
+
+ex10-2)상속
+-  class 자식클래스 extends 부모클래스명{  }
+
+<script>
+    class Display{
+        constructor(){  //부모 생성자 함수 선언
+            console.log('부모 생성자 함수 호출');  
+        }
+    }
+
+    class Son extends Display{
+        constructor(){  //자식 생성자 함수 선언
+            //super(); //부모 클래스의 생성자 함수 호출 
+            console.log('자식 생성자 함수 호출');  
+        }
+    }
+
+    const son = new Son();  //에러가 발생한다(부모 클래스 생성자 함수(super)를 호출하지 않아서)
+</script>
+
+
+ex10-3) super 키워드를 통한 부모 클래스의 메소드 호출
+-생성자 내부에서 super를 함수처럼 호출하면, 부모 클래스의 생성자가 호출
+-인스턴스 메소드 내부에서는 super.prop과 같이 써서 부모 클래스의 prop 인스턴스 속성에 접근할 수 있다.
+
+<script>
+     class Display{
+        constructor(x,y){  //생성자 함수 선언
+            this.x = x;
+            this.y = y;
+            this.name = '최순실';
+        }
+        logPosition(){
+            console.log(this.x, this.y, this.name);  //100 200
+        }
+    }
+
+    class Son extends Display{
+        constructor(x,y,width,height){  //자식 생성자 함수 선언
+            super(x,y);
+            this.width = width;
+            this.height = height;
+        }
+        logScale(){
+            super.logPosition(); //100 200
+            console.log(this.width, this.height); //300 400
+        }
+    }
+
+    const son = new Son(100,200,300,400);
+    son.logScale(); 
+    son.logPosition();  //부모 클래스에서 상속된 메서드 호출
+    console.log(son.x, son.y , son.name, son.width, son.height);
+</script>
+
+
+ex10-4)
+
+<script>
+    class Animal{
+        constructor(){
+            console.log('동물입니다');
+        }
+        eat(){
+            console.log('먹기');
+        }
+        sound(){
+            console.log('소리');
+        }
+    }
+    
+    class Dog extends Animal{
+        constructor(){
+            super();
+        }
+        sound(){
+            super.sound(); //부모 클래스 함수 호출
+            console.log('멍멍');
+        }
+        eat(){
+            super.eat(); //부모 클래스 함수 호출
+            console.log('사료');
+        }
+        guard(){
+            console.log('집지키기');
+        }
+    }
+    
+    class Tiger extends Animal{
+        constructor(){
+            super();
+        }
+        sound(){
+            super.sound(); //부모 클래스 함수 호출
+            console.log('어흥');
+        }
+        eat(){
+            super.eat(); //부모 클래스 함수 호출
+            console.log('닭고기');
+        }
+        attack(){
+            console.log('사냥');
+        }
+    }
+    
+    var dog = new Dog();
+    dog.sound();
+    dog.eat();
+    dog.guard();
+
+    var tiger = new Tiger();
+    tiger.sound();
+    tiger.eat();
+    tiger.attack();
+</script>
+
+----------------------------------------------
+
+11.모듈
+
+-코드의 재사용성을 높인다
+
+-export , import
+-<script type="module"> 을 추가해야 한다
+
+
+ex11) 기본값 사용(default) - 함수명이 없다
+
+*module.js 파일을 동일 경로에 만든다.
+export default function(){
+    console.log('module import!');
+}
+
+*ex.html
+<script type="module">
+    import foo from './module.js';
+
+    foo(); //module import! 출력
+</script>
+
+
+ex11-1) 함수명이 있는 함수 사용
+
+*module1.js 파일을 동일 경로에 만든다.
+export {area, round}
+
+let x=10;
+let y=20;
+function area(){
+    return x*y;
+}
+function round(){
+    return (x+y)*2;
+}
+
+*ex.html
+<script type="module">
+    import {area, round} from './module1.js';
+    
+    console.log(area());  //200
+    console.log(round()); //60
+</script>
+
+
+ex11-2)javascript_es6_module 파일 참조
+
+ex11-3)SPA
+*ex.html
+   <style>
+        *{margin: 0; padding:0}
+        #user, #user2, #user3{width: 90%; margin: 0 auto;}
+        div img{width: 100%; margin-bottom:20px ;}
+        div dt{text-align: center; font-size: 2em; font-weight: bold; margin-bottom: 20px;}
+        div dd{line-height: 1.5em; margin-bottom: 20px;}
+    </style>
+
+    <div id="user"></div>
+    <div id="user2"></div>
+    <div id="user3"></div>
+
+    <script type="module">
+        import foo from './module1.js';
+        import {content1, content2} from './module2.js';
+    
+        foo(); 
+        content1();
+        content2(3);
+    </script>
+
+*module1.js  (기본값 사용(default) - 함수명이 없다)
+export default function(){
+    let str = `
+   <img src="./images/a1.jpg" alt="">  
+   <dl>   
+    <dt>Avatar : The Way of Water</dt>
+    <dd>is finally nearing its cinematic debut. The long-anticipated sequel to James Cameron's record-breaking Avatar has managed to hold firm to its final release date.</dd>
+    <dd>The first teaser arrived online in May, reintroducing us to the beautiful world of Pandora as well as confirming the title was revealed alongside the first teaser trailer</dd>
+   </dl>`;
+    document.getElementById('user').innerHTML = str;
+}
+
+*module2.js  (함수명이 있는 함수 사용)
+export {content1, content2}
+
+function content1(){
+    let str = `
+    <img src="./images/a2.png" alt="">  
+    <dl>   
+     <dt>Avatar : Na'vi</dt>
+     <dd>The Na'vi (English: The People) are a race of sapient extraterrestrial humanoids who inhabit the lush jungle moon of Pandora.</dd>
+    </dl>`;
+     document.getElementById('user2').innerHTML = str;
+}
+
+function content2(cnt){
+    let str = `
+    <img src="./images/a${cnt}.png" alt="">  
+    <dl>   
+     <dt>Avatar : Human</dt>
+     <dd>Humans are a sapient, bipedal mammalian species native to Earth,
+     who by the 22nd century has become a technologically advanced species capable of interstellar travel and colonization.</dd>
+    </dl>`;
+     document.getElementById('user3').innerHTML = str;
+}
+
+---------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
